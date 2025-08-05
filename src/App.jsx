@@ -45,7 +45,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50">
       {/* Navbar */}
       <Navbar cartItems={cartItems} setShowCart={setShowCart} />
       
@@ -72,10 +72,11 @@ function App() {
         href="https://wa.me/573113670631?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20productos%20y%20servicios"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-40 animate-pulse"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-3 sm:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 z-50 group animate-bounce"
         title="Contáctanos por WhatsApp"
       >
-        <Phone className="h-6 w-6" />
+        <Phone className="h-5 w-5 sm:h-6 sm:w-6 group-hover:animate-pulse" />
+        <div className="absolute -top-2 -left-2 w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
       </a>
     </div>
   );
