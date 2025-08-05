@@ -36,7 +36,7 @@ const Footer = () => {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-4 group-hover:bg-white/20 transition-all duration-300">
                   <Star className="h-8 w-8 sm:h-12 sm:w-12 text-yellow-400 mx-auto mb-3" />
                   <h3 className="font-bold text-sm sm:text-base mb-1">Experiencia</h3>
-                  <p className="text-yellow-300 text-xs sm:text-sm font-semibold">+10 años</p>
+                  <p className="text-yellow-300 text-xs sm:text-sm font-semibold">+1 años</p>
                 </div>
               </div>
               <div className="text-center group">

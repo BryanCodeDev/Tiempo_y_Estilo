@@ -138,7 +138,7 @@ const Hero = () => {
                   <Star className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="font-bold text-gray-900 text-base mb-1 text-center sm:text-left">Confianza</h3>
-                <p className="text-orange-600 font-semibold text-sm text-center sm:text-left">+10 años</p>
+                <p className="text-orange-600 font-semibold text-sm text-center sm:text-left">+1 años</p>
                 <p className="text-gray-600 text-xs mt-1 text-center sm:text-left">De experiencia</p>
               </div>
             </div>
