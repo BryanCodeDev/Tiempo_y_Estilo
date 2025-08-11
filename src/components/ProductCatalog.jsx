@@ -32,7 +32,7 @@ const ProductCatalog = ({ addToCart }) => {
         case 'discount':
           return (b.discount || 0) - (a.discount || 0);
         case 'stock':
-          return b.inStock - a.inStock;
+          return Number(b.inStock) - Number(a.inStock);
         default:
           return 0;
       }
@@ -51,10 +51,10 @@ const ProductCatalog = ({ addToCart }) => {
   const productsOnSale = filteredProducts.filter(p => p.discount).length;
 
   return (
-    <section id="productos" className="py-8 sm:py-12 lg:py-16 bg-gray-50">
+    <section id="productos" className="py-8 sm:py-12 lg:py-16 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header moderno y compacto */}
+        {/* Header mejorado */}
         <div className="text-center mb-8 sm:mb-12">
           <div className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-3">
             <TrendingUp className="w-4 h-4 mr-2" />
@@ -69,11 +69,11 @@ const ProductCatalog = ({ addToCart }) => {
           </p>
         </div>
 
-        {/* Barra de filtros moderna */}
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-200/50 p-4 sm:p-6 mb-8">
+        {/* Barra de filtros rediseñada */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 mb-8">
           
           {/* Fila principal de controles */}
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-between mb-4">
+          <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between mb-4">
             
             {/* Búsqueda mejorada */}
             <div className="relative flex-1 max-w-md w-full">
@@ -83,14 +83,15 @@ const ProductCatalog = ({ addToCart }) => {
                 placeholder="Buscar por nombre, SKU..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm"
+                className="w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm"
               />
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 text-lg"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                  aria-label="Limpiar búsqueda"
                 >
-                  ×
+                  <span className="text-lg font-medium">×</span>
                 </button>
               )}
             </div>
@@ -100,17 +101,17 @@ const ProductCatalog = ({ addToCart }) => {
               
               {/* Ordenamiento */}
               <div className="flex items-center gap-2 flex-1 sm:flex-none">
-                <Sliders className="h-4 w-4 text-gray-500" />
+                <Sliders className="h-4 w-4 text-gray-500 hidden sm:block" />
                 <select
                   value={sortBy}
                   onChange={(e) => setSortBy(e.target.value)}
-                  className="flex-1 sm:w-auto px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm"
+                  className="flex-1 sm:w-auto px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm min-w-0"
                 >
-                  <option value="name">Nombre</option>
-                  <option value="price-low">Precio ↑</option>
-                  <option value="price-high">Precio ↓</option>
+                  <option value="name">Nombre A-Z</option>
+                  <option value="price-low">Precio Menor</option>
+                  <option value="price-high">Precio Mayor</option>
                   <option value="discount">Descuento</option>
-                  <option value="stock">Stock</option>
+                  <option value="stock">Disponibilidad</option>
                 </select>
               </div>
 
@@ -122,6 +123,7 @@ const ProductCatalog = ({ addToCart }) => {
                     viewMode === 'grid' ? 'bg-white shadow-sm text-blue-600' : 'text-gray-500 hover:text-gray-700'
                   }`}
                   title="Vista cuadrícula"
+                  aria-label="Vista cuadrícula"
                 >
                   <Grid className="h-4 w-4" />
                 </button>
@@ -131,6 +133,7 @@ const ProductCatalog = ({ addToCart }) => {
                     viewMode === 'list' ? 'bg-white shadow-sm text-blue-600' : 'text-gray-500 hover:text-gray-700'
                   }`}
                   title="Vista lista"
+                  aria-label="Vista lista"
                 >
                   <List className="h-4 w-4" />
                 </button>
@@ -140,16 +143,17 @@ const ProductCatalog = ({ addToCart }) => {
               <button
                 onClick={() => setShowFilters(!showFilters)}
                 className="sm:hidden bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors shadow-md"
+                aria-label={showFilters ? 'Ocultar filtros' : 'Mostrar filtros'}
               >
                 <Filter className="h-4 w-4" />
               </button>
             </div>
           </div>
 
-          {/* Categorías rediseñadas */}
+          {/* Categorías mejoradas */}
           <div className={`${showFilters ? 'block' : 'hidden'} sm:block transition-all duration-300`}>
             <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-              <span className="text-gray-700 font-medium text-sm flex items-center">
+              <span className="text-gray-700 font-medium text-sm flex items-center flex-shrink-0">
                 <Package className="w-4 h-4 mr-2" />
                 Categorías:
               </span>
@@ -198,7 +202,7 @@ const ProductCatalog = ({ addToCart }) => {
             {(searchTerm || selectedCategory !== 'all') && (
               <button
                 onClick={clearFilters}
-                className="text-blue-600 hover:text-blue-700 font-medium text-sm underline decoration-dotted"
+                className="text-blue-600 hover:text-blue-700 font-medium text-sm underline decoration-dotted transition-colors"
               >
                 Limpiar filtros
               </button>
@@ -215,10 +219,10 @@ const ProductCatalog = ({ addToCart }) => {
           {filteredProducts.map((product, index) => (
             <div
               key={product.id}
-              className="opacity-0 animate-fade-in-up"
+              className="animate-fade-in"
               style={{ 
-                animationDelay: `${index * 100}ms`,
-                animationFillMode: 'forwards'
+                animationDelay: `${Math.min(index * 50, 500)}ms`,
+                animationFillMode: 'both'
               }}
             >
               <ProductCard 
@@ -254,26 +258,26 @@ const ProductCatalog = ({ addToCart }) => {
         {/* Estadísticas mejoradas */}
         {filteredProducts.length > 0 && (
           <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200/50 text-center hover:shadow-md transition-shadow duration-300">
-              <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 text-center hover:shadow-md transition-all duration-300 group">
+              <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
                 {filteredProducts.length}
               </div>
               <div className="text-gray-500 text-xs sm:text-sm">Productos</div>
             </div>
-            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200/50 text-center hover:shadow-md transition-shadow duration-300">
-              <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-1">
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 text-center hover:shadow-md transition-all duration-300 group">
+              <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-1 group-hover:scale-110 transition-transform">
                 {productsInStock}
               </div>
               <div className="text-gray-500 text-xs sm:text-sm">Disponibles</div>
             </div>
-            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200/50 text-center hover:shadow-md transition-shadow duration-300">
-              <div className="text-2xl sm:text-3xl font-bold text-orange-600 mb-1">
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 text-center hover:shadow-md transition-all duration-300 group">
+              <div className="text-2xl sm:text-3xl font-bold text-orange-600 mb-1 group-hover:scale-110 transition-transform">
                 {productsOnSale}
               </div>
               <div className="text-gray-500 text-xs sm:text-sm">En oferta</div>
             </div>
-            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200/50 text-center hover:shadow-md transition-shadow duration-300">
-              <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 flex items-center justify-center">
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 text-center hover:shadow-md transition-all duration-300 group">
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Star className="w-5 h-5 mr-1 fill-current text-yellow-400" />
                 5.0
               </div>
@@ -286,13 +290,13 @@ const ProductCatalog = ({ addToCart }) => {
         {filteredProducts.length > 0 && (
           <div className="mt-12 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-2xl p-6 sm:p-8 text-center text-white relative overflow-hidden">
             {/* Elementos decorativos */}
-            <div className="absolute top-0 left-0 w-32 h-32 bg-white/5 rounded-full -translate-x-16 -translate-y-16"></div>
-            <div className="absolute bottom-0 right-0 w-40 h-40 bg-white/5 rounded-full translate-x-20 translate-y-20"></div>
+            <div className="absolute top-0 left-0 w-32 h-32 bg-white opacity-5 rounded-full transform -translate-x-16 -translate-y-16"></div>
+            <div className="absolute bottom-0 right-0 w-40 h-40 bg-white opacity-5 rounded-full transform translate-x-20 translate-y-20"></div>
             
             <div className="relative z-10">
               <div className="flex items-center justify-center mb-4">
                 <Award className="w-6 h-6 mr-2 text-yellow-300" />
-                <span className="text-sm font-medium bg-white/20 px-3 py-1 rounded-full">
+                <span className="text-sm font-medium bg-white bg-opacity-20 px-3 py-1 rounded-full">
                   Asesoría personalizada
                 </span>
               </div>
@@ -316,8 +320,9 @@ const ProductCatalog = ({ addToCart }) => {
         )}
       </div>
 
+      {/* Estilos CSS personalizados */}
       <style jsx>{`
-        @keyframes fade-in-up {
+        @keyframes fade-in {
           from {
             opacity: 0;
             transform: translateY(20px);
@@ -327,8 +332,30 @@ const ProductCatalog = ({ addToCart }) => {
             transform: translateY(0);
           }
         }
-        .animate-fade-in-up {
-          animation: fade-in-up 0.5s ease-out;
+        
+        .animate-fade-in {
+          animation: fade-in 0.4s ease-out both;
+        }
+        
+        .line-clamp-2 {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        
+        /* Mejorar el scroll en móviles */
+        @media (max-width: 640px) {
+          .overflow-x-auto {
+            -webkit-overflow-scrolling: touch;
+          }
+        }
+        
+        /* Optimización para pantallas pequeñas */
+        @media (max-width: 480px) {
+          .grid-cols-1 {
+            gap: 1rem;
+          }
         }
       `}</style>
     </section>

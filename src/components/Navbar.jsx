@@ -75,7 +75,7 @@ const Navbar = ({ cartItems, setShowCart }) => {
               <input
                 type="text"
                 placeholder="Buscar..."
-                className="pl-9 pr-4 py-2 w-32 lg:w-48 xl:w-56 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:shadow-md"
+                className="pl-9 pr-4 py-2 w-32 lg:w-48 xl:w-56 border border-gray-200 rounded-lg text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:shadow-md"
               />
             </div>
             
@@ -120,7 +120,7 @@ const Navbar = ({ cartItems, setShowCart }) => {
               <input
                 type="text"
                 placeholder="Buscar productos..."
-                className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           </div>
