@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, ArrowRight, Truck, Shield, Star, Package, ChevronDown, Play } from 'lucide-react';
+import { Phone, ArrowRight, Truck, Shield, Star, Package, ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
