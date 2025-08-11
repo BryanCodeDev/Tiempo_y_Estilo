@@ -1,233 +1,295 @@
 import React from 'react';
-import { Phone, MapPin, Clock, Mail, Instagram, Twitter, Package, Heart, Star, Shield, Truck, Youtube } from 'lucide-react';
+import { Phone, MapPin, Clock, Mail, Instagram, Twitter, Package, Heart, Shield, Truck, Youtube, ExternalLink, Award, Users } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer id="contacto" className="bg-gradient-to-br from-gray-900 via-blue-900 to-indigo-900 text-white relative overflow-hidden">
-      {/* Elementos decorativos */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-10 w-32 h-32 bg-blue-400 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-indigo-400 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-cyan-400 rounded-full blur-2xl"></div>
+    <footer id="contacto" className="bg-white border-t border-gray-200">
+      
+      {/* Sección de beneficios */}
+      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 py-8 sm:py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
+            <div className="text-center group">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm group-hover:shadow-md transition-all duration-300 border border-gray-100">
+                <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-3 w-fit mx-auto mb-3">
+                  <Truck className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+                </div>
+                <h3 className="font-bold text-sm sm:text-base text-gray-900 mb-1">Envío Gratis</h3>
+                <p className="text-blue-600 text-xs sm:text-sm font-semibold">Sobre $80.000</p>
+                <p className="text-gray-500 text-xs mt-1">A toda Colombia</p>
+              </div>
+            </div>
+            
+            <div className="text-center group">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm group-hover:shadow-md transition-all duration-300 border border-gray-100">
+                <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-3 w-fit mx-auto mb-3">
+                  <Shield className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+                </div>
+                <h3 className="font-bold text-sm sm:text-base text-gray-900 mb-1">Compra Segura</h3>
+                <p className="text-green-600 text-xs sm:text-sm font-semibold">100% Protegida</p>
+                <p className="text-gray-500 text-xs mt-1">Pago contra entrega</p>
+              </div>
+            </div>
+            
+            <div className="text-center group">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm group-hover:shadow-md transition-all duration-300 border border-gray-100">
+                <div className="bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl p-3 w-fit mx-auto mb-3">
+                  <Award className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+                </div>
+                <h3 className="font-bold text-sm sm:text-base text-gray-900 mb-1">Calidad Premium</h3>
+                <p className="text-orange-600 text-xs sm:text-sm font-semibold">Garantizada</p>
+                <p className="text-gray-500 text-xs mt-1">Productos seleccionados</p>
+              </div>
+            </div>
+            
+            <div className="text-center group">
+              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-sm group-hover:shadow-md transition-all duration-300 border border-gray-100">
+                <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-3 w-fit mx-auto mb-3">
+                  <Users className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+                </div>
+                <h3 className="font-bold text-sm sm:text-base text-gray-900 mb-1">Soporte 24/7</h3>
+                <p className="text-purple-600 text-xs sm:text-sm font-semibold">WhatsApp</p>
+                <p className="text-gray-500 text-xs mt-1">Siempre disponibles</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="relative z-10">
-        {/* Sección superior con características */}
-        <div className="bg-gradient-to-r from-blue-600/20 to-indigo-600/20 backdrop-blur-sm py-8 sm:py-12 border-b border-white/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
-              <div className="text-center group">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-4 group-hover:bg-white/20 transition-all duration-300">
-                  <Truck className="h-8 w-8 sm:h-12 sm:w-12 text-blue-400 mx-auto mb-3" />
-                  <h3 className="font-bold text-sm sm:text-base mb-1">Envíos Gratis</h3>
-                  <p className="text-blue-300 text-xs sm:text-sm font-semibold">Sobre $80.000</p>
+      {/* Contenido principal del footer */}
+      <div className="py-12 sm:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+            
+            {/* Información de la empresa */}
+            <div className="lg:col-span-2">
+              <div className="flex items-center mb-6">
+                <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-2xl p-3 mr-4 shadow-lg">
+                  <Package className="h-8 w-8 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-2xl sm:text-3xl font-bold">
+                    <span className="text-gray-900">GoTo</span>
+                    <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Buy</span>
+                  </h3>
+                  <p className="text-gray-500 text-sm">Tu tienda online de confianza</p>
                 </div>
               </div>
-              <div className="text-center group">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-4 group-hover:bg-white/20 transition-all duration-300">
-                  <Shield className="h-8 w-8 sm:h-12 sm:w-12 text-green-400 mx-auto mb-3" />
-                  <h3 className="font-bold text-sm sm:text-base mb-1">Calidad</h3>
-                  <p className="text-green-300 text-xs sm:text-sm font-semibold">Garantizada</p>
+              
+              <p className="text-gray-600 mb-6 max-w-md leading-relaxed">
+                Ofrecemos productos únicos y de calidad premium para tu hogar, belleza y bienestar. 
+                Con envíos seguros a toda Colombia y atención personalizada 24/7.
+              </p>
+              
+              {/* Estadísticas */}
+              <div className="grid grid-cols-3 gap-4 mb-8">
+                <div className="text-center p-3 bg-gray-50 rounded-xl">
+                  <div className="text-xl font-bold text-blue-600">8+</div>
+                  <div className="text-gray-500 text-xs">Productos</div>
+                </div>
+                <div className="text-center p-3 bg-gray-50 rounded-xl">
+                  <div className="text-xl font-bold text-green-600">100%</div>
+                  <div className="text-gray-500 text-xs">Satisfacción</div>
+                </div>
+                <div className="text-center p-3 bg-gray-50 rounded-xl">
+                  <div className="text-xl font-bold text-purple-600">24/7</div>
+                  <div className="text-gray-500 text-xs">Soporte</div>
                 </div>
               </div>
-              <div className="text-center group">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-4 group-hover:bg-white/20 transition-all duration-300">
-                  <Star className="h-8 w-8 sm:h-12 sm:w-12 text-yellow-400 mx-auto mb-3" />
-                  <h3 className="font-bold text-sm sm:text-base mb-1">Confianza</h3>
-                  <p className="text-yellow-300 text-xs sm:text-sm font-semibold">100% Seguro</p>
-                </div>
-              </div>
-              <div className="text-center group">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 mb-4 group-hover:bg-white/20 transition-all duration-300">
-                  <Clock className="h-8 w-8 sm:h-12 sm:w-12 text-purple-400 mx-auto mb-3" />
-                  <h3 className="font-bold text-sm sm:text-base mb-1">Atención</h3>
-                  <p className="text-purple-300 text-xs sm:text-sm font-semibold">24/7 WhatsApp</p>
+              
+              {/* Redes sociales */}
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-4">Síguenos</h4>
+                <div className="flex space-x-3">
+                  {[
+                    { 
+                      href: "https://www.instagram.com/gotobuyy1/", 
+                      icon: Instagram, 
+                      label: "Instagram",
+                      color: "hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500"
+                    },
+                    { 
+                      href: "https://www.tiktok.com/@gotobuy00?lang=es", 
+                      icon: Package, 
+                      label: "TikTok",
+                      color: "hover:bg-black"
+                    },
+                    { 
+                      href: "https://www.youtube.com/@gootobuy", 
+                      icon: Youtube, 
+                      label: "YouTube",
+                      color: "hover:bg-red-600"
+                    },
+                    { 
+                      href: "https://x.com/gootobuy", 
+                      icon: Twitter, 
+                      label: "Twitter/X",
+                      color: "hover:bg-gray-900"
+                    }
+                  ].map((social, index) => (
+                    <a 
+                      key={index}
+                      href={social.href} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group bg-gray-100 hover:text-white p-3 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-sm hover:shadow-md ${social.color}`}
+                      aria-label={social.label}
+                    >
+                      <social.icon className="h-5 w-5 text-gray-600 group-hover:text-white" />
+                    </a>
+                  ))}
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Contenido principal del footer */}
-        <div className="py-12 sm:py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-              
-              {/* Información de la tienda */}
-              <div className="lg:col-span-2">
-                <div className="flex items-center mb-6">
-                  <div className="bg-gradient-to-r from-blue-500 to-indigo-500 rounded-2xl p-3 mr-4">
-                    <Package className="h-8 w-8 text-white" />
+            
+            {/* Información de contacto */}
+            <div>
+              <h4 className="font-bold mb-6 text-lg text-gray-900">Contacto</h4>
+              <div className="space-y-4">
+                <a 
+                  href="https://wa.me/573008226497" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="group flex items-start p-3 rounded-xl hover:bg-green-50 transition-all duration-300"
+                >
+                  <div className="bg-green-100 group-hover:bg-green-500 p-2 rounded-lg mr-3 transition-all duration-300">
+                    <Phone className="h-4 w-4 text-green-600 group-hover:text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-white to-blue-200 bg-clip-text text-transparent">
-                      GoToBuy
-                    </h3>
-                    <p className="text-blue-300 text-sm">Tu tienda online de confianza</p>
+                    <span className="block font-semibold text-gray-900 group-hover:text-green-700">
+                      +57 300 822 6497
+                    </span>
+                    <span className="text-xs text-gray-500">WhatsApp • Disponible 24/7</span>
                   </div>
-                </div>
-                <p className="text-gray-300 mb-6 max-w-md leading-relaxed text-sm sm:text-base">
-                  Productos únicos y de calidad premium para tu hogar, belleza y bienestar. 
-                  Envíos gratis en compras superiores a $80.000. Pago contra entrega disponible.
-                </p>
+                </a>
                 
-                {/* Redes sociales */}
-                <div className="space-y-4">
-                  <h4 className="font-semibold text-lg text-white mb-3">Síguenos en nuestras redes</h4>
-                  <div className="flex space-x-4">
-                    <a 
-                      href="https://www.instagram.com/gotobuyy1/" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group bg-white/10 backdrop-blur-sm p-3 rounded-xl hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 transition-all duration-300 transform hover:scale-110"
-                      aria-label="Instagram"
-                    >
-                      <Instagram className="h-6 w-6 text-white group-hover:animate-pulse" />
-                    </a>
-                    <a 
-                      href="https://www.tiktok.com/@gotobuy00?lang=es" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group bg-white/10 backdrop-blur-sm p-3 rounded-xl hover:bg-black transition-all duration-300 transform hover:scale-110"
-                      aria-label="TikTok"
-                    >
-                      <div className="h-6 w-6 text-white group-hover:animate-pulse">📱</div>
-                    </a>
-                    <a 
-                      href="https://www.youtube.com/@gootobuy" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group bg-white/10 backdrop-blur-sm p-3 rounded-xl hover:bg-red-600 transition-all duration-300 transform hover:scale-110"
-                      aria-label="YouTube"
-                    >
-                      <Youtube className="h-6 w-6 text-white group-hover:animate-pulse" />
-                    </a>
-                    <a 
-                      href="https://x.com/gootobuy" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group bg-white/10 backdrop-blur-sm p-3 rounded-xl hover:bg-black transition-all duration-300 transform hover:scale-110"
-                      aria-label="Twitter/X"
-                    >
-                      <Twitter className="h-6 w-6 text-white group-hover:animate-pulse" />
-                    </a>
+                <div className="flex items-start p-3 rounded-xl">
+                  <div className="bg-blue-100 p-2 rounded-lg mr-3">
+                    <MapPin className="h-4 w-4 text-blue-600" />
+                  </div>
+                  <div>
+                    <span className="block font-semibold text-gray-900">Colombia</span>
+                    <span className="text-sm text-gray-500">Envíos a todo el país</span>
+                    <span className="text-xs text-blue-600 block">Cobertura nacional garantizada</span>
+                  </div>
+                </div>
+                
+                <a 
+                  href="mailto:info@gotobuy.com" 
+                  className="group flex items-start p-3 rounded-xl hover:bg-blue-50 transition-all duration-300"
+                >
+                  <div className="bg-blue-100 group-hover:bg-blue-500 p-2 rounded-lg mr-3 transition-all duration-300">
+                    <Mail className="h-4 w-4 text-blue-600 group-hover:text-white" />
+                  </div>
+                  <div>
+                    <span className="block font-semibold text-gray-900 group-hover:text-blue-700">
+                      info@gotobuy.com
+                    </span>
+                    <span className="text-xs text-gray-500">Contáctanos por email</span>
+                  </div>
+                </a>
+
+                <div className="flex items-start p-3 rounded-xl">
+                  <div className="bg-purple-100 p-2 rounded-lg mr-3">
+                    <Clock className="h-4 w-4 text-purple-600" />
+                  </div>
+                  <div>
+                    <span className="block font-semibold text-gray-900">Horarios</span>
+                    <span className="text-sm text-gray-500">Lun - Dom: 24 horas</span>
+                    <span className="text-xs text-purple-600 block">Respuesta inmediata</span>
                   </div>
                 </div>
               </div>
-              
-              {/* Información de contacto */}
-              <div>
-                <h4 className="font-bold mb-6 text-xl text-white">Contacto</h4>
-                <div className="space-y-4">
-                  <a 
-                    href="https://wa.me/573008226497" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center text-gray-300 hover:text-white transition-all duration-300 group p-2 rounded-lg hover:bg-white/10"
-                  >
-                    <div className="bg-green-500 p-2 rounded-lg mr-3 group-hover:scale-110 transition-transform duration-300">
-                      <Phone className="h-4 w-4 text-white" />
-                    </div>
-                    <div>
-                      <span className="block font-semibold">+57 300 822 6497</span>
-                      <span className="text-xs text-gray-400">WhatsApp 24/7</span>
-                    </div>
-                  </a>
-                  
-                  <div className="flex items-start text-gray-300 p-2 rounded-lg">
-                    <div className="bg-blue-500 p-2 rounded-lg mr-3 flex-shrink-0">
-                      <MapPin className="h-4 w-4 text-white" />
-                    </div>
-                    <div>
-                      <span className="block font-semibold">Envíos a toda Colombia</span>
-                      <span className="text-sm text-gray-400">Cobertura nacional</span>
-                      <span className="text-sm text-gray-400">Gratis sobre $80.000</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center text-gray-300 p-2 rounded-lg">
-                    <div className="bg-purple-500 p-2 rounded-lg mr-3">
-                      <Clock className="h-4 w-4 text-white" />
-                    </div>
-                    <div>
-                      <span className="block font-semibold">Atención al cliente</span>
-                      <span className="text-sm text-gray-400">24/7 por WhatsApp</span>
-                    </div>
-                  </div>
-                  
-                  <a 
-                    href="mailto:info@gotobuy.com" 
-                    className="flex items-center text-gray-300 hover:text-white transition-all duration-300 group p-2 rounded-lg hover:bg-white/10"
-                  >
-                    <div className="bg-red-500 p-2 rounded-lg mr-3 group-hover:scale-110 transition-transform duration-300">
-                      <Mail className="h-4 w-4 text-white" />
-                    </div>
-                    <div>
-                      <span className="block font-semibold">info@gotobuy.com</span>
-                      <span className="text-xs text-gray-400">Contáctanos por email</span>
-                    </div>
-                  </a>
-                </div>
-              </div>
-              
-              {/* Enlaces útiles */}
-              <div>
-                <h4 className="font-bold mb-6 text-xl text-white">Enlaces</h4>
-                <ul className="space-y-3">
-                  {[
-                    { name: '🏠 Inicio', href: '#inicio' },
-                    { name: '🛍️ Productos', href: '#productos' },
-                    { name: '📞 Contacto', href: '#contacto' },
-                    { name: '🚚 Envíos y Devoluciones', href: '/envios' },
-                    { name: '🔒 Política de Privacidad', href: '/privacidad' },
-                    { name: '❓ Preguntas Frecuentes', href: '/faq' }
-                  ].map((link, index) => (
-                    <li key={index}>
-                      <a 
-                        href={link.href} 
-                        className="text-gray-300 hover:text-white transition-all duration-300 text-sm hover:translate-x-2 transform inline-block py-1"
-                        onClick={link.href.startsWith('#') ? (e) => {
-                          e.preventDefault();
-                          document.getElementById(link.href.slice(1))?.scrollIntoView({ behavior: 'smooth' });
-                        } : undefined}
-                      >
-                        {link.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            </div>
+            
+            {/* Enlaces útiles */}
+            <div>
+              <h4 className="font-bold mb-6 text-lg text-gray-900">Enlaces</h4>
+              <ul className="space-y-3">
+                {[
+                  { name: 'Inicio', href: '#inicio', icon: '🏠' },
+                  { name: 'Productos', href: '#productos', icon: '🛍️' },
+                  { name: 'Sobre nosotros', href: '#about', icon: '💼' },
+                  { name: 'Términos y condiciones', href: '/terms', icon: '📋' },
+                  { name: 'Política de privacidad', href: '/privacy', icon: '🔒' },
+                  { name: 'Envíos y devoluciones', href: '/shipping', icon: '🚚' },
+                  { name: 'Preguntas frecuentes', href: '/faq', icon: '❓' }
+                ].map((link, index) => (
+                  <li key={index}>
+                    <a 
+                      href={link.href} 
+                      className="group flex items-center text-gray-600 hover:text-blue-600 transition-all duration-300 py-2 text-sm"
+                      onClick={link.href.startsWith('#') ? (e) => {
+                        e.preventDefault();
+                        document.getElementById(link.href.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+                      } : undefined}
+                    >
+                      <span className="mr-3 group-hover:scale-110 transition-transform duration-300">
+                        {link.icon}
+                      </span>
+                      {link.name}
+                      <ExternalLink className="w-3 h-3 ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
-        
-        {/* Sección inferior */}
-        <div className="border-t border-white/10 bg-black/20 py-6 sm:py-8">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
-              <div className="text-center lg:text-left">
-                <p className="text-gray-400 text-sm">
-                  &copy; {currentYear} GoToBuy. Todos los derechos reservados.
-                </p>
-                <p className="text-gray-500 text-xs mt-1">
-                  Hecho con <Heart className="inline h-3 w-3 text-red-400" /> para nuestros clientes
-                </p>
+      </div>
+      
+      {/* Sección inferior */}
+      <div className="bg-gray-900 py-6 sm:py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
+            
+            {/* Copyright */}
+            <div className="text-center lg:text-left">
+              <p className="text-gray-400 text-sm">
+                &copy; {currentYear} GoToBuy. Todos los derechos reservados.
+              </p>
+              <p className="text-gray-500 text-xs mt-1 flex items-center justify-center lg:justify-start">
+                Hecho con 
+                <Heart className="inline h-3 w-3 text-red-400 mx-1" /> 
+                en Colombia
+              </p>
+            </div>
+            
+            {/* Badges de confianza */}
+            <div className="flex flex-wrap justify-center lg:justify-end gap-3 text-xs">
+              <div className="flex items-center bg-gray-800 text-gray-300 px-3 py-2 rounded-lg border border-gray-700">
+                <span className="mr-2">💳</span>
+                <span>Pago seguro</span>
               </div>
-              <div className="flex flex-wrap justify-center lg:justify-end gap-4 sm:gap-6 text-sm">
-                <div className="flex items-center text-gray-400 bg-white/5 px-3 py-2 rounded-lg">
-                  <span className="mr-2">💳</span>
-                  <span>Pago contra entrega</span>
-                </div>
-                <div className="flex items-center text-gray-400 bg-white/5 px-3 py-2 rounded-lg">
-                  <span className="mr-2">🚚</span>
-                  <span>Envío gratis +$80.000</span>
-                </div>
-                <div className="flex items-center text-gray-400 bg-white/5 px-3 py-2 rounded-lg">
-                  <span className="mr-2">⭐</span>
-                  <span>Calidad premium</span>
-                </div>
+              <div className="flex items-center bg-gray-800 text-gray-300 px-3 py-2 rounded-lg border border-gray-700">
+                <span className="mr-2">🚚</span>
+                <span>Envío nacional</span>
+              </div>
+              <div className="flex items-center bg-gray-800 text-gray-300 px-3 py-2 rounded-lg border border-gray-700">
+                <span className="mr-2">⭐</span>
+                <span>5.0 estrellas</span>
+              </div>
+              <div className="flex items-center bg-gray-800 text-gray-300 px-3 py-2 rounded-lg border border-gray-700">
+                <span className="mr-2">🛡️</span>
+                <span>SSL seguro</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Línea divisoria */}
+          <div className="mt-6 pt-6 border-t border-gray-800">
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+              <div className="flex items-center gap-4">
+                <span>Desarrollado con React & Tailwind CSS</span>
+                <span>•</span>
+                <span>Optimizado para móviles</span>
+              </div>
+              <div className="flex items-center gap-4">
+                <a href="/sitemap" className="hover:text-gray-300 transition-colors">Mapa del sitio</a>
+                <span>•</span>
+                <a href="/cookies" className="hover:text-gray-300 transition-colors">Política de cookies</a>
               </div>
             </div>
           </div>

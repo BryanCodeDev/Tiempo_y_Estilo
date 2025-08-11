@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Filter, Search, Grid, List, Package, Star } from 'lucide-react';
+import { Filter, Search, Grid, List, Package, Star, Sliders, TrendingUp, Award, ArrowRight } from 'lucide-react';
 import { products, categories } from '../data/products';
 import ProductCard from './ProductCard';
 
@@ -51,157 +51,175 @@ const ProductCatalog = ({ addToCart }) => {
   const productsOnSale = filteredProducts.filter(p => p.discount).length;
 
   return (
-    <section id="productos" className="py-12 sm:py-20 bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+    <section id="productos" className="py-8 sm:py-12 lg:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+        
+        {/* Header moderno y compacto */}
         <div className="text-center mb-8 sm:mb-12">
-          <div className="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-medium mb-4">
-            <Package className="w-4 h-4 mr-2" />
-            Catálogo GoToBuy
+          <div className="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-3">
+            <TrendingUp className="w-4 h-4 mr-2" />
+            Productos destacados
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Nuestros <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Productos</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
+            Explora nuestro 
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> catálogo</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-            Productos únicos y de calidad premium para tu hogar, belleza y bienestar. 
-            Envíos gratis en compras superiores a $80.000
+          <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
+            Encuentra productos únicos con envío gratis sobre $80.000
           </p>
         </div>
 
-        {/* Filtros y controles */}
-        <div className="bg-white rounded-2xl shadow-xl p-4 sm:p-6 mb-8 border border-gray-100">
-          {/* Búsqueda y controles principales */}
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between mb-6">
-            {/* Barra de búsqueda */}
+        {/* Barra de filtros moderna */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-200/50 p-4 sm:p-6 mb-8">
+          
+          {/* Fila principal de controles */}
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-between mb-4">
+            
+            {/* Búsqueda mejorada */}
             <div className="relative flex-1 max-w-md w-full">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
               <input
                 type="text"
-                placeholder="Buscar productos..."
+                placeholder="Buscar por nombre, SKU..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
+                className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm"
               />
               {searchTerm && (
                 <button
                   onClick={() => setSearchTerm('')}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 text-lg"
                 >
-                  ✕
+                  ×
                 </button>
               )}
             </div>
             
-            {/* Controles de vista y ordenamiento */}
-            <div className="flex items-center gap-3">
+            {/* Controles de la derecha */}
+            <div className="flex items-center gap-3 w-full sm:w-auto">
+              
               {/* Ordenamiento */}
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2 border-2 border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
-              >
-                <option value="name">Nombre A-Z</option>
-                <option value="price-low">Precio: Menor a Mayor</option>
-                <option value="price-high">Precio: Mayor a Menor</option>
-                <option value="discount">Mayor Descuento</option>
-                <option value="stock">Disponibles Primero</option>
-              </select>
+              <div className="flex items-center gap-2 flex-1 sm:flex-none">
+                <Sliders className="h-4 w-4 text-gray-500" />
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value)}
+                  className="flex-1 sm:w-auto px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm"
+                >
+                  <option value="name">Nombre</option>
+                  <option value="price-low">Precio ↑</option>
+                  <option value="price-high">Precio ↓</option>
+                  <option value="discount">Descuento</option>
+                  <option value="stock">Stock</option>
+                </select>
+              </div>
 
               {/* Vista */}
-              <div className="hidden sm:flex bg-gray-100 rounded-xl p-1">
+              <div className="hidden md:flex bg-gray-100 rounded-lg p-1">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 rounded-lg transition-all duration-300 ${
-                    viewMode === 'grid' ? 'bg-white shadow-md text-blue-600' : 'text-gray-600 hover:text-gray-900'
+                  className={`p-2 rounded-md transition-all duration-200 ${
+                    viewMode === 'grid' ? 'bg-white shadow-sm text-blue-600' : 'text-gray-500 hover:text-gray-700'
                   }`}
+                  title="Vista cuadrícula"
                 >
-                  <Grid className="h-5 w-5" />
+                  <Grid className="h-4 w-4" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`p-2 rounded-lg transition-all duration-300 ${
-                    viewMode === 'list' ? 'bg-white shadow-md text-blue-600' : 'text-gray-600 hover:text-gray-900'
+                  className={`p-2 rounded-md transition-all duration-200 ${
+                    viewMode === 'list' ? 'bg-white shadow-sm text-blue-600' : 'text-gray-500 hover:text-gray-700'
                   }`}
+                  title="Vista lista"
                 >
-                  <List className="h-5 w-5" />
+                  <List className="h-4 w-4" />
                 </button>
               </div>
 
               {/* Botón filtros móvil */}
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="lg:hidden flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition-colors shadow-lg"
+                className="sm:hidden bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors shadow-md"
               >
                 <Filter className="h-4 w-4" />
-                Filtros
               </button>
             </div>
           </div>
 
-          {/* Categorías */}
-          <div className={`${showFilters ? 'block' : 'hidden'} lg:block transition-all duration-300`}>
-            <div className="flex items-center gap-4 mb-4">
-              <span className="text-gray-700 font-medium text-sm">Categorías:</span>
-              <div className="flex-1 flex flex-wrap gap-2">
+          {/* Categorías rediseñadas */}
+          <div className={`${showFilters ? 'block' : 'hidden'} sm:block transition-all duration-300`}>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+              <span className="text-gray-700 font-medium text-sm flex items-center">
+                <Package className="w-4 h-4 mr-2" />
+                Categorías:
+              </span>
+              <div className="flex flex-wrap gap-2">
                 {categories.map(category => (
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 hover:scale-105 ${
+                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 border ${
                       selectedCategory === category.id
-                        ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'bg-blue-600 text-white border-blue-600 shadow-md'
+                        : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50 hover:border-gray-300'
                     }`}
                   >
-                    <span className="mr-1">{category.icon}</span>
+                    <span className="mr-1.5">{category.icon}</span>
                     <span className="hidden sm:inline">{category.name}</span>
                     <span className="sm:hidden">{category.name.split(' ')[0]}</span>
                   </button>
                 ))}
               </div>
             </div>
+          </div>
 
-            {/* Información de resultados */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm text-gray-600 gap-2">
-              <div className="flex flex-wrap gap-4">
-                <span>
-                  Mostrando {filteredProducts.length} de {products.length} productos
-                  {selectedCategory !== 'all' && (
-                    <span className="ml-2 text-blue-600">
-                      en "{categories.find(c => c.id === selectedCategory)?.name}"
-                    </span>
-                  )}
-                </span>
-                <span className="text-green-600">
-                  {productsInStock} disponibles
-                </span>
-                <span className="text-orange-600">
-                  {productsOnSale} en oferta
-                </span>
+          {/* Información de resultados */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-4 border-t border-gray-100 text-sm text-gray-600 gap-2">
+            <div className="flex flex-wrap items-center gap-4">
+              <span className="font-medium">
+                {filteredProducts.length} productos
+                {selectedCategory !== 'all' && (
+                  <span className="ml-1 text-blue-600 font-semibold">
+                    en {categories.find(c => c.id === selectedCategory)?.name}
+                  </span>
+                )}
+              </span>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-green-500 rounded-full mr-1.5"></div>
+                  <span>{productsInStock} disponibles</span>
+                </div>
+                <div className="flex items-center">
+                  <div className="w-2 h-2 bg-orange-500 rounded-full mr-1.5"></div>
+                  <span>{productsOnSale} en oferta</span>
+                </div>
               </div>
-              {(searchTerm || selectedCategory !== 'all') && (
-                <button
-                  onClick={clearFilters}
-                  className="text-blue-600 hover:text-blue-700 font-medium"
-                >
-                  Limpiar filtros
-                </button>
-              )}
             </div>
+            {(searchTerm || selectedCategory !== 'all') && (
+              <button
+                onClick={clearFilters}
+                className="text-blue-600 hover:text-blue-700 font-medium text-sm underline decoration-dotted"
+              >
+                Limpiar filtros
+              </button>
+            )}
           </div>
         </div>
 
-        {/* Grid de productos */}
+        {/* Grid/Lista de productos */}
         <div className={`transition-all duration-500 ${
           viewMode === 'grid' 
-            ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 lg:gap-8' 
+            ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6' 
             : 'space-y-4'
         }`}>
           {filteredProducts.map((product, index) => (
             <div
               key={product.id}
-              className="animate-fade-in-up"
-              style={{ animationDelay: `${index * 100}ms` }}
+              className="opacity-0 animate-fade-in-up"
+              style={{ 
+                animationDelay: `${index * 100}ms`,
+                animationFillMode: 'forwards'
+              }}
             >
               <ProductCard 
                 product={product} 
@@ -212,75 +230,88 @@ const ProductCatalog = ({ addToCart }) => {
           ))}
         </div>
 
-        {/* Estado vacío */}
+        {/* Estado vacío rediseñado */}
         {filteredProducts.length === 0 && (
           <div className="text-center py-16">
-            <div className="bg-gradient-to-br from-blue-100 to-indigo-100 rounded-full w-24 h-24 flex items-center justify-center mx-auto mb-6">
-              <Search className="w-12 h-12 text-blue-400" />
+            <div className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-2xl w-20 h-20 flex items-center justify-center mx-auto mb-6">
+              <Search className="w-10 h-10 text-gray-400" />
             </div>
             <h3 className="text-xl font-semibold text-gray-900 mb-2">
-              No se encontraron productos
+              No encontramos productos
             </h3>
-            <p className="text-gray-500 mb-6 max-w-md mx-auto">
-              No encontramos productos que coincidan con tu búsqueda. 
-              Intenta con otros términos o explora nuestras categorías.
+            <p className="text-gray-500 mb-6 max-w-md mx-auto text-sm">
+              Intenta ajustar los filtros o usar términos de búsqueda diferentes
             </p>
             <button
               onClick={clearFilters}
-              className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm"
             >
-              Ver todos los productos
+              Mostrar todos los productos
             </button>
           </div>
         )}
 
-        {/* Estadísticas */}
+        {/* Estadísticas mejoradas */}
         {filteredProducts.length > 0 && (
-          <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-              <div className="text-3xl font-bold text-blue-600 mb-2">
+          <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200/50 text-center hover:shadow-md transition-shadow duration-300">
+              <div className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1">
                 {filteredProducts.length}
               </div>
-              <div className="text-gray-600 text-sm">Productos mostrados</div>
+              <div className="text-gray-500 text-xs sm:text-sm">Productos</div>
             </div>
-            <div className="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-              <div className="text-3xl font-bold text-green-600 mb-2">
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200/50 text-center hover:shadow-md transition-shadow duration-300">
+              <div className="text-2xl sm:text-3xl font-bold text-green-600 mb-1">
                 {productsInStock}
               </div>
-              <div className="text-gray-600 text-sm">En stock</div>
+              <div className="text-gray-500 text-xs sm:text-sm">Disponibles</div>
             </div>
-            <div className="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-              <div className="text-3xl font-bold text-orange-600 mb-2">
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200/50 text-center hover:shadow-md transition-shadow duration-300">
+              <div className="text-2xl sm:text-3xl font-bold text-orange-600 mb-1">
                 {productsOnSale}
               </div>
-              <div className="text-gray-600 text-sm">En oferta</div>
+              <div className="text-gray-500 text-xs sm:text-sm">En oferta</div>
             </div>
-            <div className="bg-white rounded-2xl p-6 shadow-lg text-center border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-              <div className="text-3xl font-bold text-purple-600 mb-2 flex items-center justify-center">
-                <Star className="w-6 h-6 mr-1" />
+            <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200/50 text-center hover:shadow-md transition-shadow duration-300">
+              <div className="text-2xl sm:text-3xl font-bold text-blue-600 mb-1 flex items-center justify-center">
+                <Star className="w-5 h-5 mr-1 fill-current text-yellow-400" />
                 5.0
               </div>
-              <div className="text-gray-600 text-sm">Calificación promedio</div>
+              <div className="text-gray-500 text-xs sm:text-sm">Calificación</div>
             </div>
           </div>
         )}
 
-        {/* Llamada a la acción */}
+        {/* CTA section rediseñada */}
         {filteredProducts.length > 0 && (
-          <div className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white">
-            <h3 className="text-2xl font-bold mb-4">¿No encuentras lo que buscas?</h3>
-            <p className="text-blue-100 mb-6">
-              Contáctanos por WhatsApp y te ayudamos a encontrar el producto perfecto para ti
-            </p>
-            <a
-              href="https://wa.me/573008226497?text=Hola%20GoToBuy,%20necesito%20ayuda%20para%20encontrar%20un%20producto"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-              <Package className="w-5 h-5 mr-2" />
-              Consultar por WhatsApp
-            </a>
+          <div className="mt-12 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-2xl p-6 sm:p-8 text-center text-white relative overflow-hidden">
+            {/* Elementos decorativos */}
+            <div className="absolute top-0 left-0 w-32 h-32 bg-white/5 rounded-full -translate-x-16 -translate-y-16"></div>
+            <div className="absolute bottom-0 right-0 w-40 h-40 bg-white/5 rounded-full translate-x-20 translate-y-20"></div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center justify-center mb-4">
+                <Award className="w-6 h-6 mr-2 text-yellow-300" />
+                <span className="text-sm font-medium bg-white/20 px-3 py-1 rounded-full">
+                  Asesoría personalizada
+                </span>
+              </div>
+              <h3 className="text-xl sm:text-2xl font-bold mb-3">¿Necesitas ayuda para elegir?</h3>
+              <p className="text-blue-100 mb-6 max-w-2xl mx-auto text-sm sm:text-base">
+                Nuestro equipo está listo para ayudarte a encontrar el producto perfecto. 
+                Contacta por WhatsApp y recibe asesoría personalizada
+              </p>
+              <a
+                href="https://wa.me/573008226497?text=Hola%20GoToBuy,%20necesito%20asesoría%20para%20elegir%20un%20producto"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-white text-blue-600 hover:bg-gray-50 px-6 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 text-sm sm:text-base"
+              >
+                <Package className="w-4 h-4 mr-2" />
+                Obtener asesoría gratuita
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </a>
+            </div>
           </div>
         )}
       </div>
@@ -289,7 +320,7 @@ const ProductCatalog = ({ addToCart }) => {
         @keyframes fade-in-up {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
           }
           to {
             opacity: 1;
@@ -297,8 +328,7 @@ const ProductCatalog = ({ addToCart }) => {
           }
         }
         .animate-fade-in-up {
-          animation: fade-in-up 0.6s ease-out forwards;
-          opacity: 0;
+          animation: fade-in-up 0.5s ease-out;
         }
       `}</style>
     </section>

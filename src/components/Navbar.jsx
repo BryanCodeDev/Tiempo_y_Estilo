@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart, Menu, X, Package } from 'lucide-react';
+import { ShoppingCart, Menu, X, Package, Search, User, Bell } from 'lucide-react';
 
 const Navbar = ({ cartItems, setShowCart }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -9,7 +9,7 @@ const Navbar = ({ cartItems, setShowCart }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -26,146 +26,150 @@ const Navbar = ({ cartItems, setShowCart }) => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-blue-100' 
-        : 'bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 shadow-xl'
+        ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-200/50' 
+        : 'bg-white/90 backdrop-blur-xl shadow-md'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          {/* Logo */}
-          <div className="flex items-center cursor-pointer" onClick={() => handleNavClick('inicio')}>
-            <div className={`rounded-xl p-2 mr-3 transition-all duration-300 ${
-              isScrolled ? 'bg-blue-600 text-white' : 'bg-white text-blue-600'
-            }`}>
-              <Package className="w-6 h-6 sm:w-7 sm:h-7" />
+        <div className="flex items-center justify-between h-14 sm:h-16 lg:h-18">
+          
+          {/* Logo rediseñado */}
+          <div className="flex items-center cursor-pointer group" onClick={() => handleNavClick('inicio')}>
+            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl p-2 mr-3 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
+              <Package className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div>
-            <div className={`font-bold text-lg sm:text-xl transition-colors duration-300 ${
-              isScrolled ? 'text-gray-900' : 'text-white'
-            }`}>
-              <span className="hidden sm:inline bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                {isScrolled ? (
-                  <span className="text-gray-900">GoToBuy</span>
-                ) : (
-                  'GoToBuy'
-                )}
+            <div className="font-bold text-lg sm:text-xl lg:text-2xl">
+              <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
+                GoTo
               </span>
-              <span className="sm:hidden">
-                {isScrolled ? (
-                  <span className="text-gray-900">GTB</span>
-                ) : (
-                  'GTB'
-                )}
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Buy
               </span>
             </div>
           </div>
           
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => handleNavClick('inicio')}
-              className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:text-blue-600 hover:bg-blue-50' 
-                  : 'text-white hover:bg-white/20'
-              }`}
-            >
-              Inicio
-            </button>
-            <button 
-              onClick={() => handleNavClick('productos')}
-              className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:text-blue-600 hover:bg-blue-50' 
-                  : 'text-white hover:bg-white/20'
-              }`}
-            >
-              Productos
-            </button>
-            <button 
-              onClick={() => handleNavClick('contacto')}
-              className={`relative px-4 py-2 rounded-lg font-medium transition-all duration-300 hover:scale-105 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:text-blue-600 hover:bg-blue-50' 
-                  : 'text-white hover:bg-white/20'
-              }`}
-            >
-              Contacto
-            </button>
+          {/* Desktop Menu - Rediseñado */}
+          <div className="hidden lg:flex items-center space-x-1">
+            {[
+              { id: 'inicio', label: 'Inicio', icon: '🏠' },
+              { id: 'productos', label: 'Productos', icon: '🛍️' },
+              { id: 'contacto', label: 'Contacto', icon: '📞' }
+            ].map((item) => (
+              <button 
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className="relative px-4 py-2 rounded-lg font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 group"
+              >
+                <span className="hidden xl:inline mr-2">{item.icon}</span>
+                {item.label}
+                <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
+              </button>
+            ))}
           </div>
           
-          {/* Cart and Mobile Menu */}
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            {/* Cart Button */}
+          {/* Acciones del lado derecho */}
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            
+            {/* Búsqueda rápida - Desktop */}
+            <div className="hidden md:flex relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+              <input
+                type="text"
+                placeholder="Buscar..."
+                className="pl-9 pr-4 py-2 w-32 lg:w-48 xl:w-56 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:shadow-md"
+              />
+            </div>
+
+            {/* Notificaciones */}
+            <button className="hidden sm:flex p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300 relative">
+              <Bell className="h-5 w-5" />
+              <div className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></div>
+            </button>
+
+            {/* Usuario */}
+            <button className="hidden sm:flex p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">
+              <User className="h-5 w-5" />
+            </button>
+            
+            {/* Cart Button - Rediseñado */}
             <button 
               onClick={() => setShowCart(true)}
-              className={`relative px-3 sm:px-4 py-2 rounded-xl transition-all duration-300 flex items-center space-x-2 hover:scale-105 group ${
-                isScrolled 
-                  ? 'bg-blue-600 text-white hover:bg-blue-700 shadow-lg' 
-                  : 'bg-white text-blue-600 hover:bg-gray-100 shadow-lg'
-              }`}
+              className="relative bg-gray-900 hover:bg-gray-800 text-white px-3 sm:px-4 py-2 rounded-xl transition-all duration-300 flex items-center space-x-2 hover:scale-105 group shadow-lg"
             >
               <ShoppingCart className="h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-pulse" />
-              <span className="hidden sm:inline font-medium">Carrito</span>
+              <span className="hidden sm:inline font-medium text-sm">
+                {totalItems > 0 ? `(${totalItems})` : 'Carrito'}
+              </span>
               {totalItems > 0 && (
-                <span className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full h-5 w-5 sm:h-6 sm:w-6 flex items-center justify-center font-bold animate-pulse shadow-lg">
+                <div className="absolute -top-2 -right-2 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full h-5 w-5 sm:h-6 sm:w-6 flex items-center justify-center font-bold animate-pulse shadow-lg">
                   {totalItems > 99 ? '99+' : totalItems}
-                </span>
+                </div>
               )}
             </button>
             
             {/* Mobile Menu Button */}
             <button 
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className={`md:hidden p-2 rounded-lg transition-all duration-300 ${
-                isScrolled ? 'text-gray-700 hover:bg-gray-100' : 'text-white hover:bg-white/20'
-              }`}
+              className="lg:hidden p-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
             >
               {isMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-5 w-5" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-5 w-5" />
               )}
             </button>
           </div>
         </div>
         
-        {/* Mobile Menu */}
-        <div className={`md:hidden transition-all duration-300 overflow-hidden ${
-          isMenuOpen ? 'max-h-64 pb-4' : 'max-h-0'
+        {/* Mobile Menu - Rediseñado */}
+        <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
+          isMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'
         }`}>
-          <div className="space-y-2 pt-4 border-t border-blue-500/20">
-            <button 
-              onClick={() => handleNavClick('inicio')}
-              className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' 
-                  : 'text-white hover:bg-white/10'
-              }`}
-            >
-              🏠 Inicio
-            </button>
-            <button 
-              onClick={() => handleNavClick('productos')}
-              className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' 
-                  : 'text-white hover:bg-white/10'
-              }`}
-            >
-              🛍️ Productos
-            </button>
-            <button 
-              onClick={() => handleNavClick('contacto')}
-              className={`w-full text-left px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' 
-                  : 'text-white hover:bg-white/10'
-              }`}
-            >
-              📞 Contacto
-            </button>
+          {/* Búsqueda móvil */}
+          <div className="pt-4 pb-3 border-b border-gray-200/50">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+              <input
+                type="text"
+                placeholder="Buscar productos..."
+                className="w-full pl-9 pr-4 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+          </div>
+          
+          <div className="space-y-1 pt-3">
+            {[
+              { id: 'inicio', label: 'Inicio', icon: '🏠' },
+              { id: 'productos', label: 'Productos', icon: '🛍️' },
+              { id: 'contacto', label: 'Contacto', icon: '📞' }
+            ].map((item) => (
+              <button 
+                key={item.id}
+                onClick={() => handleNavClick(item.id)}
+                className="w-full flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-all duration-300 text-left"
+              >
+                <span className="mr-3">{item.icon}</span>
+                {item.label}
+              </button>
+            ))}
+            
+            {/* Acciones adicionales móvil */}
+            <div className="pt-3 border-t border-gray-200/50 space-y-1">
+              <button className="w-full flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-all duration-300 text-left">
+                <User className="w-5 h-5 mr-3" />
+                Mi cuenta
+              </button>
+              <button className="w-full flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-all duration-300 text-left">
+                <Bell className="w-5 h-5 mr-3" />
+                Notificaciones
+                <div className="ml-auto w-2 h-2 bg-red-500 rounded-full"></div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
+      
+      {/* Línea de progreso sutil */}
+      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-30"></div>
     </nav>
   );
 };
