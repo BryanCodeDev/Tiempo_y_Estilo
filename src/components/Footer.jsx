@@ -108,25 +108,26 @@ const Footer = () => {
                       href: "https://www.instagram.com/gotobuyy1/", 
                       icon: Instagram, 
                       label: "Instagram",
-                      color: "hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500"
+                      bgColor: "hover:bg-pink-500",
+                      gradientHover: true
                     },
                     { 
                       href: "https://www.tiktok.com/@gotobuy00?lang=es", 
                       icon: Package, 
                       label: "TikTok",
-                      color: "hover:bg-black"
+                      bgColor: "hover:bg-black"
                     },
                     { 
                       href: "https://www.youtube.com/@gootobuy", 
                       icon: Youtube, 
                       label: "YouTube",
-                      color: "hover:bg-red-600"
+                      bgColor: "hover:bg-red-600"
                     },
                     { 
                       href: "https://x.com/gootobuy", 
                       icon: Twitter, 
                       label: "Twitter/X",
-                      color: "hover:bg-gray-900"
+                      bgColor: "hover:bg-gray-900"
                     }
                   ].map((social, index) => (
                     <a 
@@ -134,7 +135,7 @@ const Footer = () => {
                       href={social.href} 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`group bg-gray-100 hover:text-white p-3 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-sm hover:shadow-md ${social.color}`}
+                      className={`group bg-gray-100 hover:text-white p-3 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-sm hover:shadow-md ${social.bgColor}`}
                       aria-label={social.label}
                     >
                       <social.icon className="h-5 w-5 text-gray-600 group-hover:text-white" />

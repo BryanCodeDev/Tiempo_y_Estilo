@@ -219,7 +219,7 @@ const ProductCatalog = ({ addToCart }) => {
           {filteredProducts.map((product, index) => (
             <div
               key={product.id}
-              className="animate-fade-in"
+              className="opacity-0 animate-fade-in"
               style={{ 
                 animationDelay: `${Math.min(index * 50, 500)}ms`,
                 animationFillMode: 'both'
@@ -289,7 +289,7 @@ const ProductCatalog = ({ addToCart }) => {
         {/* CTA section rediseñada */}
         {filteredProducts.length > 0 && (
           <div className="mt-12 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-2xl p-6 sm:p-8 text-center text-white relative overflow-hidden">
-            {/* Elementos decorativos */}
+            {/* Elementos decorativos usando Tailwind */}
             <div className="absolute top-0 left-0 w-32 h-32 bg-white opacity-5 rounded-full transform -translate-x-16 -translate-y-16"></div>
             <div className="absolute bottom-0 right-0 w-40 h-40 bg-white opacity-5 rounded-full transform translate-x-20 translate-y-20"></div>
             
@@ -319,45 +319,6 @@ const ProductCatalog = ({ addToCart }) => {
           </div>
         )}
       </div>
-
-      {/* Estilos CSS personalizados */}
-      <style jsx>{`
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-fade-in {
-          animation: fade-in 0.4s ease-out both;
-        }
-        
-        .line-clamp-2 {
-          display: -webkit-box;
-          -webkit-line-clamp: 2;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-        
-        /* Mejorar el scroll en móviles */
-        @media (max-width: 640px) {
-          .overflow-x-auto {
-            -webkit-overflow-scrolling: touch;
-          }
-        }
-        
-        /* Optimización para pantallas pequeñas */
-        @media (max-width: 480px) {
-          .grid-cols-1 {
-            gap: 1rem;
-          }
-        }
-      `}</style>
     </section>
   );
 };

@@ -26,8 +26,8 @@ const Navbar = ({ cartItems, setShowCart }) => {
   return (
     <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-200/50' 
-        : 'bg-white/90 backdrop-blur-xl shadow-md'
+        ? 'bg-white bg-opacity-95 backdrop-blur-xl shadow-lg border-b border-gray-200 border-opacity-50' 
+        : 'bg-white bg-opacity-90 backdrop-blur-xl shadow-md'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-18">
@@ -114,7 +114,7 @@ const Navbar = ({ cartItems, setShowCart }) => {
           isMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'
         }`}>
           {/* Búsqueda móvil */}
-          <div className="pt-4 pb-3 border-b border-gray-200/50">
+          <div className="pt-4 pb-3 border-b border-gray-200 border-opacity-50">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
               <input

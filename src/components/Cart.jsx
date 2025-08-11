@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { X, Plus, Minus, Phone, ShoppingBag, Trash2, Gift, Truck, Package, CreditCard, Shield, ArrowRight } from 'lucide-react';
 
 const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) => {
-  const [isAnimating, setIsAnimating] = useState(false);
-  
   const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const freeShippingThreshold = 80000;
@@ -13,7 +11,6 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
   
   useEffect(() => {
     if (isOpen) {
-      setIsAnimating(true);
       document.body.style.overflow = 'hidden';
     } else {
       document.body.style.overflow = 'unset';
@@ -52,11 +49,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
   };
 
   const handleRemoveItem = (id) => {
-    setIsAnimating(true);
-    setTimeout(() => {
-      removeFromCart(id);
-      setIsAnimating(false);
-    }, 200);
+    removeFromCart(id);
   };
 
   if (!isOpen) return null;

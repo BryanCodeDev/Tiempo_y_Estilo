@@ -71,8 +71,10 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
             <div className="flex-1">
               <div className="flex justify-between items-start mb-3">
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-lg text-gray-900 mb-1 hover:text-blue-600 transition-colors cursor-pointer line-clamp-2">
-                    {product.name}
+                  <h3 className="font-bold text-lg text-gray-900 mb-1 hover:text-blue-600 transition-colors cursor-pointer overflow-hidden">
+                    <span className="block overflow-hidden text-ellipsis whitespace-nowrap">
+                      {product.name}
+                    </span>
                   </h3>
                   <p className="text-blue-600 text-xs font-medium bg-blue-50 px-2 py-0.5 rounded-md inline-block">
                     SKU: {product.sku}
@@ -88,7 +90,11 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
                 </button>
               </div>
               
-              <p className="text-gray-600 mb-4 text-sm line-clamp-2">{product.description}</p>
+              <p className="text-gray-600 mb-4 text-sm overflow-hidden">
+                <span className="block overflow-hidden text-ellipsis whitespace-nowrap">
+                  {product.description}
+                </span>
+              </p>
               
               {/* Rating */}
               <div className="flex items-center gap-2 mb-4">
@@ -224,8 +230,10 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
           
           {/* Título y SKU */}
           <div className="mb-3">
-            <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-1 line-clamp-2 group-hover:text-blue-600 transition-colors duration-300">
-              {product.name}
+            <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-1 group-hover:text-blue-600 transition-colors duration-300 overflow-hidden">
+              <span className="block overflow-hidden text-ellipsis whitespace-nowrap">
+                {product.name}
+              </span>
             </h3>
             <p className="text-blue-600 text-xs font-medium bg-blue-50 px-2 py-0.5 rounded-md inline-block">
               SKU: {product.sku}
@@ -233,7 +241,11 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
           </div>
           
           {/* Descripción */}
-          <p className="text-gray-600 text-xs sm:text-sm mb-3 line-clamp-2">{product.description}</p>
+          <p className="text-gray-600 text-xs sm:text-sm mb-3 overflow-hidden">
+            <span className="block overflow-hidden text-ellipsis whitespace-nowrap">
+              {product.description}
+            </span>
+          </p>
           
           {/* Rating */}
           <div className="flex items-center justify-between mb-4">
