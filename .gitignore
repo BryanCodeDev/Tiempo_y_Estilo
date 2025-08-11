@@ -7,18 +7,60 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
+# Dependencias
+node_modules/
+
+# Builds y distribuciones
+dist/
+dist-ssr/
+build/
 *.local
 
-# Editor directories and files
+# Archivos de producción
+*.zip
+*.tar.gz
+
+# Configuración de editores/IDE
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# Archivos temporales del sistema
+Thumbs.db
+ehthumbs.db
+Icon?
+*.stackdump
+*.bak
+*.tmp
+
+# Archivos de entorno
+.env
+.env.*
+!.env.example
+
+# Salida de pruebas y cobertura
+coverage/
+*.lcov
+.jest/
+
+# Archivos generados por Tailwind/PostCSS
+*.css.map
+
+# Archivos de caché
+.cache/
+.parcel-cache/
+*.tsbuildinfo
+
+# Storybook
+.storybook-out/
+out/
+
+# MacOS
+.AppleDouble
+.LSOverride
