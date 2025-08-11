@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ShoppingCart, Menu, X, Package, Search, User, Bell } from 'lucide-react';
+import { ShoppingCart, Menu, X, Package, Search } from 'lucide-react';
 
 const Navbar = ({ cartItems, setShowCart }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +32,7 @@ const Navbar = ({ cartItems, setShowCart }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16 lg:h-18">
           
-          {/* Logo rediseñado */}
+          {/* Logo */}
           <div className="flex items-center cursor-pointer group" onClick={() => handleNavClick('inicio')}>
             <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl p-2 mr-3 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105">
               <Package className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
@@ -47,7 +47,7 @@ const Navbar = ({ cartItems, setShowCart }) => {
             </div>
           </div>
           
-          {/* Desktop Menu - Rediseñado */}
+          {/* Desktop Menu */}
           <div className="hidden lg:flex items-center space-x-1">
             {[
               { id: 'inicio', label: 'Inicio', icon: '🏠' },
@@ -78,19 +78,8 @@ const Navbar = ({ cartItems, setShowCart }) => {
                 className="pl-9 pr-4 py-2 w-32 lg:w-48 xl:w-56 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 hover:shadow-md"
               />
             </div>
-
-            {/* Notificaciones */}
-            <button className="hidden sm:flex p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300 relative">
-              <Bell className="h-5 w-5" />
-              <div className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></div>
-            </button>
-
-            {/* Usuario */}
-            <button className="hidden sm:flex p-2 text-gray-600 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300">
-              <User className="h-5 w-5" />
-            </button>
             
-            {/* Cart Button - Rediseñado */}
+            {/* Cart Button */}
             <button 
               onClick={() => setShowCart(true)}
               className="relative bg-gray-900 hover:bg-gray-800 text-white px-3 sm:px-4 py-2 rounded-xl transition-all duration-300 flex items-center space-x-2 hover:scale-105 group shadow-lg"
@@ -120,7 +109,7 @@ const Navbar = ({ cartItems, setShowCart }) => {
           </div>
         </div>
         
-        {/* Mobile Menu - Rediseñado */}
+        {/* Mobile Menu */}
         <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
           isMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'
         }`}>
@@ -151,19 +140,6 @@ const Navbar = ({ cartItems, setShowCart }) => {
                 {item.label}
               </button>
             ))}
-            
-            {/* Acciones adicionales móvil */}
-            <div className="pt-3 border-t border-gray-200/50 space-y-1">
-              <button className="w-full flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-all duration-300 text-left">
-                <User className="w-5 h-5 mr-3" />
-                Mi cuenta
-              </button>
-              <button className="w-full flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-all duration-300 text-left">
-                <Bell className="w-5 h-5 mr-3" />
-                Notificaciones
-                <div className="ml-auto w-2 h-2 bg-red-500 rounded-full"></div>
-              </button>
-            </div>
           </div>
         </div>
       </div>
