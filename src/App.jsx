@@ -24,7 +24,6 @@ function App() {
       }
     });
     
-    // Mostrar notificación (opcional)
     console.log(`${product.name} agregado al carrito`);
   };
 
@@ -45,7 +44,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-emerald-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
       {/* Navbar */}
       <Navbar cartItems={cartItems} setShowCart={setShowCart} />
       
@@ -69,7 +68,7 @@ function App() {
       
       {/* Botón flotante de WhatsApp */}
       <a
-        href="https://wa.me/573113670631?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20productos%20y%20servicios"
+        href="https://wa.me/573008226497?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20productos%20de%20GoToBuy"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white p-3 sm:p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 z-50 group animate-bounce"

@@ -5,13 +5,13 @@
 /* Fuentes personalizadas */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
-/* Variables CSS para temas */
+/* Variables CSS para temas GoToBuy */
 :root {
-  --primary-emerald: #10b981;
-  --primary-teal: #14b8a6;
-  --primary-gradient: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
-  --shadow-color: rgba(16, 185, 129, 0.15);
-  --shadow-hover: rgba(16, 185, 129, 0.25);
+  --primary-blue: #2563eb;
+  --primary-indigo: #4f46e5;
+  --primary-gradient: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  --shadow-color: rgba(37, 99, 235, 0.15);
+  --shadow-hover: rgba(37, 99, 235, 0.25);
 }
 
 /* Configuración base */
@@ -31,7 +31,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
-  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  background: linear-gradient(135deg, #f8fafc 0%, #e0f2fe 100%);
 }
 
 /* Utilidades de texto */
@@ -56,7 +56,7 @@ body {
   overflow: hidden;
 }
 
-/* Animaciones mejoradas */
+/* Animaciones mejoradas para GoToBuy */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -150,6 +150,15 @@ body {
   }
 }
 
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Clases de animación */
 .fade-in {
   animation: fadeIn 0.8s ease-out;
@@ -190,6 +199,10 @@ body {
   animation: glow 2s ease-in-out infinite alternate;
 }
 
+.spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
 /* Efectos hover mejorados */
 .hover-lift {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -220,23 +233,23 @@ body {
   transform: translateY(-2px);
 }
 
-/* Botones mejorados */
+/* Botones mejorados para GoToBuy */
 .btn-primary {
-  @apply bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
+  @apply bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1;
 }
 
 .btn-secondary {
-  @apply bg-white text-gray-700 border-2 border-gray-200 hover:border-emerald-300 hover:text-emerald-600 font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg;
+  @apply bg-white text-gray-700 border-2 border-gray-200 hover:border-blue-300 hover:text-blue-600 font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg;
 }
 
 .btn-ghost {
-  @apply bg-transparent text-gray-600 hover:text-emerald-600 hover:bg-emerald-50 font-medium py-2 px-4 rounded-lg transition-all duration-300;
+  @apply bg-transparent text-gray-600 hover:text-blue-600 hover:bg-blue-50 font-medium py-2 px-4 rounded-lg transition-all duration-300;
 }
 
 /* Estilos de scrollbar personalizados */
 .custom-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: var(--primary-emerald) #f1f5f9;
+  scrollbar-color: var(--primary-blue) #f1f5f9;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -250,13 +263,13 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, var(--primary-emerald), var(--primary-teal));
+  background: linear-gradient(135deg, var(--primary-blue), var(--primary-indigo));
   border-radius: 4px;
   transition: background 0.3s ease;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #059669, #0d9488);
+  background: linear-gradient(135deg, #1d4ed8, #3730a3);
 }
 
 /* Estados de carga mejorados */
@@ -302,7 +315,7 @@ body {
 /* Efectos de partículas */
 .particle {
   position: absolute;
-  background: var(--primary-emerald);
+  background: var(--primary-blue);
   border-radius: 50%;
   pointer-events: none;
   animation: float 8s linear infinite;
@@ -314,25 +327,25 @@ body {
 .particle:nth-child(3) { left: 60%; animation-delay: 4s; }
 .particle:nth-child(4) { left: 80%; animation-delay: 6s; }
 
-/* Gradientes personalizados */
-.gradient-emerald {
-  background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+/* Gradientes personalizados para GoToBuy */
+.gradient-blue {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
 }
 
-.gradient-blue {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+.gradient-indigo {
+  background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
 }
 
 .gradient-purple {
   background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
 }
 
-.gradient-pink {
-  background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);
+.gradient-cyan {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
 }
 
-.gradient-orange {
-  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+.gradient-green {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
 }
 
 /* Efectos de texto */
@@ -385,11 +398,11 @@ body {
 
 /* Estados de focus mejorados */
 .focus-ring {
-  @apply focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 focus:ring-offset-white;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-white;
 }
 
 .focus-ring-dark {
-  @apply focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-gray-900;
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900;
 }
 
 /* Efectos de card mejorados */
@@ -398,7 +411,7 @@ body {
 }
 
 .card:hover {
-  @apply shadow-2xl border-emerald-200 transform -translate-y-1;
+  @apply shadow-2xl border-blue-200 transform -translate-y-1;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 30px var(--shadow-color);
 }
 
@@ -407,7 +420,7 @@ body {
 }
 
 .card-dark:hover {
-  @apply border-emerald-600;
+  @apply border-blue-600;
 }
 
 /* Efectos de badge */
@@ -527,7 +540,7 @@ body {
 }
 
 .focus-visible:focus {
-  outline: 2px solid var(--primary-emerald);
+  outline: 2px solid var(--primary-blue);
   outline-offset: 2px;
 }
 
@@ -541,4 +554,263 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Estilos específicos para GoToBuy */
+.gotobuy-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #7c3aed 100%);
+}
+
+.gotobuy-text-gradient {
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gotobuy-shadow {
+  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.1), 0 2px 4px -1px rgba(37, 99, 235, 0.06);
+}
+
+.gotobuy-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1), 0 4px 6px -2px rgba(37, 99, 235, 0.05);
+}
+
+/* Animaciones específicas para productos */
+.product-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.25);
+}
+
+/* Efectos para el carrito */
+.cart-item-enter {
+  animation: slideInRight 0.3s ease-out;
+}
+
+.cart-item-exit {
+  animation: slideInRight 0.3s ease-in reverse;
+}
+
+/* Loader personalizado */
+.gotobuy-loader {
+  border: 3px solid #e5e7eb;
+  border-top: 3px solid #2563eb;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 1s linear infinite;
+}
+
+/* Efectos para botones de redes sociales */
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-3px) scale(1.1);
+}
+
+/* Patrones de fondo */
+.pattern-dots {
+  background-image: radial-gradient(circle, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.pattern-grid {
+  background-image: linear-gradient(rgba(37, 99, 235, 0.1) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(37, 99, 235, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Efectos de typing */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #2563eb; }
+}
+
+.typing-effect {
+  overflow: hidden;
+  border-right: 2px solid #2563eb;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Efectos de reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.6s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Estilos para badges de productos */
+.product-badge {
+  @apply absolute top-2 left-2 px-2 py-1 text-xs font-bold rounded-full;
+}
+
+.badge-new {
+  @apply bg-green-500 text-white;
+}
+
+.badge-sale {
+  @apply bg-red-500 text-white;
+}
+
+.badge-hot {
+  @apply bg-orange-500 text-white;
+}
+
+.badge-limited {
+  @apply bg-purple-500 text-white;
+}
+
+/* Efectos de brillo */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s ease;
+}
+
+.shine-effect:hover::before {
+  left: 100%;
+}
+
+/* Mejoras para móviles */
+@media (max-width: 768px) {
+  .mobile-optimize {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  
+  .mobile-scroll {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Efectos de parallax ligero */
+.parallax-light {
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+/* Transiciones suaves para todos los elementos interactivos */
+button, a, input, select, textarea {
+  transition: all 0.2s ease;
+}
+
+/* Estilos para tooltips */
+.tooltip {
+  position: relative;
+}
+
+.tooltip:before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.tooltip:hover:before {
+  opacity: 1;
+}
+
+/* Efectos de contador animado */
+@keyframes count-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.animate-count {
+  animation: count-up 0.5s ease-out;
+}
+
+/* Efectos de progress bar */
+.progress-bar {
+  background: linear-gradient(90deg, #2563eb 0%, #4f46e5 100%);
+  height: 4px;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Estilos para modal overlay */
+.modal-overlay {
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Efectos de entrada para modales */
+.modal-enter {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal-content-enter {
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Utilidades finales */
+.overflow-hidden-mobile {
+  @apply md:overflow-visible overflow-hidden;
+}
+
+.aspect-ratio-square {
+  aspect-ratio: 1 / 1;
+}
+
+.aspect-ratio-video {
+  aspect-ratio: 16 / 9;
+}
+
+.aspect-ratio-photo {
+  aspect-ratio: 4 / 3;
 }

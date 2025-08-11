@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, ArrowDown, Truck, Clock, Shield, Star } from 'lucide-react';
+import { Phone, ArrowDown, Truck, Clock, Shield, Star, Package, Heart } from 'lucide-react';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   
   const slides = [
     {
-      title: "Tu tienda de barrio",
-      subtitle: "ahora online",
-      description: "Compra todos tus productos favoritos desde la comodidad de tu hogar. Entregas rápidas y precios justos, como siempre.",
-      bg: "from-emerald-600 via-teal-600 to-cyan-600"
+      title: "Productos únicos",
+      subtitle: "calidad premium",
+      description: "Descubre una selección exclusiva de productos para tu hogar, belleza y bienestar. Calidad garantizada y envíos rápidos a toda Colombia.",
+      bg: "from-blue-600 via-indigo-600 to-purple-600"
     },
     {
-      title: "Productos frescos",
-      subtitle: "todos los días",
-      description: "Carnes, lácteos, frutas y verduras frescas. Calidad garantizada con la confianza de siempre.",
-      bg: "from-blue-600 via-purple-600 to-pink-600"
+      title: "Envíos gratuitos",
+      subtitle: "en compras +$80.000",
+      description: "Recibe tus productos favoritos sin costo adicional. Entrega rápida y segura directo a tu puerta.",
+      bg: "from-indigo-600 via-blue-600 to-cyan-600"
     },
     {
-      title: "Domicilios gratis",
-      subtitle: "en compras +$30.000",
-      description: "Recibe tus productos en casa sin costo adicional. Rápido, seguro y confiable.",
-      bg: "from-orange-500 via-red-500 to-pink-500"
+      title: "Compra segura",
+      subtitle: "pago contra entrega",
+      description: "Paga cuando recibas tu pedido. Tu satisfacción es nuestra prioridad número uno.",
+      bg: "from-purple-600 via-indigo-600 to-blue-600"
     }
   ];
 
@@ -40,106 +40,130 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative flex items-center justify-center overflow-hidden pt-16 sm:pt-20 pb-8">
+    <section id="inicio" className="relative flex items-center justify-center overflow-hidden pt-16 sm:pt-20 pb-8 min-h-screen">
       {/* Background con gradiente animado */}
       <div className={`absolute inset-0 bg-gradient-to-br ${slides[currentSlide].bg} transition-all duration-1000`}>
         <div className="absolute inset-0 bg-black/20"></div>
         {/* Elementos decorativos */}
         <div className="absolute top-10 left-5 w-48 h-48 bg-white/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-10 right-5 w-64 h-64 bg-white/5 rounded-full blur-3xl animate-float-delayed"></div>
+        <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Contenido principal */}
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-4 animate-fade-in">
-              <Star className="w-4 h-4 mr-2 text-yellow-300" />
-              Más de 1 año sirviendo a nuestra comunidad
+            <div className="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm font-medium mb-6 animate-fade-in">
+              <Package className="w-4 h-4 mr-2 text-yellow-300" />
+              Tu tienda online de confianza
             </div>
             
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-tight">
-              {slides[currentSlide].title}
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300 animate-gradient">
-                {slides[currentSlide].subtitle}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 leading-tight">
+              <span className="block">GoTo</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-orange-300 to-pink-300 animate-gradient">
+                Buy
               </span>
             </h1>
             
-            <p className="text-base sm:text-lg text-white/90 mb-6 max-w-2xl leading-relaxed">
-              {slides[currentSlide].description}
-            </p>
+            <div className="mb-8">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-semibold text-white/90 mb-4">
+                {slides[currentSlide].title}{' '}
+                <span className="text-yellow-300">{slides[currentSlide].subtitle}</span>
+              </h2>
+              <p className="text-lg sm:text-xl text-white/80 max-w-2xl leading-relaxed">
+                {slides[currentSlide].description}
+              </p>
+            </div>
             
-            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
               <button 
                 onClick={handleScrollToProducts}
-                className="group bg-white text-gray-900 px-6 py-3 rounded-xl text-base font-semibold transition-all duration-300 shadow-2xl hover:shadow-white/25 hover:scale-105 transform hover:-translate-y-1"
+                className="group bg-white text-blue-600 px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 shadow-2xl hover:shadow-white/25 hover:scale-105 transform hover:-translate-y-1"
                 type="button"
               >
+                <Package className="inline-block mr-2 w-5 h-5" />
                 Ver Productos
-                <ArrowDown className="inline-block ml-2 w-4 h-4 group-hover:animate-bounce" />
+                <ArrowDown className="inline-block ml-2 w-5 h-5 group-hover:animate-bounce" />
               </button>
               <a 
-                href="https://wa.me/573113670631?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20productos" 
+                href="https://wa.me/573008226497?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20GoToBuy" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="group bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl text-base font-semibold transition-all duration-300 shadow-2xl hover:shadow-green-500/25 hover:scale-105 transform hover:-translate-y-1 flex items-center justify-center"
+                className="group bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 shadow-2xl hover:shadow-green-500/25 hover:scale-105 transform hover:-translate-y-1 flex items-center justify-center"
               >
-                <Phone className="mr-2 h-4 w-4 group-hover:animate-pulse" />
+                <Phone className="mr-2 h-5 w-5 group-hover:animate-pulse" />
                 WhatsApp
               </a>
             </div>
 
             {/* Indicadores del slider */}
-            <div className="flex justify-center lg:justify-start space-x-3 mt-6">
+            <div className="flex justify-center lg:justify-start space-x-3 mb-8">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                    index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentSlide ? 'bg-white scale-125 shadow-lg' : 'bg-white/50 hover:bg-white/75'
                   }`}
                 />
               ))}
+            </div>
+
+            {/* Estadísticas */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-6">
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-white">8+</div>
+                <div className="text-white/80 text-sm">Productos</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-white">100%</div>
+                <div className="text-white/80 text-sm">Calidad</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl sm:text-3xl font-bold text-white">24/7</div>
+                <div className="text-white/80 text-sm">Soporte</div>
+              </div>
             </div>
           </div>
           
           {/* Tarjetas de beneficios */}
           <div className="relative">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                <div className="bg-gradient-to-r from-emerald-500 to-teal-500 w-10 h-10 rounded-lg flex items-center justify-center mb-3 mx-auto sm:mx-0">
-                  <Truck className="w-5 h-5 text-white" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group">
+                <div className="bg-gradient-to-r from-blue-500 to-indigo-500 w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto sm:mx-0 group-hover:scale-110 transition-transform duration-300">
+                  <Truck className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 text-base mb-1 text-center sm:text-left">Domicilios</h3>
-                <p className="text-emerald-600 font-semibold text-sm text-center sm:text-left">Gratis sobre $30.000</p>
-                <p className="text-gray-600 text-xs mt-1 text-center sm:text-left">Entrega rápida y segura</p>
+                <h3 className="font-bold text-gray-900 text-lg mb-2 text-center sm:text-left">Envíos Gratis</h3>
+                <p className="text-blue-600 font-semibold text-sm text-center sm:text-left mb-1">Sobre $80.000</p>
+                <p className="text-gray-600 text-xs text-center sm:text-left">Entrega rápida y segura</p>
               </div>
               
-              <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                <div className="bg-gradient-to-r from-blue-500 to-purple-500 w-10 h-10 rounded-lg flex items-center justify-center mb-3 mx-auto sm:mx-0">
-                  <Clock className="w-5 h-5 text-white" />
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group">
+                <div className="bg-gradient-to-r from-purple-500 to-pink-500 w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto sm:mx-0 group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 text-base mb-1 text-center sm:text-left">Horarios</h3>
-                <p className="text-blue-600 font-semibold text-sm text-center sm:text-left">6:00 AM - 10:00 PM</p>
-                <p className="text-gray-600 text-xs mt-1 text-center sm:text-left">Todos los días</p>
+                <h3 className="font-bold text-gray-900 text-lg mb-2 text-center sm:text-left">Atención</h3>
+                <p className="text-purple-600 font-semibold text-sm text-center sm:text-left mb-1">24/7 WhatsApp</p>
+                <p className="text-gray-600 text-xs text-center sm:text-left">Siempre disponibles</p>
               </div>
               
-              <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                <div className="bg-gradient-to-r from-purple-500 to-pink-500 w-10 h-10 rounded-lg flex items-center justify-center mb-3 mx-auto sm:mx-0">
-                  <Shield className="w-5 h-5 text-white" />
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group">
+                <div className="bg-gradient-to-r from-green-500 to-emerald-500 w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto sm:mx-0 group-hover:scale-110 transition-transform duration-300">
+                  <Shield className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 text-base mb-1 text-center sm:text-left">Calidad</h3>
-                <p className="text-purple-600 font-semibold text-sm text-center sm:text-left">Garantizada</p>
-                <p className="text-gray-600 text-xs mt-1 text-center sm:text-left">Productos frescos</p>
+                <h3 className="font-bold text-gray-900 text-lg mb-2 text-center sm:text-left">Calidad</h3>
+                <p className="text-green-600 font-semibold text-sm text-center sm:text-left mb-1">Garantizada</p>
+                <p className="text-gray-600 text-xs text-center sm:text-left">Productos premium</p>
               </div>
               
-              <div className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:-translate-y-1 hover:scale-105">
-                <div className="bg-gradient-to-r from-orange-500 to-red-500 w-10 h-10 rounded-lg flex items-center justify-center mb-3 mx-auto sm:mx-0">
-                  <Star className="w-5 h-5 text-white" />
+              <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl hover:shadow-3xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105 group">
+                <div className="bg-gradient-to-r from-orange-500 to-red-500 w-12 h-12 rounded-xl flex items-center justify-center mb-4 mx-auto sm:mx-0 group-hover:scale-110 transition-transform duration-300">
+                  <Heart className="w-6 h-6 text-white" />
                 </div>
-                <h3 className="font-bold text-gray-900 text-base mb-1 text-center sm:text-left">Confianza</h3>
-                <p className="text-orange-600 font-semibold text-sm text-center sm:text-left">+1 años</p>
-                <p className="text-gray-600 text-xs mt-1 text-center sm:text-left">De experiencia</p>
+                <h3 className="font-bold text-gray-900 text-lg mb-2 text-center sm:text-left">Confianza</h3>
+                <p className="text-orange-600 font-semibold text-sm text-center sm:text-left mb-1">100% Seguro</p>
+                <p className="text-gray-600 text-xs text-center sm:text-left">Pago contra entrega</p>
               </div>
             </div>
           </div>
@@ -147,8 +171,8 @@ const Hero = () => {
       </div>
 
       {/* Indicador de scroll */}
-      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
-        <ArrowDown className="w-5 h-5" />
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+        <ArrowDown className="w-6 h-6" />
       </div>
 
       <style jsx>{`

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { X, Plus, Minus, Phone, ShoppingBag, Trash2, Gift, Truck } from 'lucide-react';
+import { X, Plus, Minus, Phone, ShoppingBag, Trash2, Gift, Truck, Package } from 'lucide-react';
 
 const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   
   const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  const freeShippingThreshold = 30000;
+  const freeShippingThreshold = 80000;
   const remainingForFreeShipping = Math.max(0, freeShippingThreshold - total);
   
   useEffect(() => {
@@ -23,10 +23,11 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
   }, [isOpen]);
   
   const handleWhatsAppCheckout = () => {
-    let message = "🛒 *MI PEDIDO* 🛒%0A%0A";
+    let message = "🛒 *MI PEDIDO GOTOBUY* 🛒%0A%0A";
     
     cartItems.forEach((item, index) => {
       message += `${index + 1}. *${item.name}*%0A`;
+      message += `   📦 SKU: ${item.sku}%0A`;
       message += `   📦 Cantidad: ${item.quantity}%0A`;
       message += `   💰 Precio unitario: $${item.price.toLocaleString()}%0A`;
       message += `   💵 Subtotal: $${(item.price * item.quantity).toLocaleString()}%0A%0A`;
@@ -38,13 +39,14 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
     if (total >= freeShippingThreshold) {
       message += `🚚 *¡DOMICILIO GRATIS!* 🎉%0A%0A`;
     } else {
-      message += `🚚 Domicilio: $3.000%0A`;
+      message += `🚚 Domicilio: $5.000%0A`;
       message += `💡 Solo te faltan $${remainingForFreeShipping.toLocaleString()} para domicilio gratis%0A%0A`;
     }
     
-    message += "¿Podrían confirmar disponibilidad y tiempo de entrega? ¡Gracias! 😊";
+    message += "¿Podrían confirmar disponibilidad y tiempo de entrega? ¡Gracias! 😊%0A%0A";
+    message += "*GoToBuy - Tu tienda online de confianza* 🛍️";
     
-    window.open(`https://wa.me/573113670631?text=${message}`, '_blank');
+    window.open(`https://wa.me/573008226497?text=${message}`, '_blank');
   };
 
   const handleRemoveItem = (id) => {
@@ -64,7 +66,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
       }`}>
         
         {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-4 sm:p-6 z-10 shadow-lg">
+        <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-4 sm:p-6 z-10 shadow-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 p-2 rounded-xl">
@@ -72,6 +74,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
               </div>
               <div>
                 <h2 className="text-xl sm:text-2xl font-bold">Mi Carrito</h2>
+                <p className="text-blue-100 text-sm">GoToBuy</p>
                 {itemCount > 0 && (
                   <p className="text-white/80 text-sm">
                     {itemCount} {itemCount === 1 ? 'producto' : 'productos'}
@@ -90,14 +93,14 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
           {/* Barra de progreso para envío gratis */}
           {total < freeShippingThreshold && total > 0 && (
             <div className="mt-4 bg-white/20 rounded-full p-1">
-              <div className="bg-white/80 rounded-full p-3">
+              <div className="bg-white/90 rounded-full p-3">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-gray-700 text-sm font-medium">Envío gratis</span>
                   <span className="text-gray-700 text-sm font-bold">${freeShippingThreshold.toLocaleString()}</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
                   <div 
-                    className="bg-gradient-to-r from-emerald-500 to-teal-500 h-2 rounded-full transition-all duration-500"
+                    className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full transition-all duration-500"
                     style={{ width: `${Math.min((total / freeShippingThreshold) * 100, 100)}%` }}
                   ></div>
                 </div>
@@ -114,20 +117,21 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
           {cartItems.length === 0 ? (
             /* Carrito vacío */
             <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-12">
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-full p-12 mb-6">
-                <ShoppingBag className="h-20 w-20 text-gray-400" />
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-full p-12 mb-6">
+                <ShoppingBag className="h-20 w-20 text-blue-400" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Tu carrito está vacío
               </h3>
               <p className="text-gray-500 mb-8 max-w-sm">
-                Descubre nuestros productos frescos y de calidad. 
+                Descubre nuestros productos únicos y de calidad premium. 
                 ¡Agrega algunos para comenzar tu compra!
               </p>
               <button
                 onClick={onClose}
-                className="bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
+                <Package className="inline w-5 h-5 mr-2" />
                 Continuar comprando
               </button>
             </div>
@@ -138,7 +142,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                 {cartItems.map((item, index) => (
                   <div 
                     key={item.id} 
-                    className="bg-gradient-to-r from-white to-gray-50 rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100"
+                    className="bg-gradient-to-r from-white to-blue-50 rounded-2xl p-4 sm:p-5 shadow-md hover:shadow-lg transition-all duration-300 border border-blue-100"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="flex items-start gap-4">
@@ -157,9 +161,12 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                       
                       <div className="flex-1 min-w-0">
                         <div className="flex justify-between items-start mb-2">
-                          <h3 className="font-bold text-gray-900 text-sm sm:text-base line-clamp-2">
-                            {item.name}
-                          </h3>
+                          <div>
+                            <h3 className="font-bold text-gray-900 text-sm sm:text-base line-clamp-2">
+                              {item.name}
+                            </h3>
+                            <p className="text-blue-600 text-xs font-medium">SKU: {item.sku}</p>
+                          </div>
                           <button
                             onClick={() => handleRemoveItem(item.id)}
                             className="text-red-500 hover:text-red-700 p-1 hover:bg-red-50 rounded-full transition-all duration-300 ml-2"
@@ -170,7 +177,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                         </div>
                         
                         <div className="flex items-center justify-between">
-                          <div className="text-emerald-600 font-bold text-lg">
+                          <div className="text-blue-600 font-bold text-lg">
                             ${item.price.toLocaleString()}
                           </div>
                           {item.originalPrice && (
@@ -183,24 +190,24 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                     </div>
                     
                     {/* Controles de cantidad */}
-                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-200">
+                    <div className="flex items-center justify-between mt-4 pt-4 border-t border-blue-200">
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-emerald-300 rounded-full w-9 h-9 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md"
+                          className="bg-white hover:bg-blue-50 border-2 border-blue-200 hover:border-blue-300 rounded-full w-9 h-9 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md"
                         >
-                          <Minus className="h-4 w-4 text-gray-600" />
+                          <Minus className="h-4 w-4 text-blue-600" />
                         </button>
-                        <div className="bg-emerald-50 px-4 py-2 rounded-xl">
-                          <span className="text-emerald-800 font-bold text-lg">
+                        <div className="bg-blue-50 px-4 py-2 rounded-xl">
+                          <span className="text-blue-800 font-bold text-lg">
                             {item.quantity}
                           </span>
                         </div>
                         <button
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          className="bg-white hover:bg-gray-50 border-2 border-gray-200 hover:border-emerald-300 rounded-full w-9 h-9 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md"
+                          className="bg-white hover:bg-blue-50 border-2 border-blue-200 hover:border-blue-300 rounded-full w-9 h-9 flex items-center justify-center transition-all duration-300 shadow-sm hover:shadow-md"
                         >
-                          <Plus className="h-4 w-4 text-gray-600" />
+                          <Plus className="h-4 w-4 text-blue-600" />
                         </button>
                       </div>
                       <div className="text-right">
@@ -218,7 +225,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
               <div className="sticky bottom-0 bg-white border-t border-gray-200 p-4 sm:p-6 shadow-lg">
                 <div className="space-y-4">
                   {/* Resumen de costos */}
-                  <div className="bg-gray-50 rounded-2xl p-4 space-y-3">
+                  <div className="bg-blue-50 rounded-2xl p-4 space-y-3">
                     <div className="flex justify-between text-gray-600">
                       <span>Subtotal ({itemCount} {itemCount === 1 ? 'producto' : 'productos'})</span>
                       <span>${total.toLocaleString()}</span>
@@ -226,13 +233,13 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                     <div className="flex justify-between text-gray-600">
                       <span>Domicilio</span>
                       <span className={total >= freeShippingThreshold ? 'text-green-600 font-semibold' : ''}>
-                        {total >= freeShippingThreshold ? 'GRATIS' : '$3.000'}
+                        {total >= freeShippingThreshold ? 'GRATIS' : '$5.000'}
                       </span>
                     </div>
                     <div className="border-t pt-3 flex justify-between items-center">
                       <span className="text-xl font-bold text-gray-900">Total:</span>
-                      <span className="text-2xl font-bold text-emerald-600">
-                        ${(total >= freeShippingThreshold ? total : total + 3000).toLocaleString()}
+                      <span className="text-2xl font-bold text-blue-600">
+                        ${(total >= freeShippingThreshold ? total : total + 5000).toLocaleString()}
                       </span>
                     </div>
                   </div>
@@ -260,7 +267,8 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                   
                   <p className="text-xs text-gray-500 text-center leading-relaxed">
                     Serás redirigido a WhatsApp para confirmar tu pedido.<br />
-                    <span className="text-emerald-600 font-medium">Pago contra entrega disponible</span>
+                    <span className="text-blue-600 font-medium">Pago contra entrega disponible</span> • 
+                    <span className="text-green-600 font-medium"> Envío gratis sobre $80.000</span>
                   </p>
                 </div>
               </div>
@@ -277,11 +285,11 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
           background: #f1f5f9;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #10b981;
+          background: #3b82f6;
           border-radius: 3px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #059669;
+          background: #2563eb;
         }
       `}</style>
     </div>
