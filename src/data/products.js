@@ -11,7 +11,7 @@ export const products = [
     longDescription: "Masajeador de cuello con función de calor. El calor magnético de 45±5℃ calienta la piel, combinado con un masaje 3D para promover la absorción de los productos para el cuidado de la piel. Puede promover la síntesis de proteínas y colágeno, activar la piel, tensar la piel flácida y reducir los poros.",
     inStock: true,
     discount: 29,
-    sku: "masajedordelfin",
+    sku: "masajeador-delfin",
     specifications: [
       "Material: ABS premium",
       "Carga USB incluida",
@@ -36,29 +36,58 @@ export const products = [
     ]
   },
 
-
-
-  // Set Utensilios Cocina - Negro
+  // Set Utensilios Cocina - PRODUCTO ÚNICO CON VARIANTES DE COLOR
   {
-    id: 5,
-    name: "Set Utensilios Cocina Negro 12pcs",
+    id: 2,
+    name: "Set Utensilios Cocina 12pcs",
     price: 35500,
     originalPrice: 48000,
     category: "cocina",
     image: "/assets/images/utensilios.webp",
     description: "Set de 12 utensilios de silicona con mango de madera, resistente al calor, incluye contenedor",
-    longDescription: "Juego completo de utensilios de cocina de silicona de grado alimenticio con mangos de madera premium. Resistente al calor, fácil de limpiar y con contenedor organizador incluido.",
+    longDescription: "Juego completo de utensilios de cocina de silicona de grado alimenticio con mangos de madera premium. Resistente al calor, fácil de limpiar y con contenedor organizador incluido. Disponible en 4 colores elegantes.",
     inStock: true,
     discount: 26,
-    sku: "utensilios-negro",
-    color: "Negro",
+    sku: "utensilios-cocina-12pcs",
+    hasVariants: true,
+    variants: [
+      {
+        id: "negro",
+        name: "Negro",
+        color: "#1f2937",
+        image: "/assets/images/utensilios-negro.webp",
+        sku: "utensilios-negro"
+      },
+      {
+        id: "verde",
+        name: "Verde",
+        color: "#059669",
+        image: "/assets/images/utensilios-verde.webp", 
+        sku: "utensilios-verde"
+      },
+      {
+        id: "gris",
+        name: "Gris",
+        color: "#6b7280",
+        image: "/assets/images/utensilios-gris.webp",
+        sku: "utensilios-gris"
+      },
+      {
+        id: "rosado",
+        name: "Rosado",
+        color: "#ec4899",
+        image: "/assets/images/utensilios-rosado.webp",
+        sku: "utensilios-rosado"
+      }
+    ],
     specifications: [
       "Material: Silicona grado alimenticio",
       "Mango: Madera premium",
       "Resistente al calor hasta 230°C",
       "Sin BPA",
       "12 piezas + contenedor",
-      "Fácil limpieza"
+      "Fácil limpieza",
+      "4 colores disponibles"
     ],
     includes: [
       "11 Utensilios de silicona",
@@ -70,121 +99,14 @@ export const products = [
       "No raya superficies antiadherentes",
       "Mango ergonómico",
       "Fácil almacenamiento",
-      "Duradero y seguro"
-    ]
-  },
-
-  // Set Utensilios Cocina - Verde
-  {
-    id: 6,
-    name: "Set Utensilios Cocina Verde 12pcs",
-    price: 35500,
-    originalPrice: 48000,
-    category: "cocina",
-    image: "/assets/images/utensilios.webp",
-    description: "Set de 12 utensilios de silicona con mango de madera, resistente al calor, incluye contenedor",
-    longDescription: "Juego completo de utensilios de cocina de silicona de grado alimenticio con mangos de madera premium. Resistente al calor, fácil de limpiar y con contenedor organizador incluido.",
-    inStock: true,
-    discount: 26,
-    sku: "utensilios-verde",
-    color: "Verde",
-    specifications: [
-      "Material: Silicona grado alimenticio",
-      "Mango: Madera premium",
-      "Resistente al calor hasta 230°C",
-      "Sin BPA",
-      "12 piezas + contenedor",
-      "Fácil limpieza"
-    ],
-    includes: [
-      "11 Utensilios de silicona",
-      "1 Contenedor organizador",
-      "Manual de cuidado"
-    ],
-    benefits: [
-      "Resistente al calor",
-      "No raya superficies antiadherentes",
-      "Mango ergonómico",
-      "Fácil almacenamiento",
-      "Duradero y seguro"
-    ]
-  },
-
-  // Set Utensilios Cocina - Gris
-  {
-    id: 7,
-    name: "Set Utensilios Cocina Gris 12pcs",
-    price: 35500,
-    originalPrice: 48000,
-    category: "cocina",
-    image: "/assets/images/utensilios.webp",
-    description: "Set de 12 utensilios de silicona con mango de madera, resistente al calor, incluye contenedor",
-    longDescription: "Juego completo de utensilios de cocina de silicona de grado alimenticio con mangos de madera premium. Resistente al calor, fácil de limpiar y con contenedor organizador incluido.",
-    inStock: true,
-    discount: 26,
-    sku: "utensilios-gris",
-    color: "Gris",
-    specifications: [
-      "Material: Silicona grado alimenticio",
-      "Mango: Madera premium",
-      "Resistente al calor hasta 230°C",
-      "Sin BPA",
-      "12 piezas + contenedor",
-      "Fácil limpieza"
-    ],
-    includes: [
-      "11 Utensilios de silicona",
-      "1 Contenedor organizador",
-      "Manual de cuidado"
-    ],
-    benefits: [
-      "Resistente al calor",
-      "No raya superficies antiadherentes",
-      "Mango ergonómico",
-      "Fácil almacenamiento",
-      "Duradero y seguro"
-    ]
-  },
-
-  // Set Utensilios Cocina - Rosado
-  {
-    id: 8,
-    name: "Set Utensilios Cocina Rosado 12pcs",
-    price: 35500,
-    originalPrice: 48000,
-    category: "cocina",
-    image: "/assets/images/utensilios.webp",
-    description: "Set de 12 utensilios de silicona con mango de madera, resistente al calor, incluye contenedor",
-    longDescription: "Juego completo de utensilios de cocina de silicona de grado alimenticio con mangos de madera premium. Resistente al calor, fácil de limpiar y con contenedor organizador incluido.",
-    inStock: true,
-    discount: 26,
-    sku: "utensilios-rosado",
-    color: "Rosado",
-    specifications: [
-      "Material: Silicona grado alimenticio",
-      "Mango: Madera premium",
-      "Resistente al calor hasta 230°C",
-      "Sin BPA",
-      "12 piezas + contenedor",
-      "Fácil limpieza"
-    ],
-    includes: [
-      "11 Utensilios de silicona",
-      "1 Contenedor organizador",
-      "Manual de cuidado"
-    ],
-    benefits: [
-      "Resistente al calor",
-      "No raya superficies antiadherentes",
-      "Mango ergonómico",
-      "Fácil almacenamiento",
-      "Duradero y seguro"
+      "Duradero y seguro",
+      "Múltiples colores disponibles"
     ]
   },
 
   // Vape Recargable
   {
-    id: 9,
+    id: 3,
     name: "Vape Recargable 15000 Puffs",
     price: 60000,
     originalPrice: 75000,

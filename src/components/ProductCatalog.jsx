@@ -69,52 +69,51 @@ const ProductCatalog = ({ addToCart }) => {
           </p>
         </div>
 
-        {/* Barra de filtros rediseñada */}
+        {/* Barra de filtros rediseñada para móviles */}
         <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 mb-8">
           
-          {/* Fila principal de controles */}
-          <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between mb-4">
-            
-            {/* Búsqueda mejorada */}
-            <div className="relative flex-1 max-w-md w-full">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-              <input
-                type="text"
-                placeholder="Buscar por nombre, SKU..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm"
-              />
-              {searchTerm && (
-                <button
-                  onClick={() => setSearchTerm('')}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
-                  aria-label="Limpiar búsqueda"
-                >
-                  <span className="text-lg font-medium">×</span>
-                </button>
-              )}
-            </div>
-            
-            {/* Controles de la derecha */}
-            <div className="flex items-center gap-3 w-full sm:w-auto">
-              
-              {/* Ordenamiento */}
-              <div className="flex items-center gap-2 flex-1 sm:flex-none">
-                <Sliders className="h-4 w-4 text-gray-500 hidden sm:block" />
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="flex-1 sm:w-auto px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm min-w-0"
-                >
-                  <option value="name">Nombre A-Z</option>
-                  <option value="price-low">Precio Menor</option>
-                  <option value="price-high">Precio Mayor</option>
-                  <option value="discount">Descuento</option>
-                  <option value="stock">Disponibilidad</option>
-                </select>
-              </div>
+          {/* Búsqueda principal */}
+          <div className="relative mb-4">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+            <input
+              type="text"
+              placeholder="Buscar productos..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 text-sm"
+            />
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm('')}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                aria-label="Limpiar búsqueda"
+              >
+                <span className="text-lg font-medium">×</span>
+              </button>
+            )}
+          </div>
 
+          {/* Controles en fila */}
+          <div className="flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-between">
+            
+            {/* Ordenamiento */}
+            <div className="flex items-center gap-2 flex-1 sm:flex-none">
+              <Sliders className="h-4 w-4 text-gray-500 hidden sm:block" />
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="flex-1 sm:w-auto px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white text-sm min-w-0"
+              >
+                <option value="name">Nombre A-Z</option>
+                <option value="price-low">Precio Menor</option>
+                <option value="price-high">Precio Mayor</option>
+                <option value="discount">Descuento</option>
+                <option value="stock">Disponibilidad</option>
+              </select>
+            </div>
+
+            {/* Vista y filtros */}
+            <div className="flex items-center gap-3">
               {/* Vista */}
               <div className="hidden md:flex bg-gray-100 rounded-lg p-1">
                 <button
@@ -123,7 +122,6 @@ const ProductCatalog = ({ addToCart }) => {
                     viewMode === 'grid' ? 'bg-white shadow-sm text-blue-600' : 'text-gray-500 hover:text-gray-700'
                   }`}
                   title="Vista cuadrícula"
-                  aria-label="Vista cuadrícula"
                 >
                   <Grid className="h-4 w-4" />
                 </button>
@@ -133,44 +131,44 @@ const ProductCatalog = ({ addToCart }) => {
                     viewMode === 'list' ? 'bg-white shadow-sm text-blue-600' : 'text-gray-500 hover:text-gray-700'
                   }`}
                   title="Vista lista"
-                  aria-label="Vista lista"
                 >
                   <List className="h-4 w-4" />
                 </button>
               </div>
 
-              {/* Botón filtros móvil */}
+              {/* Botón filtros */}
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className="sm:hidden bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors shadow-md"
-                aria-label={showFilters ? 'Ocultar filtros' : 'Mostrar filtros'}
+                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors shadow-md flex items-center gap-2"
               >
                 <Filter className="h-4 w-4" />
+                <span className="hidden sm:inline">Filtros</span>
               </button>
             </div>
           </div>
 
-          {/* Categorías mejoradas */}
-          <div className={`${showFilters ? 'block' : 'hidden'} sm:block transition-all duration-300`}>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
-              <span className="text-gray-700 font-medium text-sm flex items-center flex-shrink-0">
+          {/* Panel de categorías colapsible */}
+          <div className={`transition-all duration-300 overflow-hidden ${
+            showFilters ? 'max-h-96 opacity-100 mt-4 pt-4 border-t border-gray-200' : 'max-h-0 opacity-0'
+          }`}>
+            <div className="flex flex-col gap-3">
+              <span className="text-gray-700 font-medium text-sm flex items-center">
                 <Package className="w-4 h-4 mr-2" />
                 Categorías:
               </span>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
                 {categories.map(category => (
                   <button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 border ${
+                    className={`px-3 py-2 rounded-full text-xs font-medium transition-all duration-300 hover:scale-105 border text-center ${
                       selectedCategory === category.id
                         ? 'bg-blue-600 text-white border-blue-600 shadow-md'
                         : 'bg-white text-gray-700 border-gray-200 hover:bg-gray-50 hover:border-gray-300'
                     }`}
                   >
                     <span className="mr-1.5">{category.icon}</span>
-                    <span className="hidden sm:inline">{category.name}</span>
-                    <span className="sm:hidden">{category.name.split(' ')[0]}</span>
+                    <span>{category.name}</span>
                   </button>
                 ))}
               </div>
@@ -178,7 +176,9 @@ const ProductCatalog = ({ addToCart }) => {
           </div>
 
           {/* Información de resultados */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-4 border-t border-gray-100 text-sm text-gray-600 gap-2">
+          <div className={`flex flex-col sm:flex-row sm:items-center justify-between pt-4 border-t border-gray-100 text-sm text-gray-600 gap-2 ${
+            showFilters ? 'mt-4' : 'mt-4'
+          }`}>
             <div className="flex flex-wrap items-center gap-4">
               <span className="font-medium">
                 {filteredProducts.length} productos
@@ -210,18 +210,18 @@ const ProductCatalog = ({ addToCart }) => {
           </div>
         </div>
 
-        {/* Grid/Lista de productos */}
+        {/* Grid responsivo mejorado */}
         <div className={`transition-all duration-500 ${
           viewMode === 'grid' 
-            ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6' 
-            : 'space-y-4'
+            ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8' 
+            : 'space-y-6'
         }`}>
           {filteredProducts.map((product, index) => (
             <div
               key={product.id}
-              className="opacity-0 animate-fade-in"
+              className="opacity-0 animate-fade-in w-full"
               style={{ 
-                animationDelay: `${Math.min(index * 50, 500)}ms`,
+                animationDelay: `${Math.min(index * 100, 500)}ms`,
                 animationFillMode: 'both'
               }}
             >
@@ -255,7 +255,7 @@ const ProductCatalog = ({ addToCart }) => {
           </div>
         )}
 
-        {/* Estadísticas mejoradas */}
+        {/* Estadísticas responsivas */}
         {filteredProducts.length > 0 && (
           <div className="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-gray-200 text-center hover:shadow-md transition-all duration-300 group">
@@ -286,10 +286,9 @@ const ProductCatalog = ({ addToCart }) => {
           </div>
         )}
 
-        {/* CTA section rediseñada */}
+        {/* CTA section */}
         {filteredProducts.length > 0 && (
           <div className="mt-12 bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-2xl p-6 sm:p-8 text-center text-white relative overflow-hidden">
-            {/* Elementos decorativos usando Tailwind */}
             <div className="absolute top-0 left-0 w-32 h-32 bg-white opacity-5 rounded-full transform -translate-x-16 -translate-y-16"></div>
             <div className="absolute bottom-0 right-0 w-40 h-40 bg-white opacity-5 rounded-full transform translate-x-20 translate-y-20"></div>
             

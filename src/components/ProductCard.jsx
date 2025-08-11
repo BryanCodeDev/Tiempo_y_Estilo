@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
-import { Phone, Star, ShoppingCart, Heart, Eye, CheckCircle, Info, X } from 'lucide-react';
+import { Phone, Star, ShoppingCart, Heart, Eye, CheckCircle, Info, X, Palette } from 'lucide-react';
 
 const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [showQuickView, setShowQuickView] = useState(false);
+  const [selectedVariant, setSelectedVariant] = useState(
+    product.hasVariants ? product.variants[0] : null
+  );
+
+  const currentProduct = selectedVariant 
+    ? { ...product, ...selectedVariant, image: selectedVariant.image || product.image }
+    : product;
 
   const handleWhatsAppOrder = (e) => {
     e.stopPropagation();
-    const message = `¡Hola! Me interesa este producto de GoToBuy:%0A%0A*${product.name}*%0APrecio: $${product.price.toLocaleString()}%0ASKU: ${product.sku}%0A%0A¿Está disponible para entrega inmediata?`;
+    const variantText = selectedVariant ? `%0AColor: ${selectedVariant.name}` : '';
+    const message = `¡Hola! Me interesa este producto de GoToBuy:%0A%0A*${currentProduct.name}*${variantText}%0APrecio: $${currentProduct.price.toLocaleString()}%0ASKU: ${currentProduct.sku}%0A%0A¿Está disponible para entrega inmediata?`;
     window.open(`https://wa.me/573008226497?text=${message}`, '_blank');
   };
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
-    addToCart(product);
+    addToCart(currentProduct);
   };
 
   const handleLike = (e) => {
@@ -33,8 +41,8 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
               <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
             )}
             <img 
-              src={product.image} 
-              alt={product.name}
+              src={currentProduct.image} 
+              alt={currentProduct.name}
               className={`w-full h-full object-cover transition-all duration-500 hover:scale-105 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
@@ -55,6 +63,12 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
                   Stock
                 </span>
               )}
+              {product.hasVariants && (
+                <span className="bg-purple-500 text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
+                  <Palette className="w-3 h-3 mr-1" />
+                  {product.variants.length} colores
+                </span>
+              )}
             </div>
 
             {!product.inStock && (
@@ -71,13 +85,16 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
             <div className="flex-1">
               <div className="flex justify-between items-start mb-3">
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-lg text-gray-900 mb-1 hover:text-blue-600 transition-colors cursor-pointer overflow-hidden">
-                    <span className="block overflow-hidden text-ellipsis whitespace-nowrap">
-                      {product.name}
-                    </span>
+                  <h3 className="font-bold text-lg text-gray-900 mb-1 hover:text-blue-600 transition-colors cursor-pointer">
+                    {currentProduct.name}
+                    {selectedVariant && (
+                      <span className="text-sm font-normal text-gray-600 ml-2">
+                        - {selectedVariant.name}
+                      </span>
+                    )}
                   </h3>
                   <p className="text-blue-600 text-xs font-medium bg-blue-50 px-2 py-0.5 rounded-md inline-block">
-                    SKU: {product.sku}
+                    SKU: {currentProduct.sku}
                   </p>
                 </div>
                 <button
@@ -90,10 +107,30 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
                 </button>
               </div>
               
-              <p className="text-gray-600 mb-4 text-sm overflow-hidden">
-                <span className="block overflow-hidden text-ellipsis whitespace-nowrap">
-                  {product.description}
-                </span>
+              {/* Selector de variantes para vista lista */}
+              {product.hasVariants && (
+                <div className="mb-3">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <span className="text-xs text-gray-600 font-medium">Color:</span>
+                    {product.variants.map((variant) => (
+                      <button
+                        key={variant.id}
+                        onClick={() => setSelectedVariant(variant)}
+                        className={`w-6 h-6 rounded-full border-2 transition-all duration-300 ${
+                          selectedVariant?.id === variant.id 
+                            ? 'border-gray-900 scale-110' 
+                            : 'border-gray-300 hover:border-gray-500'
+                        }`}
+                        style={{ backgroundColor: variant.color }}
+                        title={variant.name}
+                      />
+                    ))}
+                  </div>
+                </div>
+              )}
+              
+              <p className="text-gray-600 mb-4 text-sm line-clamp-2">
+                {product.description}
               </p>
               
               {/* Rating */}
@@ -161,7 +198,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
   // Vista de tarjeta (grid) mejorada
   return (
     <>
-      <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group border border-gray-200 hover:border-blue-200 hover:-translate-y-1">
+      <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group border border-gray-200 hover:border-blue-200 hover:-translate-y-1 max-w-sm mx-auto">
         
         {/* Imagen */}
         <div className="relative overflow-hidden bg-gray-100">
@@ -169,8 +206,8 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
             <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
           )}
           <img 
-            src={product.image} 
-            alt={product.name}
+            src={currentProduct.image} 
+            alt={currentProduct.name}
             className={`w-full h-48 sm:h-52 object-cover group-hover:scale-105 transition-all duration-500 ${
               imageLoaded ? 'opacity-100' : 'opacity-0'
             }`}
@@ -189,6 +226,12 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
               <span className="bg-green-500 text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
                 <div className="w-1.5 h-1.5 bg-white rounded-full mr-1"></div>
                 Stock
+              </span>
+            )}
+            {product.hasVariants && (
+              <span className="bg-purple-500 text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
+                <Palette className="w-3 h-3 mr-1" />
+                {product.variants.length}
               </span>
             )}
           </div>
@@ -230,21 +273,46 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
           
           {/* Título y SKU */}
           <div className="mb-3">
-            <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-1 group-hover:text-blue-600 transition-colors duration-300 overflow-hidden">
-              <span className="block overflow-hidden text-ellipsis whitespace-nowrap">
-                {product.name}
-              </span>
+            <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-1 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
+              {currentProduct.name}
+              {selectedVariant && (
+                <span className="text-sm font-normal text-gray-600 block">
+                  Color: {selectedVariant.name}
+                </span>
+              )}
             </h3>
             <p className="text-blue-600 text-xs font-medium bg-blue-50 px-2 py-0.5 rounded-md inline-block">
-              SKU: {product.sku}
+              SKU: {currentProduct.sku}
             </p>
           </div>
+
+          {/* Selector de variantes */}
+          {product.hasVariants && (
+            <div className="mb-3">
+              <div className="flex items-center gap-2">
+                <span className="text-xs text-gray-600 font-medium">Color:</span>
+                <div className="flex gap-1">
+                  {product.variants.map((variant) => (
+                    <button
+                      key={variant.id}
+                      onClick={() => setSelectedVariant(variant)}
+                      className={`w-5 h-5 rounded-full border-2 transition-all duration-300 ${
+                        selectedVariant?.id === variant.id 
+                          ? 'border-gray-900 scale-110' 
+                          : 'border-gray-300 hover:border-gray-500'
+                      }`}
+                      style={{ backgroundColor: variant.color }}
+                      title={variant.name}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
           
           {/* Descripción */}
-          <p className="text-gray-600 text-xs sm:text-sm mb-3 overflow-hidden">
-            <span className="block overflow-hidden text-ellipsis whitespace-nowrap">
-              {product.description}
-            </span>
+          <p className="text-gray-600 text-xs sm:text-sm mb-3 line-clamp-2">
+            {product.description}
           </p>
           
           {/* Rating */}
@@ -317,8 +385,8 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
               {/* Imagen del modal */}
               <div className="relative h-64 lg:h-full bg-gray-100">
                 <img 
-                  src={product.image} 
-                  alt={product.name} 
+                  src={currentProduct.image} 
+                  alt={currentProduct.name} 
                   className="w-full h-full object-cover" 
                 />
                 <button
@@ -338,11 +406,41 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
               <div className="p-6 lg:p-8 flex flex-col justify-between overflow-y-auto max-h-[50vh] lg:max-h-full">
                 <div className="flex-1">
                   <div className="mb-4">
-                    <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2">{product.name}</h3>
+                    <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2">
+                      {currentProduct.name}
+                    </h3>
                     <p className="text-blue-600 font-medium text-sm bg-blue-50 px-3 py-1 rounded-lg inline-block">
-                      SKU: {product.sku}
+                      SKU: {currentProduct.sku}
                     </p>
                   </div>
+
+                  {/* Selector de variantes en modal */}
+                  {product.hasVariants && (
+                    <div className="mb-4">
+                      <label className="text-sm font-medium text-gray-700 mb-2 block">
+                        Colores disponibles:
+                      </label>
+                      <div className="flex gap-2">
+                        {product.variants.map((variant) => (
+                          <button
+                            key={variant.id}
+                            onClick={() => setSelectedVariant(variant)}
+                            className={`flex items-center gap-2 px-3 py-2 rounded-lg border transition-all duration-300 ${
+                              selectedVariant?.id === variant.id 
+                                ? 'border-blue-500 bg-blue-50' 
+                                : 'border-gray-200 hover:border-gray-300'
+                            }`}
+                          >
+                            <div 
+                              className="w-4 h-4 rounded-full border border-gray-300"
+                              style={{ backgroundColor: variant.color }}
+                            />
+                            <span className="text-sm">{variant.name}</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                   
                   <div className="flex items-center gap-2 mb-4">
                     <div className="flex text-yellow-400">
