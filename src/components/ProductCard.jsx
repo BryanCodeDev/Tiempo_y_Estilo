@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Star, ShoppingCart, Heart, Eye, Zap, Package, CheckCircle, ExternalLink, Info, X } from 'lucide-react';
+import { Phone, Star, ShoppingCart, Heart, Eye, CheckCircle, Info, X } from 'lucide-react';
 
 const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
   const [isLiked, setIsLiked] = useState(false);
