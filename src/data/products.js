@@ -36,98 +36,7 @@ export const products = [
     ]
   },
 
-  // Humidificador Xiaopai - Verde
-  {
-    id: 2,
-    name: "Humidificador Xiaopai Verde",
-    price: 45000,
-    originalPrice: 65000,
-    category: "hogar",
-    image: "/assets/images/humidificador-verde.webp",
-    description: "Humidificador de aire 220ml, difusor aromático USB, bajo ruido, luz LED colorida",
-    longDescription: "Humidificador de aire de 220ml con tecnología ultrasónica silenciosa. Perfecto para oficina, hogar, dormitorio. Incluye iluminación LED multicolor y es completamente portátil con alimentación USB.",
-    inStock: false,
-    discount: 31,
-    sku: "humidificador-verde",
-    color: "Verde",
-    specifications: [
-      "Capacidad: 220ml",
-      "Alimentación: USB",
-      "Tecnología ultrasónica",
-      "Nivel de ruido: <35dB",
-      "Luz LED multicolor",
-      "Material: Plástico ABS"
-    ],
-    benefits: [
-      "Hidratación continua",
-      "Bajo nivel de ruido",
-      "Portátil y compacto",
-      "Iluminación ambiental",
-      "Fácil de usar"
-    ]
-  },
 
-  // Humidificador Xiaopai - Rosado
-  {
-    id: 3,
-    name: "Humidificador Xiaopai Rosado",
-    price: 45000,
-    originalPrice: 65000,
-    category: "hogar",
-    image: "/assets/images/humidificador-rosado.webp",
-    description: "Humidificador de aire 220ml, difusor aromático USB, bajo ruido, luz LED colorida",
-    longDescription: "Humidificador de aire de 220ml con tecnología ultrasónica silenciosa. Perfecto para oficina, hogar, dormitorio. Incluye iluminación LED multicolor y es completamente portátil con alimentación USB.",
-    inStock: false,
-    discount: 31,
-    sku: "humidificador-rosado",
-    color: "Rosado",
-    specifications: [
-      "Capacidad: 220ml",
-      "Alimentación: USB",
-      "Tecnología ultrasónica",
-      "Nivel de ruido: <35dB",
-      "Luz LED multicolor",
-      "Material: Plástico ABS"
-    ],
-    benefits: [
-      "Hidratación continua",
-      "Bajo nivel de ruido",
-      "Portátil y compacto",
-      "Iluminación ambiental",
-      "Fácil de usar"
-    ]
-  },
-
-  // Humidificador Xiaopai - Blanco
-  {
-    id: 4,
-    name: "Humidificador Xiaopai Blanco",
-    price: 45000,
-    originalPrice: 65000,
-    category: "hogar",
-    image: "/assets/images/humidificador-blanco.webp",
-    description: "Humidificador de aire 220ml, difusor aromático USB, bajo ruido, luz LED colorida",
-    longDescription: "Humidificador de aire de 220ml con tecnología ultrasónica silenciosa. Perfecto para oficina, hogar, dormitorio. Incluye iluminación LED multicolor y es completamente portátil con alimentación USB.",
-    inStock: false,
-    discount: 31,
-    sku: "humidificador-blanco",
-    color: "Blanco",
-    specifications: [
-      "Capacidad: 220ml",
-      "Alimentación: USB",
-      "Tecnología ultrasónica",
-      "Nivel de ruido: <35dB",
-      "Luz LED multicolor",
-      "Material: Plástico ABS"
-    ],
-    benefits: [
-      "Hidratación continua",
-      "Bajo nivel de ruido",
-      "Portátil y compacto",
-      "Iluminación ambiental",
-      "Fácil de usar"
-    ]
-  },
 
   // Set Utensilios Cocina - Negro
   {
@@ -136,7 +45,7 @@ export const products = [
     price: 35500,
     originalPrice: 48000,
     category: "cocina",
-    image: "/assets/images/utensilios-negro.webp",
+    image: "/assets/images/utensilios.webp",
     description: "Set de 12 utensilios de silicona con mango de madera, resistente al calor, incluye contenedor",
     longDescription: "Juego completo de utensilios de cocina de silicona de grado alimenticio con mangos de madera premium. Resistente al calor, fácil de limpiar y con contenedor organizador incluido.",
     inStock: true,
@@ -172,7 +81,7 @@ export const products = [
     price: 35500,
     originalPrice: 48000,
     category: "cocina",
-    image: "/assets/images/utensilios-verde.webp",
+    image: "/assets/images/utensilios.webp",
     description: "Set de 12 utensilios de silicona con mango de madera, resistente al calor, incluye contenedor",
     longDescription: "Juego completo de utensilios de cocina de silicona de grado alimenticio con mangos de madera premium. Resistente al calor, fácil de limpiar y con contenedor organizador incluido.",
     inStock: true,
@@ -208,7 +117,7 @@ export const products = [
     price: 35500,
     originalPrice: 48000,
     category: "cocina",
-    image: "/assets/images/utensilios-gris.webp",
+    image: "/assets/images/utensilios.webp",
     description: "Set de 12 utensilios de silicona con mango de madera, resistente al calor, incluye contenedor",
     longDescription: "Juego completo de utensilios de cocina de silicona de grado alimenticio con mangos de madera premium. Resistente al calor, fácil de limpiar y con contenedor organizador incluido.",
     inStock: true,
@@ -244,7 +153,7 @@ export const products = [
     price: 35500,
     originalPrice: 48000,
     category: "cocina",
-    image: "/assets/images/utensilios-rosado.webp",
+    image: "/assets/images/utensilios.webp",
     description: "Set de 12 utensilios de silicona con mango de madera, resistente al calor, incluye contenedor",
     longDescription: "Juego completo de utensilios de cocina de silicona de grado alimenticio con mangos de madera premium. Resistente al calor, fácil de limpiar y con contenedor organizador incluido.",
     inStock: true,
@@ -271,6 +180,60 @@ export const products = [
       "Fácil almacenamiento",
       "Duradero y seguro"
     ]
+  },
+
+  // Vape Recargable
+  {
+    id: 9,
+    name: "Vape Recargable 15000 Puffs",
+    price: 60000,
+    originalPrice: 75000,
+    category: "vape",
+    image: "/assets/images/vape.webp",
+    secondaryImage: "/assets/images/vape1.webp",
+    description: "Vape recargable de alta duración, 15k puffs modo normal, 10k puffs modo turbo, disponible en 2 sabores",
+    longDescription: "Vape recargable de última generación con doble modo de uso. Disfruta de hasta 15,000 puffs en modo normal para una experiencia prolongada, o activa el modo turbo para 10,000 puffs de vapor intenso. Batería recargable de larga duración y disponible en deliciosos sabores.",
+    inStock: true,
+    discount: 20,
+    sku: "vape-recargable-15k",
+    specifications: [
+      "15,000 puffs en modo normal",
+      "10,000 puffs en modo turbo",
+      "Batería recargable",
+      "Puerto de carga USB-C",
+      "2 sabores disponibles",
+      "Diseño ergonómico",
+      "Indicador LED de batería"
+    ],
+    includes: [
+      "1 Vape recargable",
+      "1 Cable USB-C",
+      "1 Manual de instrucciones"
+    ],
+    benefits: [
+      "Doble modo de uso",
+      "Larga duración",
+      "Recargable y reutilizable",
+      "Vapor denso y suave",
+      "Fácil de usar",
+      "Diseño portátil"
+    ],
+    modes: [
+      {
+        name: "Modo Normal",
+        puffs: "15,000",
+        description: "Vapor suave y prolongado"
+      },
+      {
+        name: "Modo Turbo",
+        puffs: "10,000", 
+        description: "Vapor intenso y denso"
+      }
+    ],
+    flavors: [
+      "Sabor 1 - Frutas Tropicales",
+      "Sabor 2 - Menta Fresca"
+    ]
   }
 ];
 
@@ -278,5 +241,6 @@ export const categories = [
   { id: 'all', name: 'Todos los productos', icon: '🛒' },
   { id: 'belleza', name: 'Belleza y Cuidado', icon: '💄' },
   { id: 'hogar', name: 'Hogar y Oficina', icon: '🏠' },
-  { id: 'cocina', name: 'Cocina y Comedor', icon: '🍴' }
+  { id: 'cocina', name: 'Cocina y Comedor', icon: '🍴' },
+  { id: 'vape', name: 'Vapes', icon: '💨' }
 ];

@@ -40,14 +40,17 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative pt-16 sm:pt-20 pb-8 min-h-[70vh] lg:min-h-[75vh] xl:min-h-[80vh] flex items-center">
+    <section id="inicio" className="relative pt-16 sm:pt-20 pb-8 min-h-[70vh] lg:min-h-[75vh] xl:min-h-[80vh] flex items-center overflow-hidden">
       {/* Background moderno con pattern */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
         {/* Pattern de dots */}
-        <div className="absolute inset-0 opacity-20" style={{
-          backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }}></div>
+        <div 
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.3) 1px, transparent 0)',
+            backgroundSize: '40px 40px'
+          }}
+        ></div>
         
         {/* Elementos geométricos modernos */}
         <div className="absolute top-20 left-[10%] w-32 h-32 bg-blue-500/20 rounded-full blur-2xl animate-pulse"></div>
@@ -61,7 +64,7 @@ const Hero = () => {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Contenido principal - Más compacto */}
+          {/* Contenido principal */}
           <div className="lg:col-span-7 text-center lg:text-left">
             {/* Badge superior */}
             <div className="inline-flex items-center px-4 py-2 bg-blue-500/20 backdrop-blur-sm rounded-full text-blue-100 text-sm font-medium mb-4 border border-blue-400/30">
@@ -69,7 +72,7 @@ const Hero = () => {
               Tu tienda online de confianza
             </div>
             
-            {/* Título principal - Más compacto */}
+            {/* Título principal */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-black text-white mb-4 leading-tight">
               <span className="block">Bienvenido a</span>
               <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
@@ -79,18 +82,18 @@ const Hero = () => {
             
             {/* Contenido dinámico del slider */}
             <div className="mb-6 min-h-[120px] flex flex-col justify-center">
-              <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white/90 mb-3">
+              <h2 className="text-lg sm:text-xl lg:text-2xl font-semibold text-white/90 mb-3 transition-all duration-500">
                 {slides[currentSlide].title}
               </h2>
-              <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto lg:mx-0 mb-2">
+              <p className="text-base sm:text-lg text-white/70 max-w-2xl mx-auto lg:mx-0 mb-2 transition-all duration-500">
                 {slides[currentSlide].description}
               </p>
-              <p className="text-sm text-blue-300 font-medium">
+              <p className="text-sm text-blue-300 font-medium transition-all duration-500">
                 {slides[currentSlide].accent}
               </p>
             </div>
             
-            {/* Botones de acción - Diseño más moderno */}
+            {/* Botones de acción */}
             <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start mb-6">
               <button 
                 onClick={handleScrollToProducts}
@@ -111,7 +114,7 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* Indicadores del slider - Modernos */}
+            {/* Indicadores del slider */}
             <div className="flex justify-center lg:justify-start space-x-2 mb-6">
               {slides.map((_, index) => (
                 <button
@@ -127,7 +130,7 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Panel lateral con beneficios - Rediseñado */}
+          {/* Panel lateral con beneficios */}
           <div className="lg:col-span-5">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-2xl">
               <div className="text-center mb-6">
@@ -197,7 +200,7 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator minimalista */}
+      {/* Scroll indicator */}
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
         <ChevronDown className="w-5 h-5 text-white/70" />
       </div>

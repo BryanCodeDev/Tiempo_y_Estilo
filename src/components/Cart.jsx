@@ -61,17 +61,17 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
 
   if (!isOpen) return null;
 
+  const progressPercentage = Math.min((total / freeShippingThreshold) * 100, 100);
+
   return (
-    <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex justify-end">
-      <div className={`bg-white w-full max-w-md sm:max-w-lg lg:max-w-xl h-full overflow-hidden shadow-2xl transform transition-transform duration-300 ${
-        isAnimating ? 'translate-x-0' : 'translate-x-0'
-      }`}>
+    <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm z-50 flex justify-end">
+      <div className="bg-white w-full max-w-md sm:max-w-lg lg:max-w-xl h-full overflow-hidden shadow-2xl transform transition-transform duration-300">
         
         {/* Header moderno */}
         <div className="bg-gradient-to-r from-gray-900 to-gray-800 text-white p-4 sm:p-6 shadow-lg">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="bg-white/20 backdrop-blur-sm p-2.5 rounded-xl">
+              <div className="bg-white bg-opacity-20 backdrop-blur-sm p-2.5 rounded-xl">
                 <ShoppingBag className="h-6 w-6" />
               </div>
               <div>
@@ -81,7 +81,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
             </div>
             <button 
               onClick={onClose} 
-              className="text-gray-300 hover:text-white p-2 hover:bg-white/10 rounded-xl transition-all duration-300"
+              className="text-gray-300 hover:text-white p-2 hover:bg-white hover:bg-opacity-10 rounded-xl transition-all duration-300"
             >
               <X className="h-6 w-6" />
             </button>
@@ -93,7 +93,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
               <span className="text-gray-300 text-sm">
                 {itemCount} {itemCount === 1 ? 'producto' : 'productos'} en tu carrito
               </span>
-              <div className="bg-white/20 px-3 py-1 rounded-full">
+              <div className="bg-white bg-opacity-20 px-3 py-1 rounded-full">
                 <span className="text-white font-semibold text-sm">
                   ${total.toLocaleString()}
                 </span>
@@ -103,7 +103,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
 
           {/* Barra de progreso para envío gratis */}
           {total < freeShippingThreshold && total > 0 && (
-            <div className="mt-4 bg-white/10 backdrop-blur-sm rounded-xl p-4">
+            <div className="mt-4 bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-4">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-white text-sm font-medium flex items-center">
                   <Truck className="w-4 h-4 mr-2" />
@@ -111,10 +111,10 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                 </span>
                 <span className="text-white text-sm font-bold">${freeShippingThreshold.toLocaleString()}</span>
               </div>
-              <div className="w-full bg-white/20 rounded-full h-2.5 mb-2">
+              <div className="w-full bg-white bg-opacity-20 rounded-full h-2.5 mb-2">
                 <div 
                   className="bg-gradient-to-r from-green-400 to-green-500 h-2.5 rounded-full transition-all duration-500"
-                  style={{ width: `${Math.min((total / freeShippingThreshold) * 100, 100)}%` }}
+                  style={{ width: `${progressPercentage}%` }}
                 ></div>
               </div>
               <p className="text-green-300 text-xs">
@@ -148,12 +148,11 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
           ) : (
             <>
               {/* Items del carrito */}
-              <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4" style={{ scrollbarWidth: 'thin' }}>
+              <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                 {cartItems.map((item, index) => (
                   <div 
                     key={item.id} 
-                    className="bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-all duration-300 border border-gray-200/50"
-                    style={{ animationDelay: `${index * 50}ms` }}
+                    className="bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-all duration-300 border border-gray-200 border-opacity-50 animate-fadeIn"
                   >
                     <div className="flex items-start gap-4">
                       <div className="relative flex-shrink-0">
@@ -210,7 +209,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                         >
                           <Minus className="h-3 w-3 text-gray-600" />
                         </button>
-                        <div className="bg-white border border-gray-300 px-3 py-1.5 rounded-lg min-w-[3rem] text-center">
+                        <div className="bg-white border border-gray-300 px-3 py-1.5 rounded-lg min-w-12 text-center">
                           <span className="text-gray-900 font-semibold text-sm">
                             {item.quantity}
                           </span>
@@ -248,7 +247,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                       Domicilio
                     </span>
                     <span className={`font-medium ${shippingCost === 0 ? 'text-green-600' : 'text-gray-900'}`}>
-                      {shippingCost === 0 ? 'GRATIS 🎉' : `${shippingCost.toLocaleString()}`}
+                      {shippingCost === 0 ? 'GRATIS 🎉' : `$${shippingCost.toLocaleString()}`}
                     </span>
                   </div>
                   <div className="border-t border-gray-200 pt-3 flex justify-between items-center">
@@ -314,22 +313,6 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
           )}
         </div>
       </div>
-
-      <style jsx>{`
-        .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-          background: #f8fafc;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-          background: #cbd5e1;
-          border-radius: 2px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-          background: #94a3b8;
-        }
-      `}</style>
     </div>
   );
 };
