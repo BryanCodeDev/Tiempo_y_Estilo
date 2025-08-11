@@ -90,10 +90,12 @@ function App() {
           className="group bg-green-600 hover:bg-green-700 text-white p-3 sm:p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden"
           title="Contáctanos por WhatsApp"
         >
+          {/* Efecto de brillo usando pseudo-elemento */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
           
           <Phone className="h-5 w-5 sm:h-6 sm:w-6 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
           
+          {/* Indicador de notificación */}
           <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse border-2 border-white"></div>
         </a>
 
