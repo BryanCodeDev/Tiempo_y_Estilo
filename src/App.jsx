@@ -23,33 +23,51 @@ function App() {
 
   const addToCart = (product) => {
     setCartItems(prevItems => {
-      const existingItem = prevItems.find(item => item.id === product.id);
+      const existingItem = prevItems.find(item => 
+        item.id === product.id && item.sku === product.sku
+      );
+      
       if (existingItem) {
         return prevItems.map(item =>
-          item.id === product.id
+          (item.id === product.id && item.sku === product.sku)
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
       } else {
-        return [...prevItems, { ...product, quantity: 1 }];
+        // Crear un ID único para el carrito que incluya variantes
+        const cartId = `${product.id}-${product.sku || 'default'}`;
+        return [...prevItems, { 
+          ...product, 
+          cartId,
+          quantity: 1 
+        }];
       }
     });
+    
+    // Feedback visual opcional
+    const button = document.activeElement;
+    if (button) {
+      button.style.transform = 'scale(0.95)';
+      setTimeout(() => {
+        button.style.transform = '';
+      }, 150);
+    }
   };
 
-  const updateQuantity = (id, newQuantity) => {
+  const updateQuantity = (cartId, newQuantity) => {
     if (newQuantity <= 0) {
-      removeFromCart(id);
+      removeFromCart(cartId);
     } else {
       setCartItems(prevItems =>
         prevItems.map(item =>
-          item.id === id ? { ...item, quantity: newQuantity } : item
+          item.cartId === cartId ? { ...item, quantity: newQuantity } : item
         )
       );
     }
   };
 
-  const removeFromCart = (id) => {
-    setCartItems(prevItems => prevItems.filter(item => item.id !== id));
+  const removeFromCart = (cartId) => {
+    setCartItems(prevItems => prevItems.filter(item => item.cartId !== cartId));
   };
 
   const scrollToTop = () => {
@@ -79,21 +97,20 @@ function App() {
         removeFromCart={removeFromCart}
       />
       
-      {/* Botones flotantes - WhatsApp */}
-      <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 flex flex-col gap-3">
+      {/* Botones flotantes responsivos */}
+      <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
         
         {/* Botón principal de WhatsApp */}
         <a
-          href="https://wa.me/573008226497?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20productos%20de%20GoToBuy"
+          href="https://wa.me/573508470735?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20productos%20de%20GoToBuy"
           target="_blank"
           rel="noopener noreferrer"
-          className="group bg-green-600 hover:bg-green-700 text-white p-3 sm:p-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden"
+          className="group bg-green-600 hover:bg-green-700 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden"
           title="Contáctanos por WhatsApp"
         >
-          {/* Efecto de brillo usando pseudo-elemento */}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
           
-          <Phone className="h-5 w-5 sm:h-6 sm:w-6 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+          <Phone className="h-5 w-5 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
           
           {/* Indicador de notificación */}
           <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse border-2 border-white"></div>
@@ -104,17 +121,17 @@ function App() {
           className="group bg-white hover:bg-gray-50 text-gray-700 hover:text-green-600 p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200"
           title="Chat rápido"
           onClick={() => {
-            window.open('https://wa.me/573008226497?text=¡Hola!%20Tengo%20una%20consulta%20rápida', '_blank');
+            window.open('https://wa.me/573508470735?text=¡Hola!%20Tengo%20una%20consulta%20rápida', '_blank');
           }}
         >
-          <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5 group-hover:animate-pulse" />
+          <MessageCircle className="h-4 w-4 group-hover:animate-pulse" />
         </button>
       </div>
 
-      {/* Botón de scroll to top */}
+      {/* Botón de scroll to top responsivo */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-4 left-4 sm:bottom-6 sm:left-6 bg-gray-900 hover:bg-gray-800 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-40 transform ${
+        className={`fixed bottom-4 left-4 bg-gray-900 hover:bg-gray-800 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-40 transform ${
           showScrollTop 
             ? 'translate-y-0 opacity-100' 
             : 'translate-y-16 opacity-0'
@@ -122,7 +139,7 @@ function App() {
         title="Ir arriba"
         aria-label="Ir arriba"
       >
-        <ArrowUp className="w-5 h-5" />
+        <ArrowUp className="w-4 h-4" />
       </button>
     </div>
   );

@@ -55,28 +55,28 @@ export const products = [
         id: "negro",
         name: "Negro",
         color: "#1f2937",
-        image: "/assets/images/utensilios-negro.webp",
+        image: "/assets/images/utensilios.webp",
         sku: "utensilios-negro"
       },
       {
         id: "verde",
         name: "Verde",
         color: "#059669",
-        image: "/assets/images/utensilios-verde.webp", 
+        image: "/assets/images/utensilios.webp", 
         sku: "utensilios-verde"
       },
       {
         id: "gris",
         name: "Gris",
         color: "#6b7280",
-        image: "/assets/images/utensilios-gris.webp",
+        image: "/assets/images/utensilios.webp",
         sku: "utensilios-gris"
       },
       {
         id: "rosado",
         name: "Rosado",
         color: "#ec4899",
-        image: "/assets/images/utensilios-rosado.webp",
+        image: "/assets/images/utensilios.webp",
         sku: "utensilios-rosado"
       }
     ],

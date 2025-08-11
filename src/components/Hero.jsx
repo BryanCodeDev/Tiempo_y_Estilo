@@ -98,7 +98,7 @@ const Hero = () => {
                 <ArrowRight className="ml-2 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
               </button>
               <a 
-                href="https://wa.me/573008226497?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20GoToBuy" 
+                href="https://wa.me/573508470735?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20GoToBuy" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="group bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform flex items-center justify-center border border-green-500"
