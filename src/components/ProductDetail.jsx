@@ -14,10 +14,8 @@ import {
   ChevronRight,
   Palette,
   Check,
-  X,
   Clock,
   MapPin,
-  Tag,
   Zap,
   Info
 } from 'lucide-react';
@@ -42,9 +40,9 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
   ];
 
   useEffect(() => {
-    // Simular vista de página para analytics
-    if (typeof gtag !== 'undefined') {
-      gtag('config', 'GA_MEASUREMENT_ID', {
+    // Simular vista de página para analytics (solo si gtag está disponible)
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('config', 'GA_MEASUREMENT_ID', {
         page_title: product.name,
         page_location: window.location.href
       });

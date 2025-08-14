@@ -15,7 +15,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   const handleWhatsAppOrder = (e) => {
     e.stopPropagation();
     const variantText = selectedVariant ? `%0AColor: ${selectedVariant.name}` : '';
-    const message = `¡Hola! Me interesa este producto de GoToBuy:%0A%0A*${currentProduct.name}*${variantText}%0APrecio: $${currentProduct.price.toLocaleString()}%0ASKU: ${currentProduct.sku}%0A%0A¿Está disponible para entrega inmediata?`;
+    const message = `¡Hola! Me interesa este producto de GoToBuy:%0A%0A*${currentProduct.name}*${variantText}%0APrecio: ${currentProduct.price.toLocaleString()}%0ASKU: ${currentProduct.sku}%0A%0A¿Está disponible para entrega inmediata?`;
     window.open(`https://wa.me/573508470735?text=${message}`, '_blank');
   };
 

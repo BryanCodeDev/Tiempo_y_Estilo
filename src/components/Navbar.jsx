@@ -1,203 +1,223 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  ShoppingCart, 
-  Menu, 
-  X, 
-  Package, 
-  Search,
-  Home,
-  ShoppingBag,
-  Phone
-} from 'lucide-react';
+import { ShoppingCart, Menu, X, Phone, Star, Home, Package, Info } from 'lucide-react';
 
-const Navbar = ({ cartItems, setShowCart, isProductView = false, onNavigateHome }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
-  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 20);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
-  const handleNavClick = (elementId) => {
-    const element = document.getElementById(elementId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
+
+  // Función para navegación con SEO
+  const handleNavigation = (section) => {
+    if (currentRoute !== '/') {
+      // Si no estamos en home, navegamos primero al home
+      onHomeClick();
+      // Esperamos un poco para que se cargue el home y luego hacemos scroll
+      setTimeout(() => {
+        const element = document.getElementById(section);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // Si ya estamos en home, hacemos scroll directo
+      const element = document.getElementById(section);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
+    setIsMenuOpen(false);
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchTerm.trim()) {
-      console.log('Buscando:', searchTerm);
-      handleNavClick('productos');
-    }
-  };
-
-  const menuItems = [
-    { id: 'inicio', label: 'Inicio', icon: Home },
-    { id: 'productos', label: 'Productos', icon: ShoppingBag },
-    { id: 'contacto', label: 'Contacto', icon: Phone }
+  const navigationItems = [
+    { id: 'hero', label: 'Inicio', icon: Home, href: '/' },
+    { id: 'productos', label: 'Productos', icon: Package, href: '/#productos' },
+    { id: 'contacto', label: 'Contacto', icon: Phone, href: '/#contacto' },
+    { id: 'about', label: 'Nosotros', icon: Info, href: '/#about' }
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-200/50' 
-        : 'bg-white/90 backdrop-blur-xl shadow-md'
-    } ${isProductView ? 'border-b border-gray-200' : ''}`}>
-      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
-        <div className="flex items-center justify-between h-14 sm:h-16">
-          
-          {/* Logo responsivo */}
-          <div 
-            className="flex items-center cursor-pointer group min-w-0" 
-            onClick={isProductView ? onNavigateHome : () => handleNavClick('inicio')}
-          >
-            <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg sm:rounded-xl p-1.5 sm:p-2 mr-2 sm:mr-3 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 flex-shrink-0">
-              <Package className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 text-white" />
+    <>
+      <nav 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-white shadow-lg backdrop-blur-md border-b border-gray-200' 
+            : 'bg-white bg-opacity-95 backdrop-blur-sm'
+        }`}
+        role="navigation"
+        aria-label="Navegación principal"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 sm:h-20">
+            
+            {/* Logo con SEO optimizado */}
+            <div className="flex items-center flex-shrink-0">
+              <button
+                onClick={onHomeClick}
+                className="flex items-center space-x-2 group transition-all duration-300 hover:scale-105"
+                aria-label="Ir al inicio de GoToBuy"
+              >
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center group-hover:shadow-lg transition-all duration-300">
+                  <span className="text-white font-bold text-lg sm:text-xl">G</span>
+                </div>
+                <div>
+                  <h1 className="text-xl sm:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors duration-300">
+                    GoToBuy
+                  </h1>
+                  <p className="text-xs text-gray-600 hidden sm:block">
+                    Productos Premium
+                  </p>
+                </div>
+              </button>
             </div>
-            <div className="font-bold text-sm sm:text-base lg:text-lg xl:text-xl truncate">
-              <span className="bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">
-                GoTo
-              </span>
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                Buy
-              </span>
+
+            {/* Navegación desktop con SEO */}
+            <div className="hidden md:flex items-center space-x-1">
+              {navigationItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = (item.id === 'hero' && currentRoute === '/') || 
+                                currentRoute.includes(item.id);
+                
+                return (
+                  <button
+                    key={item.id}
+                    onClick={() => item.id === 'hero' ? onHomeClick() : handleNavigation(item.id)}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 flex items-center gap-2 ${
+                      isActive
+                        ? 'bg-blue-100 text-blue-700 shadow-sm'
+                        : 'text-gray-700 hover:text-blue-700 hover:bg-blue-50'
+                    }`}
+                    aria-label={`Ir a ${item.label}`}
+                  >
+                    <Icon className="w-4 h-4" />
+                    <span>{item.label}</span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Acciones del usuario */}
+            <div className="flex items-center space-x-3">
+              
+              {/* Indicador de calificación */}
+              <div className="hidden lg:flex items-center space-x-1 bg-yellow-50 px-3 py-1.5 rounded-lg">
+                <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                <span className="text-sm font-medium text-yellow-700">4.9</span>
+                <span className="text-xs text-yellow-600">(127)</span>
+              </div>
+
+              {/* Botón del carrito con contador */}
+              <button
+                onClick={() => setShowCart(true)}
+                className="relative p-2 sm:p-3 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+                aria-label={`Carrito de compras - ${totalItems} productos`}
+              >
+                <ShoppingCart className="h-5 w-5 sm:h-6 sm:w-6" />
+                
+                {totalItems > 0 && (
+                  <>
+                    {/* Contador de productos */}
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold min-w-[20px] h-5 rounded-full flex items-center justify-center px-1 shadow-lg animate-pulse">
+                      {totalItems > 99 ? '99+' : totalItems}
+                    </span>
+                    
+                    {/* Animación de pulso para items nuevos */}
+                    <div className="absolute inset-0 bg-blue-500 rounded-lg animate-ping opacity-20"></div>
+                  </>
+                )}
+              </button>
+
+              {/* Menú hamburguesa mobile */}
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="md:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors duration-300"
+                aria-label="Abrir menú de navegación"
+                aria-expanded={isMenuOpen}
+              >
+                {isMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
+              </button>
             </div>
           </div>
+        </div>
+
+        {/* Menú móvil expandible con SEO */}
+        <div className={`md:hidden transition-all duration-300 ease-in-out ${
+          isMenuOpen 
+            ? 'max-h-96 opacity-100 border-b border-gray-200' 
+            : 'max-h-0 opacity-0'
+        } overflow-hidden bg-white`}>
           
-          {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center space-x-1">
-            {menuItems.map((item) => {
-              const IconComponent = item.icon;
+          <div className="px-4 py-6 space-y-3">
+            
+            {/* Items de navegación mobile */}
+            {navigationItems.map((item) => {
+              const Icon = item.icon;
+              const isActive = (item.id === 'hero' && currentRoute === '/') || 
+                              currentRoute.includes(item.id);
+              
               return (
-                <button 
+                <button
                   key={item.id}
-                  onClick={isProductView ? onNavigateHome : () => handleNavClick(item.id)}
-                  className="relative px-3 xl:px-4 py-2 rounded-lg font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 group flex items-center"
+                  onClick={() => item.id === 'hero' ? onHomeClick() : handleNavigation(item.id)}
+                  className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-all duration-300 ${
+                    isActive
+                      ? 'bg-blue-100 text-blue-700 shadow-sm'
+                      : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'
+                  }`}
+                  aria-label={`Ir a ${item.label}`}
                 >
-                  <IconComponent className="w-4 h-4 mr-2" />
-                  <span className="text-sm xl:text-base">{item.label}</span>
-                  <div className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-indigo-600 group-hover:w-full group-hover:left-0 transition-all duration-300"></div>
+                  <Icon className="w-5 h-5 flex-shrink-0" />
+                  <span className="font-medium">{item.label}</span>
                 </button>
               );
             })}
-          </div>
-          
-          {/* Acciones del lado derecho */}
-          <div className="flex items-center space-x-1 sm:space-x-2 min-w-0">
+
+            {/* Separador */}
+            <div className="border-t border-gray-200 my-4"></div>
             
-            {/* Búsqueda - Solo desktop */}
-            <div className="hidden lg:flex relative flex-shrink-0">
-              <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4 z-10" />
-                <input
-                  type="text"
-                  placeholder="Buscar productos..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleSearch(e)}
-                  className="pl-9 pr-10 py-2 xl:py-2.5 w-40 xl:w-56 bg-white border border-gray-300 rounded-lg xl:rounded-xl text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:shadow-md focus:shadow-lg"
-                />
-                {searchTerm && (
-                  <button
-                    type="button"
-                    onClick={() => setSearchTerm('')}
-                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors text-lg font-bold leading-none"
-                  >
-                    ×
-                  </button>
-                )}
+            {/* WhatsApp link en mobile */}
+            <a
+              href="https://wa.me/573508470735?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20GoToBuy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center space-x-3 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors duration-300"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Phone className="w-5 h-5" />
+              <span className="font-medium">Contactar WhatsApp</span>
+            </a>
+
+            {/* Información de confianza */}
+            <div className="flex items-center justify-center space-x-6 pt-4 text-sm text-gray-600">
+              <div className="flex items-center space-x-1">
+                <Star className="w-4 h-4 text-yellow-500 fill-current" />
+                <span className="font-medium">4.9/5.0</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <Package className="w-4 h-4 text-green-600" />
+                <span className="font-medium">Envío Gratis</span>
               </div>
             </div>
-            
-            {/* Cart Button */}
-            <button 
-              onClick={() => setShowCart(true)}
-              className="relative bg-gray-900 hover:bg-gray-800 text-white px-2 sm:px-3 py-2 rounded-lg xl:rounded-xl transition-all duration-300 flex items-center space-x-1 sm:space-x-2 hover:scale-105 group shadow-lg flex-shrink-0"
-            >
-              <ShoppingCart className="h-4 w-4 group-hover:animate-pulse" />
-              <span className="hidden sm:inline font-medium text-xs sm:text-sm">
-                {totalItems > 0 ? `(${totalItems})` : 'Carrito'}
-              </span>
-              {totalItems > 0 && (
-                <div className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-pink-500 text-white text-xs rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center font-bold animate-pulse shadow-lg">
-                  {totalItems > 99 ? '99+' : totalItems}
-                </div>
-              )}
-            </button>
-            
-            {/* Mobile Menu Button */}
-            <button 
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 text-gray-700 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300 flex-shrink-0"
-            >
-              {isMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </button>
           </div>
         </div>
-        
-        {/* Mobile Menu */}
-        <div className={`lg:hidden transition-all duration-300 overflow-hidden ${
-          isMenuOpen ? 'max-h-96 pb-4' : 'max-h-0'
-        }`}>
-          {/* Búsqueda móvil */}
-          <div className="pt-3 pb-3 border-b border-gray-200/50">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500 h-4 w-4 z-10" />
-              <input
-                type="text"
-                placeholder="Buscar productos..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleSearch(e)}
-                className="w-full pl-9 pr-10 py-3 bg-white border border-gray-300 rounded-xl text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300"
-              />
-              {searchTerm && (
-                <button
-                  type="button"
-                  onClick={() => setSearchTerm('')}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors text-lg font-bold"
-                >
-                  ×
-                </button>
-              )}
-            </div>
-          </div>
-          
-          <div className="space-y-1 pt-3">
-            {menuItems.map((item) => {
-              const IconComponent = item.icon;
-              return (
-                <button 
-                  key={item.id}
-                  onClick={isProductView ? onNavigateHome : () => handleNavClick(item.id)}
-                  className="w-full flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-all duration-300 text-left"
-                >
-                  <IconComponent className="w-5 h-5 mr-3" />
-                  {item.label}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-      
-      {/* Línea de progreso */}
-      <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-30"></div>
-    </nav>
+      </nav>
+
+      {/* Espaciador para el navbar fijo */}
+      <div className="h-16 sm:h-20"></div>
+    </>
   );
 };
 
