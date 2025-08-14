@@ -3,7 +3,7 @@ import { Filter, Search, Grid, List, Package, Star, Sliders, TrendingUp, Award, 
 import { products, categories } from '../data/products';
 import ProductCard from './ProductCard';
 
-const ProductCatalog = ({ addToCart }) => {
+const ProductCatalog = ({ addToCart, navigateToProduct }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
   const [showFilters, setShowFilters] = useState(false);
@@ -236,6 +236,7 @@ const ProductCatalog = ({ addToCart }) => {
                 product={product} 
                 addToCart={addToCart}
                 viewMode={viewMode}
+                navigateToProduct={navigateToProduct}
               />
             </div>
           ))}

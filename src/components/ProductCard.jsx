@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Phone, Star, ShoppingCart, Heart, Palette } from 'lucide-react';
+import { Phone, Star, ShoppingCart, Heart, Palette, Eye } from 'lucide-react';
 
-const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
+const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [imageLoaded, setImageLoaded] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(
@@ -29,10 +29,20 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
     setIsLiked(!isLiked);
   };
 
+  const handleViewProduct = (e) => {
+    e.stopPropagation();
+    if (navigateToProduct) {
+      navigateToProduct(product);
+    }
+  };
+
   // Vista de lista mejorada
   if (viewMode === 'list') {
     return (
-      <div className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-200 hover:border-blue-200">
+      <div 
+        className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-200 hover:border-blue-200 cursor-pointer group"
+        onClick={handleViewProduct}
+      >
         <div className="flex flex-col sm:flex-row">
           {/* Imagen */}
           <div className="relative w-full sm:w-48 h-48 sm:h-40 flex-shrink-0 overflow-hidden bg-gray-100">
@@ -42,7 +52,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
             <img 
               src={currentProduct.image} 
               alt={currentProduct.name}
-              className={`w-full h-full object-cover transition-all duration-500 hover:scale-105 ${
+              className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setImageLoaded(true)}
@@ -70,6 +80,17 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
               )}
             </div>
 
+            {/* Overlay con botón de ver producto */}
+            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+              <button
+                onClick={handleViewProduct}
+                className="bg-white text-gray-900 px-4 py-2 rounded-lg font-medium opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300 shadow-lg flex items-center gap-2"
+              >
+                <Eye className="w-4 h-4" />
+                Ver detalles
+              </button>
+            </div>
+
             {!product.inStock && (
               <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
                 <span className="bg-gray-900 text-white px-3 py-1 rounded-lg font-medium text-sm">
@@ -84,7 +105,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
             <div className="flex-1">
               <div className="flex justify-between items-start mb-3">
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-bold text-lg text-gray-900 mb-1 hover:text-blue-600 transition-colors cursor-pointer">
+                  <h3 className="font-bold text-lg text-gray-900 mb-1 hover:text-blue-600 transition-colors cursor-pointer line-clamp-2">
                     {currentProduct.name}
                     {selectedVariant && (
                       <span className="text-sm font-normal text-gray-600 ml-2">
@@ -111,10 +132,13 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
                 <div className="mb-3">
                   <div className="flex items-center gap-2 flex-wrap">
                     <span className="text-xs text-gray-600 font-medium">Color:</span>
-                    {product.variants.map((variant) => (
+                    {product.variants.slice(0, 4).map((variant) => (
                       <button
                         key={variant.id}
-                        onClick={() => setSelectedVariant(variant)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setSelectedVariant(variant);
+                        }}
                         className={`w-6 h-6 rounded-full border-2 transition-all duration-300 ${
                           selectedVariant?.id === variant.id 
                             ? 'border-gray-900 scale-110' 
@@ -124,6 +148,11 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
                         title={variant.name}
                       />
                     ))}
+                    {product.variants.length > 4 && (
+                      <span className="text-xs text-gray-500">
+                        +{product.variants.length - 4} más
+                      </span>
+                    )}
                   </div>
                 </div>
               )}
@@ -165,9 +194,16 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
               
               <div className="flex gap-2">
                 <button
+                  onClick={handleViewProduct}
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm flex items-center justify-center gap-2"
+                >
+                  <Eye className="h-4 w-4" />
+                  Ver detalles
+                </button>
+                <button
                   onClick={handleAddToCart}
                   disabled={!product.inStock}
-                  className="flex-1 bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white py-2.5 px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm flex items-center justify-center gap-2"
+                  className="bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white py-2.5 px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm flex items-center justify-center gap-2"
                 >
                   <ShoppingCart className="h-4 w-4" />
                   {product.inStock ? 'Agregar' : 'Agotado'}
@@ -189,7 +225,10 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
 
   // Vista de tarjeta (grid) mejorada
   return (
-    <div className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group border border-gray-200 hover:border-blue-200 hover:-translate-y-1 max-w-sm mx-auto">
+    <div 
+      className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group border border-gray-200 hover:border-blue-200 hover:-translate-y-1 max-w-sm mx-auto cursor-pointer"
+      onClick={handleViewProduct}
+    >
       
       {/* Imagen */}
       <div className="relative overflow-hidden bg-gray-100">
@@ -225,6 +264,17 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
               {product.variants.length}
             </span>
           )}
+        </div>
+
+        {/* Overlay con botón de ver producto */}
+        <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+          <button
+            onClick={handleViewProduct}
+            className="bg-white text-gray-900 px-6 py-3 rounded-xl font-semibold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl flex items-center gap-2"
+          >
+            <Eye className="w-5 h-5" />
+            Ver producto completo
+          </button>
         </div>
 
         {/* Botón de favorito */}
@@ -272,10 +322,13 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
             <div className="flex items-center gap-2">
               <span className="text-xs text-gray-600 font-medium">Color:</span>
               <div className="flex gap-1">
-                {product.variants.map((variant) => (
+                {product.variants.slice(0, 5).map((variant) => (
                   <button
                     key={variant.id}
-                    onClick={() => setSelectedVariant(variant)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setSelectedVariant(variant);
+                    }}
                     className={`w-5 h-5 rounded-full border-2 transition-all duration-300 ${
                       selectedVariant?.id === variant.id 
                         ? 'border-gray-900 scale-110' 
@@ -285,6 +338,11 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
                     title={variant.name}
                   />
                 ))}
+                {product.variants.length > 5 && (
+                  <span className="text-xs text-gray-500 flex items-center ml-1">
+                    +{product.variants.length - 5}
+                  </span>
+                )}
               </div>
             </div>
           </div>
@@ -327,9 +385,17 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid' }) => {
         {/* Botones de acción */}
         <div className="flex gap-2">
           <button
+            onClick={handleViewProduct}
+            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-2.5 px-3 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-xs sm:text-sm flex items-center justify-center gap-2"
+          >
+            <Eye className="h-4 w-4" />
+            <span className="hidden sm:inline">Ver detalles</span>
+            <span className="sm:hidden">Ver</span>
+          </button>
+          <button
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            className="flex-1 bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white py-2.5 px-3 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-xs sm:text-sm flex items-center justify-center gap-2"
+            className="bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white py-2.5 px-3 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-xs sm:text-sm flex items-center justify-center gap-2"
           >
             <ShoppingCart className="h-4 w-4" />
             <span className="hidden sm:inline">

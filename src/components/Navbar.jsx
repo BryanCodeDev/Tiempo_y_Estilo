@@ -10,7 +10,7 @@ import {
   Phone
 } from 'lucide-react';
 
-const Navbar = ({ cartItems, setShowCart }) => {
+const Navbar = ({ cartItems, setShowCart, isProductView = false, onNavigateHome }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
@@ -52,14 +52,14 @@ const Navbar = ({ cartItems, setShowCart }) => {
       isScrolled 
         ? 'bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-200/50' 
         : 'bg-white/90 backdrop-blur-xl shadow-md'
-    }`}>
+    } ${isProductView ? 'border-b border-gray-200' : ''}`}>
       <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6 xl:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
           
           {/* Logo responsivo */}
           <div 
             className="flex items-center cursor-pointer group min-w-0" 
-            onClick={() => handleNavClick('inicio')}
+            onClick={isProductView ? onNavigateHome : () => handleNavClick('inicio')}
           >
             <div className="bg-gradient-to-br from-blue-600 to-indigo-600 rounded-lg sm:rounded-xl p-1.5 sm:p-2 mr-2 sm:mr-3 shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105 flex-shrink-0">
               <Package className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 xl:w-6 xl:h-6 text-white" />
@@ -81,7 +81,7 @@ const Navbar = ({ cartItems, setShowCart }) => {
               return (
                 <button 
                   key={item.id}
-                  onClick={() => handleNavClick(item.id)}
+                  onClick={isProductView ? onNavigateHome : () => handleNavClick(item.id)}
                   className="relative px-3 xl:px-4 py-2 rounded-lg font-medium text-gray-700 hover:text-blue-600 hover:bg-blue-50 transition-all duration-300 group flex items-center"
                 >
                   <IconComponent className="w-4 h-4 mr-2" />
@@ -183,7 +183,7 @@ const Navbar = ({ cartItems, setShowCart }) => {
               return (
                 <button 
                   key={item.id}
-                  onClick={() => handleNavClick(item.id)}
+                  onClick={isProductView ? onNavigateHome : () => handleNavClick(item.id)}
                   className="w-full flex items-center px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 rounded-lg font-medium transition-all duration-300 text-left"
                 >
                   <IconComponent className="w-5 h-5 mr-3" />
