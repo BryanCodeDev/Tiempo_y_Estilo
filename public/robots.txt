@@ -1,0 +1,48 @@
+User-agent: *
+Allow: /
+
+# Páginas importantes
+Sitemap: https://gotobuyy.com/sitemap.xml
+Sitemap: https://gotobuyy.com/sitemap-products.xml
+
+# Permitir específicamente páginas importantes
+Allow: /categoria/
+Allow: /producto/
+Allow: /assets/images/
+Allow: /sobre-nosotros
+Allow: /preguntas-frecuentes
+Allow: /politicas-de-envio
+Allow: /terminos-y-condiciones
+
+# Bloquear archivos innecesarios
+Disallow: /admin
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /build/
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /public/manifest.json
+Disallow: /public/robots.txt
+
+# Permitir bots importantes
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Crawl-delay para bots menos importantes
+User-agent: *
+Crawl-delay: 1
+
+# URL del sitemap XML principal
+Sitemap: https://gotobuyy.com/sitemap.xml
