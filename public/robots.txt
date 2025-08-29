@@ -1,18 +1,47 @@
 User-agent: *
 Allow: /
 
-# Páginas importantes
-Sitemap: https://gotobuyy.com/sitemap.xml
-Sitemap: https://gotobuyy.com/sitemap-products.xml
+# Páginas importantes - Productos actualizados
+Allow: /producto/soporte-celular-moto-impermeable
+Allow: /producto/adaptador-audifono-convertidor-plug-35
+Allow: /producto/vape-recargable-15000-puffs
+Allow: /producto/derma-roller-system-agujas
+Allow: /producto/set-x2-almohadas-siliconadas-45x65
+Allow: /producto/mini-humidificador-difusor-aromas-220
+Allow: /producto/airpods-pro-2-generacion
+Allow: /producto/audifonos-inalambricos-2da-generacion
+Allow: /producto/bafle-parlante-charge-4-recargable-bluetooth
+Allow: /producto/maleta-deportiva-t60
+Allow: /producto/juego-37-piezas-destornilladores-puntas
+Allow: /producto/maletin-deportivo-azul-oscuro-ref-3
+Allow: /producto/juego-destornillador-kit-pro-115-en-1
 
-# Permitir específicamente páginas importantes
-Allow: /categoria/
-Allow: /producto/
-Allow: /assets/images/
+# Categorías actualizadas
+Allow: /categoria/tecnologia
+Allow: /categoria/belleza
+Allow: /categoria/vape
+Allow: /categoria/hogar
+Allow: /categoria/deportes
+Allow: /categoria/herramientas
+
+# Páginas estáticas importantes
 Allow: /sobre-nosotros
 Allow: /preguntas-frecuentes
 Allow: /politicas-de-envio
 Allow: /terminos-y-condiciones
+Allow: /politica-de-privacidad
+
+# Recursos importantes
+Allow: /assets/images/
+Allow: /assets/css/
+Allow: /assets/js/
+
+# Páginas específicas para SEO
+Allow: /productos-tecnologia-colombia
+Allow: /soporte-celular-moto-colombia
+Allow: /airpods-pro-colombia
+Allow: /derma-roller-colombia
+Allow: /vapes-colombia
 
 # Bloquear archivos innecesarios
 Disallow: /admin
@@ -23,13 +52,18 @@ Disallow: /node_modules/
 Disallow: /src/
 Disallow: /public/manifest.json
 Disallow: /public/robots.txt
+Disallow: /*.map$
+Disallow: /test/
+Disallow: /.git/
 
 # Permitir bots importantes
 User-agent: Googlebot
 Allow: /
+Crawl-delay: 1
 
 User-agent: Bingbot
 Allow: /
+Crawl-delay: 1
 
 User-agent: facebookexternalhit
 Allow: /
@@ -40,9 +74,27 @@ Allow: /
 User-agent: WhatsApp
 Allow: /
 
-# Crawl-delay para bots menos importantes
-User-agent: *
-Crawl-delay: 1
+User-agent: LinkedInBot
+Allow: /
 
-# URL del sitemap XML principal
+User-agent: PinterestBot
+Allow: /
+
+User-agent: InstagramBot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+# Crawl-delay para otros bots
+User-agent: *
+Crawl-delay: 2
+
+# Sitemaps actualizados
 Sitemap: https://gotobuyy.com/sitemap.xml
+Sitemap: https://gotobuyy.com/sitemap-productos.xml
+Sitemap: https://gotobuyy.com/sitemap-categorias.xml
+Sitemap: https://gotobuyy.com/sitemap-images.xml
+
+# Configuración adicional para mejores crawls
+# Host: gotobuyy.com
