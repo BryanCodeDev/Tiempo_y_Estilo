@@ -1,4 +1,78 @@
 export const products = [
+  // Soporte Celular Moto Impermeable
+  {
+    id: 1,
+    name: "Soporte Celular Moto Impermeable",
+    price: 35000,
+    originalPrice: null,
+    category: "tecnologia",
+    image: "/assets/images/Soporte_Celular.webp",
+    description: "Soporte impermeable para celular en moto, rotación 360°, fácil instalación, hasta 6 pulgadas",
+    longDescription: "Soporte para celular 100% impermeable diseñado específicamente para motocicletas. Permite rotación completa de 360 grados y desmontaje del celular sin quitar el soporte. Incluye almohadillas de ajuste para proteger la pantalla. Compatible con equipos de hasta 6 pulgadas (ancho 10.5 cm, alto 16.5 cm).",
+    inStock: true,
+    discount: 0,
+    sku: "00033",
+    stock: 882,
+    specifications: [
+      "100% Impermeable",
+      "Rotación 360 grados",
+      "Fácil instalación",
+      "Compatible hasta 6 pulgadas",
+      "Dimensiones: 10.5 x 16.5 cm",
+      "Incluye almohadillas protectoras"
+    ],
+    includes: [
+      "1 Soporte impermeable",
+      "Almohadillas de ajuste",
+      "Kit de instalación",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "100% resistente al agua",
+      "Instalación sin herramientas",
+      "Protección total del dispositivo",
+      "Acceso completo a la pantalla",
+      "Desmontaje rápido",
+      "Compatible con la mayoría de celulares"
+    ]
+  },
+
+  // Adaptador Audífono Convertidor Plug 3.5
+  {
+    id: 2,
+    name: "Adaptador Audífono Convertidor Plug 3.5",
+    price: 39000,
+    originalPrice: null,
+    category: "tecnologia",
+    image: "/assets/images/Adaptador_Audifono.webp",
+    description: "Adaptador de audífonos 3.5mm a Lightning para iPhone, diseño compacto y conexión estable",
+    longDescription: "Adaptador genérico de alta calidad ideal para conectar audífonos con jack de 3.5mm a dispositivos iPhone con puerto Lightning. Ofrece una conexión estable y segura con diseño minimalista en color blanco. Su tamaño compacto de 5 cm de cable lo hace fácil de transportar.",
+    inStock: true,
+    discount: 0,
+    sku: "Ip45",
+    stock: 5,
+    specifications: [
+      "Entrada: Jack 3.5mm hembra",
+      "Salida: Conector Lightning",
+      "Longitud del cable: 5 cm",
+      "Color: Blanco",
+      "Diseño compacto y portable",
+      "Requiere Bluetooth activado"
+    ],
+    includes: [
+      "1 Adaptador Lightning a 3.5mm",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "Conexión estable y segura",
+      "Diseño minimalista",
+      "Fácil de transportar",
+      "Compatible con iPhone",
+      "Alta calidad de audio",
+      "Construcción duradera"
+    ]
+  },
+
   // Vape Recargable
   {
     id: 3,
@@ -53,9 +127,271 @@ export const products = [
     ]
   },
 
-  // Maleta Deportiva T60
+  // Derma Roller System Agujas
   {
     id: 4,
+    name: "Derma Roller System Agujas",
+    price: 24990,
+    originalPrice: null,
+    category: "belleza",
+    image: "/assets/images/Derma_Roller.webp",
+    description: "Derma roller con 540 micro agujas de titanio de 0.5mm, dermatológicamente comprobado",
+    longDescription: "Sistema Derma Roller con tecnología avanzada de micro agujas de titanio. Cuenta con 540 agujas de 0.5mm de tamaño para un tratamiento facial efectivo y seguro. Diseño moderno y tecnológico, dermatológicamente comprobado para estimular la regeneración de la piel.",
+    inStock: true,
+    discount: 0,
+    sku: "lumber008",
+    stock: 33,
+    specifications: [
+      "540 micro agujas de titanio",
+      "Tamaño de agujas: 0.5mm",
+      "Dermatológicamente comprobado",
+      "Diseño moderno tecnológico",
+      "Dimensiones del paquete: 158 x 45 x 37mm",
+      "Peso: 426g"
+    ],
+    includes: [
+      "1 Derma Roller System",
+      "Manual de instrucciones",
+      "Guía de uso"
+    ],
+    benefits: [
+      "Estimula regeneración de la piel",
+      "Mejora absorción de productos",
+      "Tecnología de micro agujas",
+      "Materiales de alta calidad",
+      "Fácil de usar",
+      "Resultados visibles"
+    ]
+  },
+
+  // Set X2 Almohadas Siliconadas
+  {
+    id: 5,
+    name: "Set X2 Almohadas Siliconadas 45x65",
+    price: 56561,
+    originalPrice: null,
+    category: "hogar",
+    image: "/assets/images/Set_X_Almohadas.webp",
+    description: "Combo de 2 almohadas ergonómicas 45x65, fibra siliconada, antiálérgicas, 100% colombiano",
+    longDescription: "Set de 2 almohadas ergonómicas adaptables en el área cervical. Su estructura interna permite el paso del aire generando un sistema libre de humedad. La limpieza y desinfección se puede realizar de manera fácil incrementando el índice de salubridad. Suavidad y frescura en tela y relleno de excelente calidad para mayor confort.",
+    inStock: true,
+    discount: 0,
+    sku: "almo45x65duo",
+    stock: 5996,
+    specifications: [
+      "Medidas: 45x65 cm (Alto x Ancho)",
+      "Relleno: 100% fibra siliconada",
+      "Material: Microfibra",
+      "Antiálérgicas",
+      "100% colombiano",
+      "Sistema libre de humedad"
+    ],
+    includes: [
+      "2 Almohadas 45x65 cm",
+      "Manual de cuidado"
+    ],
+    benefits: [
+      "Ergonómicas para área cervical",
+      "Sistema de ventilación",
+      "Fácil limpieza y desinfección",
+      "Antiálérgicas",
+      "Suavidad y frescura",
+      "Alta salubridad"
+    ]
+  },
+
+  // Mini Humidificador Difusor De Aromas
+  {
+    id: 6,
+    name: "Mini Humidificador Difusor De Aromas 220",
+    price: 39000,
+    originalPrice: null,
+    category: "hogar",
+    image: "/assets/images/humidificador.webp",
+    description: "Humidificador USB portátil con 7 luces LED, capacidad 220ml, 3.5 horas de funcionamiento",
+    longDescription: "Pequeño humidificador USB portátil y ligero que se conecta directamente a la interfaz USB. Libera agua al aire en forma de atomización fina para proporcionar un ambiente húmedo. Incluye 7 tipos de luces de respiración para crear ambiente romántico. Compatible con aceites esenciales para aromaterapia.",
+    inStock: true,
+    discount: 0,
+    sku: "002A",
+    stock: 246,
+    specifications: [
+      "Capacidad: 220ml (7.4 fl oz)",
+      "Funcionamiento: 3.5 horas continuas",
+      "Alimentación: Puerto USB",
+      "7 luces LED de colores",
+      "Tecnología ultrasónica",
+      "Funcionamiento silencioso"
+    ],
+    includes: [
+      "1 Mini humidificador",
+      "1 Cable USB",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "Portátil y ligero",
+      "Humidificación eficiente",
+      "Luz nocturna incorporada",
+      "Compatible con aceites esenciales",
+      "Funcionamiento silencioso",
+      "Ahorro de energía"
+    ]
+  },
+
+  // Airpods Pro 2 Generación
+  {
+    id: 7,
+    name: "Airpods Pro 2 Generación",
+    price: 37000,
+    originalPrice: null,
+    category: "tecnologia",
+    image: "/assets/images/Airpods_Pro2.webp",
+    description: "Audífonos inalámbricos premium compatibles con AirPods Pro, segunda generación",
+    longDescription: "Audífonos inalámbricos de alta calidad compatibles con AirPods Pro de segunda generación. Diseño premium con tecnología avanzada para una experiencia de audio superior. Perfectos para quienes buscan calidad de sonido excepcional y comodidad de uso prolongado.",
+    inStock: true,
+    discount: 0,
+    sku: "50",
+    stock: 395,
+    specifications: [
+      "Segunda generación",
+      "Tecnología inalámbrica avanzada",
+      "Compatibilidad universal",
+      "Calidad de audio premium",
+      "Diseño ergonómico",
+      "Batería de larga duración"
+    ],
+    includes: [
+      "1 Par de audífonos",
+      "Estuche de carga",
+      "Cable de carga",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "Sonido de alta fidelidad",
+      "Comodidad prolongada",
+      "Conexión estable",
+      "Diseño premium",
+      "Fácil emparejamiento",
+      "Excelente autonomía"
+    ]
+  },
+
+  // Audífonos Inalámbricos (Producto original diferente)
+  {
+    id: 8,
+    name: "Audífonos Inalámbricos 2da Generación",
+    price: 85000,
+    originalPrice: null,
+    category: "tecnologia",
+    image: "/assets/images/audifonos.webp",
+    description: "Audífonos Bluetooth Premium compatibles con AirPods Pro, iOS y Android, con micrófono y luz LED",
+    longDescription: "Los audífonos Bluetooth Premium compatibles con los AirPods Pro de segunda generación son perfectos para quienes buscan comodidad y calidad de sonido. Estos audífonos intraurales inalámbricos, compatibles con iOS y Android, ofrecen libertad de movimiento y comodidad. Además, tienen un micrófono integrado para llamadas y una luz LED para un aspecto moderno.",
+    inStock: true,
+    discount: 0,
+    sku: "EC25",
+    specifications: [
+      "Bluetooth de alta calidad",
+      "Compatible iOS y Android",
+      "Micrófono integrado",
+      "Luz LED indicadora",
+      "Diseño intraaural",
+      "Color: Blanco",
+      "Sonido envolvente"
+    ],
+    includes: [
+      "1 Par de audífonos",
+      "1 Estuche de carga",
+      "1 Cable de carga",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "Sonido de alta calidad",
+      "Libertad de movimiento",
+      "Compatibilidad universal",
+      "Llamadas manos libres",
+      "Diseño moderno con LED",
+      "Comodidad prolongada"
+    ]
+  },
+
+  // Bafle Parlante Charge 4 Recargable
+  {
+    id: 9,
+    name: "Bafle Parlante Charge 4 Recargable Bluetooth",
+    price: 59900,
+    originalPrice: null,
+    category: "tecnologia",
+    image: "/assets/images/Bafle_Parlante.webp",
+    description: "Parlante Bluetooth recargable 20W, batería 2400mAh, resistente a salpicaduras, 4 colores disponibles",
+    longDescription: "Parlante Bluetooth de alta potencia con 20W de salida. Batería de iones de litio de 2400mAh para hasta 4 horas de reproducción. Permite conexión inalámbrica de hasta 2 dispositivos simultáneamente. Resistente a salpicaduras y con puerto USB para cargar otros dispositivos.",
+    inStock: true,
+    discount: 0,
+    sku: "charge4-base",
+    hasVariants: true,
+    variants: [
+      {
+        id: "azul",
+        name: "Azul",
+        color: "#2563eb",
+        image: "/assets/images/Bafle_Parlante2.webp",
+        sku: "90251",
+        inStock: true,
+        stock: 5
+      },
+      {
+        id: "rojo",
+        name: "Rojo",
+        color: "#dc2626",
+        image: "/assets/images/Bafle_Parlante3.webp",
+        sku: "90250",
+        inStock: true,
+        stock: 10
+      },
+      {
+        id: "gris",
+        name: "Gris",
+        color: "#6b7280",
+        image: "/assets/images/Bafle_Parlante4.webp",
+        sku: "90253",
+        inStock: true,
+        stock: 12
+      },
+      {
+        id: "negro",
+        name: "Negro",
+        color: "#1f2937",
+        image: "/assets/images/Bafle_Parlante.webp",
+        sku: "90252",
+        inStock: false,
+        stock: 0
+      }
+    ],
+    specifications: [
+      "Potencia: 20W",
+      "Batería: 2400mAh iones de litio",
+      "Reproducción: hasta 4 horas",
+      "Tamaño: 22 x 9.5 x 9.3 cm",
+      "Peso: 965g",
+      "Resistente a salpicaduras",
+      "Puerto USB de carga"
+    ],
+    includes: [
+      "1 Parlante Bluetooth",
+      "Cable de carga USB",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "Sonido potente 20W",
+      "Batería de larga duración",
+      "Conexión de 2 dispositivos",
+      "Carga otros dispositivos",
+      "Resistente al agua",
+      "Diseño portátil"
+    ]
+  },
+
+  // Maleta Deportiva T60
+  {
+    id: 10,
     name: "Maleta Deportiva T60",
     price: 78000,
     originalPrice: null,
@@ -163,44 +499,6 @@ export const products = [
     ]
   },
 
-  // Audífonos Inalámbricos
-  {
-    id: 8,
-    name: "Audífonos Inalámbricos 2da Generación",
-    price: 85000,
-    originalPrice: null,
-    category: "tecnologia",
-    image: "/assets/images/audifonos.webp",
-    description: "Audífonos Bluetooth Premium compatibles con AirPods Pro, iOS y Android, con micrófono y luz LED",
-    longDescription: "Los audífonos Bluetooth Premium compatibles con los AirPods Pro de segunda generación son perfectos para quienes buscan comodidad y calidad de sonido. Estos audífonos intraurales inalámbricos, compatibles con iOS y Android, ofrecen libertad de movimiento y comodidad. Además, tienen un micrófono integrado para llamadas y una luz LED para un aspecto moderno.",
-    inStock: true,
-    discount: 0,
-    sku: "EC25",
-    specifications: [
-      "Bluetooth de alta calidad",
-      "Compatible iOS y Android",
-      "Micrófono integrado",
-      "Luz LED indicadora",
-      "Diseño intraaural",
-      "Color: Blanco",
-      "Sonido envolvente"
-    ],
-    includes: [
-      "1 Par de audífonos",
-      "1 Estuche de carga",
-      "1 Cable de carga",
-      "Manual de instrucciones"
-    ],
-    benefits: [
-      "Sonido de alta calidad",
-      "Libertad de movimiento",
-      "Compatibilidad universal",
-      "Llamadas manos libres",
-      "Diseño moderno con LED",
-      "Comodidad prolongada"
-    ]
-  },
-
   // Kit Destornilladores 37 Piezas
   {
     id: 11,
@@ -240,307 +538,9 @@ export const products = [
     ]
   },
 
-  // Soporte Celular Moto Impermeable
-  {
-    id: 1,
-    name: "Soporte Celular Moto Impermeable",
-    price: 35000,
-    originalPrice: null,
-    category: "tecnologia",
-    image: "/assets/images/Soporte_Celular.webp",
-    description: "Soporte impermeable para celular en moto, rotación 360°, fácil instalación, hasta 6 pulgadas",
-    longDescription: "Soporte para celular 100% impermeable diseñado específicamente para motocicletas. Permite rotación completa de 360 grados y desmontaje del celular sin quitar el soporte. Incluye almohadillas de ajuste para proteger la pantalla. Compatible con equipos de hasta 6 pulgadas (ancho 10.5 cm, alto 16.5 cm).",
-    inStock: true,
-    discount: 0,
-    sku: "00033",
-    stock: 882,
-    specifications: [
-      "100% Impermeable",
-      "Rotación 360 grados",
-      "Fácil instalación",
-      "Compatible hasta 6 pulgadas",
-      "Dimensiones: 10.5 x 16.5 cm",
-      "Incluye almohadillas protectoras"
-    ],
-    includes: [
-      "1 Soporte impermeable",
-      "Almohadillas de ajuste",
-      "Kit de instalación",
-      "Manual de instrucciones"
-    ],
-    benefits: [
-      "100% resistente al agua",
-      "Instalación sin herramientas",
-      "Protección total del dispositivo",
-      "Acceso completo a la pantalla",
-      "Desmontaje rápido",
-      "Compatible con la mayoría de celulares"
-    ]
-  },
-
-  // Adaptador Audífono Convertidor Plug 3.5
-  {
-    id: 2,
-    name: "Adaptador Audífono Convertidor Plug 3.5",
-    price: 39000,
-    originalPrice: null,
-    category: "tecnologia",
-    image: "/assets/images/Adaptador_Audifono.webp",
-    description: "Adaptador de audífonos 3.5mm a Lightning para iPhone, diseño compacto y conexión estable",
-    longDescription: "Adaptador genérico de alta calidad ideal para conectar audífonos con jack de 3.5mm a dispositivos iPhone con puerto Lightning. Ofrece una conexión estable y segura con diseño minimalista en color blanco. Su tamaño compacto de 5 cm de cable lo hace fácil de transportar.",
-    inStock: true,
-    discount: 0,
-    sku: "Ip45",
-    stock: 5,
-    specifications: [
-      "Entrada: Jack 3.5mm hembra",
-      "Salida: Conector Lightning",
-      "Longitud del cable: 5 cm",
-      "Color: Blanco",
-      "Diseño compacto y portable",
-      "Requiere Bluetooth activado"
-    ],
-    includes: [
-      "1 Adaptador Lightning a 3.5mm",
-      "Manual de instrucciones"
-    ],
-    benefits: [
-      "Conexión estable y segura",
-      "Diseño minimalista",
-      "Fácil de transportar",
-      "Compatible con iPhone",
-      "Alta calidad de audio",
-      "Construcción duradera"
-    ]
-  },
-
-  // Derma Roller System Agujas
-  {
-    id: 3,
-    name: "Derma Roller System Agujas",
-    price: 24990,
-    originalPrice: null,
-    category: "belleza",
-    image: "/assets/images/Derma_Roller.webp",
-    description: "Derma roller con 540 micro agujas de titanio de 0.5mm, dermatológicamente comprobado",
-    longDescription: "Sistema Derma Roller con tecnología avanzada de micro agujas de titanio. Cuenta con 540 agujas de 0.5mm de tamaño para un tratamiento facial efectivo y seguro. Diseño moderno y tecnológico, dermatológicamente comprobado para estimular la regeneración de la piel.",
-    inStock: true,
-    discount: 0,
-    sku: "lumber008",
-    stock: 33,
-    specifications: [
-      "540 micro agujas de titanio",
-      "Tamaño de agujas: 0.5mm",
-      "Dermatológicamente comprobado",
-      "Diseño moderno tecnológico",
-      "Dimensiones del paquete: 158 x 45 x 37mm",
-      "Peso: 426g"
-    ],
-    includes: [
-      "1 Derma Roller System",
-      "Manual de instrucciones",
-      "Guía de uso"
-    ],
-    benefits: [
-      "Estimula regeneración de la piel",
-      "Mejora absorción de productos",
-      "Tecnología de micro agujas",
-      "Materiales de alta calidad",
-      "Fácil de usar",
-      "Resultados visibles"
-    ]
-  },
-
-  // Set X2 Almohadas Siliconadas
-  {
-    id: 4,
-    name: "Set X2 Almohadas Siliconadas 45x65",
-    price: 56561,
-    originalPrice: null,
-    category: "hogar",
-    image: "/assets/images/Set_X_Almohadas.webp",
-    description: "Combo de 2 almohadas ergonómicas 45x65, fibra siliconada, antiálérgicas, 100% colombiano",
-    longDescription: "Set de 2 almohadas ergonómicas adaptables en el área cervical. Su estructura interna permite el paso del aire generando un sistema libre de humedad. La limpieza y desinfección se puede realizar de manera fácil incrementando el índice de salubridad. Suavidad y frescura en tela y relleno de excelente calidad para mayor confort.",
-    inStock: true,
-    discount: 0,
-    sku: "almo45x65duo",
-    stock: 5996,
-    specifications: [
-      "Medidas: 45x65 cm (Alto x Ancho)",
-      "Relleno: 100% fibra siliconada",
-      "Material: Microfibra",
-      "Antiálérgicas",
-      "100% colombiano",
-      "Sistema libre de humedad"
-    ],
-    includes: [
-      "2 Almohadas 45x65 cm",
-      "Manual de cuidado"
-    ],
-    benefits: [
-      "Ergonómicas para área cervical",
-      "Sistema de ventilación",
-      "Fácil limpieza y desinfección",
-      "Antiálérgicas",
-      "Suavidad y frescura",
-      "Alta salubridad"
-    ]
-  },
-
-  // Mini Humidificador Difusor De Aromas
-  {
-    id: 5,
-    name: "Mini Humidificador Difusor De Aromas 220",
-    price: 39000,
-    originalPrice: null,
-    category: "hogar",
-    image: "/assets/images/humidificador.webp",
-    description: "Humidificador USB portátil con 7 luces LED, capacidad 220ml, 3.5 horas de funcionamiento",
-    longDescription: "Pequeño humidificador USB portátil y ligero que se conecta directamente a la interfaz USB. Libera agua al aire en forma de atomización fina para proporcionar un ambiente húmedo. Incluye 7 tipos de luces de respiración para crear ambiente romántico. Compatible con aceites esenciales para aromaterapia.",
-    inStock: true,
-    discount: 0,
-    sku: "002A",
-    stock: 246,
-    specifications: [
-      "Capacidad: 220ml (7.4 fl oz)",
-      "Funcionamiento: 3.5 horas continuas",
-      "Alimentación: Puerto USB",
-      "7 luces LED de colores",
-      "Tecnología ultrasónica",
-      "Funcionamiento silencioso"
-    ],
-    includes: [
-      "1 Mini humidificador",
-      "1 Cable USB",
-      "Manual de instrucciones"
-    ],
-    benefits: [
-      "Portátil y ligero",
-      "Humidificación eficiente",
-      "Luz nocturna incorporada",
-      "Compatible con aceites esenciales",
-      "Funcionamiento silencioso",
-      "Ahorro de energía"
-    ]
-  },
-
-  // Airpods Pro 2 Generación
-  {
-    id: 6,
-    name: "Airpods Pro 2 Generación",
-    price: 37000,
-    originalPrice: null,
-    category: "tecnologia",
-    image: "/assets/images/Airpods_Pro2.webp",
-    description: "Audífonos inalámbricos premium compatibles con AirPods Pro, segunda generación",
-    longDescription: "Audífonos inalámbricos de alta calidad compatibles con AirPods Pro de segunda generación. Diseño premium con tecnología avanzada para una experiencia de audio superior. Perfectos para quienes buscan calidad de sonido excepcional y comodidad de uso prolongado.",
-    inStock: true,
-    discount: 0,
-    sku: "50",
-    stock: 395,
-    specifications: [
-      "Segunda generación",
-      "Tecnología inalámbrica avanzada",
-      "Compatibilidad universal",
-      "Calidad de audio premium",
-      "Diseño ergonómico",
-      "Batería de larga duración"
-    ],
-    includes: [
-      "1 Par de audífonos",
-      "Estuche de carga",
-      "Cable de carga",
-      "Manual de instrucciones"
-    ],
-    benefits: [
-      "Sonido de alta fidelidad",
-      "Comodidad prolongada",
-      "Conexión estable",
-      "Diseño premium",
-      "Fácil emparejamiento",
-      "Excelente autonomía"
-    ]
-  },
-
-  // Bafle Parlante Charge 4 Recargable
-  {
-    id: 7,
-    name: "Bafle Parlante Charge 4 Recargable Bluetooth",
-    price: 59900,
-    originalPrice: null,
-    category: "tecnologia",
-    image: "/assets/images/Bafle_Parlante.webp",
-    description: "Parlante Bluetooth recargable 20W, batería 2400mAh, resistente a salpicaduras, 4 colores disponibles",
-    longDescription: "Parlante Bluetooth de alta potencia con 20W de salida. Batería de iones de litio de 2400mAh para hasta 4 horas de reproducción. Permite conexión inalámbrica de hasta 2 dispositivos simultáneamente. Resistente a salpicaduras y con puerto USB para cargar otros dispositivos.",
-    inStock: true,
-    discount: 0,
-    sku: "charge4-base",
-    hasVariants: true,
-    variants: [
-      {
-        id: "azul",
-        name: "Azul",
-        color: "#2563eb",
-        image: "/assets/images/Bafle_Parlante2.webp",
-        sku: "90251",
-        inStock: true,
-        stock: 5
-      },
-      {
-        id: "rojo",
-        name: "Rojo",
-        color: "#dc2626",
-        image: "/assets/images/Bafle_Parlante3.webp",
-        sku: "90250",
-        inStock: true,
-        stock: 10
-      },
-      {
-        id: "gris",
-        name: "Gris",
-        color: "#6b7280",
-        image: "/assets/images/Bafle_Parlante4.webp",
-        sku: "90253",
-        inStock: true,
-        stock: 12
-      },
-      {
-        id: "negro",
-        name: "Negro",
-        color: "#1f2937",
-        image: "/assets/images/Bafle_Parlante.webp",
-        sku: "90252",
-        inStock: false,
-        stock: 0
-      }
-    ],
-    specifications: [
-      "Potencia: 20W",
-      "Batería: 2400mAh iones de litio",
-      "Reproducción: hasta 4 horas",
-      "Tamaño: 22 x 9.5 x 9.3 cm",
-      "Peso: 965g",
-      "Resistente a salpicaduras",
-      "Puerto USB de carga"
-    ],
-    includes: [
-      "1 Parlante Bluetooth",
-      "Cable de carga USB",
-      "Manual de instrucciones"
-    ],
-    benefits: [
-      "Sonido potente 20W",
-      "Batería de larga duración",
-      "Conexión de 2 dispositivos",
-      "Carga otros dispositivos",
-      "Resistente al agua",
-      "Diseño portátil"
-    ]
-  },
-
   // Maletín Deportivo Azul Oscuro
   {
-    id: 8,
+    id: 12,
     name: "Maletín Deportivo Azul Oscuro Ref 3",
     price: 90000,
     originalPrice: null,
@@ -550,7 +550,7 @@ export const products = [
     longDescription: "Maletín deportivo en color azul oscuro diseñado para satisfacer las necesidades de atletas y deportistas. Fabricado con materiales resistentes y duraderos. Su diseño funcional permite organizar y transportar cómodamente todo el equipo deportivo necesario.",
     inStock: true,
     discount: 0,
-    sku: "Maletín Deportivo Azul Ocuro - REF 3",
+    sku: "Maletín Deportivo Azul Oscuro - REF 3",
     stock: 6,
     specifications: [
       "Color: Azul oscuro",
@@ -576,7 +576,7 @@ export const products = [
 
   // Juego De Destornillador Kit Pro 115 en 1
   {
-    id: 9,
+    id: 13,
     name: "Juego De Destornillador Kit Pro 115 en 1",
     price: 45000,
     originalPrice: null,
