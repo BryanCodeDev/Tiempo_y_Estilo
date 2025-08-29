@@ -208,7 +208,7 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
               </div>
               <div className="flex items-center space-x-1">
                 <Package className="w-4 h-4 text-green-600" />
-                <span className="font-medium">Envío Gratis</span>
+                <span className="font-medium">Envío SIEMPRE Gratis</span>
               </div>
             </div>
           </div>

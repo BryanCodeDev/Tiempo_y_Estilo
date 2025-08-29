@@ -84,7 +84,7 @@ const Footer = () => {
                   <Truck className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-white" />
                 </div>
                 <h3 className="font-bold text-xs sm:text-sm lg:text-base text-gray-900 mb-1">Envío Gratis</h3>
-                <p className="text-blue-600 text-xs sm:text-sm font-semibold">Sobre $80.000</p>
+                <p className="text-blue-600 text-xs sm:text-sm font-semibold">Siempre</p>
                 <p className="text-gray-500 text-xs mt-1 hidden sm:block">A toda Colombia</p>
               </div>
             </div>
@@ -147,7 +147,7 @@ const Footer = () => {
               
               <p className="text-gray-600 mb-4 lg:mb-6 max-w-md leading-relaxed text-sm lg:text-base">
                 Ofrecemos productos únicos y de calidad premium para tu hogar, belleza y bienestar. 
-                Con envíos seguros a toda Colombia y atención personalizada 24/7.
+                Con envíos GRATUITOS a toda Colombia y atención personalizada 24/7.
               </p>
               
               {/* Estadísticas */}
@@ -217,7 +217,7 @@ const Footer = () => {
                   </div>
                   <div className="min-w-0">
                     <span className="block font-semibold text-gray-900 text-sm lg:text-base">Colombia</span>
-                    <span className="text-xs lg:text-sm text-gray-500 block">Envíos a todo el país</span>
+                    <span className="text-xs lg:text-sm text-gray-500 block">Envíos GRATIS a todo el país</span>
                     <span className="text-xs text-blue-600 block">Cobertura nacional garantizada</span>
                   </div>
                 </div>
@@ -304,7 +304,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center bg-gray-800 text-gray-300 px-2 lg:px-3 py-2 rounded-lg border border-gray-700">
                 <Truck className="h-3 w-3 mr-2" />
-                <span>Envío nacional</span>
+                <span>Envío GRATIS</span>
               </div>
               <div className="flex items-center bg-gray-800 text-gray-300 px-2 lg:px-3 py-2 rounded-lg border border-gray-700">
                 <span className="mr-2">⭐</span>

@@ -119,7 +119,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
             <span className="text-gray-700"> catálogo</span>
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-            Encuentra productos únicos con envío gratis sobre $80.000. 
+            Encuentra productos únicos con envío GRATIS incluido siempre. 
             {filteredProducts.length > 0 && (
               <span className="block mt-2 text-sm">
                 <strong>{filteredProducts.length}</strong> productos disponibles
@@ -409,7 +409,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
               <h3 className="text-2xl sm:text-3xl font-bold mb-4">¿Necesitas ayuda para elegir?</h3>
               <p className="text-gray-200 mb-8 max-w-2xl mx-auto text-lg">
                 Nuestro equipo está listo para ayudarte a encontrar el producto perfecto. 
-                Contacta por WhatsApp y recibe asesoría personalizada sobre cualquiera de nuestros {filteredProducts.length} productos
+                Contacta por WhatsApp y recibe asesoría personalizada sobre cualquiera de nuestros {filteredProducts.length} productos con envío GRATIS incluido
               </p>
               <a
                 href={`https://wa.me/573508470735?text=Hola%20GoToBuy,%20necesito%20asesoría%20para%20elegir%20un%20producto${searchTerm ? `%20relacionado%20con%20"${searchTerm}"` : ''}${selectedCategory !== 'all' ? `%20en%20la%20categoría%20"${categories.find(c => c.id === selectedCategory)?.name}"` : ''}`}
@@ -431,7 +431,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
             "@context": "https://schema.org",
             "@type": "CollectionPage",
             "name": `Productos ${selectedCategory !== 'all' ? `- ${categories.find(c => c.id === selectedCategory)?.name}` : 'Premium GoToBuy'}`,
-            "description": `Encuentra ${filteredProducts.length} productos premium en GoToBuy${selectedCategory !== 'all' ? ` en la categoría ${categories.find(c => c.id === selectedCategory)?.name}` : ''}. Envío gratis sobre $80.000 pesos.`,
+            "description": `Encuentra ${filteredProducts.length} productos premium en GoToBuy${selectedCategory !== 'all' ? ` en la categoría ${categories.find(c => c.id === selectedCategory)?.name}` : ''}. Envío GRATIS incluido siempre.`,
             "url": window.location.href,
             "mainEntity": {
               "@type": "ItemList",

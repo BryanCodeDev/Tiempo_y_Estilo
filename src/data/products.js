@@ -1,109 +1,4 @@
 export const products = [
-  // Masajeador Facial
-  {
-    id: 1,
-    name: "Masajeador Facial de Delfín",
-    price: 63000,
-    originalPrice: 89000,
-    category: "belleza",
-    image: "/assets/images/masajeador-delfin.webp",
-    description: "Masajeador facial con función de calor, 3 intensidades de masaje, batería de 650mAh",
-    longDescription: "Masajeador de cuello con función de calor. El calor magnético de 45±5℃ calienta la piel, combinado con un masaje 3D para promover la absorción de los productos para el cuidado de la piel. Puede promover la síntesis de proteínas y colágeno, activar la piel, tensar la piel flácida y reducir los poros.",
-    inStock: true,
-    discount: 29,
-    sku: "masajeador-delfin",
-    specifications: [
-      "Material: ABS premium",
-      "Carga USB incluida",
-      "Batería de litio 650mAh",
-      "Tiempo de carga: 2 horas",
-      "3 intensidades de masaje",
-      "Función de calor magnético 45±5℃",
-      "Tamaño: 4.7 x 3.5 x 1.9 pulgadas"
-    ],
-    includes: [
-      "1 Masajeador facial",
-      "1 Cable USB",
-      "1 Paño de limpieza",
-      "1 Manual de instrucciones"
-    ],
-    benefits: [
-      "Elimina arrugas del cuello y cara",
-      "Promueve circulación sanguínea",
-      "Estimula puntos de acupuntura",
-      "Mejora absorción de productos",
-      "Reduce poros y flacidez"
-    ]
-  },
-
-  // Set Utensilios Cocina - PRODUCTO ÚNICO CON VARIANTES DE COLOR
-  {
-    id: 2,
-    name: "Set Utensilios Cocina 12pcs",
-    price: 35500,
-    originalPrice: 48000,
-    category: "cocina",
-    image: "/assets/images/utensilios.webp",
-    description: "Set de 12 utensilios de silicona con mango de madera, resistente al calor, incluye contenedor",
-    longDescription: "Juego completo de utensilios de cocina de silicona de grado alimenticio con mangos de madera premium. Resistente al calor, fácil de limpiar y con contenedor organizador incluido. Disponible en 4 colores elegantes.",
-    inStock: true,
-    discount: 26,
-    sku: "utensilios-cocina-12pcs",
-    hasVariants: true,
-    variants: [
-      {
-        id: "negro",
-        name: "Negro",
-        color: "#1f2937",
-        image: "/assets/images/utensilios.webp",
-        sku: "utensilios-negro"
-      },
-      {
-        id: "verde",
-        name: "Verde",
-        color: "#059669",
-        image: "/assets/images/utensilios.webp", 
-        sku: "utensilios-verde"
-      },
-      {
-        id: "gris",
-        name: "Gris",
-        color: "#6b7280",
-        image: "/assets/images/utensilios.webp",
-        sku: "utensilios-gris"
-      },
-      {
-        id: "rosado",
-        name: "Rosado",
-        color: "#ec4899",
-        image: "/assets/images/utensilios.webp",
-        sku: "utensilios-rosado"
-      }
-    ],
-    specifications: [
-      "Material: Silicona grado alimenticio",
-      "Mango: Madera premium",
-      "Resistente al calor hasta 230°C",
-      "Sin BPA",
-      "12 piezas + contenedor",
-      "Fácil limpieza",
-      "4 colores disponibles"
-    ],
-    includes: [
-      "11 Utensilios de silicona",
-      "1 Contenedor organizador",
-      "Manual de cuidado"
-    ],
-    benefits: [
-      "Resistente al calor",
-      "No raya superficies antiadherentes",
-      "Mango ergonómico",
-      "Fácil almacenamiento",
-      "Duradero y seguro",
-      "Múltiples colores disponibles"
-    ]
-  },
-
   // Vape Recargable
   {
     id: 3,
@@ -268,122 +163,6 @@ export const products = [
     ]
   },
 
-  // Lámpara Base LED Millonarios FC
-  {
-    id: 5,
-    name: "Lámpara Base LED Millonarios FC V284",
-    price: 45000,
-    originalPrice: 60000,
-    category: "tecnologia",
-    image: "/assets/images/millonarios.webp",
-    description: "Lámpara LED con escudo de Millonarios FC, acrílico de alta calidad, luz cálida y control táctil",
-    longDescription: "La Lámpara Base LED Escudo Millonarios FC V284 es el accesorio perfecto para los verdaderos hinchas del club. Con un diseño exclusivo del escudo del equipo, esta lámpara captura la esencia del club y la lleva directamente a tu hogar, oficina o cualquier espacio que desees iluminar con pasión azul. Fabricada con acrílico de alta calidad, asegura durabilidad superior y excelente resistencia al paso del tiempo.",
-    inStock: true,
-    discount: 25,
-    sku: "Did-V284",
-    specifications: [
-      "Material: Plástico de alta calidad",
-      "Fuente de luz: LED",
-      "Apoyo regulador de voltaje: Sí",
-      "Modo de alimentación: Recarga USB",
-      "Control táctil",
-      "Temperatura de color: 3500K (cálida)",
-      "Flujo luminoso: 80 lm",
-      "Vida útil: 10000 horas"
-    ],
-    includes: [
-      "1 Lámpara LED Millonarios FC",
-      "1 Cable USB",
-      "Manual de instrucciones"
-    ],
-    benefits: [
-      "Diseño exclusivo del escudo",
-      "Luz cálida y relajante",
-      "Control táctil fácil",
-      "Recargable por USB",
-      "Larga vida útil",
-      "Perfecto para hinchas"
-    ]
-  },
-
-  // Concentrador USB Hub
-  {
-    id: 6,
-    name: "Concentrador de Red Hub USB Multipuertos",
-    price: 50000,
-    originalPrice: null,
-    category: "tecnologia",
-    image: "/assets/images/usb.webp",
-    secondaryImage: "/assets/images/usb2.webp",
-    tertiaryImage: "/assets/images/usb3.webp",
-    description: "Hub USB de 7 puertos con interruptores independientes, alta velocidad USB 2.0/3.0",
-    longDescription: "Concentrador USB de alta calidad con 7 puertos independientes. Cada puerto cuenta con su propio interruptor, evitando la compresión entre dispositivos USB grandes. Compatible con Windows XP/Vista/7/8 y MAC. Ligero, fácil de llevar y extremadamente práctico para expandir la conectividad de tu computador.",
-    inStock: true,
-    discount: 0,
-    sku: "1138",
-    specifications: [
-      "7 puertos USB 2.0/3.0",
-      "Interruptores independientes",
-      "Color: Negro",
-      "Interface: Puerto macho tipo B USB2.0",
-      "Compatible: Windows XP/Vista/7/8 y MAC",
-      "Alta velocidad de transferencia"
-    ],
-    includes: [
-      "1 Hub USB de 7 puertos",
-      "1 Cable USB",
-      "Manual de instrucciones"
-    ],
-    benefits: [
-      "Puertos independientes con switch",
-      "Evita compresión de dispositivos",
-      "Ligero y portátil",
-      "Alta velocidad",
-      "Compatible múltiples sistemas",
-      "Práctico y conveniente"
-    ]
-  },
-
-  // Estante Organizador de Zapatos
-  {
-    id: 7,
-    name: "Estante Organizador de Zapatos 5 Niveles",
-    price: 76900,
-    originalPrice: null,
-    category: "hogar",
-    image: "/assets/images/estanteria_zapatos2.webp",
-    secondaryImage: "/assets/images/estanteria_zapatos3.webp",
-    tertiaryImage: "/assets/images/estanteria_zapatos4.webp",
-    fourthImage: "/assets/images/estanteria_zapatos5.webp",
-    description: "Organizador vertical de zapatos para 12 pares, 5 niveles, fácil instalación sin herramientas",
-    longDescription: "Descubre la solución perfecta para mantener tus zapatos organizados y al alcance de la mano. Nuestro Organizador de Zapatos de 5 Niveles es un sistema innovador diseñado para maximizar el espacio de tu hogar, permitiendo el almacenamiento vertical de hasta 12 pares de zapatos de manera ordenada y elegante. Su diseño compacto no solo duplica tu espacio de almacenamiento, sino que también aporta un toque moderno y minimalista a tu decoración.",
-    inStock: true,
-    discount: 0,
-    sku: "Estante Organizador De Zapatos 5 Niveles",
-    specifications: [
-      "Dimensiones: 67 x 57 x 20 cm",
-      "Capacidad: 12 pares de zapatos",
-      "Material: Tubo de acero, junta de plástico",
-      "Altura: 65 cm",
-      "Largo: 57 cm",
-      "Fondo: 20 cm",
-      "Sin herramientas para instalación"
-    ],
-    includes: [
-      "1 Organizador de 5 niveles",
-      "Piezas de ensamble",
-      "Manual de instalación"
-    ],
-    benefits: [
-      "Maximiza el espacio vertical",
-      "Diseño práctico y funcional",
-      "Ligero y fácil de mover",
-      "Se adapta a botas altas",
-      "Instalación sin herramientas",
-      "Material resistente"
-    ]
-  },
-
   // Audífonos Inalámbricos
   {
     id: 8,
@@ -419,109 +198,6 @@ export const products = [
       "Llamadas manos libres",
       "Diseño moderno con LED",
       "Comodidad prolongada"
-    ]
-  },
-
-  // Taladro 24V
-  {
-    id: 9,
-    name: "Taladro en Estuche 24 Voltios 2 Baterías",
-    price: 160000,
-    originalPrice: null,
-    category: "herramientas",
-    image: "/assets/images/taladro.webp",
-    secondaryImage: "/assets/images/taladro2.webp",
-    tertiaryImage: "/assets/images/taladro3.webp",
-    fourthImage: "/assets/images/taladro5.webp",
-    fifthImage: "/assets/images/taladro6.webp",
-    description: "Taladro inalámbrico 24V con 2 baterías, estuche completo con herramientas y accesorios",
-    longDescription: "Potente taladro de 24V con batería de litio, equipado con luz LED que se acciona al presionar el gatillo y un eje flexible para los lugares más difíciles. Cuenta con un práctico estuche de alta resistencia con herramientas indispensables para todas las tareas. Ideal para carpintería, estructuras de yeso y reparaciones automotrices.",
-    inStock: true,
-    discount: 0,
-    sku: "123",
-    specifications: [
-      "Potencia: 24V",
-      "Batería: Litio (LI-ION) 24V",
-      "Tiempo de carga: 3-5 horas",
-      "Apertura máxima: 10mm (3/8\")",
-      "Torque: 28 NM",
-      "18 niveles de torque",
-      "2 controles de velocidad"
-    ],
-    includes: [
-      "1 Taladro inalámbrico",
-      "2 Baterías recargables 24V",
-      "1 Adaptador CA para carga",
-      "9 Copas (5-13mm)",
-      "6 Puntas de destornillador",
-      "6 Brocas para madera y yeso",
-      "1 Eje flexible",
-      "2 Accesorios para eje flexible",
-      "1 Estuche de alta resistencia"
-    ],
-    benefits: [
-      "Doble batería incluida",
-      "Luz LED integrada",
-      "Eje flexible incluido",
-      "Kit completo de herramientas",
-      "Control de reversa",
-      "Diseño ergonómico"
-    ]
-  },
-
-  // Combo Reloj + Audífonos + Maleta
-  {
-    id: 10,
-    name: "Combo: Reloj D18 + Audífonos M10 + Maleta",
-    price: 75900,
-    originalPrice: null,
-    category: "combos",
-    image: "/assets/images/combo.webp",
-    description: "Combo 3 productos: Reloj inteligente D18, Audífonos M10 y Maleta (Antirrobo o Canguro)",
-    longDescription: "Combo completo que incluye 3 productos esenciales: Reloj inteligente D18 circular, Audífonos M10 de alta calidad y una maleta funcional. Disponible en dos variantes: con maleta antirrobo o maleta tipo canguro. Perfecto para quienes buscan tecnología y funcionalidad en un solo paquete.",
-    inStock: true,
-    discount: 0,
-    sku: "IMPLECONCANGMAL",
-    hasVariants: true,
-    variants: [
-      {
-        id: "antirrobo",
-        name: "Con Maleta Antirrobo",
-        image: "/assets/images/combo.webp",
-        sku: "COMBO-antirrobo",
-        inStock: true,
-        stock: 79
-      },
-      {
-        id: "canguro",
-        name: "Con Maleta Canguro",
-        image: "/assets/images/combo_destornilladores.webp",
-        sku: "COMBO-canguro", 
-        inStock: true,
-        stock: 70
-      }
-    ],
-    specifications: [
-      "Reloj D18 circular inteligente",
-      "Audífonos M10 inalámbricos",
-      "Maleta funcional incluida",
-      "2 variantes de maleta disponibles",
-      "Combo de 3 productos"
-    ],
-    includes: [
-      "1 Reloj inteligente D18",
-      "1 Par audífonos M10",
-      "1 Maleta (según variante)",
-      "Cables de carga",
-      "Manuales de instrucciones"
-    ],
-    benefits: [
-      "Combo completo 3 en 1",
-      "Ahorro en compra conjunto",
-      "Productos complementarios",
-      "Tecnología y funcionalidad",
-      "Dos opciones de maleta",
-      "Excelente relación precio-valor"
     ]
   },
 
@@ -562,6 +238,385 @@ export const products = [
       "Acero de alta calidad",
       "Ideal para reparaciones de precisión"
     ]
+  },
+
+  // Soporte Celular Moto Impermeable
+  {
+    id: 1,
+    name: "Soporte Celular Moto Impermeable",
+    price: 35000,
+    originalPrice: null,
+    category: "tecnologia",
+    image: "/assets/images/Soporte_Celular.webp",
+    description: "Soporte impermeable para celular en moto, rotación 360°, fácil instalación, hasta 6 pulgadas",
+    longDescription: "Soporte para celular 100% impermeable diseñado específicamente para motocicletas. Permite rotación completa de 360 grados y desmontaje del celular sin quitar el soporte. Incluye almohadillas de ajuste para proteger la pantalla. Compatible con equipos de hasta 6 pulgadas (ancho 10.5 cm, alto 16.5 cm).",
+    inStock: true,
+    discount: 0,
+    sku: "00033",
+    stock: 882,
+    specifications: [
+      "100% Impermeable",
+      "Rotación 360 grados",
+      "Fácil instalación",
+      "Compatible hasta 6 pulgadas",
+      "Dimensiones: 10.5 x 16.5 cm",
+      "Incluye almohadillas protectoras"
+    ],
+    includes: [
+      "1 Soporte impermeable",
+      "Almohadillas de ajuste",
+      "Kit de instalación",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "100% resistente al agua",
+      "Instalación sin herramientas",
+      "Protección total del dispositivo",
+      "Acceso completo a la pantalla",
+      "Desmontaje rápido",
+      "Compatible con la mayoría de celulares"
+    ]
+  },
+
+  // Adaptador Audífono Convertidor Plug 3.5
+  {
+    id: 2,
+    name: "Adaptador Audífono Convertidor Plug 3.5",
+    price: 39000,
+    originalPrice: null,
+    category: "tecnologia",
+    image: "/assets/images/Adaptador_Audifono.webp",
+    description: "Adaptador de audífonos 3.5mm a Lightning para iPhone, diseño compacto y conexión estable",
+    longDescription: "Adaptador genérico de alta calidad ideal para conectar audífonos con jack de 3.5mm a dispositivos iPhone con puerto Lightning. Ofrece una conexión estable y segura con diseño minimalista en color blanco. Su tamaño compacto de 5 cm de cable lo hace fácil de transportar.",
+    inStock: true,
+    discount: 0,
+    sku: "Ip45",
+    stock: 5,
+    specifications: [
+      "Entrada: Jack 3.5mm hembra",
+      "Salida: Conector Lightning",
+      "Longitud del cable: 5 cm",
+      "Color: Blanco",
+      "Diseño compacto y portable",
+      "Requiere Bluetooth activado"
+    ],
+    includes: [
+      "1 Adaptador Lightning a 3.5mm",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "Conexión estable y segura",
+      "Diseño minimalista",
+      "Fácil de transportar",
+      "Compatible con iPhone",
+      "Alta calidad de audio",
+      "Construcción duradera"
+    ]
+  },
+
+  // Derma Roller System Agujas
+  {
+    id: 3,
+    name: "Derma Roller System Agujas",
+    price: 24990,
+    originalPrice: null,
+    category: "belleza",
+    image: "/assets/images/Derma_Roller.webp",
+    description: "Derma roller con 540 micro agujas de titanio de 0.5mm, dermatológicamente comprobado",
+    longDescription: "Sistema Derma Roller con tecnología avanzada de micro agujas de titanio. Cuenta con 540 agujas de 0.5mm de tamaño para un tratamiento facial efectivo y seguro. Diseño moderno y tecnológico, dermatológicamente comprobado para estimular la regeneración de la piel.",
+    inStock: true,
+    discount: 0,
+    sku: "lumber008",
+    stock: 33,
+    specifications: [
+      "540 micro agujas de titanio",
+      "Tamaño de agujas: 0.5mm",
+      "Dermatológicamente comprobado",
+      "Diseño moderno tecnológico",
+      "Dimensiones del paquete: 158 x 45 x 37mm",
+      "Peso: 426g"
+    ],
+    includes: [
+      "1 Derma Roller System",
+      "Manual de instrucciones",
+      "Guía de uso"
+    ],
+    benefits: [
+      "Estimula regeneración de la piel",
+      "Mejora absorción de productos",
+      "Tecnología de micro agujas",
+      "Materiales de alta calidad",
+      "Fácil de usar",
+      "Resultados visibles"
+    ]
+  },
+
+  // Set X2 Almohadas Siliconadas
+  {
+    id: 4,
+    name: "Set X2 Almohadas Siliconadas 45x65",
+    price: 56561,
+    originalPrice: null,
+    category: "hogar",
+    image: "/assets/images/Set_X_Almohadas.webp",
+    description: "Combo de 2 almohadas ergonómicas 45x65, fibra siliconada, antiálérgicas, 100% colombiano",
+    longDescription: "Set de 2 almohadas ergonómicas adaptables en el área cervical. Su estructura interna permite el paso del aire generando un sistema libre de humedad. La limpieza y desinfección se puede realizar de manera fácil incrementando el índice de salubridad. Suavidad y frescura en tela y relleno de excelente calidad para mayor confort.",
+    inStock: true,
+    discount: 0,
+    sku: "almo45x65duo",
+    stock: 5996,
+    specifications: [
+      "Medidas: 45x65 cm (Alto x Ancho)",
+      "Relleno: 100% fibra siliconada",
+      "Material: Microfibra",
+      "Antiálérgicas",
+      "100% colombiano",
+      "Sistema libre de humedad"
+    ],
+    includes: [
+      "2 Almohadas 45x65 cm",
+      "Manual de cuidado"
+    ],
+    benefits: [
+      "Ergonómicas para área cervical",
+      "Sistema de ventilación",
+      "Fácil limpieza y desinfección",
+      "Antiálérgicas",
+      "Suavidad y frescura",
+      "Alta salubridad"
+    ]
+  },
+
+  // Mini Humidificador Difusor De Aromas
+  {
+    id: 5,
+    name: "Mini Humidificador Difusor De Aromas 220",
+    price: 39000,
+    originalPrice: null,
+    category: "hogar",
+    image: "/assets/images/humidificador.webp",
+    description: "Humidificador USB portátil con 7 luces LED, capacidad 220ml, 3.5 horas de funcionamiento",
+    longDescription: "Pequeño humidificador USB portátil y ligero que se conecta directamente a la interfaz USB. Libera agua al aire en forma de atomización fina para proporcionar un ambiente húmedo. Incluye 7 tipos de luces de respiración para crear ambiente romántico. Compatible con aceites esenciales para aromaterapia.",
+    inStock: true,
+    discount: 0,
+    sku: "002A",
+    stock: 246,
+    specifications: [
+      "Capacidad: 220ml (7.4 fl oz)",
+      "Funcionamiento: 3.5 horas continuas",
+      "Alimentación: Puerto USB",
+      "7 luces LED de colores",
+      "Tecnología ultrasónica",
+      "Funcionamiento silencioso"
+    ],
+    includes: [
+      "1 Mini humidificador",
+      "1 Cable USB",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "Portátil y ligero",
+      "Humidificación eficiente",
+      "Luz nocturna incorporada",
+      "Compatible con aceites esenciales",
+      "Funcionamiento silencioso",
+      "Ahorro de energía"
+    ]
+  },
+
+  // Airpods Pro 2 Generación
+  {
+    id: 6,
+    name: "Airpods Pro 2 Generación",
+    price: 37000,
+    originalPrice: null,
+    category: "tecnologia",
+    image: "/assets/images/Airpods_Pro2.webp",
+    description: "Audífonos inalámbricos premium compatibles con AirPods Pro, segunda generación",
+    longDescription: "Audífonos inalámbricos de alta calidad compatibles con AirPods Pro de segunda generación. Diseño premium con tecnología avanzada para una experiencia de audio superior. Perfectos para quienes buscan calidad de sonido excepcional y comodidad de uso prolongado.",
+    inStock: true,
+    discount: 0,
+    sku: "50",
+    stock: 395,
+    specifications: [
+      "Segunda generación",
+      "Tecnología inalámbrica avanzada",
+      "Compatibilidad universal",
+      "Calidad de audio premium",
+      "Diseño ergonómico",
+      "Batería de larga duración"
+    ],
+    includes: [
+      "1 Par de audífonos",
+      "Estuche de carga",
+      "Cable de carga",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "Sonido de alta fidelidad",
+      "Comodidad prolongada",
+      "Conexión estable",
+      "Diseño premium",
+      "Fácil emparejamiento",
+      "Excelente autonomía"
+    ]
+  },
+
+  // Bafle Parlante Charge 4 Recargable
+  {
+    id: 7,
+    name: "Bafle Parlante Charge 4 Recargable Bluetooth",
+    price: 59900,
+    originalPrice: null,
+    category: "tecnologia",
+    image: "/assets/images/Bafle_Parlante.webp",
+    description: "Parlante Bluetooth recargable 20W, batería 2400mAh, resistente a salpicaduras, 4 colores disponibles",
+    longDescription: "Parlante Bluetooth de alta potencia con 20W de salida. Batería de iones de litio de 2400mAh para hasta 4 horas de reproducción. Permite conexión inalámbrica de hasta 2 dispositivos simultáneamente. Resistente a salpicaduras y con puerto USB para cargar otros dispositivos.",
+    inStock: true,
+    discount: 0,
+    sku: "charge4-base",
+    hasVariants: true,
+    variants: [
+      {
+        id: "azul",
+        name: "Azul",
+        color: "#2563eb",
+        image: "/assets/images/Bafle_Parlante2.webp",
+        sku: "90251",
+        inStock: true,
+        stock: 5
+      },
+      {
+        id: "rojo",
+        name: "Rojo",
+        color: "#dc2626",
+        image: "/assets/images/Bafle_Parlante3.webp",
+        sku: "90250",
+        inStock: true,
+        stock: 10
+      },
+      {
+        id: "gris",
+        name: "Gris",
+        color: "#6b7280",
+        image: "/assets/images/Bafle_Parlante4.webp",
+        sku: "90253",
+        inStock: true,
+        stock: 12
+      },
+      {
+        id: "negro",
+        name: "Negro",
+        color: "#1f2937",
+        image: "/assets/images/Bafle_Parlante.webp",
+        sku: "90252",
+        inStock: false,
+        stock: 0
+      }
+    ],
+    specifications: [
+      "Potencia: 20W",
+      "Batería: 2400mAh iones de litio",
+      "Reproducción: hasta 4 horas",
+      "Tamaño: 22 x 9.5 x 9.3 cm",
+      "Peso: 965g",
+      "Resistente a salpicaduras",
+      "Puerto USB de carga"
+    ],
+    includes: [
+      "1 Parlante Bluetooth",
+      "Cable de carga USB",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "Sonido potente 20W",
+      "Batería de larga duración",
+      "Conexión de 2 dispositivos",
+      "Carga otros dispositivos",
+      "Resistente al agua",
+      "Diseño portátil"
+    ]
+  },
+
+  // Maletín Deportivo Azul Oscuro
+  {
+    id: 8,
+    name: "Maletín Deportivo Azul Oscuro Ref 3",
+    price: 90000,
+    originalPrice: null,
+    category: "deportes",
+    image: "/assets/images/Maletin_Deportivo.webp",
+    description: "Maletín deportivo azul oscuro de alta calidad, diseño funcional para actividades deportivas",
+    longDescription: "Maletín deportivo en color azul oscuro diseñado para satisfacer las necesidades de atletas y deportistas. Fabricado con materiales resistentes y duraderos. Su diseño funcional permite organizar y transportar cómodamente todo el equipo deportivo necesario.",
+    inStock: true,
+    discount: 0,
+    sku: "Maletín Deportivo Azul Ocuro - REF 3",
+    stock: 6,
+    specifications: [
+      "Color: Azul oscuro",
+      "Material resistente",
+      "Diseño deportivo funcional",
+      "Múltiples compartimentos",
+      "Correas ajustables",
+      "Alta durabilidad"
+    ],
+    includes: [
+      "1 Maletín deportivo",
+      "Manual de cuidado"
+    ],
+    benefits: [
+      "Diseño funcional",
+      "Material resistente",
+      "Organización óptima",
+      "Comodidad de transporte",
+      "Ideal para deportes",
+      "Construcción duradera"
+    ]
+  },
+
+  // Juego De Destornillador Kit Pro 115 en 1
+  {
+    id: 9,
+    name: "Juego De Destornillador Kit Pro 115 en 1",
+    price: 45000,
+    originalPrice: null,
+    category: "herramientas",
+    image: "/assets/images/combo_destornilladores3.webp",
+    description: "Kit profesional 115 herramientas en 1, destornilladores CR-V, pinzas, palancas para electrónicos",
+    longDescription: "Kit Pro completo de 115 herramientas en 1 diseñado para reparación electrónica profesional. Incluye 98 tipos de puntas y enchufes de destornillador CR-V, además de herramientas funcionales como ventosas, pinzas, palancas y más. Perfecto para reparar teléfonos, tablets, computadoras y otros dispositivos electrónicos.",
+    inStock: true,
+    discount: 0,
+    sku: "141",
+    stock: 40,
+    specifications: [
+      "115 herramientas incluidas",
+      "98 puntas CR-V diferentes",
+      "Puntas ranuradas, Phillips, triangulares",
+      "Mango ergonómico antideslizante",
+      "Estuche resistente incluido",
+      "Alta dureza y tenacidad"
+    ],
+    includes: [
+      "98 Puntas de destornillador CR-V",
+      "Ventosa",
+      "Pin expulsor SIM",
+      "Paleta triangular",
+      "Mango ergonómico",
+      "Varilla de extensión",
+      "Pinzas especializadas",
+      "Magnetizador/Desmagnetizador",
+      "Herramientas de palanca",
+      "Estuche de almacenamiento",
+      "Manual de instrucciones"
+    ],
+    benefits: [
+      "Versatilidad completa",
+      "Calidad CR-V confiable",
+      "Mango antideslizante",
+      "Portátil y organizado",
+      "Para cualquier reparación",
+      "Herramientas especializadas"
+    ]
   }
 ];
 
@@ -569,10 +624,8 @@ export const categories = [
   { id: 'all', name: 'Todos los productos', icon: '🛒' },
   { id: 'belleza', name: 'Belleza y Cuidado', icon: '💄' },
   { id: 'hogar', name: 'Hogar y Oficina', icon: '🏠' },
-  { id: 'cocina', name: 'Cocina y Comedor', icon: '🍴' },
   { id: 'vape', name: 'Vapes', icon: '💨' },
   { id: 'deportes', name: 'Deportes', icon: '⚽' },
   { id: 'tecnologia', name: 'Tecnología', icon: '📱' },
-  { id: 'herramientas', name: 'Herramientas', icon: '🔧' },
-  { id: 'combos', name: 'Combos', icon: '📦' }
+  { id: 'herramientas', name: 'Herramientas', icon: '🔧' }
 ];

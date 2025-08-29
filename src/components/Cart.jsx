@@ -6,9 +6,8 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
   
   const total = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   const itemCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-  const freeShippingThreshold = 80000;
-  const remainingForFreeShipping = Math.max(0, freeShippingThreshold - total);
-  const shippingCost = total >= freeShippingThreshold ? 0 : 5000;
+  // Envío siempre gratis
+  const shippingCost = 0;
   const finalTotal = total + shippingCost;
   
   useEffect(() => {
@@ -37,13 +36,10 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
     
     message += `💰 *RESUMEN DEL PEDIDO*%0A`;
     message += `• Subtotal: $${total.toLocaleString()}%0A`;
-    message += `• Domicilio: ${shippingCost === 0 ? 'GRATIS 🎉' : '$' + shippingCost.toLocaleString()}%0A`;
+    message += `• Domicilio: GRATIS 🎉%0A`;
     message += `• *TOTAL: $${finalTotal.toLocaleString()}*%0A`;
     message += `• Productos: ${itemCount} ${itemCount === 1 ? 'item' : 'items'}%0A%0A`;
-    
-    if (shippingCost === 0) {
-      message += `✅ *¡Felicidades! Tu pedido incluye envío gratuito*%0A%0A`;
-    }
+    message += `✅ *¡Tu pedido incluye envío gratuito siempre!*%0A%0A`;
     
     message += "¿Podrían confirmar disponibilidad y tiempo de entrega? ¡Gracias! 😊%0A%0A";
     message += "*GoToBuy - Calidad premium a tu alcance* 🌟";
@@ -60,8 +56,6 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
   };
 
   if (!isOpen) return null;
-
-  const progressPercentage = Math.min((total / freeShippingThreshold) * 100, 100);
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-40 backdrop-blur-sm z-50 flex justify-end">
@@ -103,25 +97,18 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
             </div>
           )}
 
-          {/* Barra de progreso responsiva */}
-          {total < freeShippingThreshold && total > 0 && (
-            <div className="mt-4 bg-white/20 rounded-full p-1">
-              <div className="bg-white/80 rounded-full p-3">
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-gray-700 text-sm font-medium flex items-center">
-                    <Truck className="w-3 h-3 mr-1" />
-                    Envío gratis
+          {/* Banner de envío gratis siempre */}
+          {total > 0 && (
+            <div className="mt-4 bg-green-500 bg-opacity-20 rounded-full p-1">
+              <div className="bg-green-100 rounded-full p-3">
+                <div className="flex items-center justify-center mb-2">
+                  <span className="text-green-800 text-sm font-bold flex items-center">
+                    <Truck className="w-4 h-4 mr-2" />
+                    🎉 ¡Envío GRATIS siempre!
                   </span>
-                  <span className="text-gray-700 text-sm font-bold">${freeShippingThreshold.toLocaleString()}</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div 
-                    className="bg-gradient-to-r from-gray-500 to-gray-600 h-2 rounded-full transition-all duration-500"
-                    style={{ width: `${progressPercentage}%` }}
-                  ></div>
-                </div>
-                <p className="text-gray-600 text-xs mt-2">
-                  Te faltan ${remainingForFreeShipping.toLocaleString()} para envío gratis
+                <p className="text-green-700 text-xs text-center">
+                  Todos nuestros productos incluyen envío gratuito a toda Colombia
                 </p>
               </div>
             </div>
@@ -140,7 +127,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
               </h3>
               <p className="text-gray-500 mb-6 sm:mb-8 text-sm sm:text-base leading-relaxed max-w-sm">
                 Descubre nuestros productos únicos y de calidad. 
-                ¡Agrega algunos para comenzar tu compra!
+                ¡Agrega algunos para comenzar tu compra con envío GRATIS!
               </p>
               <button
                 onClick={onClose}
@@ -254,8 +241,8 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                         <Truck className="w-4 h-4 mr-1" />
                         Domicilio
                       </span>
-                      <span className={`font-medium ${shippingCost === 0 ? 'text-gray-600' : 'text-gray-900'}`}>
-                        {shippingCost === 0 ? 'GRATIS 🎉' : `$${shippingCost.toLocaleString()}`}
+                      <span className="font-medium text-green-600">
+                        GRATIS 🎉
                       </span>
                     </div>
                     <div className="border-t border-gray-200 pt-2 sm:pt-3 flex justify-between items-center">
@@ -267,12 +254,12 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                   </div>
                   
                   {/* Mensaje de envío gratis */}
-                  {shippingCost === 0 && total > 0 && (
+                  {total > 0 && (
                     <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-3">
                       <div className="flex items-center justify-center gap-2 text-green-700">
                         <Gift className="h-4 w-4 sm:h-5 sm:w-5" />
                         <span className="font-medium text-sm sm:text-base">
-                          🎉 ¡Felicidades! Tu pedido incluye envío gratuito
+                          🎉 ¡Todos nuestros productos incluyen envío GRATIS!
                         </span>
                       </div>
                     </div>
@@ -312,7 +299,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                       </span>
                       <span className="text-blue-600 font-medium flex items-center">
                         <Truck className="w-3 h-3 mr-1" />
-                        Entrega rápida
+                        Envío GRATIS
                       </span>
                     </div>
                   </div>

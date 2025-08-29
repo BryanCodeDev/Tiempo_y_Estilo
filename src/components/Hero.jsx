@@ -9,11 +9,11 @@ const Hero = () => {
       title: "Productos únicos, calidad premium",
       description: "Descubre una selección exclusiva para tu hogar y bienestar",
       cta: "Explorar catálogo",
-      accent: "Nuevos productos cada semana"
+      accent: "Envío GRATIS incluido siempre"
     },
     {
-      title: "Envíos gratuitos en toda Colombia",
-      description: "Sin costo adicional en compras superiores a $80.000",
+      title: "Envíos gratuitos a toda Colombia",
+      description: "Sin costo adicional en todos nuestros productos",
       cta: "Ver productos",
       accent: "Entrega rápida y segura"
     },
@@ -139,7 +139,7 @@ const Hero = () => {
                   </div>
                   <div className="flex-1">
                     <p className="text-white font-semibold text-xs sm:text-sm">Envío gratis</p>
-                    <p className="text-blue-200 text-xs">En compras superiores a $80.000</p>
+                    <p className="text-blue-200 text-xs">En todos nuestros productos</p>
                   </div>
                 </div>
                 

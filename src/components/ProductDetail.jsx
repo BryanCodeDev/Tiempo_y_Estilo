@@ -65,7 +65,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
 
   const handleWhatsAppOrder = () => {
     const variantText = selectedVariant ? `%0AColor: ${selectedVariant.name}` : '';
-    const message = `¡Hola! Me interesa este producto de GoToBuy:%0A%0A*${currentProduct.name}*${variantText}%0ACantidad: ${quantity}%0APrecio: $${currentProduct.price.toLocaleString()}%0ASKU: ${currentProduct.sku}%0ATotal: $${(currentProduct.price * quantity).toLocaleString()}%0A%0A¿Está disponible para entrega inmediata?`;
+    const message = `¡Hola! Me interesa este producto de GoToBuy:%0A%0A*${currentProduct.name}*${variantText}%0ACantidad: ${quantity}%0APrecio: $${currentProduct.price.toLocaleString()}%0ASKU: ${currentProduct.sku}%0ATotal: $${(currentProduct.price * quantity).toLocaleString()}%0AEnvío: GRATIS 🎉%0A%0A¿Está disponible para entrega inmediata?`;
     window.open(`https://wa.me/573508470735?text=${message}`, '_blank');
   };
 
@@ -193,6 +193,11 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                     {product.variants.length} Colores
                   </span>
                 )}
+                {/* Badge de envío gratis siempre visible */}
+                <span className="bg-blue-500 text-white px-3 py-1.5 rounded-lg text-sm font-bold flex items-center shadow-lg">
+                  <Truck className="w-4 h-4 mr-1" />
+                  Envío GRATIS
+                </span>
               </div>
 
               {/* Controles de imagen */}
@@ -365,7 +370,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
               )}
               
               <p className="text-gray-600 text-sm">
-                Precio incluye IVA • Envío gratuito sobre $80.000
+                Precio incluye IVA • Envío GRATIS incluido siempre
               </p>
             </div>
 
@@ -423,7 +428,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                 <Truck className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
                 <div>
                   <p className="font-medium text-green-900 text-sm">Envío gratis</p>
-                  <p className="text-green-700 text-xs">Sobre $80.000</p>
+                  <p className="text-green-700 text-xs">Siempre incluido</p>
                 </div>
               </div>
               
@@ -544,7 +549,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                       <Truck className="w-6 h-6 text-green-600 mr-4" />
                       <div>
                         <h4 className="font-semibold text-green-900">Envío gratuito</h4>
-                        <p className="text-green-700 text-sm">En compras superiores a $80.000</p>
+                        <p className="text-green-700 text-sm">Incluido en todos nuestros productos</p>
                       </div>
                     </div>
                     
