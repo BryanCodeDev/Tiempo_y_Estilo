@@ -6,6 +6,8 @@ import ProductCatalog from './components/ProductCatalog';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import ProductDetail from './components/ProductDetail';
+import ErrorBoundary from './components/ErrorBoundary';
+import RouteErrorHandler from './components/RouteErrorHandler';
 import { products } from './data/products';
 
 // Función para generar URLs SEO-friendly
@@ -27,10 +29,8 @@ export const generateProductURL = (product) => {
 // Función para actualizar meta tags SEO
 const updateSEOTags = (product = null, route = '/') => {
   if (product) {
-    // Actualizar título
     document.title = `${product.name} - GoToBuy | Comprar Online con Envío Gratis`;
     
-    // Actualizar meta description
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 
@@ -38,14 +38,12 @@ const updateSEOTags = (product = null, route = '/') => {
       );
     }
     
-    // Actualizar meta keywords
     const metaKeywords = document.querySelector('meta[name="keywords"]');
     if (metaKeywords) {
       const keywords = `${product.name}, ${product.category}, ${product.sku}, gotobuy, productos premium, envío gratis colombia`;
       metaKeywords.setAttribute('content', keywords);
     }
     
-    // Actualizar Open Graph tags
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
       ogTitle.setAttribute('content', `${product.name} - GoToBuy`);
@@ -66,7 +64,6 @@ const updateSEOTags = (product = null, route = '/') => {
       ogUrl.setAttribute('content', `https://gotobuyy.com${generateProductURL(product)}`);
     }
     
-    // Actualizar canonical URL
     let canonical = document.querySelector('link[rel="canonical"]');
     if (!canonical) {
       canonical = document.createElement('link');
@@ -75,11 +72,9 @@ const updateSEOTags = (product = null, route = '/') => {
     }
     canonical.href = `https://gotobuyy.com${generateProductURL(product)}`;
     
-    // Agregar JSON-LD structured data
     updateStructuredData(product);
     
   } else {
-    // Restaurar meta tags del home
     document.title = 'GoToBuy - Productos Premium para tu Hogar, Belleza y Bienestar';
     
     const metaDescription = document.querySelector('meta[name="description"]');
@@ -96,9 +91,7 @@ const updateSEOTags = (product = null, route = '/') => {
   }
 };
 
-// Función para actualizar structured data
 const updateStructuredData = (product) => {
-  // Remover script anterior si existe
   const existingScript = document.querySelector('#product-structured-data');
   if (existingScript) {
     existingScript.remove();
@@ -146,35 +139,68 @@ const updateStructuredData = (product) => {
   document.head.appendChild(script);
 };
 
+// Función para buscar productos (para el RouteErrorHandler)
+const searchProducts = (searchTerm) => {
+  if (!searchTerm || searchTerm.length < 2) return [];
+  
+  const term = searchTerm.toLowerCase();
+  return products.filter(product => 
+    product.name.toLowerCase().includes(term) ||
+    product.description.toLowerCase().includes(term) ||
+    product.category.toLowerCase().includes(term) ||
+    product.sku.toLowerCase().includes(term)
+  );
+};
+
 function App() {
   const [cartItems, setCartItems] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [currentRoute, setCurrentRoute] = useState('/');
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [routeError, setRouteError] = useState(null);
 
   // Inicializar ruta basada en URL actual
   useEffect(() => {
-    const path = window.location.pathname;
-    setCurrentRoute(path);
-    
-    // Si es una ruta de producto, cargar el producto
-    if (path.startsWith('/producto/')) {
-      const productId = parseInt(path.split('/')[2]);
-      const product = products.find(p => p.id === productId);
-      if (product) {
-        setSelectedProduct(product);
-        updateSEOTags(product, path);
-      } else {
-        // Producto no encontrado, redirect a home
-        navigateToHome();
+    const initializeRoute = () => {
+      try {
+        const path = window.location.pathname;
+        setCurrentRoute(path);
+        setRouteError(null);
+        
+        if (path.startsWith('/producto/')) {
+          const productId = parseInt(path.split('/')[2]);
+          
+          // Validar que el ID sea un número válido
+          if (isNaN(productId)) {
+            setRouteError({ type: 'product-not-found', route: path });
+            return;
+          }
+          
+          const product = products.find(p => p.id === productId);
+          if (product) {
+            setSelectedProduct(product);
+            updateSEOTags(product, path);
+          } else {
+            // Producto no encontrado
+            setRouteError({ type: 'product-not-found', route: path });
+          }
+        } else if (path === '/') {
+          setSelectedProduct(null);
+          updateSEOTags(null, path);
+        } else {
+          // Ruta no reconocida
+          setRouteError({ type: '404', route: path });
+        }
+      } catch (error) {
+        console.error('Error initializing route:', error);
+        setRouteError({ type: 'connection-error', route: window.location.pathname });
       }
-    } else {
-      updateSEOTags(null, path);
-    }
+    };
+
+    initializeRoute();
   }, []);
 
-  // Manejar el botón de scroll to top
   useEffect(() => {
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 400);
@@ -184,24 +210,37 @@ function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Manejar navegación del navegador
   useEffect(() => {
     const handlePopState = (event) => {
-      const path = window.location.pathname;
-      setCurrentRoute(path);
-      
-      if (path.startsWith('/producto/')) {
-        const productId = parseInt(path.split('/')[2]);
-        const product = products.find(p => p.id === productId);
-        if (product) {
-          setSelectedProduct(product);
-          updateSEOTags(product, path);
+      try {
+        const path = window.location.pathname;
+        setCurrentRoute(path);
+        setRouteError(null);
+        
+        if (path.startsWith('/producto/')) {
+          const productId = parseInt(path.split('/')[2]);
+          
+          if (isNaN(productId)) {
+            setRouteError({ type: 'product-not-found', route: path });
+            return;
+          }
+          
+          const product = products.find(p => p.id === productId);
+          if (product) {
+            setSelectedProduct(product);
+            updateSEOTags(product, path);
+          } else {
+            setRouteError({ type: 'product-not-found', route: path });
+          }
+        } else if (path === '/') {
+          setSelectedProduct(null);
+          updateSEOTags(null, path);
         } else {
-          navigateToHome();
+          setRouteError({ type: '404', route: path });
         }
-      } else {
-        setSelectedProduct(null);
-        updateSEOTags(null, path);
+      } catch (error) {
+        console.error('Error handling navigation:', error);
+        setRouteError({ type: 'connection-error', route: window.location.pathname });
       }
     };
 
@@ -210,25 +249,59 @@ function App() {
   }, []);
 
   const navigateToProduct = (product) => {
-    const productURL = generateProductURL(product);
-    window.history.pushState(null, '', productURL);
-    setCurrentRoute(productURL);
-    setSelectedProduct(product);
-    updateSEOTags(product, productURL);
-    
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      const productURL = generateProductURL(product);
+      window.history.pushState(null, '', productURL);
+      setCurrentRoute(productURL);
+      setSelectedProduct(product);
+      setRouteError(null);
+      updateSEOTags(product, productURL);
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+      console.error('Error navigating to product:', error);
+      setRouteError({ type: 'connection-error', route: window.location.pathname });
+    }
   };
 
   const navigateToHome = () => {
-    window.history.pushState(null, '', '/');
-    setCurrentRoute('/');
-    setSelectedProduct(null);
-    updateSEOTags(null, '/');
-    
-    // Scroll to top
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    try {
+      window.history.pushState(null, '', '/');
+      setCurrentRoute('/');
+      setSelectedProduct(null);
+      setRouteError(null);
+      updateSEOTags(null, '/');
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch (error) {
+      console.error('Error navigating to home:', error);
+      window.location.href = '/';
+    }
   };
+
+  const handleGoBack = () => {
+    try {
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        navigateToHome();
+      }
+    } catch (error) {
+      console.error('Error going back:', error);
+      navigateToHome();
+    }
+  };
+
+  // Exponer funciones globalmente para el RouteErrorHandler
+  useEffect(() => {
+    window.navigateToProduct = navigateToProduct;
+    window.searchProducts = searchProducts;
+    
+    return () => {
+      delete window.navigateToProduct;
+      delete window.searchProducts;
+    };
+  }, []);
 
   const addToCart = (product) => {
     setCartItems(prevItems => {
@@ -243,7 +316,6 @@ function App() {
             : item
         );
       } else {
-        // Crear un ID único para el carrito que incluya variantes
         const cartId = `${product.id}-${product.sku || 'default'}`;
         return [...prevItems, { 
           ...product, 
@@ -253,7 +325,6 @@ function App() {
       }
     });
     
-    // Feedback visual opcional
     const button = document.activeElement;
     if (button) {
       button.style.transform = 'scale(0.95)';
@@ -285,6 +356,20 @@ function App() {
 
   // Renderizar componente según la ruta actual
   const renderCurrentRoute = () => {
+    // Si hay un error de ruta, mostrar el manejador de errores
+    if (routeError) {
+      return (
+        <RouteErrorHandler
+          type={routeError.type}
+          currentRoute={routeError.route}
+          onNavigateHome={navigateToHome}
+          onGoBack={handleGoBack}
+          searchProducts={searchProducts}
+        />
+      );
+    }
+
+    // Ruta de producto
     if (currentRoute.startsWith('/producto/') && selectedProduct) {
       return (
         <ProductDetail 
@@ -296,88 +381,99 @@ function App() {
       );
     }
     
+    // Ruta home
+    if (currentRoute === '/') {
+      return (
+        <>
+          <Hero />
+          <ProductCatalog 
+            addToCart={addToCart} 
+            navigateToProduct={navigateToProduct}
+          />
+        </>
+      );
+    }
+
+    // Ruta no reconocida (fallback)
     return (
-      <>
-        <Hero />
-        <ProductCatalog 
-          addToCart={addToCart} 
-          navigateToProduct={navigateToProduct}
-        />
-      </>
+      <RouteErrorHandler
+        type="404"
+        currentRoute={currentRoute}
+        onNavigateHome={navigateToHome}
+        onGoBack={handleGoBack}
+        searchProducts={searchProducts}
+      />
     );
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 scroll-smooth selection:bg-blue-100 selection:text-blue-900">
-      {/* Navbar */}
-      <Navbar 
-        cartItems={cartItems} 
-        setShowCart={setShowCart}
-        onHomeClick={navigateToHome}
-        currentRoute={currentRoute}
-      />
-      
-      {/* Contenido principal basado en ruta */}
-      {renderCurrentRoute()}
-      
-      {/* Footer - solo mostrar en home */}
-      {currentRoute === '/' && <Footer />}
-      
-      {/* Cart Sidebar */}
-      <Cart 
-        isOpen={showCart}
-        onClose={() => setShowCart(false)}
-        cartItems={cartItems}
-        updateQuantity={updateQuantity}
-        removeFromCart={removeFromCart}
-      />
-      
-      {/* Botones flotantes responsivos */}
-      <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
+    <ErrorBoundary
+      errorMessage="Se produjo un error inesperado. Nuestro equipo ha sido notificado."
+      onError={(error, errorInfo) => {
+        console.error('App Error Boundary:', error, errorInfo);
+      }}
+    >
+      <div className="min-h-screen bg-gray-50 scroll-smooth selection:bg-blue-100 selection:text-blue-900">
+        <Navbar 
+          cartItems={cartItems} 
+          setShowCart={setShowCart}
+          onHomeClick={navigateToHome}
+          currentRoute={currentRoute}
+        />
         
-        {/* Botón principal de WhatsApp */}
-        <a
-          href="https://wa.me/573508470735?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20productos%20de%20GoToBuy"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group bg-green-600 hover:bg-green-700 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden"
-          title="Contáctanos por WhatsApp"
-        >
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-          
-          <Phone className="h-5 w-5 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
-          
-          {/* Indicador de notificación */}
-          <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse border-2 border-white"></div>
-        </a>
+        {renderCurrentRoute()}
+        
+        {currentRoute === '/' && !routeError && <Footer />}
+        
+        <Cart 
+          isOpen={showCart}
+          onClose={() => setShowCart(false)}
+          cartItems={cartItems}
+          updateQuantity={updateQuantity}
+          removeFromCart={removeFromCart}
+        />
+        
+        <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
+          <a
+            href="https://wa.me/573508470735?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20productos%20de%20GoToBuy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group bg-green-600 hover:bg-green-700 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden"
+            title="Contáctanos por WhatsApp"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+            
+            <Phone className="h-5 w-5 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
+            
+            <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse border-2 border-white"></div>
+          </a>
 
-        {/* Botón secundario de chat rápido */}
+          <button
+            className="group bg-white hover:bg-gray-50 text-gray-700 hover:text-green-600 p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200"
+            title="Chat rápido"
+            onClick={() => {
+              const productText = selectedProduct ? `%0A%0AEstoy%20viendo:%20${selectedProduct.name}` : '';
+              window.open(`https://wa.me/573508470735?text=¡Hola!%20Tengo%20una%20consulta%20rápida${productText}`, '_blank');
+            }}
+          >
+            <MessageCircle className="h-4 w-4 group-hover:animate-pulse" />
+          </button>
+        </div>
+
         <button
-          className="group bg-white hover:bg-gray-50 text-gray-700 hover:text-green-600 p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200"
-          title="Chat rápido"
-          onClick={() => {
-            const productText = selectedProduct ? `%0A%0AEstoy%20viendo:%20${selectedProduct.name}` : '';
-            window.open(`https://wa.me/573508470735?text=¡Hola!%20Tengo%20una%20consulta%20rápida${productText}`, '_blank');
-          }}
+          onClick={scrollToTop}
+          className={`fixed bottom-4 left-4 bg-gray-900 hover:bg-gray-800 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-40 transform ${
+            showScrollTop 
+              ? 'translate-y-0 opacity-100' 
+              : 'translate-y-16 opacity-0'
+          }`}
+          title="Ir arriba"
+          aria-label="Ir arriba"
         >
-          <MessageCircle className="h-4 w-4 group-hover:animate-pulse" />
+          <ArrowUp className="w-4 h-4" />
         </button>
       </div>
-
-      {/* Botón de scroll to top responsivo */}
-      <button
-        onClick={scrollToTop}
-        className={`fixed bottom-4 left-4 bg-gray-900 hover:bg-gray-800 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-40 transform ${
-          showScrollTop 
-            ? 'translate-y-0 opacity-100' 
-            : 'translate-y-16 opacity-0'
-        }`}
-        title="Ir arriba"
-        aria-label="Ir arriba"
-      >
-        <ArrowUp className="w-4 h-4" />
-      </button>
-    </div>
+    </ErrorBoundary>
   );
 }
 

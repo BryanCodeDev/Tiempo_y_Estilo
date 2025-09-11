@@ -1,0 +1,33 @@
+# Netlify _redirects file
+# Coloca este archivo en la carpeta public/
+
+# Redirigir todas las rutas a index.html para SPA routing
+/*    /index.html   200
+
+# Configuración específica para productos (opcional, para SEO)
+/producto/*  /index.html  200
+
+# Para Apache (.htaccess - coloca en public/)
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteBase /
+#   RewriteRule ^index\.html$ - [L]
+#   RewriteCond %{REQUEST_FILENAME} !-f
+#   RewriteCond %{REQUEST_FILENAME} !-d
+#   RewriteRule . /index.html [L]
+# </IfModule>
+
+# Para Nginx (configuración del servidor)
+# location / {
+#   try_files $uri $uri/ /index.html;
+# }
+
+# Para Vercel (vercel.json en root del proyecto)
+# {
+#   "rewrites": [
+#     {
+#       "source": "/(.*)",
+#       "destination": "/index.html"
+#     }
+#   ]
+# }
