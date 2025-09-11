@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Search, Home, ArrowLeft, AlertCircle, RefreshCw } from 'lucide-react';
 
 const RouteErrorHandler = ({ 
   type = '404', 
-  onNavigateHome, 
-  onGoBack, 
+  onNavigateHome = () => {}, 
+  onGoBack = () => {}, 
   currentRoute = '/',
   availableRoutes = [],
   searchProducts = () => []
@@ -12,6 +12,25 @@ const RouteErrorHandler = ({
   const [searchTerm, setSearchTerm] = useState('');
   const [suggestions, setSuggestions] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
+
+  const handleSearch = useCallback(async (term) => {
+    if (!term || term.length < 2) {
+      setSuggestions([]);
+      return;
+    }
+
+    setIsSearching(true);
+    try {
+      // Buscar productos que coincidan
+      const results = searchProducts(term);
+      setSuggestions(results.slice(0, 3)); // Máximo 3 sugerencias
+    } catch (error) {
+      console.error('Error searching products:', error);
+      setSuggestions([]);
+    } finally {
+      setIsSearching(false);
+    }
+  }, [searchProducts]);
 
   // Analizar la ruta para encontrar posibles coincidencias
   useEffect(() => {
@@ -32,26 +51,7 @@ const RouteErrorHandler = ({
         }
       }
     }
-  }, [currentRoute]);
-
-  const handleSearch = async (term) => {
-    if (!term || term.length < 2) {
-      setSuggestions([]);
-      return;
-    }
-
-    setIsSearching(true);
-    try {
-      // Buscar productos que coincidan
-      const results = searchProducts(term);
-      setSuggestions(results.slice(0, 3)); // Máximo 3 sugerencias
-    } catch (error) {
-      console.error('Error searching products:', error);
-      setSuggestions([]);
-    } finally {
-      setIsSearching(false);
-    }
-  };
+  }, [currentRoute, handleSearch]);
 
   const handleRetryCurrentRoute = () => {
     // Intentar recargar la ruta actual
