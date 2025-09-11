@@ -241,7 +241,7 @@ export const products = [
   {
     id: 7,
     name: "Airpods Pro 2 Generación",
-    price: 48000,
+    price: 60000,
     originalPrice: null,
     category: "tecnologia",
     image: "/assets/images/Airpods_Pro2.webp",
