@@ -15,7 +15,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   const handleWhatsAppOrder = (e) => {
     e.stopPropagation();
     const variantText = selectedVariant ? `%0AColor: ${selectedVariant.name}` : '';
-    const message = `¡Hola! Me interesa este producto de GoToBuy:%0A%0A*${currentProduct.name}*${variantText}%0APrecio: $${currentProduct.price.toLocaleString()}%0ASKU: ${currentProduct.sku}%0A%0A¿Está disponible para entrega inmediata?`;
+    const message = `¡Hola! Me interesa este producto de GoToBuy:%0A%0A*${product.name}*${variantText}%0APrecio: $${currentProduct.price.toLocaleString()}%0ASKU: ${currentProduct.sku}%0A%0A¿Está disponible para entrega inmediata?`;
     window.open(`https://wa.me/573508470735?text=${message}`, '_blank');
   };
 
@@ -51,7 +51,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
             )}
             <img 
               src={currentProduct.image} 
-              alt={currentProduct.name}
+              alt={product.name}
               className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
@@ -106,7 +106,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
               <div className="flex justify-between items-start mb-3">
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-lg text-gray-900 mb-1 hover:text-blue-600 transition-colors cursor-pointer line-clamp-2">
-                    {currentProduct.name}
+                    {product.name}
                     {selectedVariant && (
                       <span className="text-sm font-normal text-gray-600 ml-2">
                         - {selectedVariant.name}
@@ -237,7 +237,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
         )}
         <img 
           src={currentProduct.image} 
-          alt={currentProduct.name}
+          alt={product.name}
           className={`w-full h-48 sm:h-52 object-cover group-hover:scale-105 transition-all duration-500 ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
           }`}
@@ -301,10 +301,10 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
       {/* Contenido de la tarjeta */}
       <div className="p-4 sm:p-5">
         
-        {/* Título y SKU */}
+        {/* Título y SKU - CORREGIDO: Siempre mostrar el nombre del producto completo */}
         <div className="mb-3">
           <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-1 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
-            {currentProduct.name}
+            {product.name}
             {selectedVariant && (
               <span className="text-sm font-normal text-gray-600 block">
                 Color: {selectedVariant.name}

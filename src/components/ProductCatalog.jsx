@@ -238,6 +238,8 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
                   const productCount = category.id === 'all' 
                     ? products.length 
                     : products.filter(p => p.category === category.id).length;
+                  
+                  const IconComponent = category.icon;
                     
                   return (
                     <button
@@ -250,8 +252,8 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
                       }`}
                       aria-label={`Filtrar por ${category.name} (${productCount} productos)`}
                     >
-                      <span className="mr-2 text-base">{category.icon}</span>
-                      <span className="whitespace-nowrap">{category.name}</span>
+                      <IconComponent className="w-4 h-4 mx-auto mb-2" />
+                      <span className="whitespace-nowrap block">{category.name}</span>
                       <span className="block text-xs mt-1 opacity-75">({productCount})</span>
                     </button>
                   );
