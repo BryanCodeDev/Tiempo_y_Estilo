@@ -1,3 +1,13 @@
+import { 
+  Smartphone, 
+  Home, 
+  Zap, 
+  Sparkles, 
+  Dumbbell, 
+  Wrench, 
+  ShoppingBag 
+} from 'lucide-react';
+
 export const products = [
   // Soporte Celular Moto Impermeable
   {
@@ -78,14 +88,14 @@ export const products = [
     id: 3,
     name: "Vape Recargable 15000 Puffs",
     price: 60000,
-    originalPrice: 75000,
+    originalPrice: 87000,
     category: "vape",
     image: "/assets/images/vape.webp",
     secondaryImage: "/assets/images/vape1.webp",
     description: "Vape recargable de alta duración, 15k puffs modo normal, 10k puffs modo turbo, disponible en 2 sabores",
     longDescription: "Vape recargable de última generación con doble modo de uso. Disfruta de hasta 15,000 puffs en modo normal para una experiencia prolongada, o activa el modo turbo para 10,000 puffs de vapor intenso. Batería recargable de larga duración y disponible en deliciosos sabores.",
     inStock: true,
-    discount: 20,
+    discount: 26,
     sku: "vape-recargable-15k",
     specifications: [
       "15,000 puffs en modo normal",
@@ -131,7 +141,7 @@ export const products = [
   {
     id: 4,
     name: "Derma Roller System Agujas",
-    price: 24990,
+    price: 34990,
     originalPrice: null,
     category: "belleza",
     image: "/assets/images/Derma_Roller.webp",
@@ -168,11 +178,11 @@ export const products = [
   {
     id: 5,
     name: "Set X2 Almohadas Siliconadas 45x65",
-    price: 56561,
+    price: 57900,
     originalPrice: null,
     category: "hogar",
     image: "/assets/images/Set_X_Almohadas.webp",
-    description: "Combo de 2 almohadas ergonómicas 45x65, fibra siliconada, antiálérgicas, 100% colombiano",
+    description: "Combo de 2 almohadas ergonómicas 45x65, fibra siliconada, antialérgicas, 100% colombiano",
     longDescription: "Set de 2 almohadas ergonómicas adaptables en el área cervical. Su estructura interna permite el paso del aire generando un sistema libre de humedad. La limpieza y desinfección se puede realizar de manera fácil incrementando el índice de salubridad. Suavidad y frescura en tela y relleno de excelente calidad para mayor confort.",
     inStock: true,
     discount: 0,
@@ -182,7 +192,7 @@ export const products = [
       "Medidas: 45x65 cm (Alto x Ancho)",
       "Relleno: 100% fibra siliconada",
       "Material: Microfibra",
-      "Antiálérgicas",
+      "Antialérgicas",
       "100% colombiano",
       "Sistema libre de humedad"
     ],
@@ -194,7 +204,7 @@ export const products = [
       "Ergonómicas para área cervical",
       "Sistema de ventilación",
       "Fácil limpieza y desinfección",
-      "Antiálérgicas",
+      "Antialérgicas",
       "Suavidad y frescura",
       "Alta salubridad"
     ]
@@ -204,10 +214,11 @@ export const products = [
   {
     id: 6,
     name: "Mini Humidificador Difusor De Aromas 220",
-    price: 39000,
+    price: 31000,
     originalPrice: null,
     category: "hogar",
-    image: "/assets/images/humidificador.webp",
+    image: "/assets/images/humidificador1.webp",
+    secondaryImage: "/assets/images/humidificador2.webp",
     description: "Humidificador USB portátil con 7 luces LED, capacidad 220ml, 3.5 horas de funcionamiento",
     longDescription: "Pequeño humidificador USB portátil y ligero que se conecta directamente a la interfaz USB. Libera agua al aire en forma de atomización fina para proporcionar un ambiente húmedo. Incluye 7 tipos de luces de respiración para crear ambiente romántico. Compatible con aceites esenciales para aromaterapia.",
     inStock: true,
@@ -279,7 +290,7 @@ export const products = [
   {
     id: 8,
     name: "Audífonos Inalámbricos 2da Generación",
-    price: 85000,
+    price: 73900,
     originalPrice: null,
     category: "tecnologia",
     image: "/assets/images/audifonos.webp",
@@ -621,11 +632,11 @@ export const products = [
 ];
 
 export const categories = [
-  { id: 'all', name: 'Todos los productos', icon: '🛒' },
-  { id: 'belleza', name: 'Belleza y Cuidado', icon: '💄' },
-  { id: 'hogar', name: 'Hogar y Oficina', icon: '🏠' },
-  { id: 'vape', name: 'Vapes', icon: '💨' },
-  { id: 'deportes', name: 'Deportes', icon: '⚽' },
-  { id: 'tecnologia', name: 'Tecnología', icon: '📱' },
-  { id: 'herramientas', name: 'Herramientas', icon: '🔧' }
+  { id: 'all', name: 'Todos los productos', icon: ShoppingBag },
+  { id: 'belleza', name: 'Belleza y Cuidado', icon: Sparkles },
+  { id: 'hogar', name: 'Hogar y Oficina', icon: Home },
+  { id: 'vape', name: 'Vapes', icon: Zap },
+  { id: 'deportes', name: 'Deportes', icon: Dumbbell },
+  { id: 'tecnologia', name: 'Tecnología', icon: Smartphone },
+  { id: 'herramientas', name: 'Herramientas', icon: Wrench }
 ];
