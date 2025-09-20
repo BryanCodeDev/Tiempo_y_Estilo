@@ -49,14 +49,19 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
             {!imageLoaded && (
               <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
             )}
-            <img 
-              src={currentProduct.image} 
-              alt={product.name}
+            <img
+              src={currentProduct.image}
+              alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
+              title={product.name}
               className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
               onLoad={() => setImageLoaded(true)}
               loading="lazy"
+              decoding="async"
+              fetchPriority="auto"
+              width="400"
+              height="400"
             />
             
             {/* Badges */}
@@ -235,14 +240,19 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
         {!imageLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
         )}
-        <img 
-          src={currentProduct.image} 
-          alt={product.name}
+        <img
+          src={currentProduct.image}
+          alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
+          title={product.name}
           className={`w-full h-48 sm:h-52 object-cover group-hover:scale-105 transition-all duration-500 ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           onLoad={() => setImageLoaded(true)}
           loading="lazy"
+          decoding="async"
+          fetchPriority="auto"
+          width="400"
+          height="400"
         />
         
         {/* Badges en la esquina */}

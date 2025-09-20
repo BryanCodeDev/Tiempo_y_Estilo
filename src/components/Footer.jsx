@@ -55,10 +55,10 @@ const Footer = () => {
     { name: 'Inicio', href: '#inicio', icon: Home },
     { name: 'Productos', href: '#productos', icon: ShoppingBag },
     { name: 'Sobre nosotros', href: '#about', icon: Users },
-    { name: 'Términos y condiciones', href: '/terms', icon: FileText },
-    { name: 'Política de privacidad', href: '/privacy', icon: Lock },
-    { name: 'Envíos y devoluciones', href: '/shipping', icon: Truck },
-    { name: 'Preguntas frecuentes', href: '/faq', icon: HelpCircle }
+    { name: 'Términos y condiciones', href: '/terminos-y-condiciones', icon: FileText },
+    { name: 'Política de privacidad', href: '/politica-de-privacidad', icon: Lock },
+    { name: 'Envíos y devoluciones', href: '/politicas-de-envio', icon: Truck },
+    { name: 'Preguntas frecuentes', href: '/preguntas-frecuentes', icon: HelpCircle }
   ];
 
   const handleNavClick = (href) => {

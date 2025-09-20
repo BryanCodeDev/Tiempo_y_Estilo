@@ -1,22 +1,34 @@
+# Robots.txt optimizado para GoToBuy
+# Última actualización: Septiembre 2024
+
+# Permitir todos los bots principales
 User-agent: *
 Allow: /
 
-# Páginas importantes - Productos actualizados
-Allow: /producto/soporte-celular-moto-impermeable
-Allow: /producto/adaptador-audifono-convertidor-plug-35
-Allow: /producto/vape-recargable-15000-puffs
-Allow: /producto/derma-roller-system-agujas
-Allow: /producto/set-x2-almohadas-siliconadas-45x65
-Allow: /producto/mini-humidificador-difusor-aromas-220
-Allow: /producto/airpods-pro-2-generacion
-Allow: /producto/audifonos-inalambricos-2da-generacion
-Allow: /producto/bafle-parlante-charge-4-recargable-bluetooth
-Allow: /producto/maleta-deportiva-t60
-Allow: /producto/juego-37-piezas-destornilladores-puntas
-Allow: /producto/maletin-deportivo-azul-oscuro-ref-3
-Allow: /producto/juego-destornillador-kit-pro-115-en-1
+# Páginas principales - Máxima prioridad
+Allow: /
+Allow: /terminos-y-condiciones
+Allow: /politica-de-privacidad
+Allow: /politicas-de-envio
+Allow: /preguntas-frecuentes
+Allow: /sobre-nosotros
 
-# Categorías actualizadas
+# Productos - Alta prioridad (con IDs correctos)
+Allow: /producto/1/soporte-celular-moto-impermeable
+Allow: /producto/2/adaptador-audifono-convertidor-plug-35
+Allow: /producto/3/vape-recargable-15000-puffs
+Allow: /producto/4/derma-roller-system-agujas
+Allow: /producto/5/set-x2-almohadas-siliconadas-45x65
+Allow: /producto/6/mini-humidificador-difusor-aromas-220
+Allow: /producto/7/airpods-pro-2-generacion
+Allow: /producto/8/audifonos-inalambricos-2da-generacion
+Allow: /producto/9/bafle-parlante-charge-4-recargable-bluetooth
+Allow: /producto/10/maleta-deportiva-t60
+Allow: /producto/11/juego-37-piezas-destornilladores-puntas
+Allow: /producto/12/maletin-deportivo-azul-oscuro-ref-3
+Allow: /producto/13/juego-destornillador-kit-pro-115-en-1
+
+# Categorías - Media prioridad
 Allow: /categoria/tecnologia
 Allow: /categoria/belleza
 Allow: /categoria/vape
@@ -24,26 +36,18 @@ Allow: /categoria/hogar
 Allow: /categoria/deportes
 Allow: /categoria/herramientas
 
-# Páginas estáticas importantes
-Allow: /sobre-nosotros
-Allow: /preguntas-frecuentes
-Allow: /politicas-de-envio
-Allow: /terminos-y-condiciones
-Allow: /politica-de-privacidad
-
-# Recursos importantes
-Allow: /assets/images/
-Allow: /assets/css/
-Allow: /assets/js/
-
-# Páginas específicas para SEO
+# Páginas SEO específicas - Media prioridad
 Allow: /productos-tecnologia-colombia
 Allow: /soporte-celular-moto-colombia
 Allow: /airpods-pro-colombia
 Allow: /derma-roller-colombia
 Allow: /vapes-colombia
 
-# Bloquear archivos innecesarios
+# Recursos estáticos - Permitir imágenes y assets importantes
+Allow: /assets/images/
+Allow: /favicon.ico
+
+# Bloquear archivos de desarrollo y sensibles
 Disallow: /admin
 Disallow: /api/
 Disallow: /*.json$
@@ -55,16 +59,23 @@ Disallow: /public/robots.txt
 Disallow: /*.map$
 Disallow: /test/
 Disallow: /.git/
+Disallow: /.env
+Disallow: /config/
+Disallow: /*.log$
 
-# Permitir bots importantes
+# Configuración específica por bot
+
+# Google Bot - Máxima prioridad
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
 
+# Bing Bot
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
+# Bots de redes sociales
 User-agent: facebookexternalhit
 Allow: /
 
@@ -86,15 +97,20 @@ Allow: /
 User-agent: TelegramBot
 Allow: /
 
-# Crawl-delay para otros bots
+# Otros bots - Delay moderado
 User-agent: *
 Crawl-delay: 2
 
-# Sitemaps actualizados
+# Sitemaps - URLs actualizadas
 Sitemap: https://gotobuyy.com/sitemap.xml
 Sitemap: https://gotobuyy.com/sitemap-productos.xml
 Sitemap: https://gotobuyy.com/sitemap-categorias.xml
 Sitemap: https://gotobuyy.com/sitemap-images.xml
 
-# Configuración adicional para mejores crawls
+# Configuración adicional para SEO
 # Host: gotobuyy.com
+
+# Directivas específicas para mejorar el crawling
+# Clean-param: utm_source&utm_medium&utm_campaign
+# Clean-param: fbclid
+# Clean-param: gclid
