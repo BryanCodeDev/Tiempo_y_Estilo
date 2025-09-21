@@ -8,6 +8,9 @@
 /shipping                                 /politicas-de-envio               301
 /faq                                      /preguntas-frecuentes             301
 
+# Redirección para la nueva ruta de productos
+/*#productos                              /inicio                           301
+
 # Redirecciones para URLs de productos antiguas (sin ID)
 /producto/soporte-celular-moto-impermeable              /producto/1/soporte-celular-moto-impermeable              301
 /producto/adaptador-audifono-convertidor-plug-35        /producto/2/adaptador-audifono-convertidor-plug-35        301

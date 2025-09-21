@@ -18,21 +18,42 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
 
   // Función para navegación con SEO
   const handleNavigation = (section) => {
-    if (currentRoute !== '/') {
-      // Si no estamos en home, navegamos primero al home
-      onHomeClick();
-      // Esperamos un poco para que se cargue el home y luego hacemos scroll
-      setTimeout(() => {
+    if (section === 'productos') {
+      // Para productos, navegamos a la ruta /inicio
+      if (currentRoute !== '/') {
+        onHomeClick();
+        // Esperamos un poco para que se cargue el home y luego hacemos scroll a productos
+        setTimeout(() => {
+          const element = document.getElementById('productos');
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // Si ya estamos en home, hacemos scroll directo a productos
+        const element = document.getElementById('productos');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    } else {
+      // Para otras secciones, comportamiento normal
+      if (currentRoute !== '/') {
+        // Si no estamos en home, navegamos primero al home
+        onHomeClick();
+        // Esperamos un poco para que se cargue el home y luego hacemos scroll
+        setTimeout(() => {
+          const element = document.getElementById(section);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      } else {
+        // Si ya estamos en home, hacemos scroll directo
         const element = document.getElementById(section);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
-    } else {
-      // Si ya estamos en home, hacemos scroll directo
-      const element = document.getElementById(section);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
     setIsMenuOpen(false);
@@ -40,7 +61,7 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
 
   const navigationItems = [
     { id: 'hero', label: 'Inicio', icon: Home, href: '/' },
-    { id: 'productos', label: 'Productos', icon: Package, href: '/#productos' },
+    { id: 'productos', label: 'Productos', icon: Package, href: '/inicio' },
     { id: 'contacto', label: 'Contacto', icon: Phone, href: '/#contacto' },
     { id: 'about', label: 'Nosotros', icon: Info, href: '/#about' }
   ];

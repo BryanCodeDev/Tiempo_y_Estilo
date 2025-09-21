@@ -53,7 +53,7 @@ const Footer = () => {
 
   const navigationLinks = [
     { name: 'Inicio', href: '#inicio', icon: Home },
-    { name: 'Productos', href: '#productos', icon: ShoppingBag },
+    { name: 'Productos', href: '/inicio', icon: ShoppingBag },
     { name: 'Sobre nosotros', href: '#about', icon: Users },
     { name: 'Términos y condiciones', href: '/terminos-y-condiciones', icon: FileText },
     { name: 'Política de privacidad', href: '/politica-de-privacidad', icon: Lock },
@@ -67,6 +67,17 @@ const Footer = () => {
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
       }
+    } else if (href === '/inicio') {
+      // Navegar a la página de inicio (productos)
+      window.history.pushState(null, '', '/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Hacer scroll a la sección de productos después de un breve delay
+      setTimeout(() => {
+        const productosElement = document.getElementById('productos');
+        if (productosElement) {
+          productosElement.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
     }
   };
 

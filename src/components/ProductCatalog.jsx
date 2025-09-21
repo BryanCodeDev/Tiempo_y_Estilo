@@ -57,10 +57,10 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
       params.set('orden', sortBy);
     }
     
-    const newUrl = params.toString() ? `/?${params.toString()}#productos` : '/#productos';
-    
+    const newUrl = params.toString() ? `/?${params.toString()}` : '/';
+
     // Actualizar URL sin recargar la página
-    if (window.location.search !== `?${params.toString()}` || window.location.hash !== '#productos') {
+    if (window.location.search !== `?${params.toString()}` || window.location.pathname !== '/') {
       window.history.replaceState(null, '', newUrl);
     }
   }, [selectedCategory, searchTerm, sortBy]);
@@ -91,7 +91,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
     setSortBy('name');
     
     // Limpiar URL
-    window.history.replaceState(null, '', '/#productos');
+    window.history.replaceState(null, '', '/');
   };
 
   const productsInStock = filteredProducts.filter(p => p.inStock).length;
