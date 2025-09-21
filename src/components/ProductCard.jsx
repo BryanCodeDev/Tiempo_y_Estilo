@@ -59,7 +59,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
               onLoad={() => setImageLoaded(true)}
               loading="lazy"
               decoding="async"
-              fetchPriority="auto"
+              fetchpriority="auto"
               width="400"
               height="400"
             />
