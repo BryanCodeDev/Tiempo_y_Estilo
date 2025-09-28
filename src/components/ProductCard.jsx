@@ -45,7 +45,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
       >
         <div className="flex flex-col sm:flex-row">
           {/* Imagen */}
-          <div className="relative w-full sm:w-48 h-48 sm:h-40 flex-shrink-0 overflow-hidden bg-gray-100">
+          <div className="relative w-full sm:w-48 h-48 sm:h-40 flex-shrink-0 overflow-hidden bg-gray-100 aspect-[4/3]">
             {!imageLoaded && (
               <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
             )}
@@ -53,15 +53,17 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
               src={currentProduct.image}
               alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
               title={product.name}
-              className={`w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
+              className={`w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
+              style={{ objectPosition: 'center center' }}
+              style={{ objectPosition: 'center center' }}
               onLoad={() => setImageLoaded(true)}
               loading="lazy"
               decoding="async"
               fetchpriority="auto"
               width="400"
-              height="400"
+              height="300"
             />
             
             {/* Badges */}
@@ -230,13 +232,13 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
 
   // Vista de tarjeta (grid) mejorada
   return (
-    <div 
-      className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group border border-gray-200 hover:border-blue-200 hover:-translate-y-1 max-w-sm mx-auto cursor-pointer"
+    <div
+      className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group border border-gray-200 hover:border-blue-200 hover:-translate-y-1 max-w-sm mx-auto cursor-pointer h-full flex flex-col"
       onClick={handleViewProduct}
     >
       
       {/* Imagen */}
-      <div className="relative overflow-hidden bg-gray-100">
+      <div className="relative overflow-hidden bg-gray-100 aspect-[4/3]">
         {!imageLoaded && (
           <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
         )}
@@ -244,7 +246,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
           src={currentProduct.image}
           alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
           title={product.name}
-          className={`w-full h-48 sm:h-52 object-cover group-hover:scale-105 transition-all duration-500 ${
+          className={`w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500 ${
             imageLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           onLoad={() => setImageLoaded(true)}
@@ -252,7 +254,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
           decoding="async"
           fetchPriority="auto"
           width="400"
-          height="400"
+          height="300"
         />
         
         {/* Badges en la esquina */}
@@ -309,7 +311,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
       </div>
       
       {/* Contenido de la tarjeta */}
-      <div className="p-4 sm:p-5">
+      <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
         
         {/* Título y SKU - CORREGIDO: Siempre mostrar el nombre del producto completo */}
         <div className="mb-3">
