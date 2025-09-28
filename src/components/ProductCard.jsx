@@ -74,7 +74,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
               {product.inStock && (
                 <span className="bg-green-500 text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
                   <div className="w-1.5 h-1.5 bg-white rounded-full mr-1"></div>
-                  Stock
+                  Stock: {product.stock}
                 </span>
               )}
               {product.hasVariants && (
@@ -265,7 +265,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
           {product.inStock && (
             <span className="bg-green-500 text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
               <div className="w-1.5 h-1.5 bg-white rounded-full mr-1"></div>
-              Stock
+              Stock: {product.stock}
             </span>
           )}
           {product.hasVariants && (

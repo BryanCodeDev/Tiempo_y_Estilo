@@ -36,7 +36,8 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
 
   const images = [
     currentProduct.image,
-    ...(product.secondaryImage ? [product.secondaryImage] : [])
+    ...(product.secondaryImage ? [product.secondaryImage] : []),
+    ...(product.galleryImages || [])
   ];
 
   useEffect(() => {
