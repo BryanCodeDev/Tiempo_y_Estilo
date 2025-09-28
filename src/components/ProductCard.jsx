@@ -57,7 +57,6 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
               style={{ objectPosition: 'center center' }}
-              style={{ objectPosition: 'center center' }}
               onLoad={() => setImageLoaded(true)}
               loading="lazy"
               decoding="async"
