@@ -627,6 +627,72 @@ export const products = [
       "Para cualquier reparación",
       "Herramientas especializadas"
     ]
+  },
+
+  // Banda Caminadora Premium 2HP Plegable
+  {
+    id: 14,
+    name: "Banda Caminadora Premium 2HP Plegable",
+    price: 850000,
+    originalPrice: 1200000,
+    category: "deportes",
+    image: "/assets/images/caminadora.png",
+    secondaryImage: "/assets/images/caminadora2.png",
+    galleryImages: [
+      "/assets/images/caminadora.png",
+      "/assets/images/caminadora2.png",
+      "/assets/images/caminadora3.png",
+      "/assets/images/caminadora4.png",
+      "/assets/images/caminadora5.jpeg"
+    ],
+    description: "🏃‍♀️ ¡Transforma tu hogar en un gimnasio personal! Banda caminadora profesional 2HP con Bluetooth, parlantes y 30 programas de entrenamiento",
+    longDescription: "¡Descubre la revolución del fitness en casa con nuestra Banda Caminadora Premium 2HP! Diseñada para atletas urbanos y amantes del bienestar, esta caminadora combina potencia, tecnología y comodidad en un solo equipo. Su motor silencioso de 2HP te permite correr hasta 10 km/h con la estabilidad que necesitas. Conecta tu smartphone vía Bluetooth, disfruta de tu música favorita a través de los parlantes integrados mientras hidratas con el porta vasos ergonómico. Los 30 programas de entrenamiento pre-configurados se adaptan a tu nivel, desde caminatas suaves hasta sesiones HIIT intensas. ¡Monitorea tu progreso con los medidores de calorías y pulsaciones para alcanzar tus objetivos fitness más rápido que nunca!",
+    inStock: true,
+    discount: 29,
+    sku: "BC-PREMIUM-2HP",
+    stock: 25,
+    shippingInfo: {
+      methods: ["coordinadora", "interapidissimo"],
+      description: "🚚 ENVÍO EXPRESS: Solo despachos con Coordinadora e Interapidísimo para máxima seguridad"
+    },
+    specifications: [
+      "💪 Motor potente de 2HP ultra silencioso",
+      "🏋️ Capacidad de carga: 120 kg máximo",
+      "📈 3 niveles de inclinación ajustable",
+      "📱 Conectividad Bluetooth avanzada",
+      "🔊 Parlantes de alta fidelidad integrados",
+      "🥤 Porta vasos ergonómico",
+      "⚡ 12 niveles de velocidad (0-10 km/h)",
+      "📊 Monitor de calorías y frecuencia cardíaca",
+      "🎯 30 programas de entrenamiento especializados",
+      "🔌 Voltaje estándar: 110V/60Hz",
+      "🎨 Diseño plegable ultra compacto"
+    ],
+    includes: [
+      "✅ Banda caminadora Premium 2HP",
+      "📋 Manual de usuario completo",
+      "🔧 Kit de ensamblaje profesional",
+      "🛡️ Garantía extendida del fabricante",
+      "🎁 Guía de entrenamiento digital GRATIS"
+    ],
+    benefits: [
+      "🏠 Gimnasio completo en tu hogar 24/7",
+      "🎵 Entretenimiento ilimitado con Bluetooth",
+      "🎯 Entrenamientos personalizados para todos los niveles",
+      "📱 Tecnología inteligente de monitoreo",
+      "💰 Ahorro significativo vs gimnasios tradicionales",
+      "🛡️ Máxima seguridad y estabilidad",
+      "🌟 Diseño elegante que complementa tu hogar",
+      "⚡ Fácil almacenamiento gracias al sistema plegable",
+      "🚀 Resultados rápidos y medibles",
+      "💪 Fortalece tu salud cardiovascular"
+    ],
+    warranty: {
+      incompleteOrder: { time: 10, unit: "DIAS" },
+      malfunction: { time: 10, unit: "DIAS" },
+      brokenProduct: { time: 10, unit: "DIAS" },
+      differentOrder: { time: 10, unit: "DIAS" }
+    }
   }
 ];
 
