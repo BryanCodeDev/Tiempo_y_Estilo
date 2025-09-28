@@ -633,8 +633,8 @@ export const products = [
   {
     id: 14,
     name: "Banda Caminadora Premium 2HP Plegable",
-    price: 850000,
-    originalPrice: 1200000,
+    price: 3988000,
+    originalPrice: 4500000,
     category: "deportes",
     image: "/assets/images/caminadora.png",
     secondaryImage: "/assets/images/caminadora2.png",
@@ -648,7 +648,7 @@ export const products = [
     description: "🏃‍♀️ ¡Transforma tu hogar en un gimnasio personal! Banda caminadora profesional 2HP con Bluetooth, parlantes y 30 programas de entrenamiento",
     longDescription: "¡Descubre la revolución del fitness en casa con nuestra Banda Caminadora Premium 2HP! Diseñada para atletas urbanos y amantes del bienestar, esta caminadora combina potencia, tecnología y comodidad en un solo equipo. Su motor silencioso de 2HP te permite correr hasta 10 km/h con la estabilidad que necesitas. Conecta tu smartphone vía Bluetooth, disfruta de tu música favorita a través de los parlantes integrados mientras hidratas con el porta vasos ergonómico. Los 30 programas de entrenamiento pre-configurados se adaptan a tu nivel, desde caminatas suaves hasta sesiones HIIT intensas. ¡Monitorea tu progreso con los medidores de calorías y pulsaciones para alcanzar tus objetivos fitness más rápido que nunca!",
     inStock: true,
-    discount: 29,
+    discount: 11,
     sku: "BC-PREMIUM-2HP",
     stock: 25,
     shippingInfo: {
