@@ -1,34 +1,34 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, ArrowRight, Truck, Shield, Star, Package, ChevronDown } from 'lucide-react';
+import { Phone, ArrowRight, Shield, ChevronDown, Gem, Watch, Crown, Sparkles } from 'lucide-react';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const slides = [
     {
-      title: "Productos únicos, calidad premium",
-      description: "Descubre una selección exclusiva para tu hogar y bienestar",
-      cta: "Explorar catálogo",
-      accent: "Envío GRATIS incluido siempre"
+      title: "Joyas que cuentan historias",
+      description: "Cada pieza está diseñada para reflejar tu personalidad única y complementar tu estilo personal",
+      cta: "Explorar Colección",
+      accent: "Piezas exclusivas • Diseño artesanal"
     },
     {
-      title: "Envíos gratuitos a toda Colombia",
-      description: "Sin costo adicional en todos nuestros productos",
-      cta: "Ver productos",
-      accent: "Entrega rápida y segura"
+      title: "Relojes que marcan tendencia",
+      description: "Descubre nuestra colección de relojes premium que combinan precisión suiza con diseño contemporáneo",
+      cta: "Ver Relojes",
+      accent: "Movimientos automáticos • Acabados premium"
     },
     {
-      title: "Compra 100% segura",
-      description: "Pago contra entrega disponible en todo el país",
-      cta: "Comprar ahora",
-      accent: "Tu satisfacción garantizada"
+      title: "Tu estilo, nuestra pasión",
+      description: "Cada joya y reloj es seleccionado personalmente para garantizar la máxima calidad y exclusividad",
+      cta: "Asesoría Personal",
+      accent: "Atención VIP • Garantía de autenticidad"
     }
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    }, 5000);
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -40,153 +40,163 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative pt-16 sm:pt-20 pb-6 sm:pb-8 overflow-hidden">
-      {/* Background moderno con pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900">
-        {/* Pattern overlay usando Tailwind */}
-        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[length:40px_40px]"></div>
-        
-        {/* Elementos geométricos modernos */}
-        <div className="absolute top-10 left-[10%] w-24 h-24 sm:w-32 sm:h-32 bg-blue-500 bg-opacity-20 rounded-full blur-2xl animate-pulse"></div>
-        <div className="absolute bottom-10 right-[15%] w-32 h-32 sm:w-48 sm:h-48 bg-indigo-500 bg-opacity-15 rounded-full blur-3xl"></div>
-        <div className="absolute top-1/2 right-[5%] w-16 h-16 sm:w-24 sm:h-24 bg-white bg-opacity-10 rounded-full blur-xl"></div>
-        
-        {/* Líneas decorativas */}
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-50"></div>
+    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-amber-50/30 to-white">
+      {/* Background elegante */}
+      <div className="absolute inset-0">
+        {/* Patrón de diamantes sutil */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(139,0,0,0.4)_1px,_transparent_1px)] bg-[length:60px_60px]"></div>
+        </div>
+
+        {/* Elementos flotantes elegantes */}
+        <div className="absolute top-20 left-[10%] w-32 h-32 bg-gradient-to-br from-secondary/20 to-primary/10 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-[15%] w-48 h-48 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 right-[5%] w-24 h-24 bg-gradient-to-br from-luxury/30 to-jewel/20 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
+
+        {/* Líneas de luz elegantes */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-6 sm:py-8 lg:py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-          
-          {/* Contenido principal */}
-          <div className="lg:col-span-7 text-center lg:text-left">
-            {/* Badge superior */}
-            <div className="inline-flex items-center px-3 py-1.5 bg-blue-500 bg-opacity-20 backdrop-blur-sm rounded-full text-blue-100 text-sm font-medium mb-3 border border-blue-400 border-opacity-30">
-              <div className="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></div>
-              Tu tienda online de confianza
+      <div className="relative z-10 container-luxury w-full py-12 sm:py-16 lg:py-20 xl:py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+          {/* Contenido principal elegante */}
+          <div className="text-center lg:text-left space-y-8">
+            {/* Badge de lujo */}
+            <div className="inline-flex items-center px-6 py-3 glass-luxury rounded-full text-primary text-sm font-semibold shadow-luxury animate-shimmer">
+              <Crown className="w-4 h-4 mr-3 text-secondary animate-pulse" />
+              <span className="tracking-wider">JOYERÍA DE LUJO</span>
+              <Sparkles className="w-4 h-4 ml-3 text-secondary animate-pulse" />
             </div>
-            
-            {/* Título principal */}
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-black text-white mb-3 leading-tight">
-              <span className="block">Bienvenido a</span>
-              <span className="block bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400 bg-clip-text text-transparent">
-                GoToBuy
+
+            {/* Título principal sofisticado */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-display">
+              <span className="block mb-4 text-primary">Tu tiempo</span>
+              <span className="block text-gold animate-shimmer">
+                define tu estilo
               </span>
             </h1>
-            
-            {/* Contenido dinámico del slider */}
-            <div className="mb-4 min-h-[100px] sm:min-h-[110px] flex flex-col justify-center">
-              <h2 className="text-base sm:text-lg lg:text-xl font-semibold text-white text-opacity-90 mb-2 transition-all duration-500">
-                {slides[currentSlide].title}
-              </h2>
-              <p className="text-sm sm:text-base text-white text-opacity-70 max-w-2xl mx-auto lg:mx-0 mb-1 transition-all duration-500">
-                {slides[currentSlide].description}
-              </p>
-              <p className="text-xs sm:text-sm text-blue-300 font-medium transition-all duration-500">
-                {slides[currentSlide].accent}
-              </p>
+
+            {/* Contenido dinámico elegante */}
+            <div className="min-h-[180px] flex flex-col justify-center">
+              <div className="glass-luxury rounded-2xl p-8 border border-secondary/20 shadow-luxury backdrop-blur-xl">
+                <h2 className="text-2xl lg:text-3xl font-semibold text-primary mb-4 transition-all duration-700 font-display">
+                  {slides[currentSlide].title}
+                </h2>
+                <p className="text-lg text-gray-700 leading-relaxed mb-4 transition-all duration-700">
+                  {slides[currentSlide].description}
+                </p>
+                <p className="text-sm text-secondary font-medium transition-all duration-700 flex items-center justify-center lg:justify-start">
+                  <Gem className="w-4 h-4 mr-2" />
+                  {slides[currentSlide].accent}
+                </p>
+              </div>
             </div>
-            
-            {/* Botones de acción */}
-            <div className="flex flex-col sm:flex-row gap-2.5 justify-center lg:justify-start mb-4">
-              <button 
+
+            {/* Botones de acción premium */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <button
                 onClick={handleScrollToProducts}
-                className="group bg-white text-gray-900 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform flex items-center justify-center"
+                className="group bg-ruby-gradient hover:opacity-90 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 shadow-luxury hover:shadow-2xl hover:scale-105 flex items-center justify-center animate-gradient"
               >
-                <Package className="mr-2 w-4 h-4 text-blue-600" />
+                <Gem className="mr-3 w-5 h-5" />
                 {slides[currentSlide].cta}
-                <ArrowRight className="ml-2 w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <a 
-                href="https://wa.me/573508470735?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20GoToBuy" 
-                target="_blank" 
+              <a
+                href="https://wa.me/573146081297?text=¡Hola!%20Me%20interesa%20la%20colección%20premium%20de%20TIEMPO%20Y%20ESTILO"
+                target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-green-600 hover:bg-green-700 text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 transform flex items-center justify-center border border-green-500"
+                className="group bg-gold-gradient hover:opacity-90 text-primary px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 shadow-gold hover:shadow-2xl hover:scale-105 flex items-center justify-center animate-gradient"
               >
-                <Phone className="mr-2 h-4 w-4" />
-                Contactar ahora
+                <Phone className="mr-3 w-5 h-5" />
+                Asesoría VIP
               </a>
             </div>
 
-            {/* Indicadores del slider */}
-            <div className="flex justify-center lg:justify-start space-x-2 mb-4">
+            {/* Indicadores elegantes del slider */}
+            <div className="flex justify-center lg:justify-start space-x-3">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`transition-all duration-300 rounded-full ${
-                    index === currentSlide 
-                      ? 'w-6 h-1.5 bg-blue-400' 
-                      : 'w-1.5 h-1.5 bg-white bg-opacity-30 hover:bg-white hover:bg-opacity-50'
+                  className={`transition-all duration-500 rounded-full border-2 ${
+                    index === currentSlide
+                      ? 'w-12 h-3 bg-gold-gradient border-secondary shadow-gold animate-gradient'
+                      : 'w-3 h-3 bg-gray-300 border-gray-400 hover:bg-secondary/50 hover:border-secondary'
                   }`}
                 />
               ))}
             </div>
           </div>
-          
-          {/* Panel lateral con beneficios */}
-          <div className="lg:col-span-5">
-            <div className="bg-white bg-opacity-10 backdrop-blur-md rounded-2xl p-4 sm:p-5 border border-white border-opacity-20 shadow-2xl">
-              <div className="text-center mb-4">
-                <h3 className="text-white font-bold text-base sm:text-lg mb-1">¿Por qué elegir GoToBuy?</h3>
-                <p className="text-blue-200 text-xs sm:text-sm">Beneficios que nos hacen únicos</p>
+
+          {/* Panel lateral con características premium */}
+          <div className="lg:col-span-1">
+            <div className="glass-luxury rounded-3xl p-8 border border-secondary/20 shadow-luxury backdrop-blur-xl">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gold-gradient rounded-full mb-4 shadow-gold animate-glow">
+                  <Crown className="w-10 h-10 text-primary" />
+                </div>
+                <h3 className="text-2xl font-bold text-primary mb-2 font-display">¿Por qué elegirnos?</h3>
+                <p className="text-gray-600">Excelencia en cada detalle</p>
               </div>
-              
-              <div className="space-y-3">
-                <div className="flex items-center p-2.5 bg-white bg-opacity-10 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
-                  <div className="bg-green-500 p-2 rounded-lg mr-3 flex-shrink-0">
-                    <Truck className="w-4 h-4 text-white" />
+
+              <div className="space-y-4">
+                <div className="flex items-center p-4 bg-gradient-to-r from-primary/5 to-transparent rounded-xl hover:from-primary/10 transition-all duration-300 group border border-primary/10">
+                  <div className="bg-ruby-gradient p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-luxury">
+                    <Gem className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-white font-semibold text-xs sm:text-sm">Envío gratis</p>
-                    <p className="text-blue-200 text-xs">En todos nuestros productos</p>
+                    <p className="text-primary font-bold text-lg font-display">Joyas Exclusivas</p>
+                    <p className="text-gray-600 text-sm">Diseños únicos y materiales premium</p>
                   </div>
                 </div>
-                
-                <div className="flex items-center p-2.5 bg-white bg-opacity-10 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
-                  <div className="bg-blue-500 p-2 rounded-lg mr-3 flex-shrink-0">
-                    <Shield className="w-4 h-4 text-white" />
+
+                <div className="flex items-center p-4 bg-gradient-to-r from-secondary/5 to-transparent rounded-xl hover:from-secondary/10 transition-all duration-300 group border border-secondary/10">
+                  <div className="bg-gold-gradient p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-gold">
+                    <Watch className="w-6 h-6 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-white font-semibold text-xs sm:text-sm">Pago seguro</p>
-                    <p className="text-blue-200 text-xs">Contra entrega disponible</p>
+                    <p className="text-primary font-bold text-lg font-display">Relojes Premium</p>
+                    <p className="text-gray-600 text-sm">Precisión suiza y acabados artesanales</p>
                   </div>
                 </div>
-                
-                <div className="flex items-center p-2.5 bg-white bg-opacity-10 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
-                  <div className="bg-yellow-500 p-2 rounded-lg mr-3 flex-shrink-0">
-                    <Star className="w-4 h-4 text-white" />
+
+                <div className="flex items-center p-4 bg-gradient-to-r from-luxury/5 to-transparent rounded-xl hover:from-luxury/10 transition-all duration-300 group border border-luxury/10">
+                  <div className="bg-gradient-to-br from-luxury to-jewel p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-lg">
+                    <Shield className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-white font-semibold text-xs sm:text-sm">Calidad premium</p>
-                    <p className="text-blue-200 text-xs">Productos seleccionados</p>
+                    <p className="text-primary font-bold text-lg font-display">Garantía Total</p>
+                    <p className="text-gray-600 text-sm">Autenticidad y calidad garantizadas</p>
                   </div>
                 </div>
-                
-                <div className="flex items-center p-2.5 bg-white bg-opacity-10 rounded-xl hover:bg-white hover:bg-opacity-20 transition-all duration-300">
-                  <div className="bg-purple-500 p-2 rounded-lg mr-3 flex-shrink-0">
-                    <Phone className="w-4 h-4 text-white" />
+
+                <div className="flex items-center p-4 bg-gradient-to-r from-emerald-500/5 to-transparent rounded-xl hover:from-emerald-500/10 transition-all duration-300 group border border-emerald-500/10">
+                  <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-lg">
+                    <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-white font-semibold text-xs sm:text-sm">Soporte 24/7</p>
-                    <p className="text-blue-200 text-xs">Atención por WhatsApp</p>
+                    <p className="text-primary font-bold text-lg font-display">Asesoría VIP</p>
+                    <p className="text-gray-600 text-sm">Atención personalizada 24/7</p>
                   </div>
                 </div>
               </div>
-              
-              {/* Estadísticas mini */}
-              <div className="grid grid-cols-3 gap-3 mt-4 pt-4 border-t border-white border-opacity-20">
+
+              {/* Estadísticas de lujo */}
+              <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-secondary/20">
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl font-bold text-white">8+</div>
-                  <div className="text-blue-200 text-xs">Productos</div>
+                  <div className="text-3xl font-bold text-gold mb-1 font-display">500+</div>
+                  <div className="text-gray-600 text-xs">Piezas Exclusivas</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl font-bold text-white">100%</div>
-                  <div className="text-blue-200 text-xs">Satisfacción</div>
+                  <div className="text-3xl font-bold text-primary mb-1 font-display">100%</div>
+                  <div className="text-gray-600 text-xs">Autenticidad</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-lg sm:text-xl font-bold text-white">24/7</div>
-                  <div className="text-blue-200 text-xs">Soporte</div>
+                  <div className="text-3xl font-bold text-luxury mb-1 font-display">24/7</div>
+                  <div className="text-gray-600 text-xs">Soporte VIP</div>
                 </div>
               </div>
             </div>
@@ -194,9 +204,12 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ChevronDown className="w-4 h-4 text-white text-opacity-70" />
+      {/* Indicador de scroll elegante */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="flex flex-col items-center text-primary/70">
+          <span className="text-sm mb-2 tracking-wider font-semibold">DESCUBRE MÁS</span>
+          <ChevronDown className="w-6 h-6" />
+        </div>
       </div>
     </section>
   );

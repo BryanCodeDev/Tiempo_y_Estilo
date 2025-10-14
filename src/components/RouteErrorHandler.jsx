@@ -99,10 +99,10 @@ const RouteErrorHandler = ({
   const IconComponent = errorConfig.icon;
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4 pt-20">
-      <div className="max-w-lg w-full">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-3 sm:p-4 pt-20">
+      <div className="max-w-sm sm:max-w-md lg:max-w-lg w-full">
         {/* Tarjeta principal */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 text-center">
+        <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl p-6 sm:p-8 text-center">
           {/* Icono */}
           <div className={`mx-auto w-20 h-20 ${errorConfig.iconBg} rounded-full flex items-center justify-center mb-6`}>
             <IconComponent className={`w-10 h-10 ${errorConfig.iconColor}`} />

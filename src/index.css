@@ -2,65 +2,185 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fuentes modernas */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* Fuentes elegantes para joyería de lujo */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
-/* Configuración base responsiva */
-html {
-  scroll-behavior: smooth;
-  font-size: 16px;
+/* Variables CSS personalizadas */
+:root {
+  --primary: #8B0000;
+  --secondary: #D4AF37;
+  --luxury: #800020;
+  --jewel: #4A0E4E;
+  --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F4E5C2 50%, #D4AF37 100%);
+  --ruby-gradient: linear-gradient(135deg, #8B0000 0%, #CC0000 50%, #8B0000 100%);
 }
 
-@media (max-width: 768px) {
-  html {
-    font-size: 15px;
+/* Estilos base */
+@layer base {
+  body {
+    @apply font-sans antialiased;
+    font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
+    background: linear-gradient(to bottom, #FFFFFF, #FFF8F0);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    @apply font-bold;
   }
 }
 
-@media (max-width: 480px) {
-  html {
-    font-size: 14px;
+/* Utilidades personalizadas para joyería */
+@layer utilities {
+  .container-luxury {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Efectos de cristal elegantes */
+  .glass-luxury {
+    @apply bg-white/90 backdrop-blur-xl border border-white/40;
+    box-shadow: 0 8px 32px 0 rgba(139, 0, 0, 0.1);
+  }
+
+  .glass-dark {
+    @apply bg-gray-900/90 backdrop-blur-xl border border-gray-800/40;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  /* Gradientes de oro y rubí */
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #D4AF37 0%, #F4E5C2 50%, #D4AF37 100%);
+    background-size: 200% 200%;
+  }
+
+  .bg-ruby-gradient {
+    background: linear-gradient(135deg, #8B0000 0%, #CC0000 50%, #8B0000 100%);
+    background-size: 200% 200%;
+  }
+
+  .bg-jewel-gradient {
+    background: linear-gradient(135deg, #4A0E4E 0%, #9C27B0 50%, #4A0E4E 100%);
+    background-size: 200% 200%;
+  }
+
+  /* Texto con efecto dorado */
+  .text-gold {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%);
+    background-size: 200% 200%;
+  }
+
+  /* Animaciones mejoradas */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 5s ease infinite;
+  }
+
+  /* Recorte de líneas */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* Scrollbar elegante */
+  .scrollbar-luxury {
+    scrollbar-width: thin;
+    scrollbar-color: #D4AF37 #F5F5F5;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-track {
+    background: #F5F5F5;
+    border-radius: 4px;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #D4AF37 0%, #B8982C 100%);
+    border-radius: 4px;
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #FFD700 0%, #D4AF37 100%);
+  }
+
+  /* Efectos de brillo para joyas */
+  .jewel-shine {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .jewel-shine::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.1) 45%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0.1) 55%,
+      transparent 100%
+    );
+    transform: rotate(45deg);
+    animation: shine 3s ease-in-out infinite;
+  }
+
+  /* Bordes dorados */
+  .border-gold {
+    border: 2px solid transparent;
+    background-image:
+      linear-gradient(white, white),
+      linear-gradient(135deg, #D4AF37, #FFD700, #D4AF37);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+  }
+
+  /* Sombras personalizadas para efectos de lujo */
+  .shadow-gold {
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3), 0 2px 8px rgba(212, 175, 55, 0.2);
+  }
+
+  .shadow-luxury {
+    box-shadow: 0 8px 32px rgba(139, 0, 0, 0.15), 0 4px 16px rgba(139, 0, 0, 0.1);
   }
 }
 
-body {
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
-}
-
-/* Sistema de scrollbar moderno */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #cbd5e1 #f8fafc;
-}
-
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: #f8fafc;
-  border-radius: 3px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-  border-radius: 3px;
-  transition: background 0.3s ease;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
-
-/* Animaciones mejoradas */
+/* Animaciones personalizadas */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -68,258 +188,147 @@ body {
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.4s ease-out both;
-}
-
-/* Utilidad para texto truncado responsive */
-.line-clamp-1 {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-/* Mejoras para táctil en móviles */
-@media (max-width: 768px) {
-  * {
-    -webkit-tap-highlight-color: transparent;
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
   }
-  
-  .mobile-scroll {
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* Botones más grandes en móvil */
-  button, 
-  .btn {
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  /* Input más grande en móvil */
-  input,
-  select,
-  textarea {
-    min-height: 44px;
-  }
-
-  /* Espaciado mejorado en móvil */
-  .mobile-padding {
-    padding: 1rem;
-  }
-
-  /* Grid responsivo para productos */
-  .product-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  @media (min-width: 640px) {
-    .product-grid {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-    }
+  50% {
+    transform: translateY(-20px);
   }
 }
 
-/* Tablet optimizations */
-@media (min-width: 768px) and (max-width: 1024px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+@keyframes glow {
+  0%, 100% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+  }
+  50% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
   }
 }
 
-/* Desktop optimizations */
-@media (min-width: 1024px) {
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-}
-
-/* Accessibility - Screen readers */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* Focus visible mejorado */
-.focus-visible:focus-visible {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-  border-radius: 6px;
-}
-
-/* Transiciones globales suaves */
-button, 
-a, 
-input, 
-select, 
-textarea,
-[role="button"] {
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Soporte para reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-  
-  .animate-pulse,
-  .animate-bounce,
-  .animate-spin {
-    animation: none !important;
-  }
-}
-
-/* Safe areas para dispositivos con notch */
-@supports (padding: max(0px)) {
-  .safe-top {
-    padding-top: max(1rem, env(safe-area-inset-top));
-  }
-  
-  .safe-bottom {
-    padding-bottom: max(1rem, env(safe-area-inset-bottom));
-  }
-  
-  .safe-left {
-    padding-left: max(1rem, env(safe-area-inset-left));
-  }
-  
-  .safe-right {
-    padding-right: max(1rem, env(safe-area-inset-right));
-  }
-}
-
-/* Viewport height fixes para móviles */
-.min-h-screen-mobile {
-  min-height: 100vh;
-  min-height: 100dvh; /* Dynamic viewport height */
-}
-
-/* Container queries support */
-@container (max-width: 400px) {
-  .container-responsive {
-    padding: 0.75rem;
-  }
-}
-
-/* Print styles */
-@media print {
-  .no-print {
-    display: none !important;
-  }
-  
-  .print-break {
-    page-break-before: always;
-  }
-  
-  .print-avoid-break {
-    page-break-inside: avoid;
-  }
-}
-
-/* High contrast mode support */
-@media (prefers-contrast: high) {
-  .bg-gray-50 {
-    background-color: #ffffff;
-  }
-  
-  .bg-gray-100 {
-    background-color: #f3f4f6;
-  }
-  
-  .text-gray-600 {
-    color: #374151;
-  }
-}
-
-/* Utilidades específicas que mejoran la experiencia móvil */
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Card hover effects más suaves en móvil */
-@media (hover: none) and (pointer: coarse) {
-  .hover\:scale-105:hover {
-    transform: none;
-  }
-  
-  .hover\:-translate-y-1:hover {
-    transform: none;
-  }
-  
-  .group:hover .group-hover\:scale-105 {
-    transform: none;
-  }
-}
-
-/* Mejoras para landscape en móvil */
-@media (max-height: 500px) and (orientation: landscape) {
-  .min-h-screen {
-    min-height: auto;
-  }
-  
-  .py-16 {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
-  
-  .py-12 {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-}
-
-/* Loading skeleton animations */
 @keyframes shimmer {
   0% {
-    background-position: -200px 0;
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
   }
   100% {
-    background-position: calc(200px + 100%) 0;
+    background-position: 0% 50%;
   }
 }
 
-.skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-  background-size: 200px 100%;
-  animation: shimmer 1.5s infinite;
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-/* Dark mode variables preparadas */
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
   }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+/* Optimizaciones para móviles */
+@media (max-width: 640px) {
+  .container-luxury {
+    @apply px-3;
+  }
+  
+  h1 {
+    @apply text-2xl;
+  }
+  
+  h2 {
+    @apply text-xl;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-glow,
+  .animate-shimmer,
+  .animate-gradient {
+    animation: none;
+  }
+
+  .jewel-shine::before {
+    animation: none;
+  }
+}
+
+/* Estilos para imágenes de productos */
+.product-image {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FFFFFF 50%, #FFF8F0 100%);
+  position: relative;
+}
+
+.product-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 10px,
+      rgba(212, 175, 55, 0.03) 10px,
+      rgba(212, 175, 55, 0.03) 20px
+    );
+}
+
+/* Efectos hover premium */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(139, 0, 0, 0.3);
+}
+
+/* Selección de texto personalizada */
+::selection {
+  background-color: rgba(212, 175, 55, 0.3);
+  color: #8B0000;
+}
+
+::-moz-selection {
+  background-color: rgba(212, 175, 55, 0.3);
+  color: #8B0000;
+}
+
+/* Focus states elegantes */
+*:focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Estilos para badges premium */
+.badge-luxury {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
+  color: #8B0000;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
+}
+
+.badge-ruby {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  background: linear-gradient(135deg, #8B0000 0%, #CC0000 100%);
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(139, 0, 0, 0.3);
 }

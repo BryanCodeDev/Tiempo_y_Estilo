@@ -1,35 +1,10 @@
-# Netlify _redirects file
+# Netlify _redirects file para TIEMPO Y ESTILO
 # Coloca este archivo en la carpeta public/
-
-# Redirecciones 301 para URLs antiguas (footer links)
-# Páginas legales y políticas
-/terms                                    /terminos-y-condiciones           301
-/privacy                                  /politica-de-privacidad          301
-/shipping                                 /politicas-de-envio               301
-/faq                                      /preguntas-frecuentes             301
-
-# Redirección para la nueva ruta de productos
-/*#productos                              /inicio                           301
-
-# Redirecciones para URLs de productos antiguas (sin ID)
-/producto/soporte-celular-moto-impermeable              /producto/1/soporte-celular-moto-impermeable              301
-/producto/adaptador-audifono-convertidor-plug-35        /producto/2/adaptador-audifono-convertidor-plug-35        301
-/producto/vape-recargable-15000-puffs                   /producto/3/vape-recargable-15000-puffs                   301
-/producto/derma-roller-system-agujas                    /producto/4/derma-roller-system-agujas                    301
-/producto/set-x2-almohadas-siliconadas-45x65            /producto/5/set-x2-almohadas-siliconadas-45x65            301
-/producto/mini-humidificador-difusor-aromas-220         /producto/6/mini-humidificador-difusor-aromas-220         301
-/producto/airpods-pro-2-generacion                      /producto/7/airpods-pro-2-generacion                      301
-/producto/audifonos-inalambricos-2da-generacion         /producto/8/audifonos-inalambricos-2da-generacion         301
-/producto/bafle-parlante-charge-4-recargable-bluetooth  /producto/9/bafle-parlante-charge-4-recargable-bluetooth  301
-/producto/maleta-deportiva-t60                          /producto/10/maleta-deportiva-t60                          301
-/producto/maletin-deportivo-azul-oscuro-ref-3           /producto/12/maletin-deportivo-azul-oscuro-ref-3           301
-/producto/juego-37-piezas-destornilladores-puntas       /producto/11/juego-37-piezas-destornilladores-puntas       301
-/producto/juego-destornillador-kit-pro-115-en-1          /producto/13/juego-destornillador-kit-pro-115-en-1          301
 
 # Redirigir todas las rutas a index.html para SPA routing
 /*    /index.html   200
 
-# Configuración específica para productos (opcional, para SEO)
+# Configuración específica para productos (para SEO)
 /producto/*  /index.html  200
 
 # Para Apache (.htaccess - coloca en public/)

@@ -21,7 +21,7 @@ export const generateProductURL = (product) => {
     .replace(/[^a-z0-9\s-]/g, '') // Remover caracteres especiales
     .replace(/\s+/g, '-') // Reemplazar espacios con guiones
     .replace(/-+/g, '-') // Múltiples guiones a uno
-    .trim('-'); // Remover guiones al inicio/final
+    .replace(/^-+|-+$/g, ''); // Remover guiones al inicio/final
   
   return `/producto/${product.id}/${slug}`;
 };
@@ -29,24 +29,24 @@ export const generateProductURL = (product) => {
 // Función para actualizar meta tags SEO
 const updateSEOTags = (product = null, route = '/') => {
   if (product) {
-    document.title = `${product.name} - GoToBuy | Comprar Online con Envío Gratis`;
+    document.title = `${product.name} - GoToBuy | Joyería y Relojería con Envío Gratis`;
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 
-        `${product.description} Precio: $${product.price.toLocaleString()}. ${product.discount ? `¡${product.discount}% de descuento!` : ''} Envío gratis sobre $80.000. ¡Compra ahora en GoToBuy!`
+        `${product.description} Precio: $${product.price.toLocaleString()}. ${product.discount ? `¡${product.discount}% de descuento!` : ''} Envío gratis. ¡Compra ahora en GoToBuy!`
       );
     }
     
     const metaKeywords = document.querySelector('meta[name="keywords"]');
     if (metaKeywords) {
-      const keywords = `${product.name}, ${product.category}, ${product.sku}, gotobuy, productos premium, envío gratis colombia`;
+      const keywords = `${product.name}, ${product.category}, ${product.sku}, joyería, relojes, plata 925, gotobuy, envío gratis colombia`;
       metaKeywords.setAttribute('content', keywords);
     }
     
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', `${product.name} - GoToBuy`);
+      ogTitle.setAttribute('content', `${product.name} - GoToBuy Joyería`);
     }
     
     const ogDescription = document.querySelector('meta[property="og:description"]');
@@ -75,12 +75,12 @@ const updateSEOTags = (product = null, route = '/') => {
     updateStructuredData(product);
     
   } else {
-    document.title = 'GoToBuy - Productos Premium para tu Hogar, Belleza y Bienestar';
+    document.title = 'GoToBuy - Joyería y Relojería Premium | Envío Gratis en Colombia';
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 
-        '🛒 GoToBuy - Tu tienda online de productos únicos y premium. Masajeadores faciales, humidificadores, utensilios de cocina. Envío gratis sobre $80.000 en Colombia.'
+        '💎 GoToBuy - Tu joyería y relojería online de confianza. Relojes elegantes, joyas en plata 925, aretes, collares, anillos. Envío gratis en toda Colombia. ¡Descubre nuestra colección!'
       );
     }
     
@@ -169,7 +169,8 @@ function App() {
         setRouteError(null);
         
         if (path.startsWith('/producto/')) {
-          const productId = parseInt(path.split('/')[2]);
+          const pathParts = path.split('/');
+          const productId = parseInt(pathParts[2]);
           
           // Validar que el ID sea un número válido
           if (isNaN(productId)) {
@@ -211,14 +212,15 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const handlePopState = (event) => {
+    const handlePopState = () => {
       try {
         const path = window.location.pathname;
         setCurrentRoute(path);
         setRouteError(null);
         
         if (path.startsWith('/producto/')) {
-          const productId = parseInt(path.split('/')[2]);
+          const pathParts = path.split('/');
+          const productId = parseInt(pathParts[2]);
           
           if (isNaN(productId)) {
             setRouteError({ type: 'product-not-found', route: path });
@@ -325,8 +327,9 @@ function App() {
       }
     });
     
+    // Feedback visual mejorado
     const button = document.activeElement;
-    if (button) {
+    if (button && button.classList.contains('add-to-cart-btn')) {
       button.style.transform = 'scale(0.95)';
       setTimeout(() => {
         button.style.transform = '';
@@ -433,13 +436,16 @@ function App() {
           removeFromCart={removeFromCart}
         />
         
+        {/* Botones flotantes de acción */}
         <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
+          {/* WhatsApp principal */}
           <a
-            href="https://wa.me/573508470735?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20sus%20productos%20de%20GoToBuy"
+            href="https://wa.me/573508470735?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20las%20joyas%20y%20relojes%20de%20GoToBuy"
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-green-600 hover:bg-green-700 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden"
             title="Contáctanos por WhatsApp"
+            aria-label="Contactar por WhatsApp"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
             
@@ -448,9 +454,11 @@ function App() {
             <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse border-2 border-white"></div>
           </a>
 
+          {/* Chat rápido */}
           <button
             className="group bg-white hover:bg-gray-50 text-gray-700 hover:text-green-600 p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200"
             title="Chat rápido"
+            aria-label="Chat rápido por WhatsApp"
             onClick={() => {
               const productText = selectedProduct ? `%0A%0AEstoy%20viendo:%20${selectedProduct.name}` : '';
               window.open(`https://wa.me/573508470735?text=¡Hola!%20Tengo%20una%20consulta%20rápida${productText}`, '_blank');
@@ -460,15 +468,16 @@ function App() {
           </button>
         </div>
 
+        {/* Botón scroll to top */}
         <button
           onClick={scrollToTop}
           className={`fixed bottom-4 left-4 bg-gray-900 hover:bg-gray-800 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-40 transform ${
             showScrollTop 
               ? 'translate-y-0 opacity-100' 
-              : 'translate-y-16 opacity-0'
+              : 'translate-y-16 opacity-0 pointer-events-none'
           }`}
           title="Ir arriba"
-          aria-label="Ir arriba"
+          aria-label="Volver arriba"
         >
           <ArrowUp className="w-4 h-4" />
         </button>

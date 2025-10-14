@@ -1,21 +1,55 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Phone, Star, ShoppingCart, Heart, Palette, Eye } from 'lucide-react';
 
 const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct }) => {
   const [isLiked, setIsLiked] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(true);
+  const [imageError, setImageError] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(
     product.hasVariants ? product.variants[0] : null
   );
 
-  const currentProduct = selectedVariant 
+  const currentProduct = selectedVariant
     ? { ...product, ...selectedVariant, image: selectedVariant.image || product.image }
     : product;
 
+  // Función para verificar si la imagen existe y cargar
+  const checkImage = (src) => {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => resolve(src);
+      img.onerror = () => reject(new Error('Image failed to load'));
+      img.src = src;
+    });
+  };
+
+  // Verificar imagen al montar componente y cuando cambie
+  useEffect(() => {
+    if (currentProduct.image) {
+      setImageError(false);
+      setImageLoaded(false); // Iniciar como cargando
+
+      // Verificar imagen
+      checkImage(currentProduct.image)
+        .then(() => {
+          setImageLoaded(true);
+          setImageError(false);
+        })
+        .catch(() => {
+          setImageError(true);
+          setImageLoaded(true); // Para mostrar el placeholder de error
+        });
+    } else {
+      setImageError(true);
+      setImageLoaded(true);
+    }
+  }, [currentProduct.image]);
+
+
   const handleWhatsAppOrder = (e) => {
     e.stopPropagation();
-    const variantText = selectedVariant ? `%0AColor: ${selectedVariant.name}` : '';
-    const message = `¡Hola! Me interesa este producto de GoToBuy:%0A%0A*${product.name}*${variantText}%0APrecio: $${currentProduct.price.toLocaleString()}%0ASKU: ${currentProduct.sku}%0A%0A¿Está disponible para entrega inmediata?`;
+    const variantText = selectedVariant ? `%0AVariante: ${selectedVariant.name}` : '';
+    const message = `¡Hola! Me interesa este producto de GoToBuy:%0A%0A*${product.name}*${variantText}%0APrecio: ${formatPrice(currentProduct.price)}%0ASKU: ${currentProduct.sku}%0A%0A¿Está disponible para entrega inmediata?`;
     window.open(`https://wa.me/573508470735?text=${message}`, '_blank');
   };
 
@@ -36,34 +70,58 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
     }
   };
 
+  // Función para formatear precio
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('es-CO', {
+      style: 'currency',
+      currency: 'COP',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
   // Vista de lista mejorada
   if (viewMode === 'list') {
     return (
-      <div 
-        className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-200 hover:border-blue-200 cursor-pointer group"
+      <div
+        className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-gray-200 hover:border-gray-300 cursor-pointer group"
         onClick={handleViewProduct}
       >
         <div className="flex flex-col sm:flex-row">
           {/* Imagen */}
           <div className="relative w-full sm:w-48 h-48 sm:h-40 flex-shrink-0 overflow-hidden bg-gray-100 aspect-[4/3]">
-            {!imageLoaded && (
-              <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
+            {!imageLoaded && !imageError && (
+              <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200" />
             )}
-            <img
-              src={currentProduct.image}
-              alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
-              title={product.name}
-              className={`w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105 ${
-                imageLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              style={{ objectPosition: 'center center' }}
-              onLoad={() => setImageLoaded(true)}
-              loading="lazy"
-              decoding="async"
-              fetchpriority="auto"
-              width="400"
-              height="300"
-            />
+            {imageError ? (
+              <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center border-2 border-dashed border-gray-300">
+                <div className="text-center text-gray-400 px-4">
+                  <div className="text-3xl mb-2">🏷️</div>
+                  <div className="text-xs font-medium">{product.name}</div>
+                  <div className="text-xs text-gray-300 mt-1">Producto</div>
+                </div>
+              </div>
+            ) : (
+              <img
+                src={currentProduct.image}
+                alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
+                title={product.name}
+                className={`w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105 ${
+                  imageLoaded ? 'opacity-100' : 'opacity-0'
+                }`}
+                style={{ objectPosition: 'center center' }}
+                onLoad={() => setImageLoaded(true)}
+                onError={() => {
+                  setImageError(true);
+                  setImageLoaded(true);
+                }}
+                loading="lazy"
+                decoding="async"
+                fetchpriority="auto"
+                width="400"
+                height="300"
+              />
+            )}
             
             {/* Badges */}
             <div className="absolute top-2 left-2 flex flex-col gap-1">
@@ -81,7 +139,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
               {product.hasVariants && (
                 <span className="bg-purple-500 text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
                   <Palette className="w-3 h-3 mr-1" />
-                  {product.variants.length} colores
+                  {product.variants.length} opciones
                 </span>
               )}
             </div>
@@ -113,12 +171,12 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                 <div className="flex-1 min-w-0">
                   <h3 className="font-bold text-lg text-gray-900 mb-1 hover:text-blue-600 transition-colors cursor-pointer line-clamp-2">
                     {product.name}
-                    {selectedVariant && (
-                      <span className="text-sm font-normal text-gray-600 ml-2">
-                        - {selectedVariant.name}
-                      </span>
-                    )}
                   </h3>
+                  {selectedVariant && (
+                    <span className="text-sm text-gray-600 block mb-1">
+                      {selectedVariant.name}
+                    </span>
+                  )}
                   <p className="text-blue-600 text-xs font-medium bg-blue-50 px-2 py-0.5 rounded-md inline-block">
                     SKU: {currentProduct.sku}
                   </p>
@@ -137,7 +195,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
               {product.hasVariants && (
                 <div className="mb-3">
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-xs text-gray-600 font-medium">Color:</span>
+                    <span className="text-xs text-gray-600 font-medium">Opciones:</span>
                     {product.variants.slice(0, 4).map((variant) => (
                       <button
                         key={variant.id}
@@ -145,14 +203,15 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                           e.stopPropagation();
                           setSelectedVariant(variant);
                         }}
-                        className={`w-6 h-6 rounded-full border-2 transition-all duration-300 ${
+                        className={`text-xs px-2 py-1 rounded-md border transition-all duration-300 ${
                           selectedVariant?.id === variant.id 
-                            ? 'border-gray-900 scale-110' 
+                            ? 'border-gray-900 bg-gray-900 text-white' 
                             : 'border-gray-300 hover:border-gray-500'
                         }`}
-                        style={{ backgroundColor: variant.color }}
                         title={variant.name}
-                      />
+                      >
+                        {variant.name}
+                      </button>
                     ))}
                     {product.variants.length > 4 && (
                       <span className="text-xs text-gray-500">
@@ -183,17 +242,17 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
               <div className="flex items-center justify-between mb-4">
                 <div className="flex items-center gap-2">
                   <span className="text-2xl font-bold text-gray-900">
-                    ${product.price.toLocaleString()}
+                    {formatPrice(product.price)}
                   </span>
                   {product.originalPrice && (
                     <span className="text-gray-400 line-through text-sm">
-                      ${product.originalPrice.toLocaleString()}
+                      {formatPrice(product.originalPrice)}
                     </span>
                   )}
                 </div>
                 {product.discount && (
                   <span className="text-green-600 text-sm font-medium">
-                    Ahorras ${((product.originalPrice || 0) - product.price).toLocaleString()}
+                    Ahorras {formatPrice((product.originalPrice || 0) - product.price)}
                   </span>
                 )}
               </div>
@@ -232,29 +291,43 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   // Vista de tarjeta (grid) mejorada
   return (
     <div
-      className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group border border-gray-200 hover:border-blue-200 hover:-translate-y-1 max-w-sm mx-auto cursor-pointer h-full flex flex-col"
+      className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group border border-gray-200 hover:border-gray-300 hover:-translate-y-1 max-w-sm mx-auto cursor-pointer h-full flex flex-col"
       onClick={handleViewProduct}
     >
       
       {/* Imagen */}
       <div className="relative overflow-hidden bg-gray-100 aspect-[4/3]">
-        {!imageLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-200 to-gray-300 animate-pulse" />
+        {!imageLoaded && !imageError && (
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-100 to-gray-200" />
         )}
-        <img
-          src={currentProduct.image}
-          alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
-          title={product.name}
-          className={`w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500 ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoad={() => setImageLoaded(true)}
-          loading="lazy"
-          decoding="async"
-          fetchPriority="auto"
-          width="400"
-          height="300"
-        />
+        {imageError ? (
+          <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center border-2 border-dashed border-gray-300">
+            <div className="text-center text-gray-400 px-4">
+              <div className="text-4xl mb-2">🏷️</div>
+              <div className="text-sm font-medium line-clamp-2">{product.name}</div>
+              <div className="text-xs text-gray-300 mt-1">Producto</div>
+            </div>
+          </div>
+        ) : (
+          <img
+            src={currentProduct.image}
+            alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
+            title={product.name}
+            className={`w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500 ${
+              imageLoaded ? 'opacity-100' : 'opacity-0'
+            }`}
+            onLoad={() => setImageLoaded(true)}
+            onError={() => {
+              setImageError(true);
+              setImageLoaded(true);
+            }}
+            loading="lazy"
+            decoding="async"
+            fetchpriority="auto"
+            width="400"
+            height="300"
+          />
+        )}
         
         {/* Badges en la esquina */}
         <div className="absolute top-3 left-3 flex flex-col gap-1">
@@ -312,16 +385,16 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
       {/* Contenido de la tarjeta */}
       <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
         
-        {/* Título y SKU - CORREGIDO: Siempre mostrar el nombre del producto completo */}
+        {/* Título y SKU */}
         <div className="mb-3">
           <h3 className="font-bold text-base sm:text-lg text-gray-900 mb-1 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
             {product.name}
-            {selectedVariant && (
-              <span className="text-sm font-normal text-gray-600 block">
-                Color: {selectedVariant.name}
-              </span>
-            )}
           </h3>
+          {selectedVariant && (
+            <span className="text-sm text-gray-600 block mb-1">
+              {selectedVariant.name}
+            </span>
+          )}
           <p className="text-blue-600 text-xs font-medium bg-blue-50 px-2 py-0.5 rounded-md inline-block">
             SKU: {currentProduct.sku}
           </p>
@@ -331,27 +404,28 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
         {product.hasVariants && (
           <div className="mb-3">
             <div className="flex items-center gap-2">
-              <span className="text-xs text-gray-600 font-medium">Color:</span>
-              <div className="flex gap-1">
-                {product.variants.slice(0, 5).map((variant) => (
+              <span className="text-xs text-gray-600 font-medium">Opciones:</span>
+              <div className="flex gap-1 flex-wrap">
+                {product.variants.slice(0, 3).map((variant) => (
                   <button
                     key={variant.id}
                     onClick={(e) => {
                       e.stopPropagation();
                       setSelectedVariant(variant);
                     }}
-                    className={`w-5 h-5 rounded-full border-2 transition-all duration-300 ${
+                    className={`text-xs px-2 py-1 rounded-md border transition-all duration-300 ${
                       selectedVariant?.id === variant.id 
-                        ? 'border-gray-900 scale-110' 
+                        ? 'border-gray-900 bg-gray-900 text-white' 
                         : 'border-gray-300 hover:border-gray-500'
                     }`}
-                    style={{ backgroundColor: variant.color }}
                     title={variant.name}
-                  />
+                  >
+                    {variant.name.split(' ')[1] || variant.name}
+                  </button>
                 ))}
-                {product.variants.length > 5 && (
-                  <span className="text-xs text-gray-500 flex items-center ml-1">
-                    +{product.variants.length - 5}
+                {product.variants.length > 3 && (
+                  <span className="text-xs text-gray-500 flex items-center px-1">
+                    +{product.variants.length - 3}
                   </span>
                 )}
               </div>
@@ -376,7 +450,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
           </div>
           {product.discount && (
             <span className="text-green-600 text-xs font-medium bg-green-50 px-2 py-1 rounded-md">
-              Ahorras ${((product.originalPrice || 0) - product.price).toLocaleString()}
+              Ahorras {formatPrice((product.originalPrice || 0) - product.price)}
             </span>
           )}
         </div>
@@ -384,11 +458,11 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
         {/* Precios */}
         <div className="flex items-center gap-2 mb-4">
           <span className="text-xl sm:text-2xl font-bold text-gray-900">
-            ${product.price.toLocaleString()}
+            {formatPrice(product.price)}
           </span>
           {product.originalPrice && (
             <span className="text-gray-400 line-through text-sm">
-              ${product.originalPrice.toLocaleString()}
+              {formatPrice(product.originalPrice)}
             </span>
           )}
         </div>
