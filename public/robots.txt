@@ -99,10 +99,7 @@ User-agent: *
 Crawl-delay: 2
 
 # Sitemaps - URLs actualizadas
-Sitemap: https://gotobuyy.com/sitemap.xml
-Sitemap: https://gotobuyy.com/sitemap-productos.xml
-Sitemap: https://gotobuyy.com/sitemap-categorias.xml
-Sitemap: https://gotobuyy.com/sitemap-images.xml
+Sitemap: /sitemap.xml
 
 # Configuración adicional para SEO
 # Host: gotobuyy.com

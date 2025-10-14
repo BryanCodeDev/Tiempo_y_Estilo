@@ -29,24 +29,24 @@ export const generateProductURL = (product) => {
 // Función para actualizar meta tags SEO
 const updateSEOTags = (product = null, route = '/') => {
   if (product) {
-    document.title = `${product.name} - GoToBuy | Joyería y Relojería con Envío Gratis`;
+    document.title = `${product.name} - Tiempo y Estilo | Joyería y Relojería con Envío Gratis`;
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 
-        `${product.description} Precio: $${product.price.toLocaleString()}. ${product.discount ? `¡${product.discount}% de descuento!` : ''} Envío gratis. ¡Compra ahora en GoToBuy!`
+        `${product.description} Precio: $${product.price.toLocaleString()}. ${product.discount ? `¡${product.discount}% de descuento!` : ''} Envío gratis. ¡Compra ahora en Tiempo y Estilo!`
       );
     }
     
     const metaKeywords = document.querySelector('meta[name="keywords"]');
     if (metaKeywords) {
-      const keywords = `${product.name}, ${product.category}, ${product.sku}, joyería, relojes, plata 925, gotobuy, envío gratis colombia`;
+      const keywords = `${product.name}, ${product.category}, ${product.sku}, joyería, relojes, plata 925, tiempoyestilo, envío gratis colombia`;
       metaKeywords.setAttribute('content', keywords);
     }
     
     const ogTitle = document.querySelector('meta[property="og:title"]');
     if (ogTitle) {
-      ogTitle.setAttribute('content', `${product.name} - GoToBuy Joyería`);
+      ogTitle.setAttribute('content', `${product.name} - Tiempo y Estilo Joyería`);
     }
     
     const ogDescription = document.querySelector('meta[property="og:description"]');
@@ -56,12 +56,12 @@ const updateSEOTags = (product = null, route = '/') => {
     
     const ogImage = document.querySelector('meta[property="og:image"]');
     if (ogImage) {
-      ogImage.setAttribute('content', `https://gotobuyy.com${product.image}`);
+      ogImage.setAttribute('content', `${product.image}`);
     }
     
     const ogUrl = document.querySelector('meta[property="og:url"]');
     if (ogUrl) {
-      ogUrl.setAttribute('content', `https://gotobuyy.com${generateProductURL(product)}`);
+      ogUrl.setAttribute('content', `${generateProductURL(product)}`);
     }
     
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -70,23 +70,23 @@ const updateSEOTags = (product = null, route = '/') => {
       canonical.rel = 'canonical';
       document.head.appendChild(canonical);
     }
-    canonical.href = `https://gotobuyy.com${generateProductURL(product)}`;
+    canonical.href = `${generateProductURL(product)}`;
     
     updateStructuredData(product);
     
   } else {
-    document.title = 'GoToBuy - Joyería y Relojería Premium | Envío Gratis en Colombia';
+    document.title = 'Tiempo y Estilo - Joyería y Relojería Premium | Envío Gratis en Colombia';
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
       metaDescription.setAttribute('content', 
-        '💎 GoToBuy - Tu joyería y relojería online de confianza. Relojes elegantes, joyas en plata 925, aretes, collares, anillos. Envío gratis en toda Colombia. ¡Descubre nuestra colección!'
+        '💎 Tiempo y Estilo - Tu joyería y relojería online de confianza. Relojes elegantes, joyas en plata 925, aretes, collares, anillos. Envío gratis en toda Colombia. ¡Descubre nuestra colección!'
       );
     }
     
     const canonical = document.querySelector('link[rel="canonical"]');
     if (canonical) {
-      canonical.href = 'https://gotobuyy.com/';
+      canonical.href = '/';
     }
   }
 };
@@ -103,17 +103,17 @@ const updateStructuredData = (product) => {
     "@context": "https://schema.org/",
     "@type": "Product",
     "name": product.name,
-    "image": [`https://gotobuyy.com${product.image}`],
+    "image": [`${product.image}`],
     "description": product.longDescription || product.description,
     "sku": product.sku,
     "mpn": product.sku,
     "brand": {
       "@type": "Brand",
-      "name": "GoToBuy"
+      "name": "Tiempo y Estilo"
     },
     "offers": {
       "@type": "Offer",
-      "url": `https://gotobuyy.com${generateProductURL(product)}`,
+      "url": `${generateProductURL(product)}`,
       "priceCurrency": "COP",
       "price": product.price,
       "priceValidUntil": new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
@@ -121,7 +121,7 @@ const updateStructuredData = (product) => {
       "availability": product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
       "seller": {
         "@type": "Organization",
-        "name": "GoToBuy"
+        "name": "Tiempo y Estilo"
       }
     },
     "aggregateRating": {
@@ -440,7 +440,7 @@ function App() {
         <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
           {/* WhatsApp principal */}
           <a
-            href="https://wa.me/573508470735?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20las%20joyas%20y%20relojes%20de%20GoToBuy"
+            href="https://wa.me/573508470735?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20las%20joyas%20y%20relojes%20de%20Tiempo%20y%20Estilo"
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-green-600 hover:bg-green-700 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden"

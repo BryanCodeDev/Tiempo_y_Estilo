@@ -5,22 +5,22 @@
 
   <!-- Página Principal -->
   <url>
-    <loc>https://gotobuyy.com/</loc>
+    <loc>/</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/anillo_oro_diamante.webp</image:loc>
+      <image:loc>/assets/images/anillo_oro_diamante.webp</image:loc>
       <image:caption>Anillo de Oro 18K con Diamante Natural</image:caption>
       <image:title>Tiempo y Estilo - Anillo Oro Diamante Premium</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/cadena_plata_italiana.webp</image:loc>
+      <image:loc>/assets/images/cadena_plata_italiana.webp</image:loc>
       <image:caption>Cadena de Plata 925 Esterlina Italiana</image:caption>
       <image:title>Cadena Plata Premium Tiempo y Estilo</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/reloj_automatico_premium.webp</image:loc>
+      <image:loc>/assets/images/reloj_automatico_premium.webp</image:loc>
       <image:caption>Reloj Automático Premium Suizo</image:caption>
       <image:title>Reloj Automático Elegante Colombia</image:title>
     </image:image>
@@ -28,22 +28,22 @@
 
   <!-- Página de Productos (Inicio) -->
   <url>
-    <loc>https://gotobuyy.com/inicio</loc>
+    <loc>/inicio</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Soporte_Celular.webp</image:loc>
+      <image:loc>/assets/images/Soporte_Celular.webp</image:loc>
       <image:caption>Soporte Celular Moto Impermeable 360 Grados</image:caption>
       <image:title>GoToBuy - Soporte Celular Moto Premium</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Airpods_Pro2.webp</image:loc>
+      <image:loc>/assets/images/Airpods_Pro2.webp</image:loc>
       <image:caption>AirPods Pro 2 Generación Compatible</image:caption>
       <image:title>AirPods Pro Segunda Generación Colombia</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Derma_Roller.webp</image:loc>
+      <image:loc>/assets/images/Derma_Roller.webp</image:loc>
       <image:caption>Derma Roller 540 Agujas Titanio Profesional</image:caption>
       <image:title>Derma Roller System Agujas Titanio</image:title>
     </image:image>
@@ -51,48 +51,48 @@
 
   <!-- Categorías Principales -->
   <url>
-    <loc>https://gotobuyy.com/categoria/anillos</loc>
+    <loc>/categoria/anillos</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/anillo_oro_diamante.webp</image:loc>
+      <image:loc>/assets/images/anillo_oro_diamante.webp</image:loc>
       <image:caption>Anillo de Oro 18K con Diamante Natural</image:caption>
       <image:title>Tiempo y Estilo - Anillos Premium</image:title>
     </image:image>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/categoria/cadenas</loc>
+    <loc>/categoria/cadenas</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/categoria/relojes</loc>
+    <loc>/categoria/relojes</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/categoria/pulseras</loc>
+    <loc>/categoria/pulseras</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/categoria/aretes</loc>
+    <loc>/categoria/aretes</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/categoria/collares</loc>
+    <loc>/categoria/collares</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
@@ -100,81 +100,81 @@
 
   <!-- PRODUCTOS JOYERÍA Y RELOJERÍA -->
   <url>
-    <loc>https://gotobuyy.com/producto/1/anillo-oro-18k-diamante</loc>
+    <loc>/producto/1/anillo-oro-18k-diamante</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/anillo_oro_diamante.webp</image:loc>
+      <image:loc>/assets/images/anillo_oro_diamante.webp</image:loc>
       <image:caption>Anillo de Oro 18K con Diamante Natural Colombia</image:caption>
       <image:title>Anillo Oro Diamante Premium Tiempo y Estilo</image:title>
     </image:image>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/producto/2/cadena-plata-925-esterlina</loc>
+    <loc>/producto/2/cadena-plata-925-esterlina</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/cadena_plata_italiana.webp</image:loc>
+      <image:loc>/assets/images/cadena_plata_italiana.webp</image:loc>
       <image:caption>Cadena de Plata 925 Esterlina Italiana Colombia</image:caption>
       <image:title>Cadena Plata Premium Tiempo y Estilo</image:title>
     </image:image>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/producto/3/reloj-automatico-premium</loc>
+    <loc>/producto/3/reloj-automatico-premium</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/reloj_automatico_premium.webp</image:loc>
+      <image:loc>/assets/images/reloj_automatico_premium.webp</image:loc>
       <image:caption>Reloj Automático Premium Movimiento Suizo</image:caption>
       <image:title>Reloj Automático Elegante Colombia</image:title>
     </image:image>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/producto/8/audifonos-inalambricos-2da-generacion</loc>
+    <loc>/producto/8/audifonos-inalambricos-2da-generacion</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/audifonos.webp</image:loc>
+      <image:loc>/assets/images/audifonos.webp</image:loc>
       <image:caption>Audífonos Inalámbricos Bluetooth Premium LED</image:caption>
       <image:title>Audífonos Bluetooth iOS Android Colombia</image:title>
     </image:image>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/producto/9/bafle-parlante-charge-4-recargable-bluetooth</loc>
+    <loc>/producto/9/bafle-parlante-charge-4-recargable-bluetooth</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Bafle_Parlante.webp</image:loc>
+      <image:loc>/assets/images/Bafle_Parlante.webp</image:loc>
       <image:caption>Bafle Parlante Bluetooth 20W Resistente Agua</image:caption>
       <image:title>Parlante Bluetooth Recargable 4 Colores</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Bafle_Parlante2.webp</image:loc>
+      <image:loc>/assets/images/Bafle_Parlante2.webp</image:loc>
       <image:caption>Bafle Bluetooth Azul 20W Colombia</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Bafle_Parlante3.webp</image:loc>
+      <image:loc>/assets/images/Bafle_Parlante3.webp</image:loc>
       <image:caption>Parlante Bluetooth Rojo Resistente Agua</image:caption>
     </image:image>
   </url>
 
   <!-- PRODUCTOS BELLEZA -->
   <url>
-    <loc>https://gotobuyy.com/producto/4/derma-roller-system-agujas</loc>
+    <loc>/producto/4/derma-roller-system-agujas</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Derma_Roller.webp</image:loc>
+      <image:loc>/assets/images/Derma_Roller.webp</image:loc>
       <image:caption>Derma Roller 540 Agujas Titanio 0.5mm Profesional</image:caption>
       <image:title>Derma Roller System Agujas Titanio Colombia</image:title>
     </image:image>
@@ -182,41 +182,41 @@
 
   <!-- PRODUCTOS VAPE -->
   <url>
-    <loc>https://gotobuyy.com/producto/3/vape-recargable-15000-puffs</loc>
+    <loc>/producto/3/vape-recargable-15000-puffs</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/vape.webp</image:loc>
+      <image:loc>/assets/images/vape.webp</image:loc>
       <image:caption>Vape Recargable 15000 Puffs Doble Modo Colombia</image:caption>
       <image:title>Vape Recargable 15k Puffs Normal/Turbo</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/vape1.webp</image:loc>
+      <image:loc>/assets/images/vape1.webp</image:loc>
       <image:caption>Vape Recargable USB-C 2 Sabores</image:caption>
     </image:image>
   </url>
 
   <!-- PRODUCTOS HOGAR -->
   <url>
-    <loc>https://gotobuyy.com/producto/5/set-x2-almohadas-siliconadas-45x65</loc>
+    <loc>/producto/5/set-x2-almohadas-siliconadas-45x65</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Set_X_Almohadas.webp</image:loc>
+      <image:loc>/assets/images/Set_X_Almohadas.webp</image:loc>
       <image:caption>Set 2 Almohadas Ergonómicas Siliconadas 45x65</image:caption>
       <image:title>Almohadas Antialérgicas Colombianas</image:title>
     </image:image>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/producto/6/mini-humidificador-difusor-aromas-220</loc>
+    <loc>/producto/6/mini-humidificador-difusor-aromas-220</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/humidificador1.webp</image:loc>
+      <image:loc>/assets/images/humidificador1.webp</image:loc>
       <image:caption>Mini Humidificador USB 220ml Difusor Aromas LED</image:caption>
       <image:title>Humidificador Portátil 7 Luces LED</image:title>
     </image:image>
@@ -224,32 +224,32 @@
 
   <!-- PRODUCTOS DEPORTES -->
   <url>
-    <loc>https://gotobuyy.com/producto/10/maleta-deportiva-t60</loc>
+    <loc>/producto/10/maleta-deportiva-t60</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/maleta.webp</image:loc>
+      <image:loc>/assets/images/maleta.webp</image:loc>
       <image:caption>Maleta Deportiva T60 Resistente Agua 8 Colores</image:caption>
       <image:title>Mochila Deportiva Gym Colombia</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/maleta2.webp</image:loc>
+      <image:loc>/assets/images/maleta2.webp</image:loc>
       <image:caption>Maleta Deportiva Lila T60</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/maleta3.webp</image:loc>
+      <image:loc>/assets/images/maleta3.webp</image:loc>
       <image:caption>Mochila Deportiva Roja T60</image:caption>
     </image:image>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/producto/12/maletin-deportivo-azul-oscuro-ref-3</loc>
+    <loc>/producto/12/maletin-deportivo-azul-oscuro-ref-3</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Maletin_Deportivo.webp</image:loc>
+      <image:loc>/assets/images/Maletin_Deportivo.webp</image:loc>
       <image:caption>Maletín Deportivo Azul Oscuro Funcional</image:caption>
       <image:title>Maletín Deportivo Profesional Colombia</image:title>
     </image:image>
@@ -257,24 +257,24 @@
 
   <!-- PRODUCTOS HERRAMIENTAS -->
   <url>
-    <loc>https://gotobuyy.com/producto/11/juego-37-piezas-destornilladores-puntas</loc>
+    <loc>/producto/11/juego-37-piezas-destornilladores-puntas</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/combo_destornilladores2.webp</image:loc>
+      <image:loc>/assets/images/combo_destornilladores2.webp</image:loc>
       <image:caption>Kit 37 Piezas Destornilladores Trinquete Precisión</image:caption>
       <image:title>Juego Destornilladores Profesional 37 Piezas</image:title>
     </image:image>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/producto/13/juego-destornillador-kit-pro-115-en-1</loc>
+    <loc>/producto/13/juego-destornillador-kit-pro-115-en-1</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/combo_destornilladores3.webp</image:loc>
+      <image:loc>/assets/images/combo_destornilladores3.webp</image:loc>
       <image:caption>Kit Pro 115 en 1 Destornilladores Electrónicos</image:caption>
       <image:title>Kit Herramientas 115 Piezas Reparación</image:title>
     </image:image>
@@ -282,42 +282,42 @@
 
   <!-- Páginas Estáticas Importantes -->
   <url>
-    <loc>https://gotobuyy.com/sobre-nosotros</loc>
+    <loc>/sobre-nosotros</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/preguntas-frecuentes</loc>
+    <loc>/preguntas-frecuentes</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/politicas-de-envio</loc>
+    <loc>/politicas-de-envio</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/terminos-y-condiciones</loc>
+    <loc>/terminos-y-condiciones</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/politica-de-privacidad</loc>
+    <loc>/politica-de-privacidad</loc>
     <lastmod>2024-09-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/contacto</loc>
+    <loc>/contacto</loc>
     <lastmod>2024-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -325,49 +325,49 @@
 
   <!-- Páginas SEO Landing Específicas -->
   <url>
-    <loc>https://gotobuyy.com/anillos-oro-colombia</loc>
+    <loc>/anillos-oro-colombia</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/cadenas-plata-colombia</loc>
+    <loc>/cadenas-plata-colombia</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/relojes-elegantes-colombia</loc>
+    <loc>/relojes-elegantes-colombia</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/pulseras-premium-colombia</loc>
+    <loc>/pulseras-premium-colombia</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/joyeria-premium-colombia</loc>
+    <loc>/joyeria-premium-colombia</loc>
     <lastmod>2024-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/envio-gratis-colombia</loc>
+    <loc>/envio-gratis-colombia</loc>
     <lastmod>2024-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/pago-contraentrega-colombia</loc>
+    <loc>/pago-contraentrega-colombia</loc>
     <lastmod>2024-08-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
