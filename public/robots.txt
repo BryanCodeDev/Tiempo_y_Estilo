@@ -1,5 +1,5 @@
-# Robots.txt optimizado para GoToBuy
-# Última actualización: Septiembre 2024
+# Robots.txt optimizado para Tiempo y Estilo
+# Última actualización: Octubre 2024
 
 # Permitir todos los bots principales
 User-agent: *
@@ -13,35 +13,32 @@ Allow: /politicas-de-envio
 Allow: /preguntas-frecuentes
 Allow: /sobre-nosotros
 
-# Productos - Alta prioridad (con IDs correctos)
-Allow: /producto/1/soporte-celular-moto-impermeable
-Allow: /producto/2/adaptador-audifono-convertidor-plug-35
-Allow: /producto/3/vape-recargable-15000-puffs
-Allow: /producto/4/derma-roller-system-agujas
-Allow: /producto/5/set-x2-almohadas-siliconadas-45x65
-Allow: /producto/6/mini-humidificador-difusor-aromas-220
-Allow: /producto/7/airpods-pro-2-generacion
-Allow: /producto/8/audifonos-inalambricos-2da-generacion
-Allow: /producto/9/bafle-parlante-charge-4-recargable-bluetooth
-Allow: /producto/10/maleta-deportiva-t60
-Allow: /producto/11/juego-37-piezas-destornilladores-puntas
-Allow: /producto/12/maletin-deportivo-azul-oscuro-ref-3
-Allow: /producto/13/juego-destornillador-kit-pro-115-en-1
+# Productos - Alta prioridad (Joyería y Relojería)
+Allow: /producto/1/anillo-oro-18k-diamante
+Allow: /producto/2/cadena-plata-925-esterlina
+Allow: /producto/3/reloj-automatico-premium
+Allow: /producto/4/pulsera-oro-rosa-14k
+Allow: /producto/5/aretes-perlas-cultivadas
+Allow: /producto/6/anillo-compromiso-oro-blanco
+Allow: /producto/7/cadena-oro-amarillo-18k
+Allow: /producto/8/reloj-elegante-mujer
+Allow: /producto/9/pulsera-tennis-diamantes
+Allow: /producto/10/aretes-oro-diamante
 
 # Categorías - Media prioridad
-Allow: /categoria/tecnologia
-Allow: /categoria/belleza
-Allow: /categoria/vape
-Allow: /categoria/hogar
-Allow: /categoria/deportes
-Allow: /categoria/herramientas
+Allow: /categoria/anillos
+Allow: /categoria/cadenas
+Allow: /categoria/relojes
+Allow: /categoria/pulseras
+Allow: /categoria/aretes
+Allow: /categoria/collares
 
 # Páginas SEO específicas - Media prioridad
-Allow: /productos-tecnologia-colombia
-Allow: /soporte-celular-moto-colombia
-Allow: /airpods-pro-colombia
-Allow: /derma-roller-colombia
-Allow: /vapes-colombia
+Allow: /joyeria-premium-colombia
+Allow: /anillos-oro-colombia
+Allow: /relojes-elegantes-colombia
+Allow: /cadenas-plata-colombia
+Allow: /pulseras-premium-colombia
 
 # Recursos estáticos - Permitir imágenes y assets importantes
 Allow: /assets/images/

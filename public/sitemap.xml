@@ -6,23 +6,23 @@
   <!-- Página Principal -->
   <url>
     <loc>https://gotobuyy.com/</loc>
-    <lastmod>2024-08-29</lastmod>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Soporte_Celular.webp</image:loc>
-      <image:caption>Soporte Celular Moto Impermeable 360 Grados</image:caption>
-      <image:title>GoToBuy - Soporte Celular Moto Premium</image:title>
+      <image:loc>https://gotobuyy.com/assets/images/anillo_oro_diamante.webp</image:loc>
+      <image:caption>Anillo de Oro 18K con Diamante Natural</image:caption>
+      <image:title>Tiempo y Estilo - Anillo Oro Diamante Premium</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Airpods_Pro2.webp</image:loc>
-      <image:caption>AirPods Pro 2 Generación Compatible</image:caption>
-      <image:title>AirPods Pro Segunda Generación Colombia</image:title>
+      <image:loc>https://gotobuyy.com/assets/images/cadena_plata_italiana.webp</image:loc>
+      <image:caption>Cadena de Plata 925 Esterlina Italiana</image:caption>
+      <image:title>Cadena Plata Premium Tiempo y Estilo</image:title>
     </image:image>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Derma_Roller.webp</image:loc>
-      <image:caption>Derma Roller 540 Agujas Titanio Profesional</image:caption>
-      <image:title>Derma Roller System Agujas Titanio</image:title>
+      <image:loc>https://gotobuyy.com/assets/images/reloj_automatico_premium.webp</image:loc>
+      <image:caption>Reloj Automático Premium Suizo</image:caption>
+      <image:title>Reloj Automático Elegante Colombia</image:title>
     </image:image>
   </url>
 
@@ -51,105 +51,87 @@
 
   <!-- Categorías Principales -->
   <url>
-    <loc>https://gotobuyy.com/categoria/tecnologia</loc>
-    <lastmod>2024-08-29</lastmod>
+    <loc>https://gotobuyy.com/categoria/anillos</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Soporte_Celular.webp</image:loc>
-      <image:caption>Soporte Celular Moto Impermeable 360 Grados</image:caption>
-      <image:title>GoToBuy - Soporte Celular Moto Premium</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Airpods_Pro2.webp</image:loc>
-      <image:caption>AirPods Pro 2 Generación Compatible</image:caption>
-      <image:title>AirPods Pro Segunda Generación Colombia</image:title>
-    </image:image>
-    <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Derma_Roller.webp</image:loc>
-      <image:caption>Derma Roller 540 Agujas Titanio Profesional</image:caption>
-      <image:title>Derma Roller System Agujas Titanio</image:title>
+      <image:loc>https://gotobuyy.com/assets/images/anillo_oro_diamante.webp</image:loc>
+      <image:caption>Anillo de Oro 18K con Diamante Natural</image:caption>
+      <image:title>Tiempo y Estilo - Anillos Premium</image:title>
     </image:image>
   </url>
 
-  <!-- Categorías Principales -->
   <url>
-    <loc>https://gotobuyy.com/categoria/tecnologia</loc>
-    <lastmod>2024-08-29</lastmod>
+    <loc>https://gotobuyy.com/categoria/cadenas</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/categoria/belleza</loc>
-    <lastmod>2024-08-29</lastmod>
+    <loc>https://gotobuyy.com/categoria/relojes</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/categoria/vape</loc>
-    <lastmod>2024-08-29</lastmod>
+    <loc>https://gotobuyy.com/categoria/pulseras</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/categoria/hogar</loc>
-    <lastmod>2024-08-29</lastmod>
+    <loc>https://gotobuyy.com/categoria/aretes</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/categoria/deportes</loc>
-    <lastmod>2024-08-29</lastmod>
+    <loc>https://gotobuyy.com/categoria/collares</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- PRODUCTOS JOYERÍA Y RELOJERÍA -->
   <url>
-    <loc>https://gotobuyy.com/categoria/herramientas</loc>
-    <lastmod>2024-08-29</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <!-- PRODUCTOS TECNOLOGÍA -->
-  <url>
-    <loc>https://gotobuyy.com/producto/1/soporte-celular-moto-impermeable</loc>
-    <lastmod>2024-09-20</lastmod>
+    <loc>https://gotobuyy.com/producto/1/anillo-oro-18k-diamante</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Soporte_Celular.webp</image:loc>
-      <image:caption>Soporte Celular Moto Impermeable 360° Colombia</image:caption>
-      <image:title>Soporte Moto Impermeable Rotación 360 Grados</image:title>
+      <image:loc>https://gotobuyy.com/assets/images/anillo_oro_diamante.webp</image:loc>
+      <image:caption>Anillo de Oro 18K con Diamante Natural Colombia</image:caption>
+      <image:title>Anillo Oro Diamante Premium Tiempo y Estilo</image:title>
     </image:image>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/producto/2/adaptador-audifono-convertidor-plug-35</loc>
-    <lastmod>2024-09-20</lastmod>
+    <loc>https://gotobuyy.com/producto/2/cadena-plata-925-esterlina</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Adaptador_Audifono.webp</image:loc>
-      <image:caption>Adaptador Audífono Lightning a 3.5mm iPhone</image:caption>
-      <image:title>Convertidor Lightning iPhone Colombia</image:title>
+      <image:loc>https://gotobuyy.com/assets/images/cadena_plata_italiana.webp</image:loc>
+      <image:caption>Cadena de Plata 925 Esterlina Italiana Colombia</image:caption>
+      <image:title>Cadena Plata Premium Tiempo y Estilo</image:title>
     </image:image>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/producto/7/airpods-pro-2-generacion</loc>
-    <lastmod>2024-09-20</lastmod>
+    <loc>https://gotobuyy.com/producto/3/reloj-automatico-premium</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
-      <image:loc>https://gotobuyy.com/assets/images/Airpods_Pro2.webp</image:loc>
-      <image:caption>AirPods Pro 2 Generación Compatible Bluetooth</image:caption>
-      <image:title>AirPods Pro Segunda Generación Colombia</image:title>
+      <image:loc>https://gotobuyy.com/assets/images/reloj_automatico_premium.webp</image:loc>
+      <image:caption>Reloj Automático Premium Movimiento Suizo</image:caption>
+      <image:title>Reloj Automático Elegante Colombia</image:title>
     </image:image>
   </url>
 
@@ -343,36 +325,36 @@
 
   <!-- Páginas SEO Landing Específicas -->
   <url>
-    <loc>https://gotobuyy.com/soporte-celular-moto-colombia</loc>
-    <lastmod>2024-08-29</lastmod>
+    <loc>https://gotobuyy.com/anillos-oro-colombia</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/airpods-pro-colombia</loc>
-    <lastmod>2024-08-29</lastmod>
+    <loc>https://gotobuyy.com/cadenas-plata-colombia</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/derma-roller-colombia</loc>
-    <lastmod>2024-08-29</lastmod>
+    <loc>https://gotobuyy.com/relojes-elegantes-colombia</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/vapes-recargables-colombia</loc>
-    <lastmod>2024-08-29</lastmod>
+    <loc>https://gotobuyy.com/pulseras-premium-colombia</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://gotobuyy.com/productos-tecnologia-colombia</loc>
-    <lastmod>2024-08-29</lastmod>
+    <loc>https://gotobuyy.com/joyeria-premium-colombia</loc>
+    <lastmod>2024-10-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
