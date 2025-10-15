@@ -66,14 +66,14 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-2xl border-b border-secondary/20'
+            ? 'bg-white/95 backdrop-blur-xl shadow-2xl border-b border-yellow-400/20'
             : 'bg-white/90 backdrop-blur-md shadow-lg'
         }`}
         role="navigation"
         aria-label="Navegación principal de TIEMPO Y ESTILO"
       >
         <div className="container-luxury">
-          <div className="flex justify-between items-center h-20 lg:h-24">
+          <div className="flex justify-between items-center h-16 sm:h-20 lg:h-24">
 
             {/* Logo elegante */}
             <div className="flex items-center flex-shrink-0">
@@ -83,17 +83,17 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
                 aria-label="Ir al inicio de TIEMPO Y ESTILO - Joyería y Relojería"
               >
                 <div className="relative">
-                  <div className="w-12 h-12 lg:w-16 lg:h-16 bg-ruby-gradient rounded-2xl flex items-center justify-center shadow-luxury animate-gradient relative overflow-hidden">
-                    <Crown className="w-7 h-7 lg:w-10 lg:h-10 text-white relative z-10" />
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-ruby-gradient rounded-2xl flex items-center justify-center shadow-luxury animate-gradient relative overflow-hidden">
+                    <Crown className="w-5 h-5 sm:w-7 sm:h-7 lg:w-10 lg:h-10 text-white relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
                   <div className="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full animate-pulse shadow-gold"></div>
                 </div>
                 <div className="hidden sm:block">
-                  <h1 className="text-2xl lg:text-3xl font-bold font-display">
+                  <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold font-display">
                     <span className="text-primary animate-pulse">TIEMPO Y ESTILO</span>
                   </h1>
-                  <p className="text-xs lg:text-sm text-secondary font-semibold tracking-wider font-display">
+                  <p className="text-xs sm:text-xs lg:text-sm text-secondary font-semibold tracking-wider font-display">
                     TU TIEMPO, DEFINE TU ESTILO
                   </p>
                 </div>

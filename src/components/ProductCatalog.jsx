@@ -98,7 +98,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
   };
 
   return (
-    <section id="productos" className="py-16 lg:py-20 bg-gradient-to-br from-white via-amber-50/30 to-white min-h-screen relative overflow-hidden">
+    <section id="productos" className="py-8 sm:py-12 lg:py-16 xl:py-20 bg-pearl-gradient min-h-screen relative overflow-hidden">
       {/* Elementos decorativos de fondo */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/3 via-transparent to-primary/3"></div>
       <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary/10 to-primary/10 rounded-full blur-3xl opacity-30"></div>
@@ -107,7 +107,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
       <div className="container-luxury relative z-10">
 
         {/* Header premium elegante */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <div className="inline-flex items-center px-6 py-3 glass-luxury border border-secondary/20 text-primary rounded-full text-sm font-bold mb-6 shadow-luxury">
             <Crown className="w-5 h-5 mr-3 text-secondary animate-pulse" />
             Colección Exclusiva de Lujo

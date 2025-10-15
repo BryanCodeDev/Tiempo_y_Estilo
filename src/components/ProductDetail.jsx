@@ -108,7 +108,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-white via-amber-50/30 to-white pt-16">
+    <div className="min-h-screen bg-pearl-gradient pt-16">
       {/* Breadcrumbs */}
       <div className="glass-luxury border-b border-secondary/20">
         <div className="container-luxury py-4">
@@ -128,8 +128,8 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
         </div>
       </div>
 
-      <div className="container-luxury py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div className="container-luxury py-4 sm:py-6 lg:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-12">
           
           {/* Galería de imágenes */}
           <div className="space-y-4">

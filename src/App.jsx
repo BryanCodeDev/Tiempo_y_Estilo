@@ -160,6 +160,26 @@ function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [routeError, setRouteError] = useState(null);
 
+  // Silenciar errores comunes de servicios externos
+  useEffect(() => {
+    const originalError = console.error;
+    console.error = (...args) => {
+      if (
+        typeof args[0] === 'string' &&
+        (args[0].includes('No user after sign in') ||
+         args[0].includes('inspector') ||
+         args[0].includes('user after sign'))
+      ) {
+        return; // Silenciar estos errores específicos
+      }
+      originalError.call(console, ...args);
+    };
+
+    return () => {
+      console.error = originalError;
+    };
+  }, []);
+
   // Inicializar ruta basada en URL actual
   useEffect(() => {
     const initializeRoute = () => {
@@ -416,7 +436,7 @@ function App() {
         console.error('App Error Boundary:', error, errorInfo);
       }}
     >
-      <div className="min-h-screen bg-gray-50 scroll-smooth selection:bg-blue-100 selection:text-blue-900">
+      <div className="min-h-screen bg-pearl-gradient scroll-smooth selection:bg-yellow-200 selection:text-red-900">
         <Navbar 
           cartItems={cartItems} 
           setShowCart={setShowCart}
@@ -440,7 +460,7 @@ function App() {
         <div className="fixed bottom-4 right-4 z-50 flex flex-col gap-2">
           {/* WhatsApp principal */}
           <a
-            href="https://wa.me/573508470735?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20las%20joyas%20y%20relojes%20de%20Tiempo%20y%20Estilo"
+            href="https://wa.me/573146081297?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20las%20joyas%20y%20relojes%20de%20Tiempo%20y%20Estilo"
             target="_blank"
             rel="noopener noreferrer"
             className="group bg-green-600 hover:bg-green-700 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden"
@@ -461,7 +481,7 @@ function App() {
             aria-label="Chat rápido por WhatsApp"
             onClick={() => {
               const productText = selectedProduct ? `%0A%0AEstoy%20viendo:%20${selectedProduct.name}` : '';
-              window.open(`https://wa.me/573508470735?text=¡Hola!%20Tengo%20una%20consulta%20rápida${productText}`, '_blank');
+              window.open(`https://wa.me/573146081297?text=¡Hola!%20Tengo%20una%20consulta%20rápida${productText}`, '_blank');
             }}
           >
             <MessageCircle className="h-4 w-4 group-hover:animate-pulse" />

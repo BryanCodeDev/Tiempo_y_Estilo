@@ -99,8 +99,8 @@ const RouteErrorHandler = ({
   const IconComponent = errorConfig.icon;
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-3 sm:p-4 pt-20">
-      <div className="max-w-sm sm:max-w-md lg:max-w-lg w-full">
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-2 sm:p-3 md:p-4 pt-16 sm:pt-20">
+      <div className="max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg w-full">
         {/* Tarjeta principal */}
         <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl p-6 sm:p-8 text-center">
           {/* Icono */}

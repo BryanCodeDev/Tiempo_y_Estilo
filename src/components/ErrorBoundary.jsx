@@ -71,8 +71,8 @@ class ErrorBoundary extends Component {
       const isDevelopment = process.env.NODE_ENV === 'development';
       
       return (
-        <div className="min-h-screen bg-gradient-to-br from-white via-amber-50/30 to-white flex items-center justify-center p-4">
-          <div className="max-w-md w-full">
+        <div className="min-h-screen bg-gradient-to-br from-white via-amber-50/30 to-white flex items-center justify-center p-3 sm:p-4">
+          <div className="max-w-sm sm:max-w-md lg:max-w-lg w-full">
             {/* Tarjeta principal de error */}
             <div className="glass-luxury rounded-3xl shadow-2xl p-8 text-center border border-secondary/20">
               {/* Icono de error */}

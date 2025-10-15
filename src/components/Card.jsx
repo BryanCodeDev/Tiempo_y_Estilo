@@ -13,18 +13,18 @@ const Card = ({
   const hoverClasses = hover ? 'hover:shadow-lg hover:-translate-y-1 hover:border-gray-300' : '';
 
   const paddingClasses = {
-    sm: 'p-4',
-    md: 'p-6',
-    lg: 'p-8',
-    xl: 'p-10',
+    sm: 'p-3 sm:p-4',
+    md: 'p-4 sm:p-6',
+    lg: 'p-6 sm:p-8',
+    xl: 'p-8 sm:p-10',
     none: 'p-0',
   };
 
   const shadowClasses = {
-    sm: 'shadow-md',
-    md: 'shadow-lg',
-    lg: 'shadow-xl',
-    xl: 'shadow-2xl',
+    sm: 'shadow-sm sm:shadow-md',
+    md: 'shadow-md sm:shadow-lg',
+    lg: 'shadow-lg sm:shadow-xl',
+    xl: 'shadow-xl sm:shadow-2xl',
     none: 'shadow-none',
   };
 

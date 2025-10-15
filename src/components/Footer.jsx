@@ -12,7 +12,9 @@ import {
   Truck,
   Home,
   ShoppingBag,
-  Crown
+  Crown,
+  CreditCard,
+  Star
 } from 'lucide-react';
 
 const Footer = () => {
@@ -26,7 +28,7 @@ const Footer = () => {
       bgColor: "hover:bg-emerald-500"
     },
     {
-      href: "https://instagram.com/tiempo_estilo7",
+      href: "https://www.instagram.com/tiempo_estilo7?fbclid=IwY2xjawNc5R1leHRuA2FlbQIxMABicmlkETFUMUZQdFl2dXBCYjNRd01XAR5dNDohIkUJ16qF8YCL2bqchcwSkqQs1jWzZRooa3b5AdQ5yWRyQIK0CmpHnw_aem_pHTojgSNqvslrsYiScIJrw",
       icon: ({ className }) => (
         <svg
           className={className}
@@ -61,14 +63,14 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contacto" className="bg-gradient-to-br from-white via-amber-50/30 to-white relative overflow-hidden">
+    <footer id="contacto" className="bg-pearl-gradient relative overflow-hidden">
       {/* Elementos decorativos de fondo */}
       <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-transparent to-white/20"></div>
       <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-amber-100/20 to-secondary/5 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-white/10 to-amber-50/20 rounded-full blur-3xl opacity-25"></div>
 
       {/* Sección de beneficios premium */}
-      <div className="relative z-10 py-16 lg:py-20">
+      <div className="relative z-10 py-8 sm:py-12 lg:py-16 xl:py-20">
         <div className="container-luxury">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-display">
@@ -80,7 +82,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
 
             <div className="text-center group">
               <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-secondary/20 group-hover:border-secondary/40 h-full hover:-translate-y-2">
@@ -308,7 +310,7 @@ const Footer = () => {
             {/* Badges de confianza */}
             <div className="flex flex-wrap justify-center lg:justify-end gap-3 text-sm">
               <div className="flex items-center bg-white text-primary px-6 py-4 rounded-2xl border-2 border-secondary shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                <span className="mr-3 text-xl">💳</span>
+                <CreditCard className="h-5 w-5 mr-3 text-secondary" />
                 <span className="font-black text-base">Pago 100% Seguro</span>
               </div>
               <div className="flex items-center bg-white text-primary px-6 py-4 rounded-2xl border-2 border-secondary shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
@@ -316,7 +318,7 @@ const Footer = () => {
                 <span className="font-black text-base">Envío Premium Gratis</span>
               </div>
               <div className="flex items-center bg-white text-primary px-6 py-4 rounded-2xl border-2 border-secondary shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                <span className="mr-3 text-xl">⭐</span>
+                <Star className="h-5 w-5 mr-3 text-secondary fill-current" />
                 <span className="font-black text-base">Calificación 5.0</span>
               </div>
             </div>

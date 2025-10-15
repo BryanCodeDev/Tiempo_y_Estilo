@@ -40,7 +40,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-white via-amber-50/30 to-white">
+    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden bg-pearl-gradient">
       {/* Background elegante */}
       <div className="absolute inset-0">
         {/* Patrón de diamantes sutil */}
@@ -58,7 +58,7 @@ const Hero = () => {
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 container-luxury w-full py-12 sm:py-16 lg:py-20 xl:py-32">
+      <div className="relative z-10 container-luxury w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
           {/* Contenido principal elegante */}
@@ -70,8 +70,17 @@ const Hero = () => {
               <Sparkles className="w-4 h-4 ml-3 text-secondary animate-pulse" />
             </div>
 
+            {/* Logo */}
+            <div className="mb-8">
+              <img
+                src="/assets/images/logo.webp"
+                alt="Tiempo y Estilo - Logo"
+                className="h-12 sm:h-16 md:h-20 lg:h-24 w-auto mx-auto lg:mx-0"
+              />
+            </div>
+
             {/* Título principal sofisticado */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-display">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-display">
               <span className="block mb-4 text-primary">Tu tiempo</span>
               <span className="block text-gold animate-shimmer">
                 define tu estilo

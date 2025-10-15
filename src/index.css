@@ -5,24 +5,13 @@
 /* Fuentes elegantes para joyería de lujo */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
 
-/* Variables CSS personalizadas */
-:root {
-  --primary: #8B0000;
-  --secondary: #D4AF37;
-  --luxury: #800020;
-  --jewel: #4A0E4E;
-  --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #F4E5C2 50%, #D4AF37 100%);
-  --ruby-gradient: linear-gradient(135deg, #8B0000 0%, #CC0000 50%, #8B0000 100%);
-}
-
-/* Estilos base */
+/* Estilos base mejorados */
 @layer base {
   body {
-    @apply font-sans antialiased;
     font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
-    background: linear-gradient(to bottom, #FFFFFF, #FFF8F0);
+    background: linear-gradient(to bottom, #F8F6F0, #FFFFFF);
   }
-  
+
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Playfair Display', 'Georgia', serif;
     @apply font-bold;
@@ -46,19 +35,24 @@
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   }
 
-  /* Gradientes de oro y rubí */
+  /* Gradientes premium para joyería de lujo */
   .bg-gold-gradient {
-    background: linear-gradient(135deg, #D4AF37 0%, #F4E5C2 50%, #D4AF37 100%);
+    background: linear-gradient(135deg, #C9A961 0%, #F0E6D6 50%, #C9A961 100%);
     background-size: 200% 200%;
   }
 
   .bg-ruby-gradient {
-    background: linear-gradient(135deg, #8B0000 0%, #CC0000 50%, #8B0000 100%);
+    background: linear-gradient(135deg, #8B1538 0%, #E91E63 50%, #8B1538 100%);
     background-size: 200% 200%;
   }
 
   .bg-jewel-gradient {
-    background: linear-gradient(135deg, #4A0E4E 0%, #9C27B0 50%, #4A0E4E 100%);
+    background: linear-gradient(135deg, #2C1810 0%, #C4997A 50%, #2C1810 100%);
+    background-size: 200% 200%;
+  }
+
+  .bg-pearl-gradient {
+    background: linear-gradient(135deg, #F8F6F0 0%, #FFFFFF 50%, #F8F6F0 100%);
     background-size: 200% 200%;
   }
 
@@ -89,81 +83,6 @@
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradient 5s ease infinite;
-  }
-
-  /* Recorte de líneas */
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  /* Scrollbar elegante */
-  .scrollbar-luxury {
-    scrollbar-width: thin;
-    scrollbar-color: #D4AF37 #F5F5F5;
-  }
-
-  .scrollbar-luxury::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
-  }
-
-  .scrollbar-luxury::-webkit-scrollbar-track {
-    background: #F5F5F5;
-    border-radius: 4px;
-  }
-
-  .scrollbar-luxury::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, #D4AF37 0%, #B8982C 100%);
-    border-radius: 4px;
-  }
-
-  .scrollbar-luxury::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, #FFD700 0%, #D4AF37 100%);
-  }
-
-  /* Efectos de brillo para joyas */
-  .jewel-shine {
-    position: relative;
-    overflow: hidden;
-  }
-
-  .jewel-shine::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-      45deg,
-      transparent 0%,
-      rgba(255, 255, 255, 0.1) 45%,
-      rgba(255, 255, 255, 0.5) 50%,
-      rgba(255, 255, 255, 0.1) 55%,
-      transparent 100%
-    );
-    transform: rotate(45deg);
-    animation: shine 3s ease-in-out infinite;
-  }
-
-  /* Bordes dorados */
-  .border-gold {
-    border: 2px solid transparent;
-    background-image:
-      linear-gradient(white, white),
-      linear-gradient(135deg, #D4AF37, #FFD700, #D4AF37);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
   }
 
   /* Sombras personalizadas para efectos de lujo */
@@ -232,30 +151,6 @@
   }
 }
 
-@keyframes shine {
-  0% {
-    transform: translateX(-100%) translateY(-100%) rotate(45deg);
-  }
-  100% {
-    transform: translateX(100%) translateY(100%) rotate(45deg);
-  }
-}
-
-/* Optimizaciones para móviles */
-@media (max-width: 640px) {
-  .container-luxury {
-    @apply px-3;
-  }
-  
-  h1 {
-    @apply text-2xl;
-  }
-  
-  h2 {
-    @apply text-xl;
-  }
-}
-
 /* Mejoras de accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
@@ -264,40 +159,6 @@
   .animate-gradient {
     animation: none;
   }
-
-  .jewel-shine::before {
-    animation: none;
-  }
-}
-
-/* Estilos para imágenes de productos */
-.product-image {
-  background: linear-gradient(135deg, #FFF8F0 0%, #FFFFFF 50%, #FFF8F0 100%);
-  position: relative;
-}
-
-.product-image::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: 
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 10px,
-      rgba(212, 175, 55, 0.03) 10px,
-      rgba(212, 175, 55, 0.03) 20px
-    );
-}
-
-/* Efectos hover premium */
-.hover-lift {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.hover-lift:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px -10px rgba(139, 0, 0, 0.3);
 }
 
 /* Selección de texto personalizada */
@@ -316,19 +177,4 @@
   outline: 2px solid #D4AF37;
   outline-offset: 2px;
   border-radius: 4px;
-}
-
-/* Estilos para badges premium */
-.badge-luxury {
-  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
-  background: linear-gradient(135deg, #D4AF37 0%, #FFD700 100%);
-  color: #8B0000;
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
-}
-
-.badge-ruby {
-  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
-  background: linear-gradient(135deg, #8B0000 0%, #CC0000 100%);
-  color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(139, 0, 0, 0.3);
 }

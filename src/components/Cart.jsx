@@ -60,7 +60,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
 
   return (
     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex justify-end">
-      <div className={`bg-white w-full max-w-2xl h-full overflow-hidden shadow-2xl transform transition-transform duration-300 ${
+      <div className={`bg-white w-full max-w-sm sm:max-w-md lg:max-w-2xl h-full overflow-hidden shadow-2xl transform transition-transform duration-300 ${
         isAnimating ? 'translate-x-0' : 'translate-x-0'
       }`}>
         

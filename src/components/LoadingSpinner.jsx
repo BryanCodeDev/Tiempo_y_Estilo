@@ -7,11 +7,11 @@ const LoadingSpinner = ({
   text = ''
 }) => {
   const sizes = {
-    xs: 'w-4 h-4',
-    sm: 'w-6 h-6',
-    md: 'w-8 h-8',
-    lg: 'w-12 h-12',
-    xl: 'w-16 h-16',
+    xs: 'w-3 h-3 sm:w-4 sm:h-4',
+    sm: 'w-4 h-4 sm:w-6 sm:h-6',
+    md: 'w-6 h-6 sm:w-8 sm:h-8',
+    lg: 'w-8 h-8 sm:w-12 sm:h-12',
+    xl: 'w-12 h-12 sm:w-16 sm:h-16',
   };
 
   const variants = {
