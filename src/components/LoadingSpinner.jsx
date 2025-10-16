@@ -18,7 +18,7 @@ const LoadingSpinner = ({
     primary: 'text-primary',
     secondary: 'text-secondary',
     luxury: 'text-luxury',
-    jewel: 'text-jewel',
+    jewel: 'text-secondary',
     white: 'text-white',
   };
 

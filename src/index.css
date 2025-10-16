@@ -37,17 +37,17 @@
 
   /* Gradientes premium para joyería de lujo */
   .bg-gold-gradient {
-    background: linear-gradient(135deg, #C9A961 0%, #F0E6D6 50%, #C9A961 100%);
+    background: linear-gradient(135deg, #B8860B 0%, #F4E4BC 50%, #B8860B 100%);
     background-size: 200% 200%;
   }
 
   .bg-ruby-gradient {
-    background: linear-gradient(135deg, #8B1538 0%, #E91E63 50%, #8B1538 100%);
+    background: linear-gradient(135deg, #722F37 0%, #8B2630 50%, #2A1A1C 100%);
     background-size: 200% 200%;
   }
 
-  .bg-jewel-gradient {
-    background: linear-gradient(135deg, #2C1810 0%, #C4997A 50%, #2C1810 100%);
+  .bg-whatsapp-gradient {
+    background: linear-gradient(135deg, #25D366 0%, #1DA851 50%, #25D366 100%);
     background-size: 200% 200%;
   }
 
@@ -56,10 +56,15 @@
     background-size: 200% 200%;
   }
 
+  .bg-dark-red-gradient {
+    background: linear-gradient(135deg, #8B0000 0%, #2D1B1B 50%, #000000 100%);
+    background-size: 200% 200%;
+  }
+
   /* Texto con efecto dorado */
   .text-gold {
     @apply text-transparent bg-clip-text;
-    background-image: linear-gradient(135deg, #D4AF37 0%, #FFD700 50%, #D4AF37 100%);
+    background-image: linear-gradient(135deg, #B8860B 0%, #DAA520 50%, #B8860B 100%);
     background-size: 200% 200%;
   }
 
@@ -87,11 +92,11 @@
 
   /* Sombras personalizadas para efectos de lujo */
   .shadow-gold {
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3), 0 2px 8px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 4px 20px rgba(184, 134, 11, 0.3), 0 2px 8px rgba(184, 134, 11, 0.2);
   }
 
   .shadow-luxury {
-    box-shadow: 0 8px 32px rgba(139, 0, 0, 0.15), 0 4px 16px rgba(139, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(114, 47, 55, 0.15), 0 4px 16px rgba(114, 47, 55, 0.1);
   }
 }
 
@@ -123,7 +128,7 @@
   }
   50% {
     opacity: 0.8;
-    filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+    filter: drop-shadow(0 0 20px rgba(184, 134, 11, 0.8));
   }
 }
 
@@ -163,18 +168,18 @@
 
 /* Selección de texto personalizada */
 ::selection {
-  background-color: rgba(212, 175, 55, 0.3);
-  color: #8B0000;
+  background-color: rgba(184, 134, 11, 0.3);
+  color: #722F37;
 }
 
 ::-moz-selection {
-  background-color: rgba(212, 175, 55, 0.3);
-  color: #8B0000;
+  background-color: rgba(184, 134, 11, 0.3);
+  color: #722F37;
 }
 
 /* Focus states elegantes */
 *:focus-visible {
-  outline: 2px solid #D4AF37;
+  outline: 2px solid #B8860B;
   outline-offset: 2px;
   border-radius: 4px;
 }

@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -21,56 +22,43 @@ module.exports = {
           900: '#1a1a1a', // Negro puro para máximo contraste
         },
         secondary: {
-          DEFAULT: '#D4AF37', // Dorado elegante mantenido
+          DEFAULT: '#B8860B', // Dorado más elegante y sofisticado
           50: '#FFFEF7',
           100: '#FFFCDF',
           200: '#FFF9C7',
           300: '#FFF6AF',
           400: '#FFF397',
-          500: '#D4AF37',
-          600: '#B8941F',
-          700: '#9C7A1A',
-          800: '#806015',
-          900: '#644710',
+          500: '#B8860B',
+          600: '#9A7209',
+          700: '#7C5E07',
+          800: '#5E4A05',
+          900: '#403603',
         },
         luxury: {
-          DEFAULT: '#8B1538', // Rojo burdeos más sofisticado
-          50: '#FFEFF1',
-          100: '#FFD6DB',
-          200: '#FFB8C1',
-          300: '#FF9AA7',
-          400: '#FF7C8D',
-          500: '#E91E63',
-          600: '#8B1538',
-          700: '#6B1028',
-          800: '#4B0A18',
-          900: '#2B0508',
+          DEFAULT: '#722F37', // Vino tinto elegante
+          50: '#F5E6E8',
+          100: '#E6C2C6',
+          200: '#D499A0',
+          300: '#C2707A',
+          400: '#B84754',
+          500: '#8B2630',
+          600: '#722F37',
+          700: '#5A282E',
+          800: '#422125',
+          900: '#2A1A1C',
         },
-        jewel: {
-          DEFAULT: '#2C1810', // Marrón chocolate elegante
-          50: '#FAF7F5',
-          100: '#F5EFE8',
-          200: '#EBDDD1',
-          300: '#E1CBBA',
-          400: '#D7B9A3',
-          500: '#C4997A',
-          600: '#2C1810',
-          700: '#241209',
-          800: '#1C0C06',
-          900: '#140603',
-        },
-        accent: {
-          DEFAULT: '#C9A961', // Dorado rosado premium
-          50: '#FFFAF0',
-          100: '#FFF5E0',
-          200: '#FFECC0',
-          300: '#FFE3A0',
-          400: '#FFDA80',
-          500: '#C9A961',
-          600: '#A68A4A',
-          700: '#836B33',
-          800: '#604C1C',
-          900: '#3D2D05',
+        whatsapp: {
+          DEFAULT: '#25D366', // Verde oficial de WhatsApp
+          50: '#E8F8ED',
+          100: '#D1F1DB',
+          200: '#A3E5B8',
+          300: '#75D995',
+          400: '#47CD72',
+          500: '#25D366',
+          600: '#1DA851',
+          700: '#157D3C',
+          800: '#0D5227',
+          900: '#052812',
         },
         pearl: {
           DEFAULT: '#F8F6F0', // Blanco perla
@@ -91,8 +79,8 @@ module.exports = {
         display: ['Playfair Display', 'Georgia', 'serif'],
       },
       boxShadow: {
-        'luxury': '0 8px 32px rgba(139, 0, 0, 0.15), 0 4px 16px rgba(139, 0, 0, 0.1)',
-        'gold': '0 4px 20px rgba(212, 175, 55, 0.3), 0 2px 8px rgba(212, 175, 55, 0.2)',
+        'luxury': '0 8px 32px rgba(114, 47, 55, 0.15), 0 4px 16px rgba(114, 47, 55, 0.1)',
+        'gold': '0 4px 20px rgba(184, 134, 11, 0.3), 0 2px 8px rgba(184, 134, 11, 0.2)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',

@@ -14,8 +14,8 @@ const Input = ({
 
   const variants = {
     default: 'border-secondary/30 focus:border-secondary hover:border-secondary/50',
-    success: 'border-emerald-200/50 focus:border-emerald-500/50',
-    error: 'border-red-200/50 focus:border-red-500/50',
+    success: 'border-whatsapp-200/50 focus:border-whatsapp-500/50',
+    error: 'border-luxury-200/50 focus:border-luxury-500/50',
   };
 
   const sizes = {
@@ -28,7 +28,7 @@ const Input = ({
     baseClasses,
     variants[variant],
     sizes[size],
-    error ? 'border-red-300 focus:border-red-500' : '',
+    error ? 'border-luxury-300 focus:border-luxury-500' : '',
     className
   ].join(' ');
 
@@ -46,7 +46,7 @@ const Input = ({
       />
 
       {error && (
-        <p className="mt-2 text-sm text-red-600 font-semibold flex items-center">
+        <p className="mt-2 text-sm text-luxury font-semibold flex items-center">
           <span className="mr-1">⚠️</span>
           {error}
         </p>

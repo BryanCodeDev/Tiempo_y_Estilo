@@ -40,7 +40,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden bg-pearl-gradient">
+    <section id="inicio" className="relative min-h-[80vh] flex items-center overflow-hidden bg-pearl-gradient py-2 sm:py-4">
       {/* Background elegante */}
       <div className="absolute inset-0">
         {/* Patrón de diamantes sutil */}
@@ -51,18 +51,18 @@ const Hero = () => {
         {/* Elementos flotantes elegantes */}
         <div className="absolute top-20 left-[10%] w-32 h-32 bg-gradient-to-br from-secondary/20 to-primary/10 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-20 right-[15%] w-48 h-48 bg-gradient-to-br from-primary/20 to-secondary/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 right-[5%] w-24 h-24 bg-gradient-to-br from-luxury/30 to-jewel/20 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/2 right-[5%] w-24 h-24 bg-gradient-to-br from-luxury/30 to-secondary/20 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
 
         {/* Líneas de luz elegantes */}
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/50 to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 container-luxury w-full py-8 sm:py-12 md:py-16 lg:py-20 xl:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="relative z-10 container-luxury w-full py-1 sm:py-2 md:py-3 lg:py-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
 
           {/* Contenido principal elegante */}
-          <div className="text-center lg:text-left space-y-8">
+          <div className="text-center lg:text-left space-y-4 sm:space-y-6">
             {/* Badge de lujo */}
             <div className="inline-flex items-center px-6 py-3 glass-luxury rounded-full text-primary text-sm font-semibold shadow-luxury animate-shimmer">
               <Crown className="w-4 h-4 mr-3 text-secondary animate-pulse" />
@@ -71,7 +71,7 @@ const Hero = () => {
             </div>
 
             {/* Logo */}
-            <div className="mb-8">
+            <div className="mb-4 sm:mb-6">
               <img
                 src="/assets/images/logo.webp"
                 alt="Tiempo y Estilo - Logo"
@@ -88,8 +88,8 @@ const Hero = () => {
             </h1>
 
             {/* Contenido dinámico elegante */}
-            <div className="min-h-[180px] flex flex-col justify-center">
-              <div className="glass-luxury rounded-2xl p-8 border border-secondary/20 shadow-luxury backdrop-blur-xl">
+            <div className="min-h-[120px] sm:min-h-[140px] flex flex-col justify-center">
+              <div className="glass-luxury rounded-2xl p-4 sm:p-6 border border-secondary/20 shadow-luxury backdrop-blur-xl">
                 <h2 className="text-2xl lg:text-3xl font-semibold text-primary mb-4 transition-all duration-700 font-display">
                   {slides[currentSlide].title}
                 </h2>
@@ -142,8 +142,8 @@ const Hero = () => {
 
           {/* Panel lateral con características premium */}
           <div className="lg:col-span-1">
-            <div className="glass-luxury rounded-3xl p-8 border border-secondary/20 shadow-luxury backdrop-blur-xl">
-              <div className="text-center mb-8">
+            <div className="glass-luxury rounded-3xl p-4 sm:p-6 border border-secondary/20 shadow-luxury backdrop-blur-xl">
+              <div className="text-center mb-4 sm:mb-6">
                 <div className="inline-flex items-center justify-center w-20 h-20 bg-gold-gradient rounded-full mb-4 shadow-gold animate-glow">
                   <Crown className="w-10 h-10 text-primary" />
                 </div>
@@ -151,7 +151,7 @@ const Hero = () => {
                 <p className="text-gray-600">Excelencia en cada detalle</p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <div className="flex items-center p-4 bg-gradient-to-r from-primary/5 to-transparent rounded-xl hover:from-primary/10 transition-all duration-300 group border border-primary/10">
                   <div className="bg-ruby-gradient p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-luxury">
                     <Gem className="w-6 h-6 text-white" />
@@ -173,7 +173,7 @@ const Hero = () => {
                 </div>
 
                 <div className="flex items-center p-4 bg-gradient-to-r from-luxury/5 to-transparent rounded-xl hover:from-luxury/10 transition-all duration-300 group border border-luxury/10">
-                  <div className="bg-gradient-to-br from-luxury to-jewel p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-lg">
+                  <div className="bg-gradient-to-br from-luxury to-secondary p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-lg">
                     <Shield className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -182,8 +182,8 @@ const Hero = () => {
                   </div>
                 </div>
 
-                <div className="flex items-center p-4 bg-gradient-to-r from-emerald-500/5 to-transparent rounded-xl hover:from-emerald-500/10 transition-all duration-300 group border border-emerald-500/10">
-                  <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-lg">
+                <div className="flex items-center p-4 bg-gradient-to-r from-whatsapp-500/5 to-transparent rounded-xl hover:from-whatsapp-500/10 transition-all duration-300 group border border-whatsapp-500/10">
+                  <div className="bg-gradient-to-br from-whatsapp-500 to-whatsapp-600 p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-lg">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -194,7 +194,7 @@ const Hero = () => {
               </div>
 
               {/* Estadísticas de lujo */}
-              <div className="grid grid-cols-3 gap-4 mt-8 pt-8 border-t border-secondary/20">
+              <div className="grid grid-cols-3 gap-3 mt-4 pt-4 border-t border-secondary/20">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-gold mb-1 font-display">500+</div>
                   <div className="text-gray-600 text-xs">Piezas Exclusivas</div>
@@ -214,10 +214,10 @@ const Hero = () => {
       </div>
 
       {/* Indicador de scroll elegante */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="flex flex-col items-center text-primary/70">
           <span className="text-sm mb-2 tracking-wider font-semibold">DESCUBRE MÁS</span>
-          <ChevronDown className="w-6 h-6" />
+          <ChevronDown className="w-5 h-5" />
         </div>
       </div>
     </section>

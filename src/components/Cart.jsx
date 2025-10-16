@@ -65,7 +65,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
       }`}>
         
         {/* Header elegante */}
-        <div className="sticky top-0 bg-gradient-to-r from-primary via-luxury to-primary text-white p-6 z-10 shadow-xl">
+        <div className="sticky top-0 bg-dark-red-gradient text-white p-6 z-10 shadow-xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 backdrop-blur-sm p-2 rounded-xl border border-white/30">
@@ -100,11 +100,11 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
 
           {/* Banner envío gratis */}
           {total > 0 && (
-            <div className="mt-4 bg-emerald-500/20 rounded-xl p-3 border border-emerald-400/30">
-              <div className="bg-emerald-50 rounded-lg p-3">
+            <div className="mt-4 bg-whatsapp-500/20 rounded-xl p-3 border border-whatsapp-400/30">
+              <div className="bg-whatsapp-50 rounded-lg p-3">
                 <div className="flex items-center justify-center">
-                  <CheckCircle className="w-5 h-5 mr-2 text-emerald-700" />
-                  <span className="text-emerald-800 text-sm font-bold">
+                  <CheckCircle className="w-5 h-5 mr-2 text-whatsapp-700" />
+                  <span className="text-whatsapp-800 text-sm font-bold">
                     ¡Envío GRATIS incluido siempre!
                   </span>
                 </div>
@@ -117,7 +117,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
           {cartItems.length === 0 ? (
             /* Carrito vacío */
             <div className="flex-1 flex flex-col items-center justify-center text-center px-6 py-12">
-              <div className="bg-gradient-to-br from-amber-50 to-white rounded-full p-12 mb-6 border border-secondary/20">
+              <div className="bg-gradient-to-br from-secondary-50 to-white rounded-full p-12 mb-6 border border-secondary/20">
                 <ShoppingBag className="h-20 w-20 text-secondary" />
               </div>
               <h3 className="text-2xl font-bold text-primary mb-4 font-display">
@@ -180,7 +180,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                           </div>
                           <button
                             onClick={() => handleRemoveItem(item.cartId || item.id)}
-                            className="text-red-500 hover:text-red-700 p-2 hover:bg-red-50 rounded-full transition-all duration-300 flex-shrink-0"
+                            className="text-luxury hover:text-luxury p-2 hover:bg-luxury-50 rounded-full transition-all duration-300 flex-shrink-0"
                             title="Eliminar producto"
                           >
                             <Trash2 className="h-5 w-5" />
@@ -237,7 +237,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
               <div className="sticky bottom-0 glass-luxury border-t border-secondary/20 p-6 shadow-xl">
                 <div className="space-y-4">
                   {/* Resumen */}
-                  <div className="bg-gradient-to-br from-amber-50 to-white rounded-xl p-4 space-y-2 border border-secondary/20 shadow-lg">
+                  <div className="bg-gradient-to-br from-secondary-50 to-white rounded-xl p-4 space-y-2 border border-secondary/20 shadow-lg">
                     <div className="flex justify-between text-gray-700 text-sm">
                       <span className="font-semibold">Subtotal ({itemCount} {itemCount === 1 ? 'producto' : 'productos'})</span>
                       <span className="font-bold">${total.toLocaleString()}</span>
@@ -247,7 +247,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                         <Truck className="w-4 h-4 mr-2" />
                         Domicilio
                       </span>
-                      <span className="font-bold text-emerald-600 flex items-center">
+                      <span className="font-bold text-whatsapp-600 flex items-center">
                         <CheckCircle className="w-4 h-4 mr-1" />
                         GRATIS
                       </span>
@@ -262,13 +262,13 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                   
                   {/* Beneficios */}
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="glass-luxury bg-blue-50/50 rounded-xl p-3 text-center border border-blue-200/50 shadow-lg">
-                      <Shield className="w-5 h-5 text-blue-600 mx-auto mb-1" />
-                      <p className="text-blue-700 text-xs font-semibold">Compra segura</p>
+                    <div className="glass-luxury bg-luxury-50/50 rounded-xl p-3 text-center border border-luxury-200/50 shadow-lg">
+                      <Shield className="w-5 h-5 text-luxury mx-auto mb-1" />
+                      <p className="text-luxury-700 text-xs font-semibold">Compra segura</p>
                     </div>
-                    <div className="glass-luxury bg-emerald-50/50 rounded-xl p-3 text-center border border-emerald-200/50 shadow-lg">
-                      <CreditCard className="w-5 h-5 text-emerald-600 mx-auto mb-1" />
-                      <p className="text-emerald-700 text-xs font-semibold">Contra entrega</p>
+                    <div className="glass-luxury bg-whatsapp-50/50 rounded-xl p-3 text-center border border-whatsapp-200/50 shadow-lg">
+                      <CreditCard className="w-5 h-5 text-whatsapp-600 mx-auto mb-1" />
+                      <p className="text-whatsapp-700 text-xs font-semibold">Contra entrega</p>
                     </div>
                   </div>
                   
@@ -288,11 +288,11 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                       Serás redirigido a WhatsApp para confirmar tu pedido
                     </p>
                     <div className="flex items-center justify-center gap-4 text-xs">
-                      <span className="text-emerald-600 font-semibold flex items-center">
+                      <span className="text-whatsapp-600 font-semibold flex items-center">
                         <Shield className="w-3 h-3 mr-1" />
                         Pago seguro
                       </span>
-                      <span className="text-blue-600 font-semibold flex items-center">
+                      <span className="text-luxury font-semibold flex items-center">
                         <Truck className="w-3 h-3 mr-1" />
                         Envío GRATIS
                       </span>

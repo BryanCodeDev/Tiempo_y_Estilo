@@ -144,13 +144,13 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
               {/* Badges */}
               <div className="absolute top-6 left-6 flex flex-col gap-3">
                 {product.discount && (
-                  <span className="bg-ruby-gradient text-white px-4 py-2 rounded-xl text-sm font-bold shadow-luxury animate-gradient">
+                  <span className="bg-dark-red-gradient text-white px-4 py-2 rounded-xl text-sm font-bold shadow-luxury animate-gradient">
                     -{product.discount}%
                   </span>
                 )}
                 {product.inStock && (
-                  <span className="glass-luxury bg-white/90 text-emerald-600 px-4 py-2 rounded-xl text-sm font-semibold flex items-center shadow-lg border border-emerald-200/50">
-                    <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2 animate-pulse"></div>
+                  <span className="glass-luxury bg-white/90 text-whatsapp-600 px-4 py-2 rounded-xl text-sm font-semibold flex items-center shadow-lg border border-whatsapp-200/50">
+                     <div className="w-2 h-2 bg-whatsapp-500 rounded-full mr-2 animate-pulse"></div>
                     En Stock
                   </span>
                 )}
@@ -160,7 +160,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                     {product.variants.length} Colores
                   </span>
                 )}
-                <span className="glass-luxury bg-white/90 text-blue-600 px-4 py-2 rounded-xl text-sm font-bold flex items-center shadow-lg border border-blue-200/50">
+                <span className="glass-luxury bg-white/90 text-luxury px-4 py-2 rounded-xl text-sm font-bold flex items-center shadow-lg border border-luxury-200/50">
                   <Truck className="w-4 h-4 mr-2" />
                   Envío GRATIS
                 </span>
@@ -189,9 +189,9 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                 <button
                   onClick={() => setIsLiked(!isLiked)}
                   className={`p-4 rounded-full backdrop-blur-md transition-all duration-300 shadow-xl border ${
-                    isLiked 
-                      ? 'bg-red-500 text-white border-red-400' 
-                      : 'glass-luxury bg-white/90 text-primary hover:bg-red-500 hover:text-white border-secondary/20'
+                    isLiked
+                      ? 'bg-luxury text-white border-luxury-400'
+                      : 'glass-luxury bg-white/90 text-primary hover:bg-luxury hover:text-white border-secondary/20'
                   }`}
                 >
                   <Heart className={`h-6 w-6 ${isLiked ? 'fill-current' : ''}`} />
@@ -200,7 +200,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                 <div className="relative">
                   <button
                     onClick={handleShare}
-                    className="p-4 rounded-full glass-luxury bg-white/90 text-primary hover:bg-blue-500 hover:text-white backdrop-blur-md transition-all duration-300 shadow-xl border border-secondary/20"
+                    className="p-4 rounded-full glass-luxury bg-white/90 text-primary hover:bg-luxury hover:text-white backdrop-blur-md transition-all duration-300 shadow-xl border border-secondary/20"
                   >
                     <Share2 className="h-6 w-6" />
                   </button>
@@ -313,7 +313,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
             )}
 
             {/* Precios */}
-            <div className="bg-gradient-to-br from-amber-50 to-white rounded-2xl p-6 border border-secondary/20 shadow-lg">
+            <div className="bg-gradient-to-br from-secondary-50 to-white rounded-2xl p-6 border border-secondary/20 shadow-lg">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-4xl font-bold text-primary font-display">
                   ${product.price.toLocaleString()}
@@ -327,10 +327,10 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
               
               {product.discount && (
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-bold border border-emerald-200">
+                  <span className="bg-whatsapp-100 text-whatsapp-800 px-4 py-2 rounded-full text-sm font-bold border border-whatsapp-200">
                     Ahorras ${((product.originalPrice || 0) - product.price).toLocaleString()}
                   </span>
-                  <span className="bg-ruby-gradient text-white px-4 py-2 rounded-full text-sm font-bold shadow-luxury animate-gradient">
+                  <span className="bg-dark-red-gradient text-white px-4 py-2 rounded-full text-sm font-bold shadow-luxury animate-gradient">
                     {product.discount}% OFF
                   </span>
                 </div>
@@ -352,7 +352,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                   >
                     -
                   </button>
-                  <span className="px-6 py-3 bg-amber-50/50 border-x border-secondary/20 font-bold text-primary font-display">
+                  <span className="px-6 py-3 bg-secondary-50/50 border-x border-secondary/20 font-bold text-primary font-display">
                     {quantity}
                   </span>
                   <button
@@ -373,7 +373,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                 <button
                   onClick={handleAddToCart}
                   disabled={!product.inStock}
-                  className="add-to-cart-btn flex-1 bg-ruby-gradient hover:opacity-90 disabled:opacity-50 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 shadow-luxury hover:shadow-2xl flex items-center justify-center gap-3 animate-gradient"
+                  className="add-to-cart-btn flex-1 bg-dark-red-gradient hover:opacity-90 disabled:opacity-50 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 shadow-luxury hover:shadow-2xl flex items-center justify-center gap-3 animate-gradient"
                 >
                   <ShoppingCart className="h-6 w-6" />
                   {product.inStock ? 'Agregar al carrito' : 'Producto agotado'}
@@ -391,31 +391,31 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
 
             {/* Beneficios rápidos */}
             <div className="grid grid-cols-2 gap-4">
-              <div className="flex items-center p-4 bg-emerald-50 rounded-xl border border-emerald-200">
-                <Truck className="w-6 h-6 text-emerald-600 mr-3 flex-shrink-0" />
+              <div className="flex items-center p-4 bg-whatsapp-50 rounded-xl border border-whatsapp-200">
+                <Truck className="w-6 h-6 text-whatsapp-600 mr-3 flex-shrink-0" />
                 <div>
-                  <p className="font-bold text-emerald-900 text-sm">Envío gratis</p>
-                  <p className="text-emerald-700 text-xs">Siempre incluido</p>
+                  <p className="font-bold text-whatsapp-900 text-sm">Envío gratis</p>
+                  <p className="text-whatsapp-700 text-xs">Siempre incluido</p>
                 </div>
               </div>
               
-              <div className="flex items-center p-4 bg-blue-50 rounded-xl border border-blue-200">
-                <Shield className="w-6 h-6 text-blue-600 mr-3 flex-shrink-0" />
+              <div className="flex items-center p-4 bg-luxury-50 rounded-xl border border-luxury-200">
+                <Shield className="w-6 h-6 text-luxury mr-3 flex-shrink-0" />
                 <div>
-                  <p className="font-bold text-blue-900 text-sm">Pago seguro</p>
-                  <p className="text-blue-700 text-xs">Contra entrega</p>
+                  <p className="font-bold text-luxury text-sm">Pago seguro</p>
+                  <p className="text-luxury-700 text-xs">Contra entrega</p>
                 </div>
               </div>
               
-              <div className="flex items-center p-4 bg-purple-50 rounded-xl border border-purple-200">
-                <Clock className="w-6 h-6 text-purple-600 mr-3 flex-shrink-0" />
+              <div className="flex items-center p-4 bg-luxury-50 rounded-xl border border-luxury-200">
+                <Clock className="w-6 h-6 text-luxury mr-3 flex-shrink-0" />
                 <div>
-                  <p className="font-bold text-purple-900 text-sm">Entrega rápida</p>
-                  <p className="text-purple-700 text-xs">2-5 días hábiles</p>
+                  <p className="font-bold text-luxury text-sm">Entrega rápida</p>
+                  <p className="text-luxury-700 text-xs">2-5 días hábiles</p>
                 </div>
               </div>
               
-              <div className="flex items-center p-4 bg-amber-50 rounded-xl border border-secondary/30">
+              <div className="flex items-center p-4 bg-secondary-50 rounded-xl border border-secondary/30">
                 <Award className="w-6 h-6 text-secondary mr-3 flex-shrink-0" />
                 <div>
                   <p className="font-bold text-primary text-sm">Garantía</p>
@@ -429,7 +429,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
         {/* Tabs de información detallada */}
         <div className="mt-12 glass-luxury rounded-3xl shadow-2xl overflow-hidden border border-secondary/20">
           {/* Tab headers */}
-          <div className="border-b border-secondary/20 bg-gradient-to-r from-amber-50 to-white">
+          <div className="border-b border-secondary/20 bg-gradient-to-r from-secondary-50 to-white">
             <div className="flex flex-wrap">
               {tabs.map((tab) => {
                 const IconComponent = tab.icon;
@@ -469,7 +469,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {product.includes.map((item, index) => (
                         <li key={index} className="flex items-center text-gray-700 font-semibold">
-                          <Check className="w-5 h-5 text-emerald-600 mr-3 flex-shrink-0" />
+                          <Check className="w-5 h-5 text-whatsapp-600 mr-3 flex-shrink-0" />
                           {item}
                         </li>
                       ))}
@@ -484,7 +484,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                 <h3 className="text-2xl font-bold text-primary mb-4 font-display">Especificaciones técnicas</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {product.specifications.map((spec, index) => (
-                    <div key={index} className="bg-gradient-to-br from-amber-50 to-white p-4 rounded-xl border border-secondary/20 shadow-lg">
+                    <div key={index} className="bg-gradient-to-br from-secondary-50 to-white p-4 rounded-xl border border-secondary/20 shadow-lg">
                       <p className="text-primary font-semibold">{spec}</p>
                     </div>
                   ))}
@@ -497,8 +497,8 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                 <h3 className="text-2xl font-bold text-primary mb-4 font-display">Beneficios principales</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {product.benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start p-4 bg-blue-50 rounded-xl border border-blue-200 shadow-lg">
-                      <Zap className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0 mt-0.5" />
+                    <div key={index} className="flex items-start p-4 bg-luxury-50 rounded-xl border border-luxury-200 shadow-lg">
+                      <Zap className="w-5 h-5 text-luxury mr-3 flex-shrink-0 mt-0.5" />
                       <p className="text-gray-800 font-semibold">{benefit}</p>
                     </div>
                   ))}
@@ -512,33 +512,33 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-4">
-                    <div className="flex items-center p-5 bg-emerald-50 rounded-2xl border border-emerald-200 shadow-lg">
-                      <Truck className="w-8 h-8 text-emerald-600 mr-4" />
+                    <div className="flex items-center p-5 bg-whatsapp-50 rounded-2xl border border-whatsapp-200 shadow-lg">
+                      <Truck className="w-8 h-8 text-whatsapp-600 mr-4" />
                       <div>
-                        <h4 className="font-bold text-emerald-900">Envío gratuito</h4>
-                        <p className="text-emerald-700 text-sm">Incluido en todos nuestros productos</p>
+                        <h4 className="font-bold text-whatsapp-900">Envío gratuito</h4>
+                        <p className="text-whatsapp-700 text-sm">Incluido en todos nuestros productos</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-center p-5 bg-blue-50 rounded-2xl border border-blue-200 shadow-lg">
-                      <Clock className="w-8 h-8 text-blue-600 mr-4" />
+                    <div className="flex items-center p-5 bg-luxury-50 rounded-2xl border border-luxury-200 shadow-lg">
+                      <Clock className="w-8 h-8 text-luxury mr-4" />
                       <div>
-                        <h4 className="font-bold text-blue-900">Tiempo de entrega</h4>
-                        <p className="text-blue-700 text-sm">2-5 días hábiles</p>
+                        <h4 className="font-bold text-luxury">Tiempo de entrega</h4>
+                        <p className="text-luxury-700 text-sm">2-5 días hábiles</p>
                       </div>
                     </div>
                   </div>
                   
                   <div className="space-y-4">
-                    <div className="flex items-center p-5 bg-purple-50 rounded-2xl border border-purple-200 shadow-lg">
-                      <MapPin className="w-8 h-8 text-purple-600 mr-4" />
+                    <div className="flex items-center p-5 bg-luxury-50 rounded-2xl border border-luxury-200 shadow-lg">
+                      <MapPin className="w-8 h-8 text-luxury mr-4" />
                       <div>
-                        <h4 className="font-bold text-purple-900">Cobertura</h4>
-                        <p className="text-purple-700 text-sm">Todo el territorio nacional</p>
+                        <h4 className="font-bold text-luxury">Cobertura</h4>
+                        <p className="text-luxury-700 text-sm">Todo el territorio nacional</p>
                       </div>
                     </div>
                     
-                    <div className="flex items-center p-5 bg-amber-50 rounded-2xl border border-secondary/30 shadow-lg">
+                    <div className="flex items-center p-5 bg-secondary-50 rounded-2xl border border-secondary/30 shadow-lg">
                       <Shield className="w-8 h-8 text-secondary mr-4" />
                       <div>
                         <h4 className="font-bold text-primary">Garantía</h4>

@@ -12,11 +12,11 @@ const Badge = ({
   const variants = {
     primary: 'bg-ruby-gradient text-white shadow-luxury animate-gradient',
     secondary: 'bg-gold-gradient text-primary shadow-gold animate-gradient',
-    success: 'bg-gradient-to-r from-emerald-500 to-emerald-600 text-white shadow-lg',
-    warning: 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg',
+    success: 'bg-gradient-to-r from-whatsapp-500 to-whatsapp-600 text-white shadow-lg',
+    warning: 'bg-gradient-to-r from-secondary to-luxury text-white shadow-lg',
     danger: 'bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg',
-    luxury: 'bg-gradient-to-r from-luxury to-jewel text-white shadow-lg',
-    jewel: 'bg-gradient-to-r from-jewel to-luxury text-white shadow-lg',
+    luxury: 'bg-gradient-to-r from-luxury to-secondary text-white shadow-lg',
+    jewel: 'bg-gradient-to-r from-secondary to-luxury text-white shadow-lg',
     outline: 'glass-luxury border-2 border-primary text-primary hover:bg-primary hover:text-white',
     glass: 'glass-luxury bg-white/90 border border-secondary/20 text-primary shadow-lg',
   };

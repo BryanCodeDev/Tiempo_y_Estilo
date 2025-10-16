@@ -66,7 +66,7 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-2xl border-b border-yellow-400/20'
+            ? 'bg-white/95 backdrop-blur-xl shadow-2xl border-b border-secondary/20'
             : 'bg-white/90 backdrop-blur-md shadow-lg'
         }`}
         role="navigation"
@@ -83,7 +83,7 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
                 aria-label="Ir al inicio de TIEMPO Y ESTILO - Joyería y Relojería"
               >
                 <div className="relative">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-ruby-gradient rounded-2xl flex items-center justify-center shadow-luxury animate-gradient relative overflow-hidden">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-dark-red-gradient rounded-2xl flex items-center justify-center shadow-luxury animate-gradient relative overflow-hidden">
                     <Crown className="w-5 h-5 sm:w-7 sm:h-7 lg:w-10 lg:h-10 text-white relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
@@ -113,15 +113,15 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
                     onClick={() => item.id === 'hero' ? onHomeClick() : handleNavigation(item.id)}
                     className={`group px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 relative overflow-hidden ${
                       isActive
-                        ? 'bg-ruby-gradient text-white shadow-luxury animate-gradient'
-                        : 'text-primary hover:text-white hover:bg-ruby-gradient'
+                        ? 'bg-dark-red-gradient text-white shadow-luxury animate-gradient'
+                        : 'text-primary hover:text-white hover:bg-dark-red-gradient'
                     }`}
                     aria-label={`Ir a ${item.label}`}
                   >
                     <Icon className="w-4 h-4 relative z-10" />
                     <span className="tracking-wide relative z-10">{item.label}</span>
                     {!isActive && (
-                      <div className="absolute inset-0 bg-ruby-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-dark-red-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     )}
                   </button>
                 );
@@ -148,7 +148,7 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
 
                 {totalItems > 0 && (
                   <>
-                    <span className="absolute -top-2 -right-2 bg-gold-gradient text-primary font-bold text-xs min-w-[24px] h-6 rounded-full flex items-center justify-center px-1 shadow-gold animate-bounce border-2 border-white">
+                    <span className="absolute -top-2 -right-2 bg-dark-red-gradient text-white font-bold text-xs min-w-[24px] h-6 rounded-full flex items-center justify-center px-1 shadow-gold animate-bounce border-2 border-white">
                       {totalItems > 99 ? '99+' : totalItems}
                     </span>
                   </>
@@ -192,8 +192,8 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
                   onClick={() => item.id === 'hero' ? onHomeClick() : handleNavigation(item.id)}
                   className={`w-full flex items-center space-x-3 px-6 py-4 rounded-xl text-left transition-all duration-300 ${
                     isActive
-                      ? 'bg-ruby-gradient text-white shadow-luxury'
-                      : 'text-primary hover:bg-ruby-gradient hover:text-white'
+                      ? 'bg-dark-red-gradient text-white shadow-luxury'
+                      : 'text-primary hover:bg-dark-red-gradient hover:text-white'
                   }`}
                   aria-label={`Ir a ${item.label}`}
                 >
@@ -211,7 +211,7 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
               href="https://wa.me/573146081297?text=¡Hola!%20Me%20interesa%20la%20colección%20de%20TIEMPO%20Y%20ESTILO"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white rounded-xl hover:from-emerald-600 hover:to-emerald-500 transition-all duration-300 shadow-lg"
+              className="w-full flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-whatsapp-500 to-whatsapp-600 text-white rounded-xl hover:from-whatsapp-600 hover:to-whatsapp-500 transition-all duration-300 shadow-lg"
               onClick={() => setIsMenuOpen(false)}
             >
               <Phone className="w-5 h-5" />

@@ -436,7 +436,7 @@ function App() {
         console.error('App Error Boundary:', error, errorInfo);
       }}
     >
-      <div className="min-h-screen bg-pearl-gradient scroll-smooth selection:bg-yellow-200 selection:text-red-900">
+      <div className="min-h-screen bg-pearl-gradient scroll-smooth selection:bg-secondary selection:text-primary">
         <Navbar 
           cartItems={cartItems} 
           setShowCart={setShowCart}
@@ -463,7 +463,7 @@ function App() {
             href="https://wa.me/573146081297?text=¡Hola!%20Me%20interesa%20conocer%20más%20sobre%20las%20joyas%20y%20relojes%20de%20Tiempo%20y%20Estilo"
             target="_blank"
             rel="noopener noreferrer"
-            className="group bg-green-600 hover:bg-green-700 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden"
+            className="group bg-whatsapp-600 hover:bg-whatsapp-700 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 relative overflow-hidden"
             title="Contáctanos por WhatsApp"
             aria-label="Contactar por WhatsApp"
           >
@@ -471,12 +471,12 @@ function App() {
             
             <Phone className="h-5 w-5 relative z-10 group-hover:rotate-12 transition-transform duration-300" />
             
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse border-2 border-white"></div>
+            <div className="absolute -top-1 -right-1 w-3 h-3 bg-luxury rounded-full animate-pulse border-2 border-white"></div>
           </a>
 
           {/* Chat rápido */}
           <button
-            className="group bg-white hover:bg-gray-50 text-gray-700 hover:text-green-600 p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200"
+            className="group bg-white hover:bg-gray-50 text-gray-700 hover:text-whatsapp-600 p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 border border-gray-200"
             title="Chat rápido"
             aria-label="Chat rápido por WhatsApp"
             onClick={() => {

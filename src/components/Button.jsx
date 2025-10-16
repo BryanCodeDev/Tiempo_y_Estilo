@@ -17,9 +17,9 @@ const Button = ({
     secondary: 'bg-gold-gradient hover:opacity-90 text-primary shadow-gold hover:shadow-2xl focus:ring-secondary/50 animate-gradient',
     outline: 'glass-luxury border-2 border-primary text-primary hover:bg-ruby-gradient hover:text-white hover:border-transparent shadow-lg focus:ring-primary/50',
     ghost: 'bg-transparent text-primary hover:bg-primary/10 focus:ring-primary/50',
-    luxury: 'bg-gradient-to-br from-luxury to-jewel hover:from-luxury/90 hover:to-jewel/90 text-white shadow-lg hover:shadow-2xl focus:ring-luxury/50',
-    jewel: 'bg-gradient-to-br from-jewel to-luxury hover:from-jewel/90 hover:to-luxury/90 text-white shadow-lg hover:shadow-xl focus:ring-jewel/50',
-    success: 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-500 text-white shadow-lg hover:shadow-xl focus:ring-emerald-500/50',
+    luxury: 'bg-gradient-to-br from-luxury to-secondary hover:from-luxury/90 hover:to-secondary/90 text-white shadow-lg hover:shadow-2xl focus:ring-luxury/50',
+    jewel: 'bg-gradient-to-br from-secondary to-luxury hover:from-secondary/90 hover:to-luxury/90 text-white shadow-lg hover:shadow-xl focus:ring-secondary/50',
+    success: 'bg-gradient-to-r from-whatsapp-500 to-whatsapp-600 hover:from-whatsapp-600 hover:to-whatsapp-500 text-white shadow-lg hover:shadow-xl focus:ring-whatsapp-500/50',
   };
 
   const sizes = {

@@ -25,7 +25,7 @@ const Footer = () => {
       href: "https://wa.me/573146081297",
       icon: Phone,
       label: "WhatsApp",
-      bgColor: "hover:bg-emerald-500"
+      bgColor: "hover:bg-whatsapp-500"
     },
     {
       href: "https://www.instagram.com/tiempo_estilo7?fbclid=IwY2xjawNc5R1leHRuA2FlbQIxMABicmlkETFUMUZQdFl2dXBCYjNRd01XAR5dNDohIkUJ16qF8YCL2bqchcwSkqQs1jWzZRooa3b5AdQ5yWRyQIK0CmpHnw_aem_pHTojgSNqvslrsYiScIJrw",
@@ -42,7 +42,7 @@ const Footer = () => {
         </svg>
       ),
       label: "Instagram",
-      bgColor: "hover:bg-pink-500"
+      bgColor: "hover:bg-secondary"
     }
   ];
 
@@ -65,14 +65,14 @@ const Footer = () => {
   return (
     <footer id="contacto" className="bg-pearl-gradient relative overflow-hidden">
       {/* Elementos decorativos de fondo */}
-      <div className="absolute inset-0 bg-gradient-to-br from-amber-50/30 via-transparent to-white/20"></div>
-      <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-amber-100/20 to-secondary/5 rounded-full blur-3xl opacity-30"></div>
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-white/10 to-amber-50/20 rounded-full blur-3xl opacity-25"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary-50/30 via-transparent to-white/20"></div>
+      <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary-100/20 to-secondary/5 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-white/10 to-secondary-50/20 rounded-full blur-3xl opacity-25"></div>
 
       {/* Sección de beneficios premium */}
-      <div className="relative z-10 py-8 sm:py-12 lg:py-16 xl:py-20">
+      <div className="relative z-10 py-4 sm:py-6 lg:py-8 xl:py-10">
         <div className="container-luxury">
-          <div className="text-center mb-12">
+          <div className="text-center mb-6">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-display">
               ¿Por qué elegir
               <span className="block text-gold">TIEMPO Y ESTILO?</span>
@@ -96,12 +96,12 @@ const Footer = () => {
             </div>
 
             <div className="text-center group">
-              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-emerald-200/50 group-hover:border-emerald-400/50 h-full hover:-translate-y-2">
-                <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-whatsapp-200/50 group-hover:border-whatsapp-400/50 h-full hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-whatsapp-500 to-whatsapp-600 rounded-2xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <Shield className="h-10 w-10 text-white" />
                 </div>
                 <h3 className="font-bold text-lg text-primary mb-3 font-display">Compra Segura</h3>
-                <p className="text-emerald-600 text-sm font-semibold mb-2">100% Protegida</p>
+                <p className="text-whatsapp-600 text-sm font-semibold mb-2">100% Protegida</p>
                 <p className="text-gray-600 text-sm leading-relaxed">Pago contra entrega</p>
               </div>
             </div>
@@ -118,12 +118,12 @@ const Footer = () => {
             </div>
 
             <div className="text-center group">
-              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-purple-200/50 group-hover:border-purple-400/50 h-full hover:-translate-y-2">
-                <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-luxury/50 group-hover:border-luxury/70 h-full hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-luxury to-secondary rounded-2xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <Users className="h-10 w-10 text-white" />
                 </div>
                 <h3 className="font-bold text-lg text-primary mb-3 font-display">Asesoría VIP</h3>
-                <p className="text-purple-600 text-sm font-semibold mb-2">24/7 Disponible</p>
+                <p className="text-luxury text-sm font-semibold mb-2">24/7 Disponible</p>
                 <p className="text-gray-600 text-sm leading-relaxed">Expertos en joyería</p>
               </div>
             </div>
@@ -132,9 +132,9 @@ const Footer = () => {
       </div>
 
       {/* Contenido principal del footer */}
-      <div className="relative z-10 py-16">
+      <div className="relative z-10 py-8">
         <div className="container-luxury">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {/* Información de la empresa */}
             <div className="lg:col-span-2">
@@ -153,22 +153,22 @@ const Footer = () => {
                 </div>
               </div>
 
-              <p className="text-gray-600 mb-8 max-w-lg leading-relaxed text-base">
+              <p className="text-gray-600 mb-4 max-w-lg leading-relaxed text-base">
                 Especialistas en joyería y relojería premium, ofreciendo piezas excepcionales que reflejan tu personalidad única.
               </p>
 
               {/* Estadísticas */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
+              <div className="grid grid-cols-3 gap-3 mb-4">
                 <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="text-3xl font-bold text-gold mb-1 font-display">50+</div>
                   <div className="text-gray-600 text-xs font-semibold">Piezas Exclusivas</div>
                 </div>
                 <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-3xl font-bold text-emerald-600 mb-1 font-display">100%</div>
+                  <div className="text-3xl font-bold text-whatsapp-600 mb-1 font-display">100%</div>
                   <div className="text-gray-600 text-xs font-semibold">Satisfacción</div>
                 </div>
                 <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-3xl font-bold text-purple-600 mb-1 font-display">24/7</div>
+                  <div className="text-3xl font-bold text-luxury mb-1 font-display">24/7</div>
                   <div className="text-gray-600 text-xs font-semibold">Asesoría VIP</div>
                 </div>
               </div>
@@ -205,13 +205,13 @@ const Footer = () => {
                   href="https://wa.me/573146081297"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-start p-4 rounded-2xl glass-luxury hover:bg-emerald-50/50 transition-all duration-300 border border-secondary/20 hover:border-emerald-400/30 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                  className="group flex items-start p-4 rounded-2xl glass-luxury hover:bg-whatsapp-50/50 transition-all duration-300 border border-secondary/20 hover:border-whatsapp-400/30 shadow-lg hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 group-hover:scale-110 p-3 rounded-2xl mr-4 transition-all duration-300 flex-shrink-0 shadow-lg">
+                  <div className="bg-gradient-to-br from-whatsapp-500 to-whatsapp-600 group-hover:scale-110 p-3 rounded-2xl mr-4 transition-all duration-300 flex-shrink-0 shadow-lg">
                     <Phone className="h-5 w-5 text-white" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block font-bold text-primary group-hover:text-emerald-700 text-base">
+                    <span className="block font-bold text-primary group-hover:text-whatsapp-700 text-base">
                       +57 314 6081297
                     </span>
                     <span className="text-sm text-gray-600 block">WhatsApp VIP • 24/7</span>
@@ -244,7 +244,7 @@ const Footer = () => {
                 </a>
 
                 <div className="flex items-start p-4 rounded-2xl glass-luxury border border-secondary/20 shadow-lg">
-                  <div className="bg-gradient-to-br from-purple-500 to-purple-600 p-3 rounded-2xl mr-4 flex-shrink-0 shadow-lg">
+                  <div className="bg-gradient-to-br from-luxury to-secondary p-3 rounded-2xl mr-4 flex-shrink-0 shadow-lg">
                     <Clock className="h-5 w-5 text-white" />
                   </div>
                   <div className="min-w-0">
@@ -287,7 +287,7 @@ const Footer = () => {
       </div>
 
       {/* Sección inferior */}
-      <div className="bg-gradient-to-br from-primary/90 via-luxury/90 to-primary/90 py-12 relative overflow-hidden">
+      <div className="bg-dark-red-gradient py-6 relative overflow-hidden">
         {/* Elementos decorativos */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-secondary/20 to-white/10 rounded-full blur-3xl opacity-20"></div>
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-br from-white/20 to-secondary/10 rounded-full blur-2xl opacity-15"></div>
@@ -325,7 +325,7 @@ const Footer = () => {
           </div>
 
           {/* Línea divisoria */}
-          <div className="mt-8 pt-8 border-t border-white/20">
+          <div className="mt-4 pt-4 border-t border-white/20">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/80">
               <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
                 <span className="font-semibold">Desarrollado con React & Tailwind CSS</span>

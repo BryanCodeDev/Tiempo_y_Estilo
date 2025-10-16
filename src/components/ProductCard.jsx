@@ -125,13 +125,13 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                 </span>
               )}
               {product.inStock && (
-                <span className="bg-jewel text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
+                <span className="bg-secondary text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
                   <div className="w-1.5 h-1.5 bg-white rounded-full mr-1"></div>
                   Stock: {product.stock}
                 </span>
               )}
               {product.hasVariants && (
-                <span className="bg-accent text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
+                <span className="bg-secondary text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
                   <Palette className="w-3 h-3 mr-1" />
                   {product.variants.length} opciones
                 </span>
@@ -245,7 +245,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                   )}
                 </div>
                 {product.discount && (
-                  <span className="text-jewel text-sm font-medium">
+                  <span className="text-secondary text-sm font-medium">
                     Ahorras {formatPrice((product.originalPrice || 0) - product.price)}
                   </span>
                 )}
@@ -262,7 +262,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                 <button
                   onClick={handleAddToCart}
                   disabled={!product.inStock}
-                  className="bg-red-800 hover:bg-red-900 disabled:bg-gray-400 text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm flex items-center justify-center gap-2"
+                  className="bg-dark-red-gradient hover:opacity-90 disabled:bg-gray-400 text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm flex items-center justify-center gap-2 animate-gradient"
                 >
                   <ShoppingCart className="h-4 w-4" />
                   {product.inStock ? 'Agregar' : 'Agotado'}
@@ -324,13 +324,13 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
             </span>
           )}
           {product.inStock && (
-            <span className="bg-jewel text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
+            <span className="bg-secondary text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
               <div className="w-1.5 h-1.5 bg-white rounded-full mr-1"></div>
               Stock: {product.stock}
             </span>
           )}
           {product.hasVariants && (
-            <span className="bg-accent text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
+            <span className="bg-secondary text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
               <Palette className="w-3 h-3 mr-1" />
               {product.variants.length}
             </span>
@@ -437,7 +437,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
             <span className="text-primary-600 text-sm ml-1">(4.9)</span>
           </div>
           {product.discount && (
-            <span className="text-jewel text-sm font-medium bg-jewel-50 px-2 py-1 rounded-md hidden sm:block">
+            <span className="text-secondary text-sm font-medium bg-secondary-50 px-2 py-1 rounded-md hidden sm:block">
               Ahorras {formatPrice((product.originalPrice || 0) - product.price)}
             </span>
           )}
@@ -468,7 +468,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
           <button
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            className="bg-red-800 hover:bg-red-900 disabled:bg-gray-400 text-white py-3 sm:py-3 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm sm:text-sm flex items-center justify-center gap-2 sm:gap-2"
+            className="bg-dark-red-gradient hover:opacity-90 disabled:bg-gray-400 text-white py-3 sm:py-3 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm sm:text-sm flex items-center justify-center gap-2 sm:gap-2 animate-gradient"
           >
             <ShoppingCart className="h-4 w-4 sm:h-4 sm:w-4" />
             <span className="hidden sm:inline">
