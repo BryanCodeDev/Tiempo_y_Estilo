@@ -57,6 +57,13 @@ coverage/
 .parcel-cache/
 *.tsbuildinfo
 
+# Archivos temporales de optimización de imágenes
+*.tmp.webp
+*.backup.jpg
+image-optimizer/
+webp-optimizer/
+temp-images/
+
 # Storybook
 .storybook-out/
 out/
@@ -64,3 +71,10 @@ out/
 # MacOS
 .AppleDouble
 .LSOverride
+
+# Optimización de imágenes y herramientas
+libwebp-1.3.2-windows-x64/
+libwebp.zip
+*.webp.bak
+image-optimization/
+webp-conversion/

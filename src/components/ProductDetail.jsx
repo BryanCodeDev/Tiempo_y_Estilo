@@ -135,10 +135,14 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
           <div className="space-y-4">
             {/* Imagen principal */}
             <div className="relative glass-luxury rounded-3xl overflow-hidden shadow-2xl group border border-secondary/20">
-              <img 
-                src={images[currentImageIndex]} 
+              <img
+                src={images[currentImageIndex]}
                 alt={`${product.name} - Vista ${currentImageIndex + 1}`}
                 className="w-full h-[500px] object-cover"
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="500"
               />
               
               {/* Badges */}
@@ -232,10 +236,14 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                         : 'border-gray-300 hover:border-secondary'
                     }`}
                   >
-                    <img 
-                      src={image} 
+                    <img
+                      src={image}
                       alt={`${product.name} miniatura ${index + 1}`}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      width="80"
+                      height="80"
                     />
                   </button>
                 ))}
