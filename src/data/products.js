@@ -89,131 +89,128 @@ export const products = [
     ]
   },
 
-  // 3. Collar de Plata 925
+  // 3. Reloj Deportivo para Mujer
   {
     id: 3,
-    name: "Collar Cadena Plata 925 con Dije Corazón",
-    price: 100000,
-    originalPrice: 142857,
-    category: "joyeria-mujer",
+    name: "Reloj Deportivo Elegante para Mujer",
+    price: 120000,
+    originalPrice: 160000,
+    category: "relojes-mujer",
     image: "/assets/images/reloj5.webp",
     images: ["/assets/images/reloj5.webp"],
-    description: "Hermoso collar de plata 925 con dije de corazón, ideal para regalo, diseño elegante y delicado",
-    longDescription: "Elegante collar fabricado en plata ley 925 de alta pureza. Cadena tipo singapur de 45cm con ajuste a 40cm. Dije en forma de corazón con detalles grabados y acabado brillante. Cierre tipo mosquetón con argollas de seguridad. Hipoalergénico, no causa irritación. Viene en estuche de regalo premium. Perfecto para uso diario o ocasiones especiales. El regalo ideal para expresar amor y cariño. Garantía de 3 meses incluida.",
+    description: "Reloj deportivo femenino con diseño elegante, resistente al agua, perfecto para actividades diarias",
+    longDescription: "Reloj deportivo diseñado especialmente para mujeres activas. Caja de acero inoxidable de 36mm con acabado pulido. Correa de silicona cómoda y resistente. Movimiento de cuarzo japonés de alta precisión. Cristal mineral resistente a rayones. Resistencia al agua 5ATM (50 metros). Esfera con números luminosos para fácil lectura en cualquier condición. Perfecto para deportes, trabajo y uso diario. Garantía de 3 meses incluida.",
     inStock: true,
-    discount: 30,
-    sku: "JOY-COL-003",
+    discount: 25,
+    sku: "REL-DEP-MUJ-003",
     stock: 100,
     specifications: [
-      "Material: Plata ley 925 certificada",
-      "Longitud cadena: 40-45cm ajustable",
-      "Tipo cadena: Singapur delicada",
-      "Dije: Corazón 15mm x 12mm",
-      "Peso: 3.5 gramos",
-      "Cierre: Mosquetón con seguridad",
-      "Acabado: Brillante espejo",
+      "Caja: Acero inoxidable 36mm",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Mineral resistente",
+      "Correa: Silicona deportiva",
+      "Resistencia al agua: 5ATM (50m)",
+      "Esfera: Números luminosos",
+      "Peso: 45 gramos",
       "Garantía: 3 meses"
     ],
     includes: [
-      "1 Collar de plata 925",
-      "Estuche premium de regalo",
-      "Certificado de autenticidad",
-      "Paño de limpieza",
+      "1 Reloj deportivo para mujer",
+      "Estuche de presentación",
+      "Manual de usuario",
       "Garantía 3 meses",
-      "Tarjeta de regalo personalizable"
+      "Paño de limpieza"
     ],
     benefits: [
-      "Plata 925 auténtica certificada",
-      "Hipoalergénico y seguro",
-      "Diseño elegante y versátil",
-      "Longitud ajustable",
-      "Estuche de regalo incluido",
+      "Diseño deportivo elegante",
+      "Resistente al agua",
+      "Números luminosos",
+      "Cómodo para uso diario",
+      "Movimiento preciso",
       "Garantía de 3 meses"
     ]
   },
 
-  // 4. Aretes de Cristal Swarovski
+  // 4. Reloj Clásico para Mujer
   {
     id: 4,
-    name: "Aretes Elegantes Cristal Swarovski",
-    price: 100000,
-    originalPrice: 142857,
-    category: "joyeria-mujer",
+    name: "Reloj Clásico Femenino con Brillantes",
+    price: 180000,
+    originalPrice: 240000,
+    category: "relojes-mujer",
     image: "/assets/images/reloj6.webp",
     images: ["/assets/images/reloj6.webp"],
-    description: "Aretes con cristales Swarovski auténticos, base de plata, brillo espectacular, para toda ocasión",
-    longDescription: "Hermosos aretes confeccionados con cristales Swarovski auténticos de corte brillante. Base de plata 925 con baño de rodio para mayor durabilidad y brillo. Diseño tipo solitario con engaste de seguridad. Los cristales reflejan la luz de manera espectacular creando un efecto deslumbrante. Cierre tipo presión con seguro. Hipoalergénicos. Perfectos para bodas, fiestas o uso diario elegante. Garantía de 3 meses incluida.",
+    description: "Elegante reloj clásico para mujer con detalles brillantes, perfecto para ocasiones especiales",
+    longDescription: "Reloj clásico de dama con diseño sofisticado y detalles brillantes en la esfera. Caja de acero inoxidable de 30mm con acabado pulido. Correa de cuero genuino italiano ajustable. Movimiento de cuarzo suizo de alta precisión. Cristal de zafiro resistente a rayones. Esfera con índices de cristal que reflejan la luz elegantemente. Resistencia al agua 3ATM. Perfecto para la mujer elegante que busca un accesorio refinado para ocasiones especiales y uso diario. Garantía de 3 meses incluida.",
     inStock: true,
-    discount: 30,
-    sku: "JOY-ARE-004",
+    discount: 25,
+    sku: "REL-CLA-MUJ-004",
     stock: 100,
     specifications: [
-      "Cristales: Swarovski auténticos",
-      "Base: Plata 925 con baño de rodio",
-      "Tamaño cristal: 6mm de diámetro",
-      "Cierre: Presión con seguro",
-      "Peso: 2 gramos el par",
-      "Hipoalergénicos",
-      "Corte: Brillante facetado",
+      "Caja: Acero inoxidable 30mm",
+      "Movimiento: Cuarzo suizo",
+      "Cristal: Zafiro resistente",
+      "Correa: Cuero genuino italiano",
+      "Resistencia: 3ATM (30m)",
+      "Esfera: Con detalles brillantes",
+      "Peso: 35 gramos",
       "Garantía: 3 meses"
     ],
     includes: [
-      "1 Par de aretes Swarovski",
-      "Estuche de joyería elegante",
-      "Certificado Swarovski",
-      "Paño de limpieza premium",
-      "Garantía 3 meses"
+      "1 Reloj clásico para mujer",
+      "Estuche de presentación elegante",
+      "Manual de usuario",
+      "Garantía 3 meses",
+      "Paño de limpieza"
     ],
     benefits: [
-      "Cristales Swarovski originales",
-      "Brillo espectacular duradero",
-      "Base de plata 925",
-      "Hipoalergénicos certificados",
-      "Versátiles para toda ocasión",
+      "Diseño clásico elegante",
+      "Cristal de zafiro",
+      "Movimiento suizo preciso",
+      "Detalles brillantes exclusivos",
+      "Correa de cuero premium",
       "Garantía de 3 meses"
     ]
   },
 
-  // 5. Set de Joyería Completo
+  // 5. Reloj Cronógrafo Deportivo
   {
     id: 5,
-    name: "Set Completo: Collar, Aretes y Pulsera Plata 925",
-    price: 100000,
-    originalPrice: 142857,
-    category: "joyeria-mujer",
+    name: "Reloj Cronógrafo Deportivo Multifunción",
+    price: 220000,
+    originalPrice: 280000,
+    category: "relojes-deportivos",
     image: "/assets/images/reloj7.webp",
     images: ["/assets/images/reloj7.webp", "/assets/images/reloj8.webp"],
-    description: "Set completo de joyería en plata 925 con cristales, incluye collar, aretes y pulsera elegantes",
-    longDescription: "Set completo de joyería fina en plata ley 925. Incluye collar (45cm), pulsera (18cm ajustable) y aretes a juego. Diseño con cristales incrustados que brillan con la luz. Acabado en baño de rodio para mayor resistencia y mantener el brillo. Cada pieza es hipoalergénica. Viene en elegante estuche de presentación. El regalo perfecto para ocasiones especiales: cumpleaños, aniversarios, bodas o Navidad. Garantía de 3 meses incluida.",
+    description: "Reloj cronógrafo deportivo con múltiples funciones, resistente al agua 10ATM, perfecto para atletas",
+    longDescription: "Reloj cronógrafo deportivo de alto rendimiento diseñado para atletas profesionales. Caja de acero inoxidable de 45mm con tratamiento PVD negro. Funciones: cronómetro, taquímetro, calendario completo, alarma. Movimiento de cuarzo japonés de alta precisión. Cristal mineral resistente con tratamiento anti-reflejante. Correa de silicona reforzada con cierre de seguridad. Resistencia al agua 10ATM (100 metros). Bisel giratorio unidireccional. Perfecto para running, natación, ciclismo y entrenamientos intensos. Garantía de 3 meses incluida.",
     inStock: true,
-    discount: 30,
-    sku: "JOY-SET-005",
+    discount: 21,
+    sku: "REL-CRO-DEP-005",
     stock: 100,
     specifications: [
-      "Material: Plata 925 certificada",
-      "Collar: 45cm con cristales",
-      "Pulsera: 16-18cm ajustable",
-      "Aretes: Tipo gota con cristales",
-      "Acabado: Baño de rodio",
-      "Peso total: 12 gramos",
-      "Hipoalergénico",
+      "Caja: Acero inoxidable 45mm PVD",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Mineral anti-reflejante",
+      "Funciones: Cronógrafo, taquímetro",
+      "Resistencia: 10ATM (100 metros)",
+      "Correa: Silicona reforzada",
+      "Bisel: Giratorio unidireccional",
       "Garantía: 3 meses"
     ],
     includes: [
-      "1 Collar de plata 925",
-      "1 Pulsera de plata 925",
-      "1 Par de aretes de plata 925",
-      "Estuche de presentación premium",
-      "Certificado de autenticidad",
-      "2 Paños de limpieza",
+      "1 Reloj cronógrafo deportivo",
+      "Herramientas de ajuste",
+      "Manual técnico detallado",
+      "Estuche resistente al agua",
       "Garantía 3 meses"
     ],
     benefits: [
-      "Set completo coordinado",
-      "Ahorro vs compra individual",
-      "Plata 925 en todas las piezas",
-      "Perfecto como regalo",
-      "Estuche de lujo incluido",
+      "Funciones profesionales",
+      "Resistente al agua 100m",
+      "Movimiento de alta precisión",
+      "Diseño robusto y duradero",
+      "Ideal para deportes extremos",
       "Garantía de 3 meses"
     ]
   },
@@ -221,22 +218,22 @@ export const products = [
   // 6. Reloj para Mujer Elegante
   {
     id: 6,
-    name: "Reloj Elegante para Mujer Correa Metálica",
-    price: 100000,
-    originalPrice: 142857,
+    name: "Reloj Elegante para Mujer con Correa Metálica",
+    price: 150000,
+    originalPrice: 200000,
     category: "relojes-mujer",
     image: "/assets/images/reloj9.webp",
     images: ["/assets/images/reloj9.webp", "/assets/images/reloj10.webp"],
     description: "Reloj femenino elegante con correa metálica, esfera decorada, resistente al agua, muy elegante",
     longDescription: "Reloj para mujer de diseño sofisticado y elegante. Caja de 32mm en acero inoxidable con acabado pulido. Esfera con índices de cristal y manecillas doradas. Correa metálica tipo milanés magnética, ajustable sin herramientas. Movimiento de cuarzo japonés de alta precisión. Cristal mineral resistente. Resistencia al agua 3ATM. Perfecto para la mujer moderna y elegante que busca estilo y funcionalidad. Garantía de 3 meses incluida.",
     inStock: true,
-    discount: 30,
+    discount: 25,
     sku: "REL-MUJ-006",
     stock: 100,
     specifications: [
       "Caja: 32mm acero inoxidable",
       "Movimiento: Cuarzo japonés",
-      "Correa: Metálica tipo milanés",
+      "Correa: Metálica, cuero o silicona",
       "Cierre: Magnético ajustable",
       "Cristal: Mineral resistente",
       "Resistencia: 3ATM (30m)",
@@ -251,6 +248,41 @@ export const products = [
       "Manual de usuario",
       "Paño de limpieza"
     ],
+    hasVariants: true,
+    variants: [
+      {
+        id: "metalica",
+        name: "Correa Metálica",
+        color: "#C0C0C0",
+        sku: "REL-MUJ-006-MET",
+        inStock: true,
+        stock: 100
+      },
+      {
+        id: "negro",
+        name: "Correa Negra",
+        color: "#000000",
+        sku: "REL-MUJ-006-NEG",
+        inStock: true,
+        stock: 100
+      },
+      {
+        id: "cafe",
+        name: "Correa Café",
+        color: "#8B4513",
+        sku: "REL-MUJ-006-CAF",
+        inStock: true,
+        stock: 100
+      },
+      {
+        id: "azul",
+        name: "Correa Azul",
+        color: "#1E40AF",
+        sku: "REL-MUJ-006-AZU",
+        inStock: true,
+        stock: 100
+      }
+    ],
     benefits: [
       "Diseño elegante y femenino",
       "Correa ajustable sin herramientas",
@@ -261,80 +293,44 @@ export const products = [
     ]
   },
 
-  // 7. Anillo de Compromiso Plata con Circón
+  // 7. Reloj Automático de Lujo
   {
     id: 7,
-    name: "Anillo de Compromiso Plata 925 con Circón",
-    price: 100000,
-    originalPrice: 142857,
-    category: "joyeria-mujer",
+    name: "Reloj Automático de Lujo para Hombre",
+    price: 350000,
+    originalPrice: 450000,
+    category: "relojes-hombre",
     image: "/assets/images/reloj11.webp",
     images: ["/assets/images/reloj11.webp"],
-    description: "Hermoso anillo de compromiso en plata 925 con piedra de circón cúbico brillante tipo diamante",
-    longDescription: "Elegante anillo de compromiso fabricado en plata ley 925 de máxima pureza. Piedra central de circón cúbico AAA+ de 6mm con corte brillante que simula diamante natural. Engaste tipo solitario de 6 pernos para máxima seguridad. Aro con micro pavé de circonios en los laterales. Acabado en baño de rodio blanco para mayor brillo y durabilidad. Disponible en múltiples tallas. Incluye certificado de autenticidad y estuche de terciopelo. Garantía de 3 meses incluida.",
+    description: "Exclusivo reloj automático con movimiento mecánico, reserva de marcha 40 horas, diseño premium",
+    longDescription: "Reloj automático de lujo con movimiento mecánico japonés de alta precisión. Caja de acero inoxidable 316L de 42mm con acabado pulido. Movimiento automático de 21 rubíes con reserva de marcha de 40 horas. Ventana de fecha a las 3 en punto. Correa de cuero genuino italiano con cierre de hebilla. Cristal de zafiro resistente a rayones. Fondo transparente para apreciar el movimiento mecánico. Perfecto para el caballero que valora la relojería tradicional y la artesanía fina. Garantía de 3 meses incluida.",
     inStock: true,
-    discount: 30,
-    sku: "JOY-ANI-007",
+    discount: 22,
+    sku: "REL-AUT-LUX-007",
     stock: 100,
-    hasVariants: true,
-    variants: [
-      {
-        id: "talla-6",
-        name: "Talla 6 (46mm)",
-        color: "#E8E8E8",
-        sku: "JOY-ANI-007-T6",
-        inStock: true,
-        stock: 100
-      },
-      {
-        id: "talla-7",
-        name: "Talla 7 (47mm)",
-        color: "#D8D8D8",
-        sku: "JOY-ANI-007-T7",
-        inStock: true,
-        stock: 100
-      },
-      {
-        id: "talla-8",
-        name: "Talla 8 (48mm)",
-        color: "#C8C8C8",
-        sku: "JOY-ANI-007-T8",
-        inStock: true,
-        stock: 100
-      },
-      {
-        id: "talla-9",
-        name: "Talla 9 (49mm)",
-        color: "#B8B8B8",
-        sku: "JOY-ANI-007-T9",
-        inStock: true,
-        stock: 100
-      }
-    ],
     specifications: [
-      "Material: Plata 925 certificada",
-      "Piedra: Circón cúbico AAA+ 6mm",
-      "Engaste: Solitario 6 pernos",
-      "Laterales: Micro pavé circonios",
-      "Acabado: Baño de rodio blanco",
-      "Peso: 4.5 gramos",
-      "Tallas disponibles: 6, 7, 8, 9",
+      "Caja: Acero inoxidable 316L 42mm",
+      "Movimiento: Automático 21 rubíes",
+      "Reserva de marcha: 40 horas",
+      "Cristal: Zafiro resistente",
+      "Correa: Cuero genuino italiano",
+      "Funciones: Hora, fecha",
+      "Fondo: Transparente",
       "Garantía: 3 meses"
     ],
     includes: [
-      "1 Anillo de compromiso",
-      "Estuche de terciopelo premium",
-      "Certificado de autenticidad",
-      "Guía de tallas",
+      "1 Reloj automático de lujo",
+      "Estuche premium de madera",
+      "Manual de usuario detallado",
       "Garantía 3 meses",
-      "Servicio de cambio de talla"
+      "Paño de limpieza microfibra"
     ],
     benefits: [
-      "Plata 925 de alta pureza",
-      "Piedra brillante tipo diamante",
-      "Diseño clásico atemporal",
-      "Múltiples tallas disponibles",
-      "Estuche elegante incluido",
+      "Movimiento automático premium",
+      "Reserva de marcha 40 horas",
+      "Cristal de zafiro",
+      "Fondo transparente elegante",
+      "Relojería tradicional",
       "Garantía de 3 meses"
     ]
   },
@@ -382,45 +378,44 @@ export const products = [
     ]
   },
 
-  // 9. Pulsera Infinito Plata 925
+  // 9. Reloj Deportivo con Monitor Cardíaco
   {
     id: 9,
-    name: "Pulsera Símbolo Infinito Plata 925",
-    price: 100000,
-    originalPrice: 142857,
-    category: "joyeria-mujer",
+    name: "Reloj Deportivo con Monitor Cardíaco Integrado",
+    price: 190000,
+    originalPrice: 250000,
+    category: "relojes-deportivos",
     image: "/assets/images/reloj14.webp",
     images: ["/assets/images/reloj14.webp"],
-    description: "Pulsera delicada con símbolo del infinito en plata 925, ajustable, regalo perfecto de amor eterno",
-    longDescription: "Hermosa pulsera en plata ley 925 con dije del símbolo infinito. Cadena delicada tipo cable de 17-19cm ajustable. El símbolo infinito representa amor eterno, amistad infinita y lazos inquebrantables. Acabado pulido brillante. Cierre tipo mosquetón con argollas de ajuste. Hipoalergénica. Viene en elegante estuche de regalo. Perfecta para regalar a personas especiales o uso personal diario. Garantía de 3 meses incluida.",
+    description: "Reloj deportivo avanzado con monitor cardíaco, GPS y múltiples modos deportivos",
+    longDescription: "Smartwatch deportivo con funciones avanzadas de fitness. Pantalla LCD de 1.3 pulgadas con retroiluminación. Monitor de frecuencia cardíaca 24/7, contador de pasos, calorías y distancia. Múltiples modos deportivos: running, ciclismo, natación, gym. GPS integrado para rastreo de rutas. Notificaciones de llamadas y mensajes. Batería de hasta 7 días de duración. Correa de silicona ajustable. Resistencia al agua 5ATM. Perfecto para deportistas que buscan seguimiento preciso de su rendimiento. Garantía de 3 meses incluida.",
     inStock: true,
-    discount: 30,
-    sku: "JOY-PUL-009",
+    discount: 24,
+    sku: "REL-DEP-FIT-009",
     stock: 100,
     specifications: [
-      "Material: Plata 925 pura",
-      "Longitud: 17-19cm ajustable",
-      "Dije infinito: 12mm x 25mm",
-      "Tipo cadena: Cable delicada",
-      "Peso: 2.8 gramos",
-      "Cierre: Mosquetón con ajuste",
-      "Acabado: Pulido brillante",
+      "Pantalla: LCD 1.3\" con luz",
+      "Sensores: Cardíaco óptico",
+      "GPS: Integrado",
+      "Batería: 7 días de duración",
+      "Resistencia: 5ATM (50 metros)",
+      "Correa: Silicona ajustable",
+      "Modos deportivos: 10+",
       "Garantía: 3 meses"
     ],
     includes: [
-      "1 Pulsera símbolo infinito",
-      "Estuche de regalo elegante",
-      "Certificado de plata 925",
-      "Paño de limpieza",
-      "Tarjeta con significado del infinito",
+      "1 Reloj deportivo fitness",
+      "Cable de carga USB",
+      "Manual de usuario",
+      "App móvil gratuita",
       "Garantía 3 meses"
     ],
     benefits: [
-      "Símbolo de amor eterno",
-      "Plata 925 auténtica",
-      "Ajustable a cualquier muñeca",
-      "Hipoalergénica",
-      "Regalo con significado especial",
+      "Monitoreo cardíaco 24/7",
+      "GPS integrado preciso",
+      "Múltiples modos deportivos",
+      "Batería de larga duración",
+      "Resistente al agua",
       "Garantía de 3 meses"
     ]
   },
@@ -469,89 +464,88 @@ export const products = [
     ]
   },
 
-  // 11. Cadena Gruesa Hombre Plata 925
+  // 11. Reloj Deportivo Premium para Hombre
   {
     id: 11,
-    name: "Cadena Gruesa Barbada para Hombre Plata 925",
-    price: 100000,
-    originalPrice: 142857,
-    category: "joyeria-hombre",
+    name: "Reloj Deportivo Premium Sumergible 200m",
+    price: 280000,
+    originalPrice: 350000,
+    category: "relojes-deportivos",
     image: "/assets/images/reloj17.webp",
     images: ["/assets/images/reloj17.webp"],
-    description: "Cadena gruesa tipo barbada en plata 925, 60cm, 8mm ancho, estilo urbano masculino robusto",
-    longDescription: "Impresionante cadena masculina en plata ley 925 de máxima pureza. Diseño tipo barbada (figaro) de 8mm de ancho que proyecta fuerza y masculinidad. Longitud de 60cm ideal para uso sobre o bajo la ropa. Eslabones sólidos con peso de 52 gramos. Cierre de seguridad tipo mosquetón reforzado. Acabado pulido brillante. Resistente y duradera para uso diario. Estilo urbano moderno que combina con cualquier outfit casual o elegante. Garantía de 3 meses incluida.",
+    description: "Reloj deportivo profesional sumergible 200m, con válvula de helio y bisel cerámico",
+    longDescription: "Reloj deportivo profesional diseñado para buceo profundo y deportes extremos. Caja de acero inoxidable 316L de 44mm con tratamiento PVD negro. Bisel giratorio unidireccional con inserto cerámico. Válvula automática de helio para descompresión. Movimiento automático japonés con reserva de marcha de 38 horas. Cristal de zafiro con tratamiento anti-reflejante. Correa de acero inoxidable con extensión para traje de buceo. Resistencia al agua 200 metros (20ATM). Perfecto para buceo profesional, submarinismo y deportes acuáticos extremos. Garantía de 3 meses incluida.",
     inStock: true,
-    discount: 30,
-    sku: "JOY-CAD-011",
+    discount: 20,
+    sku: "REL-DEP-PRO-011",
     stock: 100,
     specifications: [
-      "Material: Plata 925 maciza",
-      "Longitud: 60cm",
-      "Ancho: 8mm eslabones",
-      "Tipo: Barbada (Figaro)",
-      "Peso: 52 gramos",
-      "Cierre: Mosquetón reforzado",
-      "Acabado: Pulido brillante",
+      "Caja: Acero 316L 44mm PVD negro",
+      "Movimiento: Automático japonés",
+      "Cristal: Zafiro anti-reflejante",
+      "Bisel: Cerámico giratorio",
+      "Resistencia: 200m (20ATM)",
+      "Válvula: Helio automática",
+      "Correa: Acero con extensión",
       "Garantía: 3 meses"
     ],
     includes: [
-      "1 Cadena barbada plata 925",
-      "Estuche rígido de protección",
-      "Certificado de autenticidad",
-      "Paño de limpieza",
+      "1 Reloj deportivo profesional",
+      "Herramientas de mantenimiento",
+      "Manual técnico de buceo",
+      "Estuche resistente al agua",
       "Garantía 3 meses",
-      "Bolsa de terciopelo"
+      "Certificado de profundidad"
     ],
     benefits: [
-      "Plata 925 maciza 100%",
-      "Diseño masculino robusto",
-      "Peso sustancial de calidad",
-      "Estilo urbano versátil",
-      "Resistente al uso diario",
+      "Sumergible hasta 200 metros",
+      "Válvula de helio profesional",
+      "Movimiento automático",
+      "Bisel cerámico duradero",
+      "Ideal para buceo extremo",
       "Garantía de 3 meses"
     ]
   },
 
-  // 12. Juego de Dijes Intercambiables
+  // 12. Reloj Híbrido Inteligente
   {
     id: 12,
-    name: "Set Pulsera con 5 Dijes Intercambiables Plata",
-    price: 100000,
-    originalPrice: 142857,
-    category: "joyeria-mujer",
+    name: "Reloj Híbrido Inteligente con Manecillas Clásicas",
+    price: 240000,
+    originalPrice: 320000,
+    category: "relojes-deportivos",
     image: "/assets/images/reloj18.webp",
     images: ["/assets/images/reloj18.webp"],
-    description: "Pulsera tipo pandora con 5 dijes intercambiables en plata 925, personalizable y única",
-    longDescription: "Sistema de pulsera con dijes intercambiables en plata 925. Incluye pulsera base tipo serpiente de 18-20cm ajustable con cierre de seguridad. 5 dijes temáticos incluidos: corazón, estrella, flor, infinito y árbol de la vida. Cada dije se coloca y quita fácilmente. Compatible con dijes estándar del mercado. Crea tu combinación única. Plata 925 en todos los componentes. Sistema antioxidante con baño de rodio. Regalo perfecto para expresar personalidad. Garantía de 3 meses incluida.",
+    description: "Reloj híbrido que combina diseño clásico con funciones inteligentes, notificaciones discretas",
+    longDescription: "Reloj híbrido inteligente que combina la elegancia de un reloj clásico con funciones smart discretas. Esfera analógica con manecillas tradicionales y sub-esferas digitales ocultas. Conectividad Bluetooth con smartphone. Notificaciones discretas mediante vibración y movimiento de manecillas. Seguimiento de actividad física, sueño y calorías. Batería de hasta 2 semanas de duración. Caja de acero inoxidable de 40mm con acabado pulido. Correa de cuero intercambiable. Compatible con iOS y Android. Perfecto para quienes buscan tecnología sin sacrificar la elegancia tradicional. Garantía de 3 meses incluida.",
     inStock: true,
-    discount: 30,
-    sku: "JOY-SET-012",
+    discount: 25,
+    sku: "REL-HIB-SMART-012",
     stock: 100,
     specifications: [
-      "Pulsera: Plata 925 tipo serpiente",
-      "Longitud: 18-20cm ajustable",
-      "Dijes incluidos: 5 unidades",
-      "Material dijes: Plata 925",
-      "Cierre: Sistema de seguridad dual",
-      "Acabado: Baño de rodio",
-      "Compatible: Dijes estándar",
+      "Caja: Acero inoxidable 40mm",
+      "Pantalla: Híbrida analógica/digital",
+      "Conectividad: Bluetooth 5.0",
+      "Batería: 2 semanas duración",
+      "Sensores: Acelerómetro, giroscopio",
+      "Correa: Cuero intercambiable",
+      "Compatibilidad: iOS y Android",
       "Garantía: 3 meses"
     ],
     includes: [
-      "1 Pulsera base de plata 925",
-      "5 Dijes intercambiables variados",
-      "Estuche organizador",
-      "Certificado de autenticidad",
-      "Guía de combinaciones",
-      "Garantía 3 meses",
-      "Paño de limpieza"
+      "1 Reloj híbrido inteligente",
+      "Cable de carga USB",
+      "Correa adicional de silicona",
+      "Manual de usuario",
+      "App móvil gratuita",
+      "Garantía 3 meses"
     ],
     benefits: [
-      "Sistema 100% personalizable",
-      "5 dijes incluidos para empezar",
-      "Plata 925 en todo el set",
-      "Compatible con más dijes",
-      "Cuenta tu historia personal",
+      "Diseño clásico elegante",
+      "Funciones inteligentes discretas",
+      "Batería de larga duración",
+      "Notificaciones silenciosas",
+      "Seguimiento de actividad",
       "Garantía de 3 meses"
     ]
   },
@@ -598,114 +592,45 @@ export const products = [
     ]
   },
 
-  // 14. Reloj Elegante para Mujer con Variantes
+  // 15. Reloj Clásico con Calendario
   {
-    id: 14,
-    name: "Reloj Elegante para Mujer con Correa de Cuero",
-    price: 100000,
-    originalPrice: 142857,
-    category: "relojes-mujer",
-    image: "/assets/images/reloj22.webp",
-    images: ["/assets/images/reloj22.webp", "/assets/images/reloj23.webp"],
-    description: "Elegante reloj femenino con correa de cuero genuino, diseño clásico y sofisticado",
-    longDescription: "Hermoso reloj para mujer con diseño clásico y elegante. Caja delgada de 28mm en acero inoxidable con acabado pulido. Correa de cuero genuino italiano en colores variados. Esfera minimalista con índices delicados. Movimiento de cuarzo suizo de alta precisión. Cristal de zafiro resistente a rayones. Resistencia al agua 3ATM. Perfecto para la mujer que busca elegancia discreta. Garantía de 3 meses incluida.",
+    id: 15,
+    name: "Reloj Clásico con Calendario Perpetuo",
+    price: 160000,
+    originalPrice: 210000,
+    category: "relojes-hombre",
+    image: "/assets/images/reloj24.webp",
+    images: ["/assets/images/reloj24.webp", "/assets/images/reloj25.webp"],
+    description: "Reloj clásico elegante con calendario perpetuo, movimiento automático, perfecto para ejecutivos",
+    longDescription: "Reloj clásico de alta gama con calendario perpetuo automático. Caja de acero inoxidable de 40mm con acabado pulido. Movimiento automático japonés con calendario completo: día, fecha y mes. Ventanas de calendario a las 12, 3 y 9 horas. Correa de cuero genuino italiano con cierre de hebilla. Cristal de zafiro resistente a rayones. Fondo transparente para ver el movimiento. Resistencia al agua 5ATM. Perfecto para ejecutivos y profesionales que buscan precisión y elegancia. Garantía de 3 meses incluida.",
     inStock: true,
-    discount: 30,
-    sku: "REL-MUJ-014",
+    discount: 24,
+    sku: "REL-CLA-CAL-015",
     stock: 100,
-    hasVariants: true,
-    variants: [
-      {
-        id: "negro",
-        name: "Correa Negra",
-        color: "#000000",
-        sku: "REL-MUJ-014-NEG",
-        inStock: true,
-        stock: 100
-      },
-      {
-        id: "cafe",
-        name: "Correa Café",
-        color: "#8B4513",
-        sku: "REL-MUJ-014-CAF",
-        inStock: true,
-        stock: 100
-      },
-      {
-        id: "azul",
-        name: "Correa Azul",
-        color: "#1E40AF",
-        sku: "REL-MUJ-014-AZU",
-        inStock: true,
-        stock: 100
-      }
-    ],
     specifications: [
-      "Caja: Acero inoxidable 28mm",
-      "Movimiento: Cuarzo suizo",
+      "Caja: Acero inoxidable 40mm",
+      "Movimiento: Automático calendario",
       "Cristal: Zafiro resistente",
-      "Correa: Cuero genuino italiano",
-      "Resistencia: 3ATM (30m)",
-      "Esfera: Minimalista",
-      "Colores disponibles: Negro, Café, Azul",
+      "Funciones: Día, fecha, mes",
+      "Resistencia: 5ATM (50 metros)",
+      "Correa: Cuero genuino",
+      "Fondo: Transparente",
       "Garantía: 3 meses"
     ],
     includes: [
-      "1 Reloj elegante para mujer",
-      "Estuche de presentación",
-      "Manual de usuario",
+      "1 Reloj con calendario perpetuo",
+      "Estuche premium de presentación",
+      "Manual de usuario detallado",
+      "Herramientas de ajuste",
       "Garantía 3 meses",
       "Paño de limpieza"
     ],
     benefits: [
-      "Diseño elegante y discreto",
+      "Calendario automático completo",
+      "Movimiento automático preciso",
       "Cristal de zafiro",
-      "Correa de cuero premium",
-      "Múltiples colores disponibles",
-      "Movimiento suizo preciso",
-      "Garantía de 3 meses"
-    ]
-  },
-
-  // 15. Set de Joyería Plata Básico
-  {
-    id: 15,
-    name: "Set Básico de Plata 925: Aretes y Collar",
-    price: 100000,
-    originalPrice: 142857,
-    category: "joyeria-mujer",
-    image: "/assets/images/reloj24.webp",
-    images: ["/assets/images/reloj24.webp", "/assets/images/reloj25.webp"],
-    description: "Set básico de joyería en plata 925, incluye aretes y collar a juego, diseño clásico",
-    longDescription: "Set básico de joyería fabricado en plata ley 925 de alta pureza. Incluye collar delicado de 42cm y aretes a juego. Diseño clásico y versátil perfecto para uso diario. Acabado pulido brillante. Cierre de seguridad en todas las piezas. Hipoalergénico y resistente a la oxidación. Viene en elegante estuche de regalo. El complemento perfecto para cualquier ocasión. Garantía de 3 meses incluida.",
-    inStock: true,
-    discount: 30,
-    sku: "JOY-SET-015",
-    stock: 100,
-    specifications: [
-      "Material: Plata 925 certificada",
-      "Collar: 42cm delicado",
-      "Aretes: Diseño clásico",
-      "Acabado: Pulido brillante",
-      "Cierre: Seguridad en todas piezas",
-      "Hipoalergénico",
-      "Peso total: 8 gramos",
-      "Garantía: 3 meses"
-    ],
-    includes: [
-      "1 Collar de plata 925",
-      "1 Par de aretes de plata 925",
-      "Estuche de regalo elegante",
-      "Certificado de autenticidad",
-      "Paño de limpieza",
-      "Garantía 3 meses"
-    ],
-    benefits: [
-      "Plata 925 auténtica",
-      "Set coordinado",
-      "Diseño versátil",
-      "Hipoalergénico",
-      "Estuche de regalo incluido",
+      "Diseño ejecutivo elegante",
+      "Fondo transparente",
       "Garantía de 3 meses"
     ]
   },
@@ -778,44 +703,45 @@ export const products = [
     ]
   },
 
-  // 17. Pulsera Tennis Plata con Circonios
+  // 17. Reloj de Aviador Profesional
   {
     id: 17,
-    name: "Pulsera Tennis Plata 925 con Circonios",
-    price: 100000,
-    originalPrice: 142857,
-    category: "joyeria-mujer",
+    name: "Reloj de Aviador con Ruleta de Cálculo",
+    price: 320000,
+    originalPrice: 400000,
+    category: "relojes-hombre",
     image: "/assets/images/reloj29.webp",
     images: ["/assets/images/reloj29.webp"],
-    description: "Elegante pulsera tennis en plata 925 con circonios brillantes, cierre de seguridad",
-    longDescription: "Pulsera tipo tennis fabricada en plata ley 925 de máxima pureza. Diseño con circonios cúbicos engastados que crean un efecto de brillo continuo. Longitud de 18cm con extensión a 20cm. Cierre de seguridad tipo caja con figura de 8. Acabado en baño de rodio para mayor durabilidad. Hipoalergénica y resistente al uso diario. Perfecta para ocasiones especiales o uso elegante diario. Garantía de 3 meses incluida.",
+    description: "Reloj de aviador profesional con ruleta de cálculo circular, cronógrafo y diseño clásico",
+    longDescription: "Auténtico reloj de aviador con diseño inspirado en la aviación clásica. Caja de acero inoxidable de 46mm con acabado cepillado. Bisel giratorio bidireccional con ruleta de cálculo para conversiones de vuelo. Movimiento automático con cronógrafo y función flyback. Sub-esferas para cronómetro y segundos. Correa de cuero genuino con remaches. Cristal de zafiro con tratamiento anti-reflejante. Resistencia al agua 10ATM. Incluye regla de cálculo para navegación aérea. Perfecto para pilotos y entusiastas de la aviación. Garantía de 3 meses incluida.",
     inStock: true,
-    discount: 30,
-    sku: "JOY-PUL-017",
+    discount: 20,
+    sku: "REL-AVI-PRO-017",
     stock: 100,
     specifications: [
-      "Material: Plata 925 certificada",
-      "Piedras: Circonios cúbicos",
-      "Longitud: 18-20cm ajustable",
-      "Cierre: Seguridad tipo caja",
-      "Acabado: Baño de rodio",
-      "Hipoalergénica",
-      "Peso: 12 gramos",
+      "Caja: Acero inoxidable 46mm",
+      "Movimiento: Automático cronógrafo",
+      "Cristal: Zafiro anti-reflejante",
+      "Bisel: Ruleta cálculo aviador",
+      "Funciones: Cronógrafo flyback",
+      "Correa: Cuero genuino",
+      "Resistencia: 10ATM (100m)",
       "Garantía: 3 meses"
     ],
     includes: [
-      "1 Pulsera tennis plata 925",
-      "Estuche de joyería",
-      "Certificado de autenticidad",
-      "Paño de limpieza premium",
+      "1 Reloj de aviador profesional",
+      "Regla de cálculo de navegación",
+      "Estuche especial aviador",
+      "Manual de funciones",
+      "Herramientas de ajuste",
       "Garantía 3 meses"
     ],
     benefits: [
-      "Brillo espectacular",
-      "Plata 925 auténtica",
-      "Cierre de seguridad",
-      "Ajustable a diferentes muñecas",
-      "Hipoalergénica",
+      "Ruleta de cálculo profesional",
+      "Diseño auténtico aviador",
+      "Cronógrafo flyback preciso",
+      "Movimiento automático",
+      "Ideal para pilotos",
       "Garantía de 3 meses"
     ]
   },
@@ -862,45 +788,46 @@ export const products = [
     ]
   },
 
-  // 19. Collar Elegante Plata con Perlas
+  // 19. Reloj de Lujo con Fase Lunar
   {
     id: 19,
-    name: "Collar Elegante Plata 925 con Perlas Cultivadas",
-    price: 100000,
-    originalPrice: 142857,
-    category: "joyeria-mujer",
+    name: "Reloj de Lujo con Complicación de Fase Lunar",
+    price: 450000,
+    originalPrice: 580000,
+    category: "relojes-hombre",
     image: "/assets/images/reloj32.webp",
     images: ["/assets/images/reloj32.webp"],
-    description: "Hermoso collar de plata 925 con perlas cultivadas naturales, diseño sofisticado y elegante",
-    longDescription: "Exquisito collar fabricado en plata ley 925 con perlas cultivadas de agua dulce. Diseño clásico con cadena veneciana de 45cm y perla central de 8mm. Las perlas tienen excelente lustre y forma redonda perfecta. Cierre tipo mosquetón con extensión para ajuste. Acabado en baño de rodio para mayor durabilidad. Perfecto para ocasiones especiales y uso diario elegante. Garantía de 3 meses incluida.",
+    description: "Exclusivo reloj de lujo con fase lunar, movimiento mecánico premium, diseño sofisticado",
+    longDescription: "Reloj de lujo excepcional con complicación de fase lunar de alta precisión. Caja de oro rosa de 42mm con acabado pulido. Movimiento mecánico suizo con módulo de fase lunar. Sub-esfera de fase lunar a las 6 horas con indicador de día/noche. Reserva de marcha de 48 horas. Correa de cuero de aligátor genuino con cierre desplegable. Cristal de zafiro abombado con tratamiento anti-reflejante. Fondo transparente grabado. Resistencia al agua 5ATM. Edición limitada con numeración individual. Perfecto para coleccionistas y amantes de la alta relojería. Garantía de 3 meses incluida.",
     inStock: true,
-    discount: 30,
-    sku: "JOY-COL-019",
+    discount: 22,
+    sku: "REL-LUX-LUN-019",
     stock: 100,
     specifications: [
-      "Material: Plata 925 certificada",
-      "Perlas: Cultivadas agua dulce 8mm",
-      "Longitud: 45cm con extensión",
-      "Tipo cadena: Veneciana delicada",
-      "Acabado: Baño de rodio",
-      "Cierre: Mosquetón con seguridad",
-      "Lustre: Alto brillo natural",
+      "Caja: Oro rosa 42mm",
+      "Movimiento: Mecánico suizo",
+      "Cristal: Zafiro abombado",
+      "Complicación: Fase lunar",
+      "Reserva de marcha: 48 horas",
+      "Correa: Aligátor genuino",
+      "Edición: Limitada numerada",
       "Garantía: 3 meses"
     ],
     includes: [
-      "1 Collar con perlas cultivadas",
-      "Estuche de joyería premium",
+      "1 Reloj de lujo con fase lunar",
+      "Estuche premium de madera",
       "Certificado de autenticidad",
-      "Paño de limpieza especial para perlas",
+      "Manual de complicaciones",
+      "Herramientas de ajuste",
       "Garantía 3 meses",
-      "Certificado de origen de perlas"
+      "Certificado de edición limitada"
     ],
     benefits: [
-      "Perlas naturales cultivadas",
-      "Plata 925 de alta pureza",
-      "Diseño clásico elegante",
-      "Versátil para toda ocasión",
-      "Mantenimiento fácil",
+      "Complicación de fase lunar",
+      "Movimiento mecánico suizo",
+      "Materiales premium",
+      "Edición limitada exclusiva",
+      "Reserva de marcha 48h",
       "Garantía de 3 meses"
     ]
   },
@@ -953,7 +880,5 @@ export const categories = [
   { id: 'all', name: 'Todos los productos', icon: ShoppingBag },
   { id: 'relojes-hombre', name: 'Relojes Hombre', icon: Watch },
   { id: 'relojes-mujer', name: 'Relojes Mujer', icon: Watch },
-  { id: 'relojes-deportivos', name: 'Relojes Deportivos', icon: Watch },
-  { id: 'joyeria-mujer', name: 'Joyería Mujer', icon: Gem },
-  { id: 'joyeria-hombre', name: 'Joyería Hombre', icon: Diamond }
+  { id: 'relojes-deportivos', name: 'Relojes Deportivos', icon: Watch }
 ];

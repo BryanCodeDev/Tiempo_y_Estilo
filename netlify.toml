@@ -1,6 +1,6 @@
 [build]
-  # Directorio de construcción
-  publish = "build"
+  # Directorio de construcción para Vite
+  publish = "dist"
 
   # Comando de construcción
   command = "npm run build"
