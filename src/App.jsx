@@ -180,42 +180,98 @@ function App() {
     };
   }, []);
 
+  // Función mejorada para parsear rutas de productos
+  const parseProductRoute = (path) => {
+    // Patrón para rutas de productos: /producto/{id}/{slug}
+    const productPattern = /^\/producto\/(\d+)\/(.+)$/;
+    const match = path.match(productPattern);
+
+    if (match) {
+      const productId = parseInt(match[1]);
+      const slug = match[2];
+
+      // Validar que el ID sea un número válido
+      if (isNaN(productId) || productId <= 0) {
+        return { type: 'invalid-id', id: productId, slug };
+      }
+
+      return { type: 'product', id: productId, slug };
+    }
+
+    return null;
+  };
+
+  // Función mejorada para encontrar productos
+  const findProductById = (id) => {
+    const product = products.find(p => p.id === id);
+    if (!product) {
+      return null;
+    }
+
+    // Generar el slug correcto del producto para comparación
+    const correctSlug = generateProductURL(product).split('/').pop();
+    return { product, correctSlug };
+  };
+
   // Inicializar ruta basada en URL actual
   useEffect(() => {
     const initializeRoute = () => {
       try {
         const path = window.location.pathname;
+        console.log('Inicializando ruta:', path);
+
         setCurrentRoute(path);
         setRouteError(null);
-        
-        if (path.startsWith('/producto/')) {
-          const pathParts = path.split('/');
-          const productId = parseInt(pathParts[2]);
-          
-          // Validar que el ID sea un número válido
-          if (isNaN(productId)) {
-            setRouteError({ type: 'product-not-found', route: path });
+
+        // Verificar si es una ruta de producto
+        const productRoute = parseProductRoute(path);
+
+        if (productRoute) {
+          const { type, id, slug } = productRoute;
+
+          if (type === 'invalid-id') {
+            console.warn('ID de producto inválido:', id);
+            setRouteError({ type: 'product-not-found', route: path, message: 'ID de producto inválido' });
             return;
           }
-          
-          const product = products.find(p => p.id === productId);
-          if (product) {
+
+          const result = findProductById(id);
+
+          if (result && result.product) {
+            const { product, correctSlug } = result;
+
+            // Verificar si el slug coincide (para SEO)
+            if (slug !== correctSlug) {
+              console.warn('Slug incorrecto. Esperado:', correctSlug, 'Recibido:', slug);
+              // No es un error crítico, pero podemos redirigir si es necesario
+            }
+
+            console.log('Producto encontrado:', product.name);
             setSelectedProduct(product);
             updateSEOTags(product, path);
           } else {
-            // Producto no encontrado
-            setRouteError({ type: 'product-not-found', route: path });
+            console.warn('Producto no encontrado con ID:', id);
+            setRouteError({
+              type: 'product-not-found',
+              route: path,
+              message: `Producto con ID ${id} no encontrado`
+            });
           }
         } else if (path === '/') {
+          console.log('Ruta home detectada');
           setSelectedProduct(null);
           updateSEOTags(null, path);
         } else {
-          // Ruta no reconocida
-          setRouteError({ type: '404', route: path });
+          console.warn('Ruta no reconocida:', path);
+          setRouteError({ type: '404', route: path, message: 'Página no encontrada' });
         }
       } catch (error) {
-        console.error('Error initializing route:', error);
-        setRouteError({ type: 'connection-error', route: window.location.pathname });
+        console.error('Error inicializando ruta:', error);
+        setRouteError({
+          type: 'connection-error',
+          route: window.location.pathname,
+          message: 'Error interno del servidor'
+        });
       }
     };
 
@@ -235,34 +291,59 @@ function App() {
     const handlePopState = () => {
       try {
         const path = window.location.pathname;
+        console.log('Navegación detectada:', path);
+
         setCurrentRoute(path);
         setRouteError(null);
-        
-        if (path.startsWith('/producto/')) {
-          const pathParts = path.split('/');
-          const productId = parseInt(pathParts[2]);
-          
-          if (isNaN(productId)) {
-            setRouteError({ type: 'product-not-found', route: path });
+
+        // Verificar si es una ruta de producto
+        const productRoute = parseProductRoute(path);
+
+        if (productRoute) {
+          const { type, id, slug } = productRoute;
+
+          if (type === 'invalid-id') {
+            console.warn('ID de producto inválido en navegación:', id);
+            setRouteError({ type: 'product-not-found', route: path, message: 'ID de producto inválido' });
             return;
           }
-          
-          const product = products.find(p => p.id === productId);
-          if (product) {
+
+          const result = findProductById(id);
+
+          if (result && result.product) {
+            const { product, correctSlug } = result;
+
+            // Verificar si el slug coincide (para SEO)
+            if (slug !== correctSlug) {
+              console.warn('Slug incorrecto en navegación. Esperado:', correctSlug, 'Recibido:', slug);
+            }
+
+            console.log('Producto encontrado en navegación:', product.name);
             setSelectedProduct(product);
             updateSEOTags(product, path);
           } else {
-            setRouteError({ type: 'product-not-found', route: path });
+            console.warn('Producto no encontrado en navegación con ID:', id);
+            setRouteError({
+              type: 'product-not-found',
+              route: path,
+              message: `Producto con ID ${id} no encontrado`
+            });
           }
         } else if (path === '/') {
+          console.log('Navegación a home');
           setSelectedProduct(null);
           updateSEOTags(null, path);
         } else {
-          setRouteError({ type: '404', route: path });
+          console.warn('Ruta no reconocida en navegación:', path);
+          setRouteError({ type: '404', route: path, message: 'Página no encontrada' });
         }
       } catch (error) {
-        console.error('Error handling navigation:', error);
-        setRouteError({ type: 'connection-error', route: window.location.pathname });
+        console.error('Error manejando navegación:', error);
+        setRouteError({
+          type: 'connection-error',
+          route: window.location.pathname,
+          message: 'Error interno del servidor'
+        });
       }
     };
 
