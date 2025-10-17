@@ -873,6 +873,1183 @@ export const products = [
       "Ideal para deportes extremos",
       "Garantía de 3 meses"
     ]
+  },
+
+  // 21. Reloj Deportivo Juvenil
+  {
+    id: 21,
+    name: "Reloj Deportivo Juvenil con Diseños Divertidos",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj22.webp",
+    images: ["/assets/images/reloj22.webp", "/assets/images/reloj23.webp"],
+    description: "Reloj deportivo juvenil con diseños coloridos y divertidos, perfecto para adolescentes",
+    longDescription: "Reloj deportivo diseñado especialmente para jóvenes y adolescentes. Caja de resina resistente de 40mm con diseños modernos y coloridos. Correa de silicona suave y cómoda con estampados divertidos. Pantalla digital con múltiples funciones: hora, fecha, alarma, cronómetro, luz LED. Resistencia al agua 5ATM perfecta para actividades diarias y deportes. Batería de larga duración. Diseño juvenil que combina funcionalidad con estilo único. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "REL-DEP-JUV-021",
+    stock: 100,
+    specifications: [
+      "Caja: Resina 40mm resistente",
+      "Pantalla: Digital LCD con luz LED",
+      "Correa: Silicona estampada",
+      "Resistencia: 5ATM (50m)",
+      "Funciones: Hora, fecha, alarma, cronómetro",
+      "Batería: Larga duración",
+      "Diseños: Múltiples estampados",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj deportivo juvenil",
+      "Manual de instrucciones",
+      "Garantía 3 meses",
+      "Caja de almacenamiento"
+    ],
+    benefits: [
+      "Diseños divertidos y modernos",
+      "Resistente al agua",
+      "Múltiples funciones",
+      "Batería duradera",
+      "Cómodo para uso diario",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 22. Reloj Clásico Ejecutivo Premium
+  {
+    id: 22,
+    name: "Reloj Clásico Ejecutivo con Calendario",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-hombre",
+    image: "/assets/images/reloj34.webp",
+    images: ["/assets/images/reloj34.webp", "/assets/images/reloj35.webp"],
+    description: "Reloj clásico ejecutivo con calendario completo, movimiento automático, elegante y sofisticado",
+    longDescription: "Reloj clásico de alta gama diseñado para ejecutivos exigentes. Caja de acero inoxidable de 42mm con acabado pulido. Movimiento automático japonés con calendario completo: día, fecha y mes. Ventanas de calendario a las 12, 3 y 9 horas. Correa de cuero genuino italiano con cierre de hebilla. Cristal de zafiro resistente a rayones. Fondo transparente para apreciar el movimiento mecánico. Resistencia al agua 5ATM. Perfecto para el profesional que busca precisión y distinción. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 25,
+    sku: "REL-CLA-EJE-022",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 42mm",
+      "Movimiento: Automático calendario",
+      "Cristal: Zafiro resistente",
+      "Funciones: Día, fecha, mes",
+      "Resistencia: 5ATM (50 metros)",
+      "Correa: Cuero genuino italiano",
+      "Fondo: Transparente",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj clásico ejecutivo",
+      "Estuche premium de presentación",
+      "Manual de usuario detallado",
+      "Herramientas de ajuste",
+      "Garantía 3 meses",
+      "Paño de limpieza"
+    ],
+    benefits: [
+      "Calendario automático completo",
+      "Movimiento automático preciso",
+      "Cristal de zafiro",
+      "Diseño ejecutivo elegante",
+      "Fondo transparente",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 23. Reloj Deportivo Acuático Profesional
+  {
+    id: 23,
+    name: "Reloj Deportivo Acuático Sumergible 300m",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj36.webp",
+    images: ["/assets/images/reloj36.webp"],
+    description: "Reloj deportivo profesional para buceo profundo, sumergible 300m con válvula de helio",
+    longDescription: "Reloj deportivo profesional diseñado para buceo técnico y actividades acuáticas extremas. Caja de acero inoxidable 316L de 45mm con tratamiento PVD negro. Bisel giratorio unidireccional con escala de 60 minutos. Válvula automática de helio para descompresión. Movimiento automático japonés con reserva de marcha de 40 horas. Cristal de zafiro con tratamiento anti-reflejante. Correa de acero inoxidable con extensión para traje de buceo. Resistencia al agua 300 metros (30ATM). Perfecto para buceo profesional, submarinismo técnico y deportes acuáticos extremos. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 20,
+    sku: "REL-DEP-ACU-023",
+    stock: 100,
+    specifications: [
+      "Caja: Acero 316L 45mm PVD negro",
+      "Movimiento: Automático japonés",
+      "Cristal: Zafiro anti-reflejante",
+      "Bisel: Giratorio unidireccional",
+      "Resistencia: 300m (30ATM)",
+      "Válvula: Helio automática",
+      "Correa: Acero con extensión",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj acuático profesional",
+      "Herramientas de mantenimiento",
+      "Manual técnico de buceo",
+      "Estuche resistente al agua",
+      "Garantía 3 meses",
+      "Certificado de profundidad"
+    ],
+    benefits: [
+      "Sumergible hasta 300 metros",
+      "Válvula de helio profesional",
+      "Movimiento automático",
+      "Bisel profesional de buceo",
+      "Ideal para buceo extremo",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 24. Reloj Elegante para Mujer con Diamantes
+  {
+    id: 24,
+    name: "Reloj Elegante para Mujer con Incrustaciones",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-mujer",
+    image: "/assets/images/reloj37.webp",
+    images: ["/assets/images/reloj37.webp", "/assets/images/reloj38.webp"],
+    description: "Reloj femenino elegante con incrustaciones de cristal, diseño sofisticado y refinado",
+    longDescription: "Reloj para mujer de diseño exclusivo y sofisticado. Caja de acero inoxidable de 28mm con acabado pulido. Esfera con incrustaciones de cristal que reflejan la luz elegantemente. Movimiento de cuarzo suizo de alta precisión. Correa de cuero genuino italiano ajustable. Cristal de zafiro resistente a rayones. Resistencia al agua 3ATM. Perfecto para la mujer elegante que busca un accesorio refinado para ocasiones especiales y uso diario. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 25,
+    sku: "REL-MUJ-DIA-024",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 28mm",
+      "Movimiento: Cuarzo suizo",
+      "Cristal: Zafiro resistente",
+      "Correa: Cuero genuino italiano",
+      "Resistencia: 3ATM (30m)",
+      "Esfera: Con incrustaciones de cristal",
+      "Peso: 32 gramos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj elegante para mujer",
+      "Estuche de presentación elegante",
+      "Manual de usuario",
+      "Garantía 3 meses",
+      "Paño de limpieza"
+    ],
+    benefits: [
+      "Diseño clásico elegante",
+      "Cristal de zafiro",
+      "Movimiento suizo preciso",
+      "Incrustaciones exclusivas",
+      "Correa de cuero premium",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 25. Reloj Deportivo Multifunción
+  {
+    id: 25,
+    name: "Reloj Deportivo Multifunción con GPS",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj39.webp",
+    images: ["/assets/images/reloj39.webp", "/assets/images/reloj40.webp"],
+    description: "Reloj deportivo avanzado con GPS integrado, monitor cardíaco y múltiples modos deportivos",
+    longDescription: "Smartwatch deportivo de última generación con funciones avanzadas de fitness. Pantalla LCD de 1.4 pulgadas con retroiluminación. GPS integrado de alta precisión para rastreo de rutas. Monitor de frecuencia cardíaca 24/7, contador de pasos, calorías y distancia. Más de 20 modos deportivos: running, ciclismo, natación, gym, yoga. Notificaciones de llamadas y mensajes. Batería de hasta 10 días de duración. Correa de silicona ajustable. Resistencia al agua 5ATM. Perfecto para deportistas que buscan seguimiento preciso de su rendimiento. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "REL-DEP-GPS-025",
+    stock: 100,
+    specifications: [
+      "Pantalla: LCD 1.4\" con luz",
+      "GPS: Integrado de alta precisión",
+      "Sensores: Cardíaco óptico, acelerómetro",
+      "Batería: 10 días de duración",
+      "Resistencia: 5ATM (50 metros)",
+      "Correa: Silicona ajustable",
+      "Modos deportivos: 20+",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj deportivo GPS",
+      "Cable de carga USB",
+      "Manual de usuario",
+      "App móvil gratuita",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "GPS integrado preciso",
+      "Monitoreo cardíaco 24/7",
+      "Múltiples modos deportivos",
+      "Batería de larga duración",
+      "Resistente al agua",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 26. Reloj Clásico Automático con Fase Lunar
+  {
+    id: 26,
+    name: "Reloj Clásico Automático con Fase Lunar",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-hombre",
+    image: "/assets/images/reloj41.webp",
+    images: ["/assets/images/reloj41.webp"],
+    description: "Exclusivo reloj automático con complicación de fase lunar, movimiento mecánico premium",
+    longDescription: "Reloj automático excepcional con complicación de fase lunar de alta precisión. Caja de acero inoxidable de 40mm con acabado pulido. Movimiento mecánico japonés con módulo de fase lunar. Sub-esfera de fase lunar a las 6 horas con indicador de día/noche. Reserva de marcha de 42 horas. Correa de cuero genuino italiano con cierre desplegable. Cristal de zafiro resistente a rayones. Fondo transparente para ver el movimiento mecánico. Resistencia al agua 5ATM. Perfecto para amantes de la relojería tradicional y las complicaciones clásicas. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 22,
+    sku: "REL-AUT-LUN-026",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 40mm",
+      "Movimiento: Automático mecánico",
+      "Cristal: Zafiro resistente",
+      "Complicación: Fase lunar",
+      "Reserva de marcha: 42 horas",
+      "Correa: Cuero genuino italiano",
+      "Fondo: Transparente",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj automático con fase lunar",
+      "Estuche premium de madera",
+      "Certificado de autenticidad",
+      "Manual de complicaciones",
+      "Herramientas de ajuste",
+      "Garantía 3 meses",
+      "Paño de limpieza microfibra"
+    ],
+    benefits: [
+      "Complicación de fase lunar",
+      "Movimiento automático premium",
+      "Cristal de zafiro",
+      "Fondo transparente elegante",
+      "Relojería tradicional",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 27. Reloj Deportivo con Variantes de Color
+  {
+    id: 27,
+    name: "Reloj Deportivo Colorido para Jóvenes",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj42.webp",
+    images: ["/assets/images/reloj42.webp", "/assets/images/reloj43.webp", "/assets/images/reloj44.webp"],
+    description: "Reloj deportivo juvenil con colores vibrantes, resistente al agua, perfecto para actividades",
+    longDescription: "Reloj deportivo diseñado para jóvenes activos con estilo único. Caja de resina resistente de 42mm con colores vibrantes. Correa de silicona suave y cómoda. Pantalla digital con múltiples funciones: hora, fecha, alarma, cronómetro. Resistencia al agua 5ATM perfecta para natación y deportes acuáticos. Batería de larga duración. Diseño moderno y juvenil que combina funcionalidad con estilo. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "REL-DEP-COL-027",
+    stock: 100,
+    hasVariants: true,
+    variants: [
+      {
+        id: "amarillo",
+        name: "Amarillo Brillante",
+        color: "#FDE047",
+        sku: "REL-DEP-COL-027-AMA",
+        inStock: true,
+        stock: 100
+      },
+      {
+        id: "naranja",
+        name: "Naranja Vibrante",
+        color: "#FB923C",
+        sku: "REL-DEP-COL-027-NAR",
+        inStock: true,
+        stock: 100
+      },
+      {
+        id: "rosa",
+        name: "Rosa Fucsia",
+        color: "#EC4899",
+        sku: "REL-DEP-COL-027-ROS",
+        inStock: true,
+        stock: 100
+      }
+    ],
+    specifications: [
+      "Caja: Resina 42mm resistente",
+      "Pantalla: Digital LCD",
+      "Correa: Silicona suave",
+      "Resistencia: 5ATM (50m)",
+      "Funciones: Hora, fecha, alarma, cronómetro",
+      "Batería: Larga duración",
+      "Colores: Amarillo, Naranja, Rosa",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj deportivo colorido",
+      "Manual de instrucciones",
+      "Garantía 3 meses",
+      "Caja de almacenamiento"
+    ],
+    benefits: [
+      "Diseño juvenil y moderno",
+      "Colores vibrantes",
+      "Resistente al agua",
+      "Múltiples funciones",
+      "Batería duradera",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 28. Reloj de Lujo Cronógrafo Automático
+  {
+    id: 28,
+    name: "Reloj Cronógrafo Automático de Lujo",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-hombre",
+    image: "/assets/images/reloj45.webp",
+    images: ["/assets/images/reloj45.webp", "/assets/images/reloj46.webp"],
+    description: "Reloj cronógrafo automático de lujo con movimiento mecánico, reserva de marcha 48 horas",
+    longDescription: "Reloj cronógrafo de alta gama con movimiento automático mecánico. Caja de acero inoxidable 316L de 44mm con acabado pulido. Movimiento automático de 25 rubíes con reserva de marcha de 48 horas. Funciones: cronógrafo, taquímetro, calendario completo. Sub-esferas para cronómetro, segundero y fecha. Bisel taquimétrico grabado. Correa de acero inoxidable con cierre desplegable de seguridad. Cristal de zafiro con tratamiento anti-reflejante. Fondo transparente para apreciar el movimiento mecánico. Resistencia al agua 10ATM. Perfecto para el caballero que valora la precisión y la artesanía fina. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 20,
+    sku: "REL-CRO-AUT-028",
+    stock: 100,
+    specifications: [
+      "Caja: Acero 316L de 44mm",
+      "Movimiento: Automático 25 rubíes",
+      "Cristal: Zafiro anti-reflejante",
+      "Funciones: Cronógrafo, taquímetro",
+      "Reserva de marcha: 48 horas",
+      "Correa: Acero inoxidable",
+      "Bisel: Taquimétrico grabado",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj cronógrafo automático",
+      "Estuche de madera premium",
+      "Certificado de autenticidad",
+      "Manual de usuario detallado",
+      "Garantía 3 meses",
+      "Herramienta de ajuste",
+      "Paño de microfibra"
+    ],
+    benefits: [
+      "Movimiento automático premium",
+      "Reserva de marcha 48 horas",
+      "Cristal de zafiro indestructible",
+      "Funciones profesionales",
+      "Diseño de lujo exclusivo",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 29. Reloj Inteligente Premium
+  {
+    id: 29,
+    name: "Smartwatch Premium con Pantalla AMOLED",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj47.webp",
+    images: ["/assets/images/reloj47.webp", "/assets/images/reloj48.webp"],
+    description: "Smartwatch premium con pantalla AMOLED, monitor avanzado de salud, GPS y batería de larga duración",
+    longDescription: "Smartwatch de última generación con pantalla táctil AMOLED de 1.5 pulgadas. Monitor avanzado de frecuencia cardíaca 24/7, oxígeno en sangre, calidad de sueño y estrés. Más de 100 modos deportivos con GPS integrado. Notificaciones inteligentes de llamadas, mensajes y apps. Batería de hasta 14 días de duración. Resistencia al agua 5ATM (natación). Compatible con iOS y Android. Correa de silicona premium intercambiable. Perfecto para fitness, salud y vida conectada. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 25,
+    sku: "REL-SMART-PRE-029",
+    stock: 100,
+    specifications: [
+      "Pantalla: AMOLED 1.5\" táctil",
+      "Sensores: Cardíaco, SpO2, estrés",
+      "GPS: Integrado de alta precisión",
+      "Batería: 14 días de uso",
+      "Resistencia: 5ATM sumergible",
+      "Compatibilidad: iOS y Android",
+      "Correa: Silicona premium 22mm",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Smartwatch premium",
+      "Cable de carga magnético",
+      "Manual en español",
+      "Correa adicional de regalo",
+      "App móvil gratuita",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "Pantalla AMOLED brillante",
+      "Monitoreo de salud avanzado",
+      "100+ modos deportivos",
+      "Batería de larga duración",
+      "Resistente al agua para natación",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 30. Reloj Clásico para Mujer con Perlas
+  {
+    id: 30,
+    name: "Reloj Clásico Femenino con Detalles de Perlas",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-mujer",
+    image: "/assets/images/reloj49.webp",
+    images: ["/assets/images/reloj49.webp"],
+    description: "Elegante reloj clásico para mujer con detalles de perlas cultivadas, diseño sofisticado",
+    longDescription: "Reloj clásico de dama con diseño sofisticado y detalles exclusivos de perlas cultivadas. Caja de acero inoxidable de 30mm con acabado pulido. Esfera con índices de perlas naturales que reflejan la luz elegantemente. Movimiento de cuarzo suizo de alta precisión. Correa de cuero genuino italiano ajustable. Cristal de zafiro resistente a rayones. Resistencia al agua 3ATM. Perfecto para la mujer elegante que busca un accesorio refinado y único para ocasiones especiales. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 25,
+    sku: "REL-CLA-PER-030",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 30mm",
+      "Movimiento: Cuarzo suizo",
+      "Cristal: Zafiro resistente",
+      "Correa: Cuero genuino italiano",
+      "Resistencia: 3ATM (30m)",
+      "Esfera: Con perlas cultivadas",
+      "Peso: 35 gramos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj clásico con perlas",
+      "Estuche de presentación elegante",
+      "Manual de usuario",
+      "Garantía 3 meses",
+      "Paño de limpieza"
+    ],
+    benefits: [
+      "Diseño clásico elegante",
+      "Perlas cultivadas naturales",
+      "Cristal de zafiro",
+      "Movimiento suizo preciso",
+      "Correa de cuero premium",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 31. Reloj Deportivo Ultra Resistente
+  {
+    id: 31,
+    name: "Reloj Deportivo Ultra Resistente para Deportes Extremos",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj50.webp",
+    images: ["/assets/images/reloj50.webp", "/assets/images/reloj51.webp"],
+    description: "Reloj deportivo ultra resistente para deportes extremos, sumergible 100m con protección reforzada",
+    longDescription: "Reloj deportivo diseñado para condiciones extremas y deportes de alto impacto. Caja de acero inoxidable reforzado de 46mm con tratamiento PVD negro. Cristal mineral resistente con tratamiento anti-golpes. Movimiento de cuarzo japonés de alta precisión. Correa de silicona reforzada con cierre de seguridad. Resistencia al agua 10ATM (100 metros). Protección contra golpes, vibraciones y temperaturas extremas. Perfecto para deportes extremos, militares y actividades outdoor intensas. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "REL-DEP-EXT-031",
+    stock: 100,
+    specifications: [
+      "Caja: Acero reforzado 46mm PVD",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Mineral anti-golpes",
+      "Resistencia: 10ATM (100 metros)",
+      "Correa: Silicona reforzada",
+      "Protección: Golpes y vibraciones",
+      "Peso: 65 gramos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj deportivo ultra resistente",
+      "Herramientas de ajuste",
+      "Manual técnico detallado",
+      "Estuche resistente al agua",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "Ultra resistente a golpes",
+      "Sumergible hasta 100 metros",
+      "Movimiento de alta precisión",
+      "Diseño robusto y duradero",
+      "Ideal para deportes extremos",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 32. Reloj de Aviador con Brújula
+  {
+    id: 32,
+    name: "Reloj de Aviador Profesional con Brújula",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-hombre",
+    image: "/assets/images/reloj52.webp",
+    images: ["/assets/images/reloj52.webp"],
+    description: "Reloj de aviador profesional con brújula integrada, ruleta de cálculo y diseño auténtico",
+    longDescription: "Auténtico reloj de aviador con diseño inspirado en la aviación clásica y funciones profesionales. Caja de acero inoxidable de 48mm con acabado cepillado. Bisel giratorio bidireccional con ruleta de cálculo para conversiones de vuelo. Brújula integrada en el bisel interno. Movimiento automático con cronógrafo y función flyback. Sub-esferas para cronómetro y segundos. Correa de cuero genuino con remaches. Cristal de zafiro con tratamiento anti-reflejante. Resistencia al agua 10ATM. Incluye regla de cálculo para navegación aérea. Perfecto para pilotos profesionales y entusiastas de la aviación. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 20,
+    sku: "REL-AVI-BRU-032",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 48mm",
+      "Movimiento: Automático cronógrafo",
+      "Cristal: Zafiro anti-reflejante",
+      "Bisel: Ruleta cálculo aviador",
+      "Brújula: Integrada",
+      "Funciones: Cronógrafo flyback",
+      "Correa: Cuero genuino",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj de aviador profesional",
+      "Brújula de navegación",
+      "Regla de cálculo de vuelo",
+      "Estuche especial aviador",
+      "Manual de funciones",
+      "Herramientas de ajuste",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "Brújula integrada profesional",
+      "Ruleta de cálculo aviador",
+      "Diseño auténtico aviador",
+      "Cronógrafo flyback preciso",
+      "Movimiento automático",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 33. Reloj Inteligente Deportivo
+  {
+    id: 33,
+    name: "Reloj Inteligente Deportivo con Monitor Avanzado",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj53.webp",
+    images: ["/assets/images/reloj53.webp", "/assets/images/reloj54.webp"],
+    description: "Smartwatch deportivo con monitor avanzado de salud, GPS y múltiples sensores",
+    longDescription: "Smartwatch deportivo avanzado con tecnología de punta para seguimiento completo de fitness. Pantalla LCD de 1.4 pulgadas con retroiluminación LED. Sensores avanzados: frecuencia cardíaca, oxígeno en sangre, presión arterial, calidad de sueño. GPS integrado para rastreo preciso de rutas. Más de 50 modos deportivos profesionales. Notificaciones inteligentes y control de música. Batería de hasta 12 días de duración. Correa de silicona deportiva ajustable. Resistencia al agua 5ATM. Compatible con iOS y Android. Perfecto para atletas serios y entusiastas del fitness. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 28,
+    sku: "REL-SMART-DEP-033",
+    stock: 100,
+    specifications: [
+      "Pantalla: LCD 1.4\" con luz LED",
+      "Sensores: Cardíaco, SpO2, presión",
+      "GPS: Integrado de alta precisión",
+      "Batería: 12 días de duración",
+      "Resistencia: 5ATM (50 metros)",
+      "Correa: Silicona deportiva",
+      "Modos deportivos: 50+",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Smartwatch deportivo avanzado",
+      "Cable de carga USB",
+      "Manual de usuario",
+      "App móvil gratuita",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "Sensores médicos avanzados",
+      "GPS integrado preciso",
+      "Múltiples modos deportivos",
+      "Batería de larga duración",
+      "Resistente al agua",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 34. Reloj de Lujo con Tourbillon
+  {
+    id: 34,
+    name: "Reloj de Lujo con Complicación Tourbillon",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-hombre",
+    image: "/assets/images/reloj55.webp",
+    images: ["/assets/images/reloj55.webp"],
+    description: "Exclusivo reloj de lujo con tourbillon, movimiento mecánico premium, edición limitada",
+    longDescription: "Reloj de lujo excepcional con la complicación más prestigiosa de la alta relojería: el tourbillon. Caja de oro rosa de 44mm con acabado pulido. Movimiento mecánico suizo con tourbillon visible a las 6 horas. Reserva de marcha de 72 horas. Correa de cuero de aligátor genuino con cierre desplegable. Cristal de zafiro abombado con tratamiento anti-reflejante. Fondo transparente para apreciar el tourbillon en funcionamiento. Resistencia al agua 5ATM. Edición limitada numerada individualmente. Perfecto para coleccionistas y amantes de la alta relojería tradicional. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 15,
+    sku: "REL-LUX-TOU-034",
+    stock: 100,
+    specifications: [
+      "Caja: Oro rosa 44mm",
+      "Movimiento: Mecánico suizo tourbillon",
+      "Cristal: Zafiro abombado",
+      "Complicación: Tourbillon visible",
+      "Reserva de marcha: 72 horas",
+      "Correa: Aligátor genuino",
+      "Edición: Limitada numerada",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj de lujo con tourbillon",
+      "Estuche premium de madera",
+      "Certificado de autenticidad",
+      "Manual de complicaciones",
+      "Herramientas de ajuste",
+      "Garantía 3 meses",
+      "Certificado de edición limitada"
+    ],
+    benefits: [
+      "Tourbillon visible prestigioso",
+      "Movimiento mecánico suizo",
+      "Materiales premium",
+      "Edición limitada exclusiva",
+      "Reserva de marcha 72h",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 35. Reloj Deportivo con Variantes Metálicas
+  {
+    id: 35,
+    name: "Reloj Deportivo Elegante con Correa Metálica",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj56.webp",
+    images: ["/assets/images/reloj56.webp", "/assets/images/reloj57.webp"],
+    description: "Reloj deportivo elegante con correa metálica, diseño sofisticado para uso diario",
+    longDescription: "Reloj deportivo con diseño elegante y correa metálica premium. Caja de acero inoxidable de 42mm con acabado deportivo. Correa metálica tipo milanés ajustable sin herramientas. Movimiento de cuarzo japonés de alta precisión. Cristal mineral resistente a rayones. Resistencia al agua 5ATM (50 metros). Esfera con números luminosos para fácil lectura. Perfecto para actividades deportivas y uso diario elegante. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "REL-DEP-MET-035",
+    stock: 100,
+    hasVariants: true,
+    variants: [
+      {
+        id: "plateado",
+        name: "Plateado Clásico",
+        color: "#C0C0C0",
+        sku: "REL-DEP-MET-035-PLA",
+        inStock: true,
+        stock: 100
+      },
+      {
+        id: "dorado",
+        name: "Dorado Elegante",
+        color: "#D4AF37",
+        sku: "REL-DEP-MET-035-DOR",
+        inStock: true,
+        stock: 100
+      }
+    ],
+    specifications: [
+      "Caja: Acero inoxidable 42mm",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Mineral resistente",
+      "Correa: Metálica milanesa",
+      "Resistencia al agua: 5ATM (50m)",
+      "Esfera: Números luminosos",
+      "Peso: 48 gramos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj deportivo metálico",
+      "Estuche de presentación",
+      "Manual de usuario",
+      "Garantía 3 meses",
+      "Paño de limpieza"
+    ],
+    benefits: [
+      "Diseño deportivo elegante",
+      "Correa metálica premium",
+      "Resistente al agua",
+      "Números luminosos",
+      "Cómodo para uso diario",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 36. Reloj Clásico para Mujer con Diamantes
+  {
+    id: 36,
+    name: "Reloj Clásico Femenino con Diamantes Naturales",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-mujer",
+    image: "/assets/images/reloj58.webp",
+    images: ["/assets/images/reloj58.webp"],
+    description: "Elegante reloj clásico para mujer con diamantes naturales, diseño exclusivo y sofisticado",
+    longDescription: "Reloj clásico de dama con diseño sofisticado y diamantes naturales en la esfera. Caja de acero inoxidable de 26mm con acabado pulido. Esfera con 12 diamantes naturales que reflejan la luz elegantemente. Movimiento de cuarzo suizo de alta precisión. Correa de cuero genuino italiano ajustable. Cristal de zafiro resistente a rayones. Resistencia al agua 3ATM. Perfecto para la mujer elegante que busca un accesorio refinado y exclusivo para ocasiones especiales. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 20,
+    sku: "REL-CLA-DIA-036",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 26mm",
+      "Movimiento: Cuarzo suizo",
+      "Cristal: Zafiro resistente",
+      "Correa: Cuero genuino italiano",
+      "Resistencia: 3ATM (30m)",
+      "Esfera: Con 12 diamantes naturales",
+      "Peso: 30 gramos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj clásico con diamantes",
+      "Estuche de presentación elegante",
+      "Certificado de diamantes",
+      "Manual de usuario",
+      "Garantía 3 meses",
+      "Paño de limpieza"
+    ],
+    benefits: [
+      "Diamantes naturales certificados",
+      "Cristal de zafiro",
+      "Movimiento suizo preciso",
+      "Diseño exclusivo",
+      "Correa de cuero premium",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 37. Reloj Deportivo Profesional
+  {
+    id: 37,
+    name: "Reloj Deportivo Profesional para Atletas",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj59.webp",
+    images: ["/assets/images/reloj59.webp", "/assets/images/reloj60.webp"],
+    description: "Reloj deportivo profesional para atletas de alto rendimiento, con funciones avanzadas",
+    longDescription: "Reloj deportivo diseñado para atletas profesionales y entrenadores exigentes. Caja de resina reforzada de 48mm con tratamiento anti-golpes. Pantalla digital grande con retroiluminación LED. Funciones avanzadas: cronómetro profesional, temporizador de intervalos, vuelta automática, memoria de tiempos. Resistencia al agua 10ATM (100 metros). Correa de silicona reforzada con cierre de seguridad. Batería de larga duración. Perfecto para atletismo, natación profesional y entrenamientos intensos. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "REL-DEP-PRO-037",
+    stock: 100,
+    specifications: [
+      "Caja: Resina reforzada 48mm",
+      "Pantalla: Digital grande con LED",
+      "Resistencia: 10ATM (100 metros)",
+      "Correa: Silicona reforzada",
+      "Funciones: Cronómetro profesional",
+      "Batería: Larga duración",
+      "Peso: 55 gramos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj deportivo profesional",
+      "Manual de instrucciones",
+      "Garantía 3 meses",
+      "Caja de almacenamiento"
+    ],
+    benefits: [
+      "Funciones profesionales",
+      "Resistente a golpes extremos",
+      "Sumergible hasta 100 metros",
+      "Batería de larga duración",
+      "Ideal para atletas",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 38. Reloj de Lujo Skeleton
+  {
+    id: 38,
+    name: "Reloj de Lujo Skeleton Automático",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-hombre",
+    image: "/assets/images/reloj61.webp",
+    images: ["/assets/images/reloj61.webp"],
+    description: "Exclusivo reloj skeleton automático con movimiento visible, diseño transparente elegante",
+    longDescription: "Reloj skeleton de lujo que permite apreciar el movimiento mecánico en funcionamiento. Caja de acero inoxidable de 42mm con acabado pulido. Movimiento automático skeleton de 21 rubíes con reserva de marcha de 40 horas. Esfera transparente que muestra todos los componentes del movimiento. Correa de cuero genuino italiano con cierre de hebilla. Cristal de zafiro resistente a rayones en ambos lados. Fondo transparente para ver el movimiento desde atrás. Resistencia al agua 3ATM. Perfecto para amantes de la relojería que valoran la transparencia mecánica. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 25,
+    sku: "REL-LUX-SKE-038",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 42mm",
+      "Movimiento: Automático skeleton",
+      "Cristal: Zafiro ambos lados",
+      "Reserva de marcha: 40 horas",
+      "Correa: Cuero genuino italiano",
+      "Esfera: Transparente",
+      "Fondo: Transparente",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj skeleton de lujo",
+      "Estuche premium de madera",
+      "Manual de usuario detallado",
+      "Garantía 3 meses",
+      "Paño de limpieza microfibra"
+    ],
+    benefits: [
+      "Movimiento visible elegante",
+      "Cristal de zafiro ambos lados",
+      "Movimiento automático premium",
+      "Diseño transparente exclusivo",
+      "Relojería tradicional",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 39. Reloj Inteligente con Música
+  {
+    id: 39,
+    name: "Smartwatch con Control de Música Integrado",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj62.webp",
+    images: ["/assets/images/reloj62.webp", "/assets/images/reloj63.webp"],
+    description: "Smartwatch con control de música, llamadas Bluetooth y funciones inteligentes avanzadas",
+    longDescription: "Smartwatch multifunción con características avanzadas para el estilo de vida moderno. Pantalla táctil AMOLED de 1.3 pulgadas. Control de música integrado con almacenamiento para 500 canciones. Función de llamadas Bluetooth manos libres. Notificaciones de llamadas, mensajes y redes sociales. Seguimiento de actividad física, sueño y calorías. Más de 30 modos deportivos. GPS integrado. Batería de hasta 8 días de duración. Correa de silicona intercambiable. Resistencia al agua IP67. Compatible con iOS y Android. Perfecto para quienes buscan tecnología completa en su muñeca. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "REL-SMART-MUS-039",
+    stock: 100,
+    specifications: [
+      "Pantalla: AMOLED 1.3\" táctil",
+      "Música: 500 canciones almacenamiento",
+      "Llamadas: Bluetooth manos libres",
+      "GPS: Integrado",
+      "Batería: 8 días de duración",
+      "Resistencia: IP67",
+      "Correa: Silicona intercambiable",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Smartwatch con música",
+      "Cable de carga USB",
+      "Audífonos Bluetooth de regalo",
+      "Manual de usuario",
+      "App móvil gratuita",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "Control de música integrado",
+      "Llamadas manos libres",
+      "Pantalla AMOLED brillante",
+      "GPS integrado preciso",
+      "Batería de larga duración",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 40. Reloj Clásico para Mujer Minimalista
+  {
+    id: 40,
+    name: "Reloj Clásico Minimalista para Mujer",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-mujer",
+    image: "/assets/images/reloj64.webp",
+    images: ["/assets/images/reloj64.webp"],
+    description: "Reloj clásico minimalista para mujer, diseño simple y elegante, perfecto para uso diario",
+    longDescription: "Reloj clásico con diseño minimalista y elegante para la mujer moderna. Caja de acero inoxidable de 32mm con acabado pulido. Esfera minimalista con índices delgados y manecillas elegantes. Movimiento de cuarzo japonés de alta precisión. Correa de cuero genuino italiano ajustable. Cristal mineral resistente a rayones. Resistencia al agua 3ATM. Perfecto para la mujer que busca simplicidad elegante y funcionalidad en su accesorio diario. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "REL-CLA-MIN-040",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 32mm",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Mineral resistente",
+      "Correa: Cuero genuino italiano",
+      "Resistencia: 3ATM (30m)",
+      "Esfera: Diseño minimalista",
+      "Peso: 38 gramos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj clásico minimalista",
+      "Estuche de presentación",
+      "Manual de usuario",
+      "Garantía 3 meses",
+      "Paño de limpieza"
+    ],
+    benefits: [
+      "Diseño minimalista elegante",
+      "Movimiento preciso japonés",
+      "Correa de cuero premium",
+      "Resistente al uso diario",
+      "Versátil para toda ocasión",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 41. Reloj Deportivo con Pulsómetro
+  {
+    id: 41,
+    name: "Reloj Deportivo con Pulsómetro Continuo",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj65.webp",
+    images: ["/assets/images/reloj65.webp", "/assets/images/reloj66.webp"],
+    description: "Reloj deportivo con pulsómetro continuo, funciones avanzadas de fitness y entrenamiento",
+    longDescription: "Reloj deportivo avanzado con tecnología de pulsómetro continuo para seguimiento cardíaco 24/7. Pantalla LCD de 1.3 pulgadas con retroiluminación. Monitor de frecuencia cardíaca óptico de alta precisión. Zonas de entrenamiento cardíaco programables. Contador de pasos, distancia y calorías. Modos deportivos específicos con alertas de ritmo. GPS integrado para rutas precisas. Notificaciones de llamadas y mensajes. Batería de hasta 7 días de duración. Correa de silicona ajustable. Resistencia al agua 5ATM. Perfecto para corredores, ciclistas y atletas que buscan optimizar su entrenamiento. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 28,
+    sku: "REL-DEP-PUL-041",
+    stock: 100,
+    specifications: [
+      "Pantalla: LCD 1.3\" con luz",
+      "Pulsómetro: Óptico continuo",
+      "GPS: Integrado",
+      "Batería: 7 días de duración",
+      "Resistencia: 5ATM (50 metros)",
+      "Correa: Silicona ajustable",
+      "Modos: Entrenamiento cardíaco",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj deportivo pulsómetro",
+      "Cable de carga USB",
+      "Manual de usuario",
+      "App móvil gratuita",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "Pulsómetro continuo preciso",
+      "Zonas de entrenamiento",
+      "GPS integrado preciso",
+      "Múltiples modos deportivos",
+      "Batería de larga duración",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 42. Reloj de Lujo con Calendario Perpetuo
+  {
+    id: 42,
+    name: "Reloj de Lujo con Calendario Perpetuo Automático",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-hombre",
+    image: "/assets/images/reloj67.webp",
+    images: ["/assets/images/reloj67.webp"],
+    description: "Exclusivo reloj de lujo con calendario perpetuo automático, movimiento mecánico premium",
+    longDescription: "Reloj de lujo excepcional con calendario perpetuo automático que no necesita ajuste hasta el año 2100. Caja de platino de 40mm con acabado pulido. Movimiento mecánico suizo con calendario completo: día, fecha, mes y año. Ventanas de calendario a las 12, 3 y 9 horas. Reserva de marcha de 55 horas. Correa de cuero de aligátor genuino con cierre desplegable. Cristal de zafiro abombado con tratamiento anti-reflejante. Fondo transparente grabado. Resistencia al agua 5ATM. Edición limitada con numeración individual. Perfecto para coleccionistas y amantes de las complicaciones relojeras. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 18,
+    sku: "REL-LUX-PER-042",
+    stock: 100,
+    specifications: [
+      "Caja: Platino 40mm",
+      "Movimiento: Mecánico suizo",
+      "Cristal: Zafiro abombado",
+      "Calendario: Perpetuo automático",
+      "Reserva de marcha: 55 horas",
+      "Correa: Aligátor genuino",
+      "Edición: Limitada numerada",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj de lujo calendario perpetuo",
+      "Estuche premium de madera",
+      "Certificado de autenticidad",
+      "Manual de complicaciones",
+      "Herramientas de ajuste",
+      "Garantía 3 meses",
+      "Certificado de edición limitada"
+    ],
+    benefits: [
+      "Calendario perpetuo automático",
+      "Movimiento mecánico suizo",
+      "Materiales preciosos",
+      "Edición limitada exclusiva",
+      "Reserva de marcha 55h",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 43. Reloj Deportivo Juvenil con Diseños
+  {
+    id: 43,
+    name: "Reloj Deportivo Juvenil con Diseños Animados",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj68.webp",
+    images: ["/assets/images/reloj68.webp", "/assets/images/reloj69.webp", "/assets/images/reloj70.webp"],
+    description: "Reloj deportivo juvenil con diseños animados divertidos, perfecto para niños y adolescentes",
+    longDescription: "Reloj deportivo diseñado especialmente para jóvenes con diseños animados divertidos y coloridos. Caja de resina resistente de 38mm con estampados únicos. Correa de silicona suave y cómoda con diseños temáticos. Pantalla digital con múltiples funciones: hora, fecha, alarma, cronómetro, luz LED. Resistencia al agua 5ATM perfecta para actividades diarias y deportes. Batería de larga duración. Diseño moderno y juvenil que combina funcionalidad con entretenimiento. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "REL-DEP-ANI-043",
+    stock: 100,
+    hasVariants: true,
+    variants: [
+      {
+        id: "superheroes",
+        name: "Superhéroes",
+        color: "#3B82F6",
+        sku: "REL-DEP-ANI-043-SUP",
+        inStock: true,
+        stock: 100
+      },
+      {
+        id: "deportes",
+        name: "Deportes Extremos",
+        color: "#EF4444",
+        sku: "REL-DEP-ANI-043-DEP",
+        inStock: true,
+        stock: 100
+      },
+      {
+        id: "animales",
+        name: "Animales Divertidos",
+        color: "#10B981",
+        sku: "REL-DEP-ANI-043-ANI",
+        inStock: true,
+        stock: 100
+      }
+    ],
+    specifications: [
+      "Caja: Resina 38mm resistente",
+      "Pantalla: Digital LCD con LED",
+      "Correa: Silicona estampada",
+      "Resistencia: 5ATM (50m)",
+      "Funciones: Hora, fecha, alarma, cronómetro",
+      "Batería: Larga duración",
+      "Diseños: Animados temáticos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj deportivo juvenil",
+      "Manual de instrucciones",
+      "Garantía 3 meses",
+      "Caja de almacenamiento"
+    ],
+    benefits: [
+      "Diseños animados divertidos",
+      "Resistente al agua",
+      "Múltiples funciones",
+      "Batería duradera",
+      "Cómodo para jóvenes",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 44. Reloj Inteligente Premium con ECG
+  {
+    id: 44,
+    name: "Smartwatch Premium con ECG y Monitor Avanzado",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj71.webp",
+    images: ["/assets/images/reloj71.webp"],
+    description: "Smartwatch premium con electrocardiograma, monitor avanzado de salud y funciones médicas",
+    longDescription: "Smartwatch médico de última generación con funciones avanzadas de salud. Pantalla táctil AMOLED de 1.4 pulgadas. Electrocardiograma (ECG) certificado médicamente. Monitor de frecuencia cardíaca, oxígeno en sangre, presión arterial. Detección de fibrilación auricular y otras arritmias. Seguimiento de sueño con análisis de calidad. Más de 100 modos deportivos con GPS integrado. Notificaciones inteligentes y llamadas Bluetooth. Batería de hasta 10 días de duración. Correa de silicona médica hipoalergénica. Resistencia al agua 5ATM. Compatible con iOS y Android. Perfecto para quienes buscan monitoreo médico profesional. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 22,
+    sku: "REL-SMART-ECG-044",
+    stock: 100,
+    specifications: [
+      "Pantalla: AMOLED 1.4\" táctil",
+      "ECG: Certificado médicamente",
+      "Sensores: Cardíaco, SpO2, presión",
+      "Detección: Arritmias cardíacas",
+      "GPS: Integrado de alta precisión",
+      "Batería: 10 días de duración",
+      "Correa: Silicona médica",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Smartwatch médico premium",
+      "Cable de carga magnético",
+      "Manual médico detallado",
+      "App médica gratuita",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "ECG médico certificado",
+      "Detección de arritmias",
+      "Monitoreo de salud 24/7",
+      "100+ modos deportivos",
+      "Batería de larga duración",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 45. Reloj de Lujo Vintage
+  {
+    id: 45,
+    name: "Reloj de Lujo Vintage Estilo Retro",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-hombre",
+    image: "/assets/images/reloj72.webp",
+    images: ["/assets/images/reloj72.webp"],
+    description: "Exclusivo reloj de lujo con diseño vintage, movimiento mecánico, estilo clásico retro",
+    longDescription: "Reloj de lujo con diseño vintage inspirado en la relojería clásica de mediados del siglo XX. Caja de acero inoxidable de 38mm con acabado cepillado. Esfera estilo retro con números arábigos vintage y manecillas azuladas. Movimiento mecánico japonés de alta precisión. Correa de cuero genuino italiano con pespunteado clásico. Cristal de zafiro abombado con tratamiento anti-reflejante. Fondo transparente para ver el movimiento mecánico. Resistencia al agua 3ATM. Perfecto para caballeros que aprecian el estilo vintage y la elegancia clásica. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 25,
+    sku: "REL-LUX-VIN-045",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 38mm",
+      "Movimiento: Mecánico japonés",
+      "Cristal: Zafiro abombado",
+      "Estilo: Vintage clásico",
+      "Correa: Cuero genuino italiano",
+      "Esfera: Números arábigos vintage",
+      "Fondo: Transparente",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj vintage de lujo",
+      "Estuche premium de madera",
+      "Certificado de autenticidad",
+      "Manual de usuario detallado",
+      "Garantía 3 meses",
+      "Paño de limpieza microfibra"
+    ],
+    benefits: [
+      "Diseño vintage elegante",
+      "Movimiento mecánico preciso",
+      "Cristal de zafiro abombado",
+      "Estilo retro exclusivo",
+      "Relojería tradicional",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 46. Reloj Deportivo Ultra Ligero
+  {
+    id: 46,
+    name: "Reloj Deportivo Ultra Ligero de Titanio",
+    price: 100000,
+    originalPrice: 142857,
+    category: "relojes-deportivos",
+    image: "/assets/images/reloj73.webp",
+    images: ["/assets/images/reloj73.webp"],
+    description: "Reloj deportivo ultra ligero de titanio, resistente al agua 200m, perfecto para atletas",
+    longDescription: "Reloj deportivo de alta tecnología fabricado en titanio ultra ligero y resistente. Caja de titanio de 44mm con acabado mate. Peso total de solo 45 gramos. Movimiento de cuarzo japonés de alta precisión. Cristal de zafiro resistente a rayones. Correa de silicona deportiva ajustable. Resistencia al agua 20ATM (200 metros). Bisel giratorio unidireccional con escala de minutos. Perfecto para atletas profesionales que buscan ligereza extrema sin sacrificar durabilidad. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "REL-DEP-TIT-046",
+    stock: 100,
+    specifications: [
+      "Caja: Titanio 44mm ultra ligero",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Zafiro resistente",
+      "Peso: Solo 45 gramos",
+      "Resistencia: 20ATM (200 metros)",
+      "Correa: Silicona deportiva",
+      "Bisel: Giratorio unidireccional",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj deportivo de titanio",
+      "Herramientas de ajuste",
+      "Manual técnico detallado",
+      "Estuche resistente al agua",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "Ultra ligero 45 gramos",
+      "Materiales premium titanio",
+      "Sumergible hasta 200 metros",
+      "Movimiento de alta precisión",
+      "Ideal para atletas",
+      "Garantía de 3 meses"
+    ]
   }
 ];
 
