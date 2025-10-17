@@ -441,7 +441,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
 
         {/* CTA section premium elegante */}
         {filteredProducts.length > 0 && (
-          <div className="mt-8 bg-gradient-to-br from-primary via-luxury to-primary rounded-3xl p-6 sm:p-8 text-center text-white border border-primary/50 relative overflow-hidden shadow-2xl">
+          <div className="mt-8 bg-gradient-to-br from-primary via-accent to-primary rounded-3xl p-6 sm:p-8 text-center text-white border border-white/30 relative overflow-hidden shadow-2xl">
             {/* Elementos decorativos de fondo */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-secondary/20 to-white/10 rounded-full blur-3xl opacity-20"></div>
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-br from-white/20 to-secondary/10 rounded-full blur-2xl opacity-15"></div>
@@ -449,9 +449,9 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
             <div className="relative z-10">
               <div className="flex items-center justify-center mb-6">
                 <div className="bg-gold-gradient p-4 rounded-2xl shadow-gold animate-gradient">
-                  <Award className="w-10 h-10 text-primary" />
+                  <Award className="w-10 h-10 text-white" />
                 </div>
-                <span className="text-sm font-black bg-white text-primary px-6 py-3 rounded-full ml-4 border-2 border-secondary shadow-xl">
+                <span className="text-sm font-black bg-white text-primary px-6 py-3 rounded-full ml-4 border-2 border-aqua shadow-xl">
                   Asesoría VIP personalizada
                 </span>
               </div>
@@ -466,7 +466,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
                 href={`https://wa.me/573146081297?text=Hola%20TIEMPO%20Y%20ESTILO,%20necesito%20asesoría%20VIP%20para%20elegir%20una%20pieza${searchTerm ? `%20relacionada%20con%20"${searchTerm}"` : ''}${selectedCategory !== 'all' ? `%20en%20la%20categoría%20"${categories.find(c => c.id === selectedCategory)?.name}"` : ''}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center bg-gold-gradient hover:opacity-90 text-primary px-10 py-5 rounded-2xl font-bold transition-all duration-300 shadow-gold hover:shadow-2xl text-lg border border-secondary/30 hover:scale-105 animate-gradient"
+                className="inline-flex items-center bg-aqua-gradient hover:opacity-90 text-white px-10 py-5 rounded-2xl font-bold transition-all duration-300 shadow-aqua hover:shadow-2xl text-lg border border-white/30 hover:scale-105 animate-gradient"
               >
                 <Package className="w-6 h-6 mr-3" />
                 Obtener asesoría VIP gratuita

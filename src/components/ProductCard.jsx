@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, ShoppingCart, Heart, Palette, Eye } from 'lucide-react';
+import { Star, ShoppingCart, Heart, Palette, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct }) => {
   const [isLiked, setIsLiked] = useState(false);
@@ -8,10 +8,18 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   const [selectedVariant, setSelectedVariant] = useState(
     product.hasVariants ? product.variants[0] : null
   );
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Determinar qué imágenes mostrar
+  const productImages = selectedVariant && selectedVariant.images
+    ? selectedVariant.images
+    : (product.images && product.images.length > 0 ? product.images : [product.image]);
+
+  const currentImage = productImages[currentImageIndex] || product.image;
 
   const currentProduct = selectedVariant
-    ? { ...product, ...selectedVariant, image: selectedVariant.image || product.image }
-    : product;
+    ? { ...product, ...selectedVariant, image: currentImage }
+    : { ...product, image: currentImage };
 
   // Función para verificar si la imagen existe y cargar
   const checkImage = (src) => {
@@ -23,14 +31,33 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
     });
   };
 
+  // Función para navegar entre imágenes
+  const nextImage = (e) => {
+    e.stopPropagation();
+    if (productImages.length > 1) {
+      setCurrentImageIndex((prev) =>
+        prev === productImages.length - 1 ? 0 : prev + 1
+      );
+    }
+  };
+
+  const prevImage = (e) => {
+    e.stopPropagation();
+    if (productImages.length > 1) {
+      setCurrentImageIndex((prev) =>
+        prev === 0 ? productImages.length - 1 : prev - 1
+      );
+    }
+  };
+
   // Verificar imagen al montar componente y cuando cambie
   useEffect(() => {
-    if (currentProduct.image) {
+    if (currentImage) {
       setImageError(false);
       setImageLoaded(false); // Iniciar como cargando
 
       // Verificar imagen
-      checkImage(currentProduct.image)
+      checkImage(currentImage)
         .then(() => {
           setImageLoaded(true);
           setImageError(false);
@@ -43,7 +70,12 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
       setImageError(true);
       setImageLoaded(true);
     }
-  }, [currentProduct.image]);
+  }, [currentImage]);
+
+  // Resetear índice de imagen cuando cambie la variante
+  useEffect(() => {
+    setCurrentImageIndex(0);
+  }, [selectedVariant]);
 
 
 
@@ -96,25 +128,66 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                 </div>
               </div>
             ) : (
-              <img
-                src={currentProduct.image}
-                alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
-                title={product.name}
-                className={`w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105 ${
-                  imageLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
-                style={{ objectPosition: 'center center' }}
-                onLoad={() => setImageLoaded(true)}
-                onError={() => {
-                  setImageError(true);
-                  setImageLoaded(true);
-                }}
-                loading="lazy"
-                decoding="async"
-                fetchpriority="auto"
-                width="400"
-                height="300"
-              />
+              <>
+                <img
+                  src={currentImage}
+                  alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
+                  title={product.name}
+                  className={`w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105 ${
+                    imageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  style={{ objectPosition: 'center center' }}
+                  onLoad={() => setImageLoaded(true)}
+                  onError={() => {
+                    setImageError(true);
+                    setImageLoaded(true);
+                  }}
+                  loading="lazy"
+                  decoding="async"
+                  fetchpriority="auto"
+                  width="400"
+                  height="300"
+                />
+
+                {/* Controles de navegación para múltiples imágenes */}
+                {productImages.length > 1 && (
+                  <>
+                    {/* Flecha izquierda */}
+                    <button
+                      onClick={prevImage}
+                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+
+                    {/* Flecha derecha */}
+                    <button
+                      onClick={nextImage}
+                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+
+                    {/* Indicadores de imagen */}
+                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                      {productImages.map((_, index) => (
+                        <button
+                          key={index}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setCurrentImageIndex(index);
+                          }}
+                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                            index === currentImageIndex
+                              ? 'bg-white'
+                              : 'bg-white/50 hover:bg-white/80'
+                          }`}
+                        />
+                      ))}
+                    </div>
+                  </>
+                )}
+              </>
             )}
             
             {/* Badges */}
@@ -130,10 +203,16 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                   Stock: {product.stock}
                 </span>
               )}
+              {productImages.length > 1 && (
+                <span className="bg-secondary text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
+                  <Eye className="w-3 h-3 mr-1" />
+                  {productImages.length} imágenes
+                </span>
+              )}
               {product.hasVariants && (
                 <span className="bg-secondary text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
                   <Palette className="w-3 h-3 mr-1" />
-                  {product.variants.length} opciones
+                  {product.variants.length} colores
                 </span>
               )}
             </div>
@@ -296,24 +375,65 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
             </div>
           </div>
         ) : (
-          <img
-            src={currentProduct.image}
-            alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
-            title={product.name}
-            className={`w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
-            }`}
-            onLoad={() => setImageLoaded(true)}
-            onError={() => {
-              setImageError(true);
-              setImageLoaded(true);
-            }}
-            loading="lazy"
-            decoding="async"
-            fetchpriority="auto"
-            width="400"
-            height="300"
-          />
+          <>
+            <img
+              src={currentImage}
+              alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
+              title={product.name}
+              className={`w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoad={() => setImageLoaded(true)}
+              onError={() => {
+                setImageError(true);
+                setImageLoaded(true);
+              }}
+              loading="lazy"
+              decoding="async"
+              fetchpriority="auto"
+              width="400"
+              height="300"
+            />
+
+            {/* Controles de navegación para múltiples imágenes */}
+            {productImages.length > 1 && (
+              <>
+                {/* Flecha izquierda */}
+                <button
+                  onClick={prevImage}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+
+                {/* Flecha derecha */}
+                <button
+                  onClick={nextImage}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+
+                {/* Indicadores de imagen */}
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                  {productImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentImageIndex(index);
+                      }}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex
+                          ? 'bg-white'
+                          : 'bg-white/50 hover:bg-white/80'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </>
         )}
         
         {/* Badges en la esquina */}
@@ -327,6 +447,12 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
             <span className="bg-secondary text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
               <div className="w-1.5 h-1.5 bg-white rounded-full mr-1"></div>
               Stock: {product.stock}
+            </span>
+          )}
+          {productImages.length > 1 && (
+            <span className="bg-secondary text-white px-2 py-1 rounded-md text-xs font-medium flex items-center">
+              <Eye className="w-3 h-3 mr-1" />
+              {productImages.length}
             </span>
           )}
           {product.hasVariants && (
