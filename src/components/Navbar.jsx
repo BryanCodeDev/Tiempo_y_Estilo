@@ -66,7 +66,7 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-xl shadow-2xl border-b border-secondary/20'
+            ? 'bg-white/95 backdrop-blur-xl shadow-2xl border-b border-secondary/30'
             : 'bg-white/90 backdrop-blur-md shadow-lg'
         }`}
         role="navigation"
@@ -83,11 +83,11 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
                 aria-label="Ir al inicio de TIEMPO Y ESTILO - Joyería y Relojería"
               >
                 <div className="relative">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-dark-red-gradient rounded-2xl flex items-center justify-center shadow-luxury animate-gradient relative overflow-hidden">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-aqua-gradient rounded-2xl flex items-center justify-center shadow-aqua animate-gradient relative overflow-hidden">
                     <Crown className="w-5 h-5 sm:w-7 sm:h-7 lg:w-10 lg:h-10 text-white relative z-10" />
                     <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full animate-pulse shadow-gold"></div>
+                  <div className="absolute -top-1 -right-1 w-4 h-4 bg-secondary rounded-full animate-pulse shadow-aqua"></div>
                 </div>
                 <div className="hidden sm:block">
                   <h1 className="text-lg sm:text-xl lg:text-2xl xl:text-3xl font-bold font-display">
@@ -113,15 +113,15 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
                     onClick={() => item.id === 'hero' ? onHomeClick() : handleNavigation(item.id)}
                     className={`group px-6 py-3 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 relative overflow-hidden ${
                       isActive
-                        ? 'bg-dark-red-gradient text-white shadow-luxury animate-gradient'
-                        : 'text-primary hover:text-white hover:bg-dark-red-gradient'
+                        ? 'bg-primary-gradient text-white shadow-primary animate-gradient'
+                        : 'text-primary hover:text-white hover:bg-primary-gradient'
                     }`}
                     aria-label={`Ir a ${item.label}`}
                   >
                     <Icon className="w-4 h-4 relative z-10" />
                     <span className="tracking-wide relative z-10">{item.label}</span>
                     {!isActive && (
-                      <div className="absolute inset-0 bg-dark-red-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="absolute inset-0 bg-primary-gradient opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                     )}
                   </button>
                 );
@@ -141,14 +141,14 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
               {/* Botón del carrito */}
               <button
                 onClick={() => setShowCart(true)}
-                className="relative p-3 lg:p-4 glass-luxury rounded-xl hover:shadow-luxury transition-all duration-300 hover:scale-110 group"
+                className="relative p-3 lg:p-4 glass-luxury rounded-xl hover:shadow-primary transition-all duration-300 hover:scale-110 group"
                 aria-label={`Carrito de compras - ${totalItems} productos`}
               >
                 <ShoppingCart className="h-5 w-5 lg:h-6 lg:w-6 text-primary group-hover:text-luxury transition-colors duration-300" />
 
                 {totalItems > 0 && (
                   <>
-                    <span className="absolute -top-2 -right-2 bg-dark-red-gradient text-white font-bold text-xs min-w-[24px] h-6 rounded-full flex items-center justify-center px-1 shadow-gold animate-bounce border-2 border-white">
+                    <span className="absolute -top-2 -right-2 bg-primary-gradient text-white font-bold text-xs min-w-[24px] h-6 rounded-full flex items-center justify-center px-1 shadow-aqua animate-bounce border-2 border-white">
                       {totalItems > 99 ? '99+' : totalItems}
                     </span>
                   </>
@@ -177,7 +177,7 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
           isMenuOpen
             ? 'max-h-96 opacity-100'
             : 'max-h-0 opacity-0'
-        } overflow-hidden glass-luxury border-t border-secondary/20`}>
+        } overflow-hidden glass-luxury border-t border-secondary/30`}>
           <div className="px-4 py-6 space-y-3">
 
             {/* Items de navegación mobile */}
@@ -192,8 +192,8 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
                   onClick={() => item.id === 'hero' ? onHomeClick() : handleNavigation(item.id)}
                   className={`w-full flex items-center space-x-3 px-6 py-4 rounded-xl text-left transition-all duration-300 ${
                     isActive
-                      ? 'bg-dark-red-gradient text-white shadow-luxury'
-                      : 'text-primary hover:bg-dark-red-gradient hover:text-white'
+                      ? 'bg-primary-gradient text-white shadow-primary'
+                      : 'text-primary hover:bg-primary-gradient hover:text-white'
                   }`}
                   aria-label={`Ir a ${item.label}`}
                 >
@@ -204,14 +204,14 @@ const Navbar = ({ cartItems, setShowCart, onHomeClick, currentRoute }) => {
             })}
 
             {/* Separador */}
-            <div className="border-t border-secondary/20 my-4"></div>
+            <div className="border-t border-secondary/30 my-4"></div>
 
             {/* WhatsApp mobile */}
             <a
               href="https://wa.me/573146081297?text=¡Hola!%20Me%20interesa%20la%20colección%20de%20TIEMPO%20Y%20ESTILO"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full flex items-center space-x-3 px-6 py-4 bg-gradient-to-r from-whatsapp-500 to-whatsapp-600 text-white rounded-xl hover:from-whatsapp-600 hover:to-whatsapp-500 transition-all duration-300 shadow-lg"
+              className="w-full flex items-center space-x-3 px-6 py-4 bg-whatsapp-gradient text-white rounded-xl hover:opacity-90 transition-all duration-300 shadow-lg"
               onClick={() => setIsMenuOpen(false)}
             >
               <Phone className="w-5 h-5" />

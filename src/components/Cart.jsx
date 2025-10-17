@@ -65,7 +65,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
       }`}>
         
         {/* Header elegante */}
-        <div className="sticky top-0 bg-dark-red-gradient text-white p-6 z-10 shadow-xl">
+        <div className="sticky top-0 bg-primary-gradient text-white p-6 z-10 shadow-xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="bg-white/20 backdrop-blur-sm p-2 rounded-xl border border-white/30">
@@ -129,7 +129,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
               </p>
               <button
                 onClick={onClose}
-                className="bg-ruby-gradient hover:opacity-90 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-luxury hover:shadow-2xl transform hover:scale-105 flex items-center gap-3 animate-gradient"
+                className="bg-primary-gradient hover:opacity-90 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 shadow-primary hover:shadow-2xl transform hover:scale-105 flex items-center gap-3 animate-gradient"
               >
                 <Package className="w-5 h-5" />
                 Explorar colección
@@ -142,12 +142,12 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                 {cartItems.map((item, index) => (
                   <div 
                     key={item.cartId || item.id} 
-                    className="glass-luxury rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-secondary/20"
+                    className="glass-luxury rounded-2xl p-5 shadow-lg hover:shadow-xl transition-all duration-300 border border-secondary/30"
                   >
                     <div className="flex items-center gap-4">
                       {/* Imagen del producto */}
                       <div className="relative flex-shrink-0">
-                        <div className="w-28 h-28 rounded-xl overflow-hidden shadow-lg border border-secondary/20">
+                        <div className="w-28 h-28 rounded-xl overflow-hidden shadow-lg border border-secondary/30">
                           <img 
                             src={item.image} 
                             alt={item.name} 
@@ -155,7 +155,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                           />
                         </div>
                         {item.discount && (
-                          <div className="absolute -top-2 -right-2 bg-ruby-gradient text-white text-xs px-2 py-1 rounded-lg font-bold shadow-luxury animate-gradient">
+                          <div className="absolute -top-2 -right-2 bg-primary-gradient text-white text-xs px-2 py-1 rounded-lg font-bold shadow-primary animate-gradient">
                             -{item.discount}%
                           </div>
                         )}
@@ -173,14 +173,14 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                               {item.name}
                             </h3>
                             {item.sku && (
-                              <p className="text-secondary text-xs bg-secondary/10 px-2 py-1 rounded-md inline-block border border-secondary/20">
+                              <p className="text-secondary text-xs bg-secondary/10 px-2 py-1 rounded-md inline-block border border-secondary/30">
                                 {item.sku}
                               </p>
                             )}
                           </div>
                           <button
                             onClick={() => handleRemoveItem(item.cartId || item.id)}
-                            className="text-luxury hover:text-luxury p-2 hover:bg-luxury-50 rounded-full transition-all duration-300 flex-shrink-0"
+                            className="text-accent hover:text-accent p-2 hover:bg-accent/10 rounded-full transition-all duration-300 flex-shrink-0"
                             title="Eliminar producto"
                           >
                             <Trash2 className="h-5 w-5" />
@@ -204,11 +204,11 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                           <div className="flex items-center gap-3">
                             <button
                               onClick={() => updateQuantity(item.cartId || item.id, item.quantity - 1)}
-                              className="glass-luxury bg-white hover:bg-gray-50 border border-secondary/20 rounded-xl w-10 h-10 flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl"
+                              className="glass-luxury bg-white hover:bg-gray-50 border border-secondary/30 rounded-xl w-10 h-10 flex items-center justify-center transition-all duration-300 shadow-lg hover:shadow-xl"
                             >
                               <Minus className="h-4 w-4 text-primary" />
                             </button>
-                            <div className="glass-luxury bg-white px-4 py-2 rounded-xl min-w-[3rem] text-center border border-secondary/20 shadow-lg">
+                            <div className="glass-luxury bg-white px-4 py-2 rounded-xl min-w-[3rem] text-center border border-secondary/30 shadow-lg">
                               <span className="text-primary font-bold text-lg font-display">
                                 {item.quantity}
                               </span>
@@ -234,10 +234,10 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
               </div>
               
               {/* Footer */}
-              <div className="sticky bottom-0 glass-luxury border-t border-secondary/20 p-6 shadow-xl">
+              <div className="sticky bottom-0 glass-luxury border-t border-secondary/30 p-6 shadow-xl">
                 <div className="space-y-4">
                   {/* Resumen */}
-                  <div className="bg-gradient-to-br from-secondary-50 to-white rounded-xl p-4 space-y-2 border border-secondary/20 shadow-lg">
+                  <div className="bg-gradient-to-br from-secondary-50 to-white rounded-xl p-4 space-y-2 border border-secondary/30 shadow-lg">
                     <div className="flex justify-between text-gray-700 text-sm">
                       <span className="font-semibold">Subtotal ({itemCount} {itemCount === 1 ? 'producto' : 'productos'})</span>
                       <span className="font-bold">${total.toLocaleString()}</span>
@@ -252,7 +252,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                         GRATIS
                       </span>
                     </div>
-                    <div className="border-t border-secondary/20 pt-3 flex justify-between items-center">
+                    <div className="border-t border-secondary/30 pt-3 flex justify-between items-center">
                       <span className="text-xl font-bold text-primary font-display">Total:</span>
                       <span className="text-2xl font-bold text-primary font-display">
                         ${finalTotal.toLocaleString()}
@@ -262,9 +262,9 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                   
                   {/* Beneficios */}
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="glass-luxury bg-luxury-50/50 rounded-xl p-3 text-center border border-luxury-200/50 shadow-lg">
-                      <Shield className="w-5 h-5 text-luxury mx-auto mb-1" />
-                      <p className="text-luxury-700 text-xs font-semibold">Compra segura</p>
+                    <div className="glass-luxury bg-accent/5 rounded-xl p-3 text-center border border-accent/30 shadow-lg">
+                      <Shield className="w-5 h-5 text-accent mx-auto mb-1" />
+                      <p className="text-accent text-xs font-semibold">Compra segura</p>
                     </div>
                     <div className="glass-luxury bg-whatsapp-50/50 rounded-xl p-3 text-center border border-whatsapp-200/50 shadow-lg">
                       <CreditCard className="w-5 h-5 text-whatsapp-600 mx-auto mb-1" />
@@ -275,7 +275,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                   {/* Botón WhatsApp */}
                   <button
                     onClick={handleWhatsAppCheckout}
-                    className="w-full bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-500 text-white py-4 px-6 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105"
+                    className="w-full bg-whatsapp-gradient text-white py-4 px-6 rounded-xl font-bold text-lg flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-2xl transform hover:scale-105"
                   >
                     <Phone className="h-6 w-6" />
                     Finalizar pedido por WhatsApp
@@ -292,7 +292,7 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
                         <Shield className="w-3 h-3 mr-1" />
                         Pago seguro
                       </span>
-                      <span className="text-luxury font-semibold flex items-center">
+                      <span className="text-accent font-semibold flex items-center">
                         <Truck className="w-3 h-3 mr-1" />
                         Envío GRATIS
                       </span>

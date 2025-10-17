@@ -98,7 +98,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
   };
 
   return (
-    <section id="productos" className="py-4 sm:py-6 lg:py-8 xl:py-10 bg-pearl-gradient min-h-screen relative overflow-hidden">
+    <section id="productos" className="py-4 sm:py-6 lg:py-8 xl:py-10 bg-white min-h-screen relative overflow-hidden">
       {/* Elementos decorativos de fondo */}
       <div className="absolute inset-0 bg-gradient-to-br from-secondary/3 via-transparent to-primary/3"></div>
       <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary/10 to-primary/10 rounded-full blur-3xl opacity-30"></div>
@@ -108,13 +108,13 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
 
         {/* Header premium elegante */}
         <div className="text-center mb-4 sm:mb-6 lg:mb-8">
-          <div className="inline-flex items-center px-6 py-3 glass-luxury border border-secondary/20 text-primary rounded-full text-sm font-bold mb-6 shadow-luxury">
+          <div className="inline-flex items-center px-6 py-3 glass-luxury border border-secondary/30 text-primary rounded-full text-sm font-bold mb-6 shadow-primary">
             <Crown className="w-5 h-5 mr-3 text-secondary animate-pulse" />
             Colección Exclusiva de Lujo
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight font-display">
             Explora nuestra
-            <span className="block text-gold animate-shimmer">
+            <span className="block text-aqua animate-shimmer">
               Colección Premium
             </span>
           </h2>
@@ -136,14 +136,14 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
         </div>
 
         {/* Barra de filtros premium elegante */}
-        <div className="glass-luxury border border-secondary/20 rounded-3xl p-4 sm:p-6 mb-6 shadow-2xl relative overflow-hidden">
+        <div className="glass-luxury border border-secondary/30 rounded-3xl p-4 sm:p-6 mb-6 shadow-2xl relative overflow-hidden">
           {/* Elementos decorativos */}
           <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/10 to-primary/10 rounded-full blur-2xl opacity-50"></div>
           <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-xl opacity-40"></div>
 
           {/* Búsqueda principal premium */}
           <div className="relative mb-8">
-            <div className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-ruby-gradient p-3 rounded-2xl shadow-luxury animate-gradient">
+            <div className="absolute left-6 top-1/2 transform -translate-y-1/2 bg-primary-gradient p-3 rounded-2xl shadow-primary animate-gradient">
               <Search className="text-white h-5 w-5" />
             </div>
             <input
@@ -222,8 +222,8 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
                 onClick={() => setShowFilters(!showFilters)}
                 className={`px-8 py-4 rounded-2xl font-bold transition-all duration-300 flex items-center gap-3 shadow-lg border backdrop-blur-sm ${
                   showFilters
-                    ? 'bg-ruby-gradient text-white border-primary/30 shadow-luxury animate-gradient'
-                    : 'glass-luxury text-primary border-secondary/20 hover:bg-white hover:border-secondary hover:text-luxury'
+                    ? 'bg-primary-gradient text-white border-primary/30 shadow-primary animate-gradient'
+                    : 'glass-luxury text-primary border-secondary/30 hover:bg-white hover:border-secondary hover:text-accent'
                 }`}
                 aria-label={showFilters ? 'Ocultar categorías' : 'Mostrar categorías'}
                 aria-expanded={showFilters}
@@ -261,8 +261,8 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
                       onClick={() => setSelectedCategory(category.id)}
                       className={`group relative p-6 rounded-2xl text-sm font-bold transition-all duration-300 text-center hover:scale-105 hover:-translate-y-1 shadow-lg backdrop-blur-sm border ${
                         selectedCategory === category.id
-                          ? 'bg-ruby-gradient text-white border-primary/30 shadow-luxury shadow-xl animate-gradient'
-                          : 'glass-luxury text-primary border-secondary/20 hover:border-secondary hover:shadow-xl'
+                          ? 'bg-primary-gradient text-white border-primary/30 shadow-primary shadow-xl animate-gradient'
+                          : 'glass-luxury text-primary border-secondary/30 hover:border-secondary hover:shadow-xl'
                       }`}
                       aria-label={`Filtrar por ${category.name} (${productCount} productos)`}
                     >
@@ -277,7 +277,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
                       </div>
                       <span className="block font-bold text-base mb-2">{category.name}</span>
                       <span className={`block text-xs font-semibold ${
-                        selectedCategory === category.id ? 'text-white/80' : 'text-gray-600 group-hover:text-luxury'
+                        selectedCategory === category.id ? 'text-white/80' : 'text-gray-600 group-hover:text-accent'
                       }`}>
                         {productCount} pieza{productCount !== 1 ? 's' : ''}
                       </span>
@@ -306,16 +306,16 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
                   <div className="w-3 h-3 bg-whatsapp-500 rounded-full mr-3 animate-pulse"></div>
                   <span className="font-bold text-whatsapp-700">{productsInStock} disponibles</span>
                 </div>
-                <div className="flex items-center glass-luxury bg-luxury-50/50 rounded-2xl px-4 py-3 border border-luxury-200/50 shadow-lg">
-                  <div className="w-3 h-3 bg-luxury rounded-full mr-3"></div>
-                  <span className="font-bold text-luxury-700">{productsOnSale} en oferta</span>
+                <div className="flex items-center glass-luxury bg-accent/5 rounded-2xl px-4 py-3 border border-accent/30 shadow-lg">
+                  <div className="w-3 h-3 bg-accent rounded-full mr-3"></div>
+                  <span className="font-bold text-accent">{productsOnSale} en oferta</span>
                 </div>
               </div>
             </div>
             {(searchTerm || selectedCategory !== 'all') && (
               <button
                 onClick={clearFilters}
-                className="glass-luxury text-primary hover:text-white hover:bg-ruby-gradient font-bold px-6 py-3 rounded-2xl transition-all duration-300 border border-secondary/20 shadow-lg hover:shadow-xl"
+                className="glass-luxury text-primary hover:text-white hover:bg-primary-gradient font-bold px-6 py-3 rounded-2xl transition-all duration-300 border border-secondary/30 shadow-lg hover:shadow-xl"
                 aria-label="Limpiar todos los filtros de búsqueda"
               >
                 <span className="flex items-center gap-2">
@@ -372,7 +372,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
               </h3>
               <p className="text-gray-600 mb-10 max-w-lg mx-auto text-lg leading-relaxed">
                 {searchTerm && (
-                  <>No hay productos que coincidan con "<strong className="text-luxury font-bold">{searchTerm}</strong>"</>
+                  <>No hay productos que coincidan con "<strong className="text-accent font-bold">{searchTerm}</strong>"</>
                 )}
                 {selectedCategory !== 'all' && !searchTerm && (
                   <>No hay productos disponibles en la categoría "<strong className="text-secondary font-bold">{categories.find(c => c.id === selectedCategory)?.name}</strong>"</>
@@ -384,7 +384,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
               <div className="space-y-6">
                 <button
                   onClick={clearFilters}
-                  className="bg-ruby-gradient hover:opacity-90 text-white px-10 py-5 rounded-2xl font-bold transition-all duration-300 shadow-luxury hover:shadow-2xl text-lg border border-primary/20 animate-gradient"
+                  className="bg-primary-gradient hover:opacity-90 text-white px-10 py-5 rounded-2xl font-bold transition-all duration-300 shadow-primary hover:shadow-2xl text-lg border border-primary/20 animate-gradient"
                 >
                   <span className="flex items-center gap-3">
                     <span>Mostrar toda la colección</span>

@@ -63,11 +63,11 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contacto" className="bg-pearl-gradient relative overflow-hidden">
+    <footer id="contacto" className="bg-white relative overflow-hidden">
       {/* Elementos decorativos de fondo */}
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary-50/30 via-transparent to-white/20"></div>
-      <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary-100/20 to-secondary/5 rounded-full blur-3xl opacity-30"></div>
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-white/10 to-secondary-50/20 rounded-full blur-3xl opacity-25"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary-50/20 via-transparent to-white/10"></div>
+      <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary-100/15 to-secondary/3 rounded-full blur-3xl opacity-20"></div>
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-white/5 to-secondary-50/15 rounded-full blur-3xl opacity-15"></div>
 
       {/* Sección de beneficios premium */}
       <div className="relative z-10 py-4 sm:py-6 lg:py-8 xl:py-10">
@@ -75,7 +75,7 @@ const Footer = () => {
           <div className="text-center mb-6">
             <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-display">
               ¿Por qué elegir
-              <span className="block text-gold">TIEMPO Y ESTILO?</span>
+              <span className="block text-aqua">TIEMPO Y ESTILO?</span>
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
               Disfruta de una experiencia de compra excepcional con beneficios exclusivos
@@ -85,8 +85,8 @@ const Footer = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
 
             <div className="text-center group">
-              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-secondary/20 group-hover:border-secondary/40 h-full hover:-translate-y-2">
-                <div className="bg-gold-gradient rounded-2xl p-4 w-fit mx-auto mb-6 shadow-gold group-hover:scale-110 transition-transform duration-300 animate-gradient">
+              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-secondary/30 group-hover:border-secondary/50 h-full hover:-translate-y-2">
+                <div className="bg-aqua-gradient rounded-2xl p-4 w-fit mx-auto mb-6 shadow-aqua group-hover:scale-110 transition-transform duration-300 animate-gradient">
                   <Truck className="h-10 w-10 text-primary" />
                 </div>
                 <h3 className="font-bold text-lg text-primary mb-3 font-display">Envío Premium</h3>
@@ -96,8 +96,8 @@ const Footer = () => {
             </div>
 
             <div className="text-center group">
-              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-whatsapp-200/50 group-hover:border-whatsapp-400/50 h-full hover:-translate-y-2">
-                <div className="bg-gradient-to-br from-whatsapp-500 to-whatsapp-600 rounded-2xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-whatsapp-300/50 group-hover:border-whatsapp-400/50 h-full hover:-translate-y-2">
+                <div className="bg-whatsapp-gradient rounded-2xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <Shield className="h-10 w-10 text-white" />
                 </div>
                 <h3 className="font-bold text-lg text-primary mb-3 font-display">Compra Segura</h3>
@@ -107,23 +107,23 @@ const Footer = () => {
             </div>
 
             <div className="text-center group">
-              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-primary/20 group-hover:border-primary/40 h-full hover:-translate-y-2">
-                <div className="bg-ruby-gradient rounded-2xl p-4 w-fit mx-auto mb-6 shadow-luxury group-hover:scale-110 transition-transform duration-300 animate-gradient">
+              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-primary/30 group-hover:border-primary/50 h-full hover:-translate-y-2">
+                <div className="bg-primary-gradient rounded-2xl p-4 w-fit mx-auto mb-6 shadow-primary group-hover:scale-110 transition-transform duration-300 animate-gradient">
                   <Award className="h-10 w-10 text-white" />
                 </div>
                 <h3 className="font-bold text-lg text-primary mb-3 font-display">Calidad Excepcional</h3>
-                <p className="text-luxury text-sm font-semibold mb-2">Premium Garantizada</p>
+                <p className="text-accent text-sm font-semibold mb-2">Premium Garantizada</p>
                 <p className="text-gray-600 text-sm leading-relaxed">Proveedores certificados</p>
               </div>
             </div>
 
             <div className="text-center group">
-              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-luxury/50 group-hover:border-luxury/70 h-full hover:-translate-y-2">
-                <div className="bg-gradient-to-br from-luxury to-secondary rounded-2xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-accent/50 group-hover:border-accent/70 h-full hover:-translate-y-2">
+                <div className="bg-accent-gradient rounded-2xl p-4 w-fit mx-auto mb-6 shadow-accent group-hover:scale-110 transition-transform duration-300">
                   <Users className="h-10 w-10 text-white" />
                 </div>
                 <h3 className="font-bold text-lg text-primary mb-3 font-display">Asesoría VIP</h3>
-                <p className="text-luxury text-sm font-semibold mb-2">24/7 Disponible</p>
+                <p className="text-accent text-sm font-semibold mb-2">24/7 Disponible</p>
                 <p className="text-gray-600 text-sm leading-relaxed">Expertos en joyería</p>
               </div>
             </div>
@@ -139,13 +139,13 @@ const Footer = () => {
             {/* Información de la empresa */}
             <div className="lg:col-span-2">
               <div className="flex items-center mb-6">
-                <div className="bg-ruby-gradient rounded-3xl p-4 mr-6 shadow-luxury animate-gradient">
+                <div className="bg-aqua-gradient rounded-3xl p-4 mr-6 shadow-aqua animate-gradient">
                   <Crown className="h-10 w-10 text-white" />
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold mb-2 font-display">
                     <span className="text-primary">TIEMPO Y </span>
-                    <span className="text-gold">ESTILO</span>
+                    <span className="text-aqua">ESTILO</span>
                   </h3>
                   <p className="text-secondary text-sm font-semibold bg-secondary/10 px-4 py-2 rounded-full border border-secondary/20 inline-block">
                     Productos premium a tu alcance
@@ -159,16 +159,16 @@ const Footer = () => {
 
               {/* Estadísticas */}
               <div className="grid grid-cols-3 gap-3 mb-4">
-                <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-3xl font-bold text-gold mb-1 font-display">50+</div>
+                <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-3xl font-bold text-aqua mb-1 font-display">50+</div>
                   <div className="text-gray-600 text-xs font-semibold">Piezas Exclusivas</div>
                 </div>
-                <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="text-3xl font-bold text-whatsapp-600 mb-1 font-display">100%</div>
                   <div className="text-gray-600 text-xs font-semibold">Satisfacción</div>
                 </div>
-                <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/20 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-3xl font-bold text-luxury mb-1 font-display">24/7</div>
+                <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-3xl font-bold text-accent mb-1 font-display">24/7</div>
                   <div className="text-gray-600 text-xs font-semibold">Asesoría VIP</div>
                 </div>
               </div>
@@ -185,7 +185,7 @@ const Footer = () => {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`group glass-luxury hover:text-white p-4 rounded-2xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl border border-secondary/20 ${social.bgColor}`}
+                        className={`group glass-luxury hover:text-white p-4 rounded-2xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl border border-secondary/30 ${social.bgColor}`}
                         aria-label={social.label}
                       >
                         <IconComponent className="h-6 w-6 text-primary group-hover:text-white" />
@@ -205,9 +205,9 @@ const Footer = () => {
                   href="https://wa.me/573146081297"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-start p-4 rounded-2xl glass-luxury hover:bg-whatsapp-50/50 transition-all duration-300 border border-secondary/20 hover:border-whatsapp-400/30 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                  className="group flex items-start p-4 rounded-2xl glass-luxury hover:bg-whatsapp-50/50 transition-all duration-300 border border-secondary/30 hover:border-whatsapp-400/30 shadow-lg hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div className="bg-gradient-to-br from-whatsapp-500 to-whatsapp-600 group-hover:scale-110 p-3 rounded-2xl mr-4 transition-all duration-300 flex-shrink-0 shadow-lg">
+                  <div className="bg-whatsapp-gradient group-hover:scale-110 p-3 rounded-2xl mr-4 transition-all duration-300 flex-shrink-0 shadow-lg">
                     <Phone className="h-5 w-5 text-white" />
                   </div>
                   <div className="min-w-0">
@@ -218,8 +218,8 @@ const Footer = () => {
                   </div>
                 </a>
 
-                <div className="flex items-start p-4 rounded-2xl glass-luxury border border-secondary/20 shadow-lg">
-                  <div className="bg-ruby-gradient p-3 rounded-2xl mr-4 flex-shrink-0 shadow-luxury animate-gradient">
+                <div className="flex items-start p-4 rounded-2xl glass-luxury border border-secondary/30 shadow-lg">
+                  <div className="bg-primary-gradient p-3 rounded-2xl mr-4 flex-shrink-0 shadow-primary animate-gradient">
                     <MapPin className="h-5 w-5 text-white" />
                   </div>
                   <div className="min-w-0">
@@ -230,21 +230,21 @@ const Footer = () => {
 
                 <a
                   href="mailto:tiempoestilo7@gmail.com"
-                  className="group flex items-start p-4 rounded-2xl glass-luxury hover:bg-primary/5 transition-all duration-300 border border-secondary/20 hover:border-primary/30 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                  className="group flex items-start p-4 rounded-2xl glass-luxury hover:bg-primary/5 transition-all duration-300 border border-secondary/30 hover:border-primary/30 shadow-lg hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div className="bg-gold-gradient group-hover:scale-110 p-3 rounded-2xl mr-4 transition-all duration-300 flex-shrink-0 shadow-gold animate-gradient">
+                  <div className="bg-aqua-gradient group-hover:scale-110 p-3 rounded-2xl mr-4 transition-all duration-300 flex-shrink-0 shadow-aqua animate-gradient">
                     <Mail className="h-5 w-5 text-primary" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block font-bold text-primary group-hover:text-luxury text-base">
+                    <span className="block font-bold text-primary group-hover:text-accent text-base">
                       tiempoestilo7@gmail.com
                     </span>
                     <span className="text-sm text-gray-600 block">Servicio premium</span>
                   </div>
                 </a>
 
-                <div className="flex items-start p-4 rounded-2xl glass-luxury border border-secondary/20 shadow-lg">
-                  <div className="bg-gradient-to-br from-luxury to-secondary p-3 rounded-2xl mr-4 flex-shrink-0 shadow-lg">
+                <div className="flex items-start p-4 rounded-2xl glass-luxury border border-secondary/30 shadow-lg">
+                  <div className="bg-accent-gradient p-3 rounded-2xl mr-4 flex-shrink-0 shadow-accent">
                     <Clock className="h-5 w-5 text-white" />
                   </div>
                   <div className="min-w-0">
@@ -265,13 +265,13 @@ const Footer = () => {
                     <li key={index}>
                       <a
                         href={link.href}
-                        className="group flex items-center text-gray-600 hover:text-primary transition-all duration-300 py-3 px-4 rounded-2xl hover:bg-primary/5 border border-transparent hover:border-primary/20 text-base hover:shadow-lg hover:-translate-y-0.5"
+                        className="group flex items-center text-gray-600 hover:text-primary transition-all duration-300 py-3 px-4 rounded-2xl hover:bg-primary/5 border border-transparent hover:border-primary/30 text-base hover:shadow-lg hover:-translate-y-0.5"
                         onClick={link.href.startsWith('#') ? (e) => {
                           e.preventDefault();
                           handleNavClick(link.href);
                         } : undefined}
                       >
-                        <div className="bg-primary/10 group-hover:bg-ruby-gradient p-2 rounded-xl mr-4 transition-all duration-300 group-hover:scale-110">
+                        <div className="bg-primary/10 group-hover:bg-primary-gradient p-2 rounded-xl mr-4 transition-all duration-300 group-hover:scale-110">
                           <IconComponent className="w-5 h-5 text-primary group-hover:text-white" />
                         </div>
                         <span className="min-w-0 truncate font-semibold">{link.name}</span>
@@ -287,10 +287,10 @@ const Footer = () => {
       </div>
 
       {/* Sección inferior */}
-      <div className="bg-dark-red-gradient py-6 relative overflow-hidden">
+      <div className="bg-primary-gradient py-6 relative overflow-hidden">
         {/* Elementos decorativos */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-secondary/20 to-white/10 rounded-full blur-3xl opacity-20"></div>
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-br from-white/20 to-secondary/10 rounded-full blur-2xl opacity-15"></div>
+        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-secondary/15 to-white/5 rounded-full blur-3xl opacity-15"></div>
+        <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-br from-white/15 to-secondary/5 rounded-full blur-2xl opacity-10"></div>
 
         <div className="container-luxury relative z-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">

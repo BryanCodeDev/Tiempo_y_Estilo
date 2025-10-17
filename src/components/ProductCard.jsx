@@ -78,17 +78,17 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   if (viewMode === 'list') {
     return (
       <div
-        className="bg-pearl rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-primary-700 hover:border-primary-600 cursor-pointer group"
+        className="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden border border-primary/20 hover:border-primary/40 cursor-pointer group"
         onClick={handleViewProduct}
       >
         <div className="flex flex-col sm:flex-row">
           {/* Imagen */}
-          <div className="relative w-full sm:w-40 md:w-48 h-40 sm:h-32 md:h-40 flex-shrink-0 overflow-hidden bg-pearl-50 aspect-[4/3]">
+          <div className="relative w-full sm:w-40 md:w-48 h-40 sm:h-32 md:h-40 flex-shrink-0 overflow-hidden bg-gray-50 aspect-[4/3]">
             {!imageLoaded && !imageError && (
               <div className="absolute inset-0 bg-gradient-to-br from-pearl-50 to-pearl-100" />
             )}
             {imageError ? (
-              <div className="w-full h-full bg-gradient-to-br from-pearl-50 to-pearl-100 flex items-center justify-center border-2 border-dashed border-primary-700">
+              <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center border-2 border-dashed border-primary/20">
                 <div className="text-center text-gray-400 px-4">
                   <div className="text-3xl mb-2">🏷️</div>
                   <div className="text-xs font-medium">{product.name}</div>
@@ -178,7 +178,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                 <button
                   onClick={handleLike}
                   className={`p-2 rounded-full transition-all duration-300 ml-3 flex-shrink-0 ${
-                    isLiked ? 'text-luxury bg-luxury-50' : 'text-primary-600 hover:text-luxury hover:bg-luxury-50'
+                    isLiked ? 'text-accent bg-accent/10' : 'text-primary/60 hover:text-accent hover:bg-accent/10'
                   }`}
                 >
                   <Heart className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
@@ -262,7 +262,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                 <button
                   onClick={handleAddToCart}
                   disabled={!product.inStock}
-                  className="bg-dark-red-gradient hover:opacity-90 disabled:bg-gray-400 text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm flex items-center justify-center gap-2 animate-gradient"
+                  className="bg-primary-gradient hover:opacity-90 disabled:bg-gray-400 text-white py-3 px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm flex items-center justify-center gap-2 animate-gradient"
                 >
                   <ShoppingCart className="h-4 w-4" />
                   {product.inStock ? 'Agregar' : 'Agotado'}
@@ -278,17 +278,17 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   // Vista de tarjeta (grid) mejorada
   return (
     <div
-      className="bg-pearl rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group border border-primary-700 hover:border-primary-600 hover:-translate-y-1 w-full max-w-sm mx-auto cursor-pointer h-full flex flex-col"
+      className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group border border-primary/20 hover:border-primary/40 hover:-translate-y-1 w-full max-w-sm mx-auto cursor-pointer h-full flex flex-col"
       onClick={handleViewProduct}
     >
       
       {/* Imagen */}
-      <div className="relative overflow-hidden bg-pearl-50 aspect-[4/3]">
+      <div className="relative overflow-hidden bg-gray-50 aspect-[4/3]">
         {!imageLoaded && !imageError && (
-          <div className="absolute inset-0 bg-gradient-to-br from-pearl-50 to-pearl-100" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100" />
         )}
         {imageError ? (
-          <div className="w-full h-full bg-gradient-to-br from-pearl-50 to-pearl-100 flex items-center justify-center border-2 border-dashed border-primary-700">
+          <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center border-2 border-dashed border-primary/20">
             <div className="text-center text-gray-400 px-4">
               <div className="text-4xl mb-2">🏷️</div>
               <div className="text-sm font-medium line-clamp-2">{product.name}</div>
@@ -319,7 +319,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
         {/* Badges en la esquina */}
         <div className="absolute top-3 left-3 flex flex-col gap-1">
           {product.discount && (
-            <span className="bg-luxury text-white px-2 py-1 rounded-md text-xs font-bold shadow-sm">
+            <span className="bg-accent text-white px-2 py-1 rounded-md text-xs font-bold shadow-sm">
               -{product.discount}%
             </span>
           )}
@@ -341,7 +341,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
            <button
              onClick={handleViewProduct}
-             className="bg-pearl text-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-semibold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl flex items-center gap-2 text-sm sm:text-base"
+             className="bg-white text-primary border-2 border-primary/30 hover:border-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-semibold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl flex items-center gap-2 text-sm sm:text-base"
            >
              <Eye className="w-4 h-4 sm:w-5 sm:h-5" />
              <span className="hidden sm:inline">Ver producto completo</span>
@@ -354,8 +354,8 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
            onClick={handleLike}
            className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-sm transition-all duration-300 ${
              isLiked
-               ? 'bg-luxury text-white shadow-lg'
-               : 'bg-pearl bg-opacity-90 text-primary-700 hover:bg-luxury hover:text-white shadow-md'
+               ? 'bg-accent text-white shadow-lg'
+               : 'bg-white bg-opacity-90 text-primary/70 hover:bg-accent hover:text-white shadow-md'
            }`}
          >
            <Heart className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
@@ -468,7 +468,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
           <button
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            className="bg-dark-red-gradient hover:opacity-90 disabled:bg-gray-400 text-white py-3 sm:py-3 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm sm:text-sm flex items-center justify-center gap-2 sm:gap-2 animate-gradient"
+            className="bg-primary-gradient hover:opacity-90 disabled:bg-gray-400 text-white py-3 sm:py-3 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm sm:text-sm flex items-center justify-center gap-2 sm:gap-2 animate-gradient"
           >
             <ShoppingCart className="h-4 w-4 sm:h-4 sm:w-4" />
             <span className="hidden sm:inline">

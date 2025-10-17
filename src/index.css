@@ -9,7 +9,8 @@
 @layer base {
   body {
     font-family: 'Montserrat', 'Inter', system-ui, sans-serif;
-    background: linear-gradient(to bottom, #F8F6F0, #FFFFFF);
+    background: #ffffff;
+    color: #000000;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -26,8 +27,8 @@
 
   /* Efectos de cristal elegantes */
   .glass-luxury {
-    @apply bg-white/90 backdrop-blur-xl border border-white/40;
-    box-shadow: 0 8px 32px 0 rgba(139, 0, 0, 0.1);
+    @apply bg-white/95 backdrop-blur-xl border border-secondary/30;
+    box-shadow: 0 8px 32px 0 rgba(6, 182, 212, 0.15);
   }
 
   .glass-dark {
@@ -35,14 +36,19 @@
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
   }
 
-  /* Gradientes premium para joyería de lujo */
-  .bg-gold-gradient {
-    background: linear-gradient(135deg, #B8860B 0%, #F4E4BC 50%, #B8860B 100%);
+  /* Gradientes premium con azul agua marina */
+  .bg-aqua-gradient {
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 50%, #06b6d4 100%);
     background-size: 200% 200%;
   }
 
-  .bg-ruby-gradient {
-    background: linear-gradient(135deg, #722F37 0%, #8B2630 50%, #2A1A1C 100%);
+  .bg-primary-gradient {
+    background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0ea5e9 100%);
+    background-size: 200% 200%;
+  }
+
+  .bg-accent-gradient {
+    background: linear-gradient(135deg, #0891b2 0%, #0369a1 50%, #0891b2 100%);
     background-size: 200% 200%;
   }
 
@@ -51,20 +57,32 @@
     background-size: 200% 200%;
   }
 
-  .bg-pearl-gradient {
-    background: linear-gradient(135deg, #F8F6F0 0%, #FFFFFF 50%, #F8F6F0 100%);
+  .bg-instagram-gradient {
+    background: linear-gradient(135deg, #E4405F 0%, #d23e5a 50%, #E4405F 100%);
     background-size: 200% 200%;
   }
 
-  .bg-dark-red-gradient {
-    background: linear-gradient(135deg, #8B0000 0%, #2D1B1B 50%, #000000 100%);
+  .bg-facebook-gradient {
+    background: linear-gradient(135deg, #1877F2 0%, #1565c0 50%, #1877F2 100%);
     background-size: 200% 200%;
   }
 
-  /* Texto con efecto dorado */
-  .text-gold {
+  .bg-tiktok-gradient {
+    background: linear-gradient(135deg, #000000 0%, #333333 50%, #000000 100%);
+    background-size: 200% 200%;
+  }
+
+  /* Texto con efecto azul agua marina */
+  .text-aqua {
     @apply text-transparent bg-clip-text;
-    background-image: linear-gradient(135deg, #B8860B 0%, #DAA520 50%, #B8860B 100%);
+    background-image: linear-gradient(135deg, #06b6d4 0%, #0891b2 50%, #06b6d4 100%);
+    background-size: 200% 200%;
+  }
+
+  /* Texto con efecto primario */
+  .text-primary-gradient {
+    @apply text-transparent bg-clip-text;
+    background-image: linear-gradient(135deg, #0ea5e9 0%, #0284c7 50%, #0ea5e9 100%);
     background-size: 200% 200%;
   }
 
@@ -90,13 +108,17 @@
     animation: gradient 5s ease infinite;
   }
 
-  /* Sombras personalizadas para efectos de lujo */
-  .shadow-gold {
-    box-shadow: 0 4px 20px rgba(184, 134, 11, 0.3), 0 2px 8px rgba(184, 134, 11, 0.2);
+  /* Sombras personalizadas con azul agua marina */
+  .shadow-aqua {
+    box-shadow: 0 4px 20px rgba(6, 182, 212, 0.3), 0 2px 8px rgba(6, 182, 212, 0.2);
   }
 
-  .shadow-luxury {
-    box-shadow: 0 8px 32px rgba(114, 47, 55, 0.15), 0 4px 16px rgba(114, 47, 55, 0.1);
+  .shadow-primary {
+    box-shadow: 0 8px 32px rgba(14, 165, 233, 0.15), 0 4px 16px rgba(14, 165, 233, 0.1);
+  }
+
+  .shadow-accent {
+    box-shadow: 0 8px 32px rgba(8, 145, 178, 0.15), 0 4px 16px rgba(8, 145, 178, 0.1);
   }
 }
 
@@ -124,11 +146,11 @@
 @keyframes glow {
   0%, 100% {
     opacity: 1;
-    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.5));
+    filter: drop-shadow(0 0 8px rgba(6, 182, 212, 0.5));
   }
   50% {
     opacity: 0.8;
-    filter: drop-shadow(0 0 20px rgba(184, 134, 11, 0.8));
+    filter: drop-shadow(0 0 20px rgba(8, 145, 178, 0.8));
   }
 }
 
@@ -168,18 +190,18 @@
 
 /* Selección de texto personalizada */
 ::selection {
-  background-color: rgba(184, 134, 11, 0.3);
-  color: #722F37;
+  background-color: rgba(6, 182, 212, 0.3);
+  color: #000000;
 }
 
 ::-moz-selection {
-  background-color: rgba(184, 134, 11, 0.3);
-  color: #722F37;
+  background-color: rgba(6, 182, 212, 0.3);
+  color: #000000;
 }
 
 /* Focus states elegantes */
 *:focus-visible {
-  outline: 2px solid #B8860B;
+  outline: 2px solid #06b6d4;
   outline-offset: 2px;
   border-radius: 4px;
 }
