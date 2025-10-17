@@ -255,6 +255,8 @@ export const products = [
         name: "Correa Metálica",
         color: "#C0C0C0",
         sku: "REL-HOM-006-MET",
+        image: "/assets/images/reloj9.webp",
+        images: ["/assets/images/reloj9.webp"],
         inStock: true,
         stock: 100
       },
@@ -263,6 +265,8 @@ export const products = [
         name: "Correa Negra",
         color: "#000000",
         sku: "REL-HOM-006-NEG",
+        image: "/assets/images/reloj10.webp",
+        images: ["/assets/images/reloj10.webp"],
         inStock: true,
         stock: 100
       },
@@ -271,6 +275,8 @@ export const products = [
         name: "Correa Café",
         color: "#8B4513",
         sku: "REL-HOM-006-CAF",
+        image: "/assets/images/reloj9.webp",
+        images: ["/assets/images/reloj9.webp"],
         inStock: true,
         stock: 100
       },
@@ -279,6 +285,8 @@ export const products = [
         name: "Correa Azul",
         color: "#1E40AF",
         sku: "REL-HOM-006-AZU",
+        image: "/assets/images/reloj10.webp",
+        images: ["/assets/images/reloj10.webp"],
         inStock: true,
         stock: 100
       }
@@ -699,6 +707,8 @@ export const products = [
         name: "Rojo Vibrante",
         color: "#DC2626",
         sku: "REL-DEP-016-ROJ",
+        image: "/assets/images/reloj26.webp",
+        images: ["/assets/images/reloj26.webp"],
         inStock: true,
         stock: 100
       },
@@ -707,6 +717,8 @@ export const products = [
         name: "Azul Eléctrico",
         color: "#2563EB",
         sku: "REL-DEP-016-AZU",
+        image: "/assets/images/reloj27.webp",
+        images: ["/assets/images/reloj27.webp"],
         inStock: true,
         stock: 100
       },
@@ -715,6 +727,8 @@ export const products = [
         name: "Verde Lima",
         color: "#16A34A",
         sku: "REL-DEP-016-VER",
+        image: "/assets/images/reloj28.webp",
+        images: ["/assets/images/reloj28.webp"],
         inStock: true,
         stock: 100
       }
@@ -926,8 +940,8 @@ export const products = [
     category: "relojes-deportivos",
     image: "/assets/images/reloj22.webp",
     images: ["/assets/images/reloj22.webp", "/assets/images/reloj23.webp"],
-    description: "Reloj deportivo juvenil con diseños coloridos y divertidos, perfecto para adolescentes",
-    longDescription: "Reloj deportivo diseñado especialmente para jóvenes y adolescentes. Caja de resina resistente de 40mm con diseños modernos y coloridos. Correa de silicona suave y cómoda con estampados divertidos. Pantalla digital con múltiples funciones: hora, fecha, alarma, cronómetro, luz LED. Resistencia al agua 5ATM perfecta para actividades diarias y deportes. Batería de larga duración. Diseño juvenil que combina funcionalidad con estilo único. Garantía de 3 meses incluida.",
+    description: "Reloj deportivo juvenil con diseños modernos y funciones digitales, ideal para adolescentes activos",
+    longDescription: "Reloj deportivo diseñado especialmente para jóvenes y adolescentes activos. Caja de resina resistente de 40mm con diseños modernos y acabados de alta calidad. Correa de silicona suave y ergonómica con estampados contemporáneos. Pantalla digital LCD de alto contraste con retroiluminación LED azul. Funciones avanzadas: hora, fecha, alarma dual, cronómetro de precisión, temporizador. Resistencia al agua 5ATM perfecta para natación y actividades acuáticas. Batería de litio de larga duración (hasta 2 años). Diseño juvenil que combina funcionalidad deportiva con estilo urbano moderno. Garantía de 3 meses incluida.",
     inStock: true,
     discount: 30,
     sku: "REL-DEP-JUV-021",
@@ -1181,8 +1195,8 @@ export const products = [
     category: "relojes-deportivos",
     image: "/assets/images/reloj42.webp",
     images: ["/assets/images/reloj42.webp", "/assets/images/reloj43.webp", "/assets/images/reloj44.webp"],
-    description: "Reloj deportivo juvenil con colores vibrantes, resistente al agua, perfecto para actividades",
-    longDescription: "Reloj deportivo diseñado para jóvenes activos con estilo único. Caja de resina resistente de 42mm con colores vibrantes. Correa de silicona suave y cómoda. Pantalla digital con múltiples funciones: hora, fecha, alarma, cronómetro. Resistencia al agua 5ATM perfecta para natación y deportes acuáticos. Batería de larga duración. Diseño moderno y juvenil que combina funcionalidad con estilo. Garantía de 3 meses incluida.",
+    description: "Reloj deportivo juvenil con colores vibrantes y funciones digitales avanzadas, perfecto para actividades",
+    longDescription: "Reloj deportivo diseñado para jóvenes activos con estilo único y moderno. Caja de resina resistente de 42mm con colores vibrantes de alta intensidad. Correa de silicona suave y ergonómica con textura antideslizante. Pantalla digital LCD de gran tamaño con retroiluminación LED verde. Funciones avanzadas: hora, fecha, alarma programable, cronómetro de precisión, temporizador regresivo. Resistencia al agua 5ATM perfecta para natación y deportes acuáticos. Batería de litio de larga duración (hasta 18 meses). Diseño moderno y juvenil que combina funcionalidad deportiva con estética urbana contemporánea. Garantía de 3 meses incluida.",
     inStock: true,
     discount: 30,
     sku: "REL-DEP-COL-027",
@@ -1194,6 +1208,8 @@ export const products = [
         name: "Amarillo Brillante",
         color: "#FDE047",
         sku: "REL-DEP-COL-027-AMA",
+        image: "/assets/images/reloj42.webp",
+        images: ["/assets/images/reloj42.webp"],
         inStock: true,
         stock: 100
       },
@@ -1202,6 +1218,8 @@ export const products = [
         name: "Naranja Vibrante",
         color: "#FB923C",
         sku: "REL-DEP-COL-027-NAR",
+        image: "/assets/images/reloj43.webp",
+        images: ["/assets/images/reloj43.webp"],
         inStock: true,
         stock: 100
       },
@@ -1210,6 +1228,8 @@ export const products = [
         name: "Rosa Fucsia",
         color: "#EC4899",
         sku: "REL-DEP-COL-027-ROS",
+        image: "/assets/images/reloj44.webp",
+        images: ["/assets/images/reloj44.webp"],
         inStock: true,
         stock: 100
       }
@@ -1563,6 +1583,8 @@ export const products = [
         name: "Plateado Clásico",
         color: "#C0C0C0",
         sku: "REL-DEP-MET-035-PLA",
+        image: "/assets/images/reloj56.webp",
+        images: ["/assets/images/reloj56.webp"],
         inStock: true,
         stock: 100
       },
@@ -1571,6 +1593,8 @@ export const products = [
         name: "Dorado Elegante",
         color: "#D4AF37",
         sku: "REL-DEP-MET-035-DOR",
+        image: "/assets/images/reloj57.webp",
+        images: ["/assets/images/reloj57.webp"],
         inStock: true,
         stock: 100
       }
@@ -1908,8 +1932,8 @@ export const products = [
     category: "relojes-deportivos",
     image: "/assets/images/reloj68.webp",
     images: ["/assets/images/reloj68.webp", "/assets/images/reloj69.webp", "/assets/images/reloj70.webp"],
-    description: "Reloj deportivo juvenil con diseños animados divertidos, perfecto para niños y adolescentes",
-    longDescription: "Reloj deportivo diseñado especialmente para jóvenes con diseños animados divertidos y coloridos. Caja de resina resistente de 38mm con estampados únicos. Correa de silicona suave y cómoda con diseños temáticos. Pantalla digital con múltiples funciones: hora, fecha, alarma, cronómetro, luz LED. Resistencia al agua 5ATM perfecta para actividades diarias y deportes. Batería de larga duración. Diseño moderno y juvenil que combina funcionalidad con entretenimiento. Garantía de 3 meses incluida.",
+    description: "Reloj deportivo juvenil con diseños temáticos animados, funciones digitales completas para jóvenes activos",
+    longDescription: "Reloj deportivo diseñado especialmente para jóvenes con diseños temáticos animados divertidos y coloridos. Caja de resina resistente de 38mm con estampados únicos de alta calidad. Correa de silicona suave y ergonómica con diseños temáticos exclusivos. Pantalla digital LCD de fácil lectura con retroiluminación LED multicolor. Funciones completas: hora, fecha, alarma programable, cronómetro de precisión, temporizador, señal horaria. Resistencia al agua 5ATM perfecta para actividades diarias y deportes acuáticos. Batería de litio de larga duración (hasta 24 meses). Diseño moderno y juvenil que combina funcionalidad deportiva con entretenimiento visual. Garantía de 3 meses incluida.",
     inStock: true,
     discount: 30,
     sku: "REL-DEP-ANI-043",
@@ -1921,6 +1945,8 @@ export const products = [
         name: "Superhéroes",
         color: "#3B82F6",
         sku: "REL-DEP-ANI-043-SUP",
+        image: "/assets/images/reloj68.webp",
+        images: ["/assets/images/reloj68.webp"],
         inStock: true,
         stock: 100
       },
@@ -1929,6 +1955,8 @@ export const products = [
         name: "Deportes Extremos",
         color: "#EF4444",
         sku: "REL-DEP-ANI-043-DEP",
+        image: "/assets/images/reloj69.webp",
+        images: ["/assets/images/reloj69.webp"],
         inStock: true,
         stock: 100
       },
@@ -1937,6 +1965,8 @@ export const products = [
         name: "Animales Divertidos",
         color: "#10B981",
         sku: "REL-DEP-ANI-043-ANI",
+        image: "/assets/images/reloj70.webp",
+        images: ["/assets/images/reloj70.webp"],
         inStock: true,
         stock: 100
       }

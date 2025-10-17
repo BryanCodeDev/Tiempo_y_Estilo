@@ -15,7 +15,10 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
     ? selectedVariant.images
     : (product.images && product.images.length > 0 ? product.images : [product.image]);
 
-  const currentImage = productImages[currentImageIndex] || product.image;
+  // Si la variante tiene imagen específica, usar esa, sino usar la imagen del producto
+  const variantImage = selectedVariant && selectedVariant.image ? selectedVariant.image : product.image;
+
+  const currentImage = productImages[currentImageIndex] || variantImage;
 
   const currentProduct = selectedVariant
     ? { ...product, ...selectedVariant, image: currentImage }
@@ -75,6 +78,13 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   // Resetear índice de imagen cuando cambie la variante
   useEffect(() => {
     setCurrentImageIndex(0);
+  }, [selectedVariant]);
+
+  // Si hay una variante seleccionada y tiene imagen específica, usar esa imagen
+  useEffect(() => {
+    if (selectedVariant && selectedVariant.image) {
+      setCurrentImageIndex(0);
+    }
   }, [selectedVariant]);
 
 
@@ -245,11 +255,6 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                   <h3 className="font-bold text-lg text-primary mb-1 hover:text-secondary transition-colors cursor-pointer line-clamp-2">
                     {product.name}
                   </h3>
-                  {selectedVariant && (
-                    <span className="text-sm text-primary-700 block mb-1">
-                      {selectedVariant.name}
-                    </span>
-                  )}
                   <p className="text-secondary text-xs font-medium bg-secondary-50 px-2 py-0.5 rounded-md inline-block">
                     SKU: {currentProduct.sku}
                   </p>
@@ -504,11 +509,6 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
           <h3 className="font-bold text-base sm:text-base lg:text-lg text-primary mb-1 group-hover:text-secondary transition-colors duration-300 line-clamp-2 leading-tight">
             {product.name}
           </h3>
-          {selectedVariant && (
-            <span className="text-sm sm:text-sm text-primary-700 block mb-1">
-              {selectedVariant.name}
-            </span>
-          )}
           <p className="text-secondary text-xs font-medium bg-secondary-50 px-2 py-0.5 rounded-md inline-block">
             SKU: {currentProduct.sku}
           </p>
