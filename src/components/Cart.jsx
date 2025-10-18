@@ -26,8 +26,28 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
   }, [isOpen]);
   
   const handleWhatsAppCheckout = () => {
+    // Facebook Pixel - InitiateCheckout Event
+    if (typeof fbq !== 'undefined') {
+      const contents = cartItems.map(item => ({
+        id: item.sku,
+        quantity: item.quantity,
+        item_price: item.price
+      }));
+
+      fbq('track', 'InitiateCheckout', {
+        content_ids: cartItems.map(item => item.sku),
+        content_name: cartItems.map(item => item.name).join(', '),
+        content_category: 'relojes',
+        content_type: 'product',
+        value: total,
+        currency: 'COP',
+        contents: contents,
+        num_items: itemCount
+      });
+    }
+
     let message = "🛍️ PEDIDO TIEMPO Y ESTILO%0A%0A";
-    
+
     cartItems.forEach((item, index) => {
       message += `${index + 1}. *${item.name}*%0A`;
       message += `   - SKU: ${item.sku}%0A`;
@@ -35,16 +55,36 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
       message += `   - Precio: $${item.price.toLocaleString()}%0A`;
       message += `   - Subtotal: $${(item.price * item.quantity).toLocaleString()}%0A%0A`;
     });
-    
+
     message += `✨ RESUMEN DEL PEDIDO%0A`;
     message += `- Subtotal: $${total.toLocaleString()}%0A`;
     message += `- Domicilio: GRATIS 🎁%0A`;
     message += `- *TOTAL: $${finalTotal.toLocaleString()}*%0A`;
     message += `- Productos: ${itemCount} ${itemCount === 1 ? 'item' : 'items'}%0A%0A`;
-    
+
     message += "¿Podrían confirmar disponibilidad y tiempo de entrega?%0A%0A";
     message += "*TIEMPO Y ESTILO - Joyería Premium*";
-    
+
+    // Facebook Pixel - Purchase Event
+    if (typeof fbq !== 'undefined') {
+      const contents = cartItems.map(item => ({
+        id: item.sku,
+        quantity: item.quantity,
+        item_price: item.price
+      }));
+
+      fbq('track', 'Purchase', {
+        content_ids: cartItems.map(item => item.sku),
+        content_name: cartItems.map(item => item.name).join(', '),
+        content_category: 'relojes',
+        content_type: 'product',
+        value: total,
+        currency: 'COP',
+        contents: contents,
+        num_items: itemCount
+      });
+    }
+
     window.open(`https://wa.me/573146081297?text=${message}`, '_blank');
   };
 

@@ -150,7 +150,17 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
               type="text"
               placeholder={`Buscar en nuestra colección de ${products.length} piezas exclusivas...`}
               value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
+              onChange={(e) => {
+                setSearchTerm(e.target.value);
+
+                // Facebook Pixel - Search Event
+                if (typeof fbq !== 'undefined' && e.target.value.trim() !== '') {
+                  fbq('track', 'Search', {
+                    search_string: e.target.value,
+                    content_category: 'relojes'
+                  });
+                }
+              }}
               className="w-full pl-20 pr-14 py-5 border-2 border-secondary/30 rounded-2xl focus:outline-none focus:ring-0 focus:border-secondary transition-all duration-300 text-base glass-luxury text-primary placeholder-gray-500 font-semibold shadow-lg"
               aria-label="Buscar productos por nombre, descripción o referencia"
             />

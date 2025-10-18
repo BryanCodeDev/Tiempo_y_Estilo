@@ -92,6 +92,19 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   const handleAddToCart = (e) => {
     e.stopPropagation();
     addToCart(currentProduct);
+
+    // Facebook Pixel - AddToCart Event
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'AddToCart', {
+        content_ids: [currentProduct.sku],
+        content_name: currentProduct.name,
+        content_category: currentProduct.category,
+        content_type: 'product',
+        value: currentProduct.price,
+        currency: 'COP',
+        quantity: 1
+      });
+    }
   };
 
   const handleLike = (e) => {
@@ -103,6 +116,18 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
     e.stopPropagation();
     if (navigateToProduct) {
       navigateToProduct(product);
+    }
+
+    // Facebook Pixel - ViewContent Event
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'ViewContent', {
+        content_ids: [product.sku],
+        content_name: product.name,
+        content_category: product.category,
+        content_type: 'product',
+        value: product.price,
+        currency: 'COP'
+      });
     }
   };
 
