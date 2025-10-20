@@ -9,7 +9,7 @@ import ProductDetail from './components/ProductDetail';
 import ErrorBoundary from './components/ErrorBoundary';
 import RouteErrorHandler from './components/RouteErrorHandler';
 import PerformanceMonitor from './components/PerformanceMonitor';
-import { products } from './data/products';
+import productService from './services/productService';
 
 // Función para generar URLs SEO-friendly
 export const generateProductURL = (product) => {
@@ -141,16 +141,16 @@ const updateStructuredData = (product) => {
 };
 
 // Función para buscar productos (para el RouteErrorHandler)
-const searchProducts = (searchTerm) => {
+const searchProducts = async (searchTerm) => {
   if (!searchTerm || searchTerm.length < 2) return [];
-  
-  const term = searchTerm.toLowerCase();
-  return products.filter(product => 
-    product.name.toLowerCase().includes(term) ||
-    product.description.toLowerCase().includes(term) ||
-    product.category.toLowerCase().includes(term) ||
-    product.sku.toLowerCase().includes(term)
-  );
+
+  try {
+    const results = await productService.searchProducts(searchTerm, { limit: 20 });
+    return results;
+  } catch (error) {
+    console.error('Error searching products:', error);
+    return [];
+  }
 };
 
 function App() {
@@ -217,15 +217,20 @@ function App() {
   };
 
   // Función mejorada para encontrar productos
-  const findProductById = (id) => {
-    const product = products.find(p => p.id === id);
-    if (!product) {
+  const findProductById = async (id) => {
+    try {
+      const product = await productService.getProductById(id);
+      if (!product) {
+        return null;
+      }
+
+      // Generar el slug correcto del producto para comparación
+      const correctSlug = generateProductURL(product).split('/').pop();
+      return { product, correctSlug };
+    } catch (error) {
+      console.error('Error finding product by ID:', error);
       return null;
     }
-
-    // Generar el slug correcto del producto para comparación
-    const correctSlug = generateProductURL(product).split('/').pop();
-    return { product, correctSlug };
   };
 
   // Inicializar ruta basada en URL actual

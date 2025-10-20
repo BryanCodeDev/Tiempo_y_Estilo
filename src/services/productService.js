@@ -1,13 +1,13 @@
 // Servicio avanzado de gestión de productos e imágenes
+import { imageOptimizer } from './imageOptimizer.js';
+
 export class ProductService {
   constructor() {
     this.products = [];
     this.categories = [];
-    this.imageOptimizer = null;
     this.loadingStates = new Map();
     this.productCache = new Map();
     this.productsPromise = null;
-    this.imageOptimizerPromise = null;
 
     this.init();
   }
@@ -15,11 +15,6 @@ export class ProductService {
   async init() {
     // Crear promesas únicas para evitar múltiples imports
     this.productsPromise = import('../data/products.js');
-    this.imageOptimizerPromise = import('./imageOptimizer.js');
-
-    // Importar optimizador de imágenes dinámicamente (solo una vez)
-    const { imageOptimizer } = await this.imageOptimizerPromise;
-    this.imageOptimizer = imageOptimizer;
   }
 
   // Función única para importar productos
@@ -28,6 +23,11 @@ export class ProductService {
       this.productsPromise = import('../data/products.js');
     }
     return await this.productsPromise;
+  }
+
+  // Usar optimizador de imágenes global
+  get imageOptimizer() {
+    return imageOptimizer;
   }
 
   // Cargar productos de manera eficiente
@@ -84,8 +84,9 @@ export class ProductService {
   }
 
   // Precargar imágenes de productos de manera inteligente
-  preloadProductImages(products) {
-    if (!this.imageOptimizer) return;
+  async preloadProductImages(products) {
+    const imageOptimizer = this.imageOptimizer;
+    if (!imageOptimizer) return;
 
     const imageSources = [];
 
@@ -114,7 +115,7 @@ export class ProductService {
     });
 
     // Precargar imágenes con prioridad baja
-    this.imageOptimizer.preloadImages(imageSources, 'low');
+    imageOptimizer.preloadImages(imageSources, 'low');
   }
 
   // Obtener producto por ID con caché
@@ -230,30 +231,38 @@ export class ProductService {
     this.productCache.clear();
     this.loadingStates.clear();
 
-    if (this.imageOptimizer) {
-      this.imageOptimizer.clearCache();
+    const imageOptimizer = this.imageOptimizer;
+    if (imageOptimizer) {
+      imageOptimizer.clearCache();
     }
   }
 
   // Obtener estadísticas de rendimiento
   getPerformanceStats() {
-    if (this.imageOptimizer) {
-      return {
-        ...this.imageOptimizer.getPerformanceStats(),
-        cachedProducts: this.productCache.size,
-        loadingStates: this.loadingStates.size
-      };
-    }
-
-    return {
+    const stats = {
       cachedProducts: this.productCache.size,
       loadingStates: this.loadingStates.size
     };
+
+    const imageOptimizer = this.imageOptimizer;
+    if (imageOptimizer) {
+      try {
+        return {
+          ...imageOptimizer.getPerformanceStats(),
+          ...stats
+        };
+      } catch (error) {
+        console.warn('Error getting image optimizer stats:', error);
+      }
+    }
+
+    return stats;
   }
 
   // Precarga inteligente basada en comportamiento del usuario
   preloadBasedOnUserBehavior(currentProductId, userPreferences = {}) {
-    if (!this.imageOptimizer) return;
+    const imageOptimizer = this.imageOptimizer;
+    if (!imageOptimizer) return;
 
     // Precargar productos relacionados
     this.getRelatedProducts(currentProductId, 6);
@@ -281,7 +290,9 @@ export const useProductService = () => {
     getRelatedProducts: (id, limit) => productService.getRelatedProducts(id, limit),
     getLoadingState: (key) => productService.getLoadingState(key),
     clearCache: () => productService.clearCache(),
-    getPerformanceStats: () => productService.getPerformanceStats()
+    getPerformanceStats: () => productService.getPerformanceStats(),
+    preloadBasedOnUserBehavior: (currentProductId, userPreferences) =>
+      productService.preloadBasedOnUserBehavior(currentProductId, userPreferences)
   };
 };
 
