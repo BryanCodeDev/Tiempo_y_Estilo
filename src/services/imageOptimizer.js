@@ -122,22 +122,34 @@ export class ImageOptimizer {
     return thumbnailSrc;
   }
 
-  // Precarga inteligente de imágenes
+  // Precarga inteligente de imágenes usando elementos Image
   preloadImages(imageSources, priority = 'low') {
     imageSources.forEach(src => {
       if (!this.loadedImages.has(src) && !this.preloadQueue.has(src)) {
         this.preloadQueue.add(src);
 
-        const link = document.createElement('link');
-        link.rel = 'preload';
-        link.as = 'image';
-        link.href = src;
+        // Crear imagen para precarga
+        const img = new Image();
 
-        if (priority === 'high') {
-          link.setAttribute('fetchpriority', 'high');
+        img.onload = () => {
+          // Imagen precargada exitosamente
+          this.imageCache.set(this.getCacheKey(src), src);
+          this.loadedImages.add(src);
+          this.preloadQueue.delete(src);
+        };
+
+        img.onerror = () => {
+          // Error en precarga, remover de la cola
+          this.preloadQueue.delete(src);
+        };
+
+        // Iniciar precarga
+        img.src = src;
+
+        // Establecer prioridad si es alta
+        if (priority === 'high' && img.fetchPriority !== undefined) {
+          img.fetchPriority = 'high';
         }
-
-        document.head.appendChild(link);
       }
     });
   }

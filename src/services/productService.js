@@ -63,8 +63,8 @@ export class ProductService {
       // Aplicar paginación
       const paginatedProducts = filteredProducts.slice(offset, offset + limit);
 
-      // Precargar imágenes de productos visibles
-      this.preloadProductImages(paginatedProducts);
+      // Precargar imágenes de productos visibles (máximo 10)
+      this.preloadProductImages(paginatedProducts, 10);
 
       // Almacenar en caché
       this.productCache.set(cacheKey, {
@@ -84,38 +84,35 @@ export class ProductService {
   }
 
   // Precargar imágenes de productos de manera inteligente
-  async preloadProductImages(products) {
+  async preloadProductImages(products, maxImages = 5) {
     const imageOptimizer = this.imageOptimizer;
     if (!imageOptimizer) return;
 
     const imageSources = [];
+    let count = 0;
 
-    products.forEach(product => {
-      // Imagen principal
-      if (product.image) {
+    for (const product of products) {
+      // Solo imagen principal para cada producto (más importante)
+      if (product.image && count < maxImages) {
         imageSources.push(product.image);
+        count++;
       }
 
-      // Imágenes adicionales
-      if (product.images && product.images.length > 0) {
-        imageSources.push(...product.images);
+      // Si necesitamos más imágenes, incluir algunas adicionales
+      if (count < maxImages && product.images && product.images.length > 0) {
+        const additionalImages = product.images.slice(0, Math.min(2, maxImages - count));
+        imageSources.push(...additionalImages);
+        count += additionalImages.length;
       }
 
-      // Imágenes de variantes
-      if (product.hasVariants && product.variants) {
-        product.variants.forEach(variant => {
-          if (variant.image) {
-            imageSources.push(variant.image);
-          }
-          if (variant.images && variant.images.length > 0) {
-            imageSources.push(...variant.images);
-          }
-        });
-      }
-    });
+      // Detener si ya tenemos suficientes imágenes
+      if (count >= maxImages) break;
+    }
 
-    // Precargar imágenes con prioridad baja
-    imageOptimizer.preloadImages(imageSources, 'low');
+    // Solo precargar si tenemos imágenes
+    if (imageSources.length > 0) {
+      imageOptimizer.preloadImages(imageSources, 'low');
+    }
   }
 
   // Obtener producto por ID con caché
@@ -131,8 +128,8 @@ export class ProductService {
       const product = products.find(p => p.id === parseInt(id));
 
       if (product) {
-        // Precargar todas las imágenes del producto
-        this.preloadProductImages([product]);
+        // Precargar imágenes del producto (máximo 3 para producto individual)
+        this.preloadProductImages([product], 3);
         this.productCache.set(cacheKey, product);
       }
 
@@ -177,8 +174,8 @@ export class ProductService {
           // Limitar resultados
           const results = filteredProducts.slice(0, limit);
 
-          // Precargar imágenes de resultados
-          this.preloadProductImages(results);
+          // Precargar imágenes de resultados (máximo 8 para búsqueda)
+          this.preloadProductImages(results, 8);
 
           resolve(results);
         } catch (error) {
@@ -202,8 +199,8 @@ export class ProductService {
         .filter(p => p.id !== parseInt(productId) && p.category === currentProduct.category)
         .slice(0, limit);
 
-      // Precargar imágenes
-      this.preloadProductImages(relatedProducts);
+      // Precargar imágenes (máximo 6 para productos relacionados)
+      this.preloadProductImages(relatedProducts, 6);
 
       return relatedProducts;
     } catch (error) {
