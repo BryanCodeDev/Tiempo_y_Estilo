@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Phone, MessageCircle, ArrowUp } from 'lucide-react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import ProductCatalog from './components/ProductCatalog';
+import OptimizedProductCatalog from './components/OptimizedProductCatalog';
 import Footer from './components/Footer';
 import Cart from './components/Cart';
 import ProductDetail from './components/ProductDetail';
 import ErrorBoundary from './components/ErrorBoundary';
 import RouteErrorHandler from './components/RouteErrorHandler';
+import PerformanceMonitor from './components/PerformanceMonitor';
 import { products } from './data/products';
 
 // Función para generar URLs SEO-friendly
@@ -1481,8 +1482,8 @@ function App() {
       return (
         <>
           <Hero />
-          <ProductCatalog 
-            addToCart={addToCart} 
+          <OptimizedProductCatalog
+            addToCart={addToCart}
             navigateToProduct={navigateToProduct}
           />
         </>
@@ -1560,12 +1561,15 @@ function App() {
           </button>
         </div>
 
+        {/* Performance Monitor (solo en desarrollo) */}
+        {process.env.NODE_ENV === 'development' && <PerformanceMonitor />}
+
         {/* Botón scroll to top */}
         <button
           onClick={scrollToTop}
           className={`fixed bottom-4 left-4 bg-gray-900 hover:bg-gray-800 text-white p-3 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 z-40 transform ${
-            showScrollTop 
-              ? 'translate-y-0 opacity-100' 
+            showScrollTop
+              ? 'translate-y-0 opacity-100'
               : 'translate-y-16 opacity-0 pointer-events-none'
           }`}
           title="Ir arriba"

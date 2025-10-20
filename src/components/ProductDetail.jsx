@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  ArrowLeft, 
-  Star, 
-  ShoppingCart, 
-  Phone, 
-  Heart, 
-  Share2, 
-  Truck, 
-  Shield, 
-  Award, 
+import {
+  ArrowLeft,
+  Star,
+  ShoppingCart,
+  Phone,
+  Heart,
+  Share2,
+  Truck,
+  Shield,
+  Award,
   Package,
   ChevronLeft,
   ChevronRight,
@@ -20,6 +20,9 @@ import {
   Info,
   Crown
 } from 'lucide-react';
+import OptimizedImage, { OptimizedImageGallery } from './OptimizedImage';
+import { useProductService } from '../services/productService';
+import { useImageOptimizer } from '../services/imageOptimizer';
 
 const ProductDetail = ({ product, onBack, addToCart }) => {
   const [selectedVariant, setSelectedVariant] = useState(
@@ -30,6 +33,10 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [activeTab, setActiveTab] = useState('description');
   const [showShareMenu, setShowShareMenu] = useState(false);
+
+  // Servicios de optimización
+  const { getRelatedProducts, preloadBasedOnUserBehavior } = useProductService();
+  const { preloadImages } = useImageOptimizer();
 
   const currentProduct = selectedVariant 
     ? { ...product, ...selectedVariant, image: selectedVariant.image || product.image }
@@ -59,7 +66,12 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
         price: product.price
       });
     }
-  }, [product]);
+
+    // Precarga inteligente basada en comportamiento del usuario
+    preloadBasedOnUserBehavior(product.id, {
+      categories: [product.category]
+    });
+  }, [product, preloadBasedOnUserBehavior]);
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
@@ -170,14 +182,12 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
           <div className="space-y-4">
             {/* Imagen principal */}
             <div className="relative glass-luxury rounded-3xl overflow-hidden shadow-2xl group border border-secondary/20">
-              <img
+              <OptimizedImage
                 src={images[currentImageIndex]}
                 alt={`${product.name} - Vista ${currentImageIndex + 1}`}
                 className="w-full h-[500px] object-cover"
-                loading="lazy"
-                decoding="async"
-                width="800"
-                height="500"
+                priority="high"
+                size="800x500"
               />
               
               {/* Badges */}
@@ -271,14 +281,12 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                         : 'border-gray-300 hover:border-secondary'
                     }`}
                   >
-                    <img
+                    <OptimizedImage
                       src={image}
                       alt={`${product.name} miniatura ${index + 1}`}
                       className="w-full h-full object-cover"
-                      loading="lazy"
-                      decoding="async"
-                      width="80"
-                      height="80"
+                      priority="low"
+                      size="80x80"
                     />
                   </button>
                 ))}

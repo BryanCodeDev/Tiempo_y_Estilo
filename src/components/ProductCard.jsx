@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { Star, ShoppingCart, Heart, Palette, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
+import OptimizedImage, { OptimizedImageGallery } from './OptimizedImage';
+import { useProductService } from '../services/productService';
 
 const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct }) => {
   const [isLiked, setIsLiked] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(true);
-  const [imageError, setImageError] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(
     product.hasVariants ? product.variants[0] : null
   );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const { preloadImages } = useProductService();
+
+  // Limpiar estados de carga que ahora maneja OptimizedImage
+  const [imageLoaded, setImageLoaded] = useState(true);
+  const [imageError, setImageError] = useState(false);
 
   // Determinar qué imágenes mostrar
   const productImages = selectedVariant && selectedVariant.images
@@ -19,6 +24,19 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   const variantImage = selectedVariant && selectedVariant.image ? selectedVariant.image : product.image;
 
   const currentImage = productImages[currentImageIndex] || variantImage;
+
+  // Precargar imágenes cercanas cuando cambie el índice
+  useEffect(() => {
+    if (productImages.length > 1) {
+      const nearbyImages = [
+        ...productImages.slice(Math.max(0, currentImageIndex - 1), currentImageIndex),
+        productImages[currentImageIndex],
+        ...productImages.slice(currentImageIndex + 1, currentImageIndex + 2)
+      ].filter(Boolean);
+
+      preloadImages(nearbyImages, 'low');
+    }
+  }, [currentImageIndex, productImages, preloadImages]);
 
   const currentProduct = selectedVariant
     ? { ...product, ...selectedVariant, image: currentImage }
@@ -167,65 +185,53 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                 </div>
               </div>
             ) : (
+              <OptimizedImage
+                src={currentImage}
+                alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
+                title={product.name}
+                className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105"
+                style={{ objectPosition: 'center center' }}
+                priority="low"
+                size="400x300"
+              />
+            )}
+
+            {/* Controles de navegación para múltiples imágenes */}
+            {productImages.length > 1 && (
               <>
-                <img
-                  src={currentImage}
-                  alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
-                  title={product.name}
-                  className={`w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105 ${
-                    imageLoaded ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  style={{ objectPosition: 'center center' }}
-                  onLoad={() => setImageLoaded(true)}
-                  onError={() => {
-                    setImageError(true);
-                    setImageLoaded(true);
-                  }}
-                  loading="lazy"
-                  decoding="async"
-                  fetchpriority="auto"
-                  width="400"
-                  height="300"
-                />
+                {/* Flecha izquierda */}
+                <button
+                  onClick={prevImage}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
 
-                {/* Controles de navegación para múltiples imágenes */}
-                {productImages.length > 1 && (
-                  <>
-                    {/* Flecha izquierda */}
+                {/* Flecha derecha */}
+                <button
+                  onClick={nextImage}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+
+                {/* Indicadores de imagen */}
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+                  {productImages.map((_, index) => (
                     <button
-                      onClick={prevImage}
-                      className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-
-                    {/* Flecha derecha */}
-                    <button
-                      onClick={nextImage}
-                      className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-
-                    {/* Indicadores de imagen */}
-                    <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-                      {productImages.map((_, index) => (
-                        <button
-                          key={index}
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setCurrentImageIndex(index);
-                          }}
-                          className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                            index === currentImageIndex
-                              ? 'bg-white'
-                              : 'bg-white/50 hover:bg-white/80'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                  </>
-                )}
+                      key={index}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentImageIndex(index);
+                      }}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex
+                          ? 'bg-white'
+                          : 'bg-white/50 hover:bg-white/80'
+                      }`}
+                    />
+                  ))}
+                </div>
               </>
             )}
             
@@ -409,64 +415,52 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
             </div>
           </div>
         ) : (
+          <OptimizedImage
+            src={currentImage}
+            alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
+            title={product.name}
+            className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500"
+            priority="low"
+            size="400x300"
+          />
+        )}
+
+        {/* Controles de navegación para múltiples imágenes */}
+        {productImages.length > 1 && (
           <>
-            <img
-              src={currentImage}
-              alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
-              title={product.name}
-              className={`w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500 ${
-                imageLoaded ? 'opacity-100' : 'opacity-0'
-              }`}
-              onLoad={() => setImageLoaded(true)}
-              onError={() => {
-                setImageError(true);
-                setImageLoaded(true);
-              }}
-              loading="lazy"
-              decoding="async"
-              fetchpriority="auto"
-              width="400"
-              height="300"
-            />
+            {/* Flecha izquierda */}
+            <button
+              onClick={prevImage}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
 
-            {/* Controles de navegación para múltiples imágenes */}
-            {productImages.length > 1 && (
-              <>
-                {/* Flecha izquierda */}
+            {/* Flecha derecha */}
+            <button
+              onClick={nextImage}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+
+            {/* Indicadores de imagen */}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
+              {productImages.map((_, index) => (
                 <button
-                  onClick={prevImage}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-
-                {/* Flecha derecha */}
-                <button
-                  onClick={nextImage}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-
-                {/* Indicadores de imagen */}
-                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-                  {productImages.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setCurrentImageIndex(index);
-                      }}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                        index === currentImageIndex
-                          ? 'bg-white'
-                          : 'bg-white/50 hover:bg-white/80'
-                      }`}
-                    />
-                  ))}
-                </div>
-              </>
-            )}
+                  key={index}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentImageIndex(index);
+                  }}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    index === currentImageIndex
+                      ? 'bg-white'
+                      : 'bg-white/50 hover:bg-white/80'
+                  }`}
+                />
+              ))}
+            </div>
           </>
         )}
         

@@ -2122,11 +2122,810 @@ export const products = [
       "Ideal para atletas",
       "Garantía de 3 meses"
     ]
+  },
+
+  // 47. Reloj Curren Deportivo Clásico
+  {
+    id: 47,
+    name: "Reloj Curren Deportivo Acero Inoxidable",
+    price: 120000,
+    originalPrice: 180000,
+    category: "curren",
+    image: "/assets/images/reloj74.webp",
+    images: ["/assets/images/reloj74.webp", "/assets/images/reloj75.webp", "/assets/images/reloj76.webp"],
+    description: "Reloj Curren deportivo con caja de acero inoxidable, movimiento japonés, resistente al agua",
+    longDescription: "Reloj Curren de la línea deportiva con diseño elegante y funcional. Caja de acero inoxidable de 42mm con acabado pulido. Movimiento de cuarzo japonés de alta precisión. Cristal mineral resistente a rayones. Correa de acero inoxidable con cierre de seguridad. Resistencia al agua 5ATM (50 metros). Esfera con números luminosos para fácil lectura en condiciones de poca luz. Perfecto para uso diario y actividades deportivas. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 33,
+    sku: "CUR-DEP-001",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 42mm",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Mineral resistente",
+      "Correa: Acero inoxidable",
+      "Resistencia al agua: 5ATM (50m)",
+      "Esfera: Números luminosos",
+      "Peso: 48 gramos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Curren deportivo",
+      "Estuche de presentación",
+      "Manual de usuario",
+      "Garantía 3 meses",
+      "Paño de limpieza"
+    ],
+    benefits: [
+      "Marca reconocida internacionalmente",
+      "Movimiento preciso japonés",
+      "Resistente al agua",
+      "Diseño deportivo elegante",
+      "Acabados premium",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 48. Reloj Curren Elegante con Cuero
+  {
+    id: 48,
+    name: "Reloj Curren Elegante con Correa de Cuero",
+    price: 110000,
+    originalPrice: 160000,
+    category: "curren",
+    image: "/assets/images/reloj77.webp",
+    images: ["/assets/images/reloj77.webp", "/assets/images/reloj78.webp"],
+    description: "Reloj Curren elegante con correa de cuero genuino, diseño clásico y sofisticado",
+    longDescription: "Reloj Curren de la línea clásica con diseño elegante y correa de cuero premium. Caja de acero inoxidable de 40mm con acabado pulido. Movimiento de cuarzo japonés de alta precisión. Cristal mineral resistente a rayones. Correa de cuero genuino italiano ajustable. Resistencia al agua 3ATM (30 metros). Esfera con números romanos elegantes. Perfecto para ocasiones formales y uso diario elegante. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 31,
+    sku: "CUR-CLA-002",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 40mm",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Mineral resistente",
+      "Correa: Cuero genuino italiano",
+      "Resistencia: 3ATM (30m)",
+      "Esfera: Números romanos",
+      "Peso: 42 gramos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Curren elegante",
+      "Estuche de presentación",
+      "Manual de usuario",
+      "Garantía 3 meses",
+      "Paño de limpieza"
+    ],
+    benefits: [
+      "Marca Curren reconocida",
+      "Correa de cuero premium",
+      "Diseño clásico elegante",
+      "Movimiento preciso",
+      "Acabados de calidad",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 49. Reloj Curren Deportivo con Cronógrafo
+  {
+    id: 49,
+    name: "Reloj Curren Cronógrafo Deportivo",
+    price: 130000,
+    originalPrice: 190000,
+    category: "curren",
+    image: "/assets/images/reloj79.webp",
+    images: ["/assets/images/reloj79.webp", "/assets/images/reloj80.webp", "/assets/images/reloj81.webp"],
+    description: "Reloj Curren con cronógrafo deportivo, múltiples funciones, resistente al agua 10ATM",
+    longDescription: "Reloj Curren deportivo avanzado con funciones de cronógrafo profesional. Caja de acero inoxidable de 44mm con tratamiento PVD negro. Movimiento de cuarzo japonés con cronógrafo. Sub-esferas para cronómetro, segundero y ventana de fecha. Cristal mineral resistente con tratamiento anti-reflejante. Correa de silicona reforzada. Resistencia al agua 10ATM (100 metros). Bisel taquimétrico. Perfecto para deportes y actividades al aire libre. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 32,
+    sku: "CUR-CRO-003",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 44mm PVD",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Mineral anti-reflejante",
+      "Funciones: Cronógrafo, fecha",
+      "Resistencia: 10ATM (100 metros)",
+      "Correa: Silicona reforzada",
+      "Bisel: Taquimétrico",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Curren cronógrafo",
+      "Herramientas de ajuste",
+      "Manual técnico detallado",
+      "Estuche resistente al agua",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "Funciones de cronógrafo",
+      "Resistente al agua 100m",
+      "Marca Curren de calidad",
+      "Movimiento preciso japonés",
+      "Diseño deportivo robusto",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 50. Reloj Curren Automático Premium
+  {
+    id: 50,
+    name: "Reloj Curren Automático Premium",
+    price: 150000,
+    originalPrice: 220000,
+    category: "curren",
+    image: "/assets/images/reloj82.webp",
+    images: ["/assets/images/reloj82.webp", "/assets/images/reloj83.webp"],
+    description: "Reloj Curren automático premium con movimiento mecánico, reserva de marcha 40 horas",
+    longDescription: "Reloj Curren automático de alta gama con movimiento mecánico japonés. Caja de acero inoxidable 316L de 42mm con acabado pulido. Movimiento automático de 21 rubíes con reserva de marcha de 40 horas. Ventana de fecha a las 3 en punto. Correa de cuero genuino italiano con cierre de hebilla. Cristal de zafiro resistente a rayones. Fondo transparente para apreciar el movimiento mecánico. Resistencia al agua 5ATM. Perfecto para amantes de la relojería tradicional. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 32,
+    sku: "CUR-AUT-004",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 316L 42mm",
+      "Movimiento: Automático 21 rubíes",
+      "Reserva de marcha: 40 horas",
+      "Cristal: Zafiro resistente",
+      "Correa: Cuero genuino italiano",
+      "Funciones: Hora, fecha",
+      "Fondo: Transparente",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Curren automático",
+      "Estuche premium de madera",
+      "Manual de usuario detallado",
+      "Garantía 3 meses",
+      "Paño de limpieza microfibra"
+    ],
+    benefits: [
+      "Movimiento automático premium",
+      "Cristal de zafiro",
+      "Reserva de marcha 40 horas",
+      "Fondo transparente elegante",
+      "Marca Curren reconocida",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 51. Reloj Curren Deportivo Juvenil
+  {
+    id: 51,
+    name: "Reloj Curren Deportivo Juvenil",
+    price: 95000,
+    originalPrice: 140000,
+    category: "curren",
+    image: "/assets/images/reloj84.webp",
+    images: ["/assets/images/reloj84.webp", "/assets/images/reloj85.webp", "/assets/images/reloj86.webp"],
+    description: "Reloj Curren juvenil deportivo con colores vibrantes, funciones digitales completas",
+    longDescription: "Reloj Curren diseñado para jóvenes activos con estilo moderno. Caja de resina resistente de 42mm con colores vibrantes. Correa de silicona suave y ergonómica. Pantalla digital LCD con retroiluminación LED. Funciones: hora, fecha, alarma, cronómetro, temporizador. Resistencia al agua 5ATM perfecta para natación. Batería de larga duración. Diseño juvenil que combina funcionalidad y estilo. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 32,
+    sku: "CUR-DEP-JUV-005",
+    stock: 100,
+    hasVariants: true,
+    variants: [
+      {
+        id: "rojo",
+        name: "Rojo Vibrante",
+        color: "#DC2626",
+        sku: "CUR-DEP-JUV-005-ROJ",
+        image: "/assets/images/reloj84.webp",
+        images: ["/assets/images/reloj84.webp"],
+        inStock: true,
+        stock: 100
+      },
+      {
+        id: "azul",
+        name: "Azul Eléctrico",
+        color: "#2563EB",
+        sku: "CUR-DEP-JUV-005-AZU",
+        image: "/assets/images/reloj85.webp",
+        images: ["/assets/images/reloj85.webp"],
+        inStock: true,
+        stock: 100
+      },
+      {
+        id: "verde",
+        name: "Verde Lima",
+        color: "#16A34A",
+        sku: "CUR-DEP-JUV-005-VER",
+        image: "/assets/images/reloj86.webp",
+        images: ["/assets/images/reloj86.webp"],
+        inStock: true,
+        stock: 100
+      }
+    ],
+    specifications: [
+      "Caja: Resina 42mm resistente",
+      "Pantalla: Digital LCD",
+      "Correa: Silicona suave",
+      "Resistencia: 5ATM (50m)",
+      "Funciones: Hora, fecha, alarma, cronómetro",
+      "Batería: Larga duración",
+      "Colores: Rojo, Azul, Verde",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Curren juvenil",
+      "Manual de instrucciones",
+      "Garantía 3 meses",
+      "Caja de almacenamiento"
+    ],
+    benefits: [
+      "Diseño juvenil moderno",
+      "Colores vibrantes",
+      "Múltiples funciones",
+      "Resistente al agua",
+      "Batería duradera",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 52. Reloj Rolex Clásico Submariner
+  {
+    id: 52,
+    name: "Reloj Rolex Submariner Clásico",
+    price: 850000,
+    originalPrice: 1200000,
+    category: "rolex",
+    image: "/assets/images/reloj95.webp",
+    images: ["/assets/images/reloj95.webp", "/assets/images/reloj96.webp", "/assets/images/reloj97.webp"],
+    description: "Reloj Rolex Submariner clásico, sumergible 300m, movimiento automático, diseño icónico",
+    longDescription: "El legendario reloj Rolex Submariner con diseño clásico e inconfundible. Caja de acero inoxidable 904L de 41mm con acabado pulido y cepillado. Movimiento automático calibre 3135 con reserva de marcha de 48 horas. Bisel giratorio unidireccional con inserto de cerámica. Cristal de zafiro con tratamiento anti-reflejante. Correa de acero inoxidable con cierre de seguridad. Resistencia al agua 300 metros (30ATM). Ventana de fecha con lente cyclops. Perfecto para buceo profesional y uso diario elegante. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 29,
+    sku: "ROL-SUB-001",
+    stock: 100,
+    specifications: [
+      "Caja: Acero 904L 41mm",
+      "Movimiento: Automático calibre 3135",
+      "Cristal: Zafiro anti-reflejante",
+      "Bisel: Cerámica giratorio",
+      "Resistencia: 300m (30ATM)",
+      "Correa: Acero inoxidable",
+      "Reserva de marcha: 48 horas",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Rolex Submariner",
+      "Estuche premium Rolex",
+      "Certificado de autenticidad",
+      "Manual de usuario detallado",
+      "Garantía 3 meses",
+      "Herramientas de ajuste"
+    ],
+    benefits: [
+      "Marca Rolex legendaria",
+      "Sumergible hasta 300 metros",
+      "Movimiento automático premium",
+      "Bisel cerámico profesional",
+      "Diseño icónico reconocible",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 53. Reloj Rolex Datejust Elegante
+  {
+    id: 53,
+    name: "Reloj Rolex Datejust con Diamantes",
+    price: 950000,
+    originalPrice: 1350000,
+    category: "rolex",
+    image: "/assets/images/reloj98.webp",
+    images: ["/assets/images/reloj98.webp", "/assets/images/reloj99.webp"],
+    description: "Reloj Rolex Datejust elegante con diamantes naturales, movimiento automático premium",
+    longDescription: "Reloj Rolex Datejust de lujo con diseño elegante y sofisticado. Caja de acero inoxidable 904L de 36mm con acabado pulido. Movimiento automático calibre 3135 con reserva de marcha de 48 horas. Esfera con diamantes naturales como índices horarios. Ventana de fecha con lente cyclops. Bisel estriado característico. Correa de acero inoxidable con cierre desplegable. Cristal de zafiro resistente a rayones. Resistencia al agua 100 metros (10ATM). Perfecto para ocasiones especiales y uso diario elegante. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "ROL-DAT-002",
+    stock: 100,
+    specifications: [
+      "Caja: Acero 904L 36mm",
+      "Movimiento: Automático calibre 3135",
+      "Cristal: Zafiro resistente",
+      "Esfera: Con diamantes naturales",
+      "Resistencia: 100m (10ATM)",
+      "Correa: Acero inoxidable",
+      "Bisel: Estriado clásico",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Rolex Datejust",
+      "Estuche premium Rolex",
+      "Certificado de diamantes",
+      "Manual de usuario detallado",
+      "Garantía 3 meses",
+      "Paño de limpieza"
+    ],
+    benefits: [
+      "Diamantes naturales certificados",
+      "Movimiento automático Rolex",
+      "Cristal de zafiro",
+      "Diseño elegante clásico",
+      "Marca de lujo reconocida",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 54. Reloj Rolex Daytona Cronógrafo
+  {
+    id: 54,
+    name: "Reloj Rolex Daytona Cronógrafo",
+    price: 1200000,
+    originalPrice: 1800000,
+    category: "rolex",
+    image: "/assets/images/reloj100.webp",
+    images: ["/assets/images/reloj100.webp", "/assets/images/reloj101.webp", "/assets/images/reloj102.webp"],
+    description: "Reloj Rolex Daytona cronógrafo profesional, movimiento automático, taquímetro, edición especial",
+    longDescription: "El legendario cronógrafo Rolex Daytona diseñado para pilotos profesionales. Caja de acero inoxidable 904L de 40mm con acabado pulido. Movimiento automático calibre 4130 con reserva de marcha de 72 horas. Funciones de cronógrafo con escala taquimétrica. Sub-esferas para cronómetro de 30 minutos y 12 horas. Ventana de fecha pequeña. Bisel de cerámica con escala taquimétrica. Correa de acero inoxidable con cierre de seguridad. Cristal de zafiro resistente. Resistencia al agua 100 metros (10ATM). Perfecto para carreras y deportes de motor. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 33,
+    sku: "ROL-DAY-003",
+    stock: 100,
+    specifications: [
+      "Caja: Acero 904L 40mm",
+      "Movimiento: Automático calibre 4130",
+      "Cristal: Zafiro resistente",
+      "Funciones: Cronógrafo, taquímetro",
+      "Reserva de marcha: 72 horas",
+      "Correa: Acero inoxidable",
+      "Bisel: Cerámica taquimétrica",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Rolex Daytona",
+      "Estuche premium Rolex",
+      "Certificado de autenticidad",
+      "Manual técnico detallado",
+      "Garantía 3 meses",
+      "Herramientas especiales"
+    ],
+    benefits: [
+      "Cronógrafo profesional",
+      "Movimiento automático avanzado",
+      "Bisel cerámico premium",
+      "Reserva de marcha 72 horas",
+      "Marca Rolex legendaria",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 55. Reloj Samoa Deportivo Acuático
+  {
+    id: 55,
+    name: "Reloj Samoa Deportivo Acuático",
+    price: 110000,
+    originalPrice: 160000,
+    category: "samoa",
+    image: "/assets/images/reloj115.webp",
+    images: ["/assets/images/reloj115.webp", "/assets/images/reloj116.webp", "/assets/images/reloj117.webp"],
+    description: "Reloj Samoa deportivo acuático, sumergible 200m, movimiento japonés, diseño robusto",
+    longDescription: "Reloj Samoa diseñado especialmente para deportes acuáticos y actividades náuticas. Caja de acero inoxidable de 44mm con tratamiento PVD negro. Movimiento de cuarzo japonés de alta precisión. Bisel giratorio unidireccional con escala de minutos. Cristal mineral resistente con tratamiento anti-reflejante. Correa de silicona reforzada con cierre de seguridad. Resistencia al agua 200 metros (20ATM). Válvula automática de helio para buceo profesional. Perfecto para buceo, snorkel y deportes acuáticos extremos. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 31,
+    sku: "SAM-DEP-ACU-001",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 44mm PVD",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Mineral anti-reflejante",
+      "Bisel: Giratorio unidireccional",
+      "Resistencia: 200m (20ATM)",
+      "Correa: Silicona reforzada",
+      "Válvula: Helio automática",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Samoa acuático",
+      "Herramientas de mantenimiento",
+      "Manual técnico de buceo",
+      "Estuche resistente al agua",
+      "Garantía 3 meses",
+      "Certificado de profundidad"
+    ],
+    benefits: [
+      "Sumergible hasta 200 metros",
+      "Válvula de helio profesional",
+      "Movimiento preciso japonés",
+      "Diseño robusto para deportes",
+      "Bisel profesional de buceo",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 56. Reloj Samoa Elegante con Cuero
+  {
+    id: 56,
+    name: "Reloj Samoa Elegante con Correa de Cuero",
+    price: 100000,
+    originalPrice: 150000,
+    category: "samoa",
+    image: "/assets/images/reloj118.webp",
+    images: ["/assets/images/reloj118.webp", "/assets/images/reloj119.webp"],
+    description: "Reloj Samoa elegante con correa de cuero genuino, diseño clásico y movimiento automático",
+    longDescription: "Reloj Samoa de la línea clásica con diseño elegante y sofisticado. Caja de acero inoxidable de 40mm con acabado pulido. Movimiento automático japonés con reserva de marcha de 38 horas. Ventana de fecha a las 3 en punto. Correa de cuero genuino italiano ajustable. Cristal mineral resistente a rayones. Fondo transparente para apreciar el movimiento mecánico. Resistencia al agua 5ATM (50 metros). Perfecto para profesionales y ocasiones formales. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 33,
+    sku: "SAM-CLA-002",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 40mm",
+      "Movimiento: Automático japonés",
+      "Cristal: Mineral resistente",
+      "Correa: Cuero genuino italiano",
+      "Resistencia: 5ATM (50m)",
+      "Funciones: Hora, fecha",
+      "Fondo: Transparente",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Samoa elegante",
+      "Estuche de presentación",
+      "Manual de usuario detallado",
+      "Garantía 3 meses",
+      "Paño de limpieza microfibra"
+    ],
+    benefits: [
+      "Movimiento automático preciso",
+      "Fondo transparente elegante",
+      "Correa de cuero premium",
+      "Diseño clásico sofisticado",
+      "Marca Samoa reconocida",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 57. Reloj Samoa Deportivo con GPS
+  {
+    id: 57,
+    name: "Reloj Samoa Deportivo con GPS Integrado",
+    price: 140000,
+    originalPrice: 200000,
+    category: "samoa",
+    image: "/assets/images/reloj120.webp",
+    images: ["/assets/images/reloj120.webp", "/assets/images/reloj121.webp", "/assets/images/reloj122.webp"],
+    description: "Reloj Samoa deportivo avanzado con GPS integrado, monitor cardíaco y múltiples modos deportivos",
+    longDescription: "Smartwatch Samoa deportivo de última generación con funciones avanzadas de fitness. Pantalla LCD de 1.4 pulgadas con retroiluminación LED. GPS integrado de alta precisión para rastreo de rutas. Monitor de frecuencia cardíaca 24/7, contador de pasos, calorías y distancia. Más de 20 modos deportivos profesionales. Notificaciones de llamadas y mensajes. Batería de hasta 10 días de duración. Correa de silicona deportiva ajustable. Resistencia al agua 5ATM. Compatible con iOS y Android. Perfecto para deportistas que buscan seguimiento preciso de su rendimiento. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 30,
+    sku: "SAM-DEP-GPS-003",
+    stock: 100,
+    specifications: [
+      "Pantalla: LCD 1.4\" con luz LED",
+      "GPS: Integrado de alta precisión",
+      "Sensores: Cardíaco óptico, acelerómetro",
+      "Batería: 10 días de duración",
+      "Resistencia: 5ATM (50 metros)",
+      "Correa: Silicona deportiva",
+      "Modos deportivos: 20+",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Samoa deportivo GPS",
+      "Cable de carga USB",
+      "Manual de usuario",
+      "App móvil gratuita",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "GPS integrado preciso",
+      "Monitoreo cardíaco 24/7",
+      "Múltiples modos deportivos",
+      "Batería de larga duración",
+      "Resistente al agua",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 58. Reloj Curren Minimalista
+  {
+    id: 58,
+    name: "Reloj Curren Minimalista Ultra Delgado",
+    price: 105000,
+    originalPrice: 155000,
+    category: "curren",
+    image: "/assets/images/reloj87.webp",
+    images: ["/assets/images/reloj87.webp", "/assets/images/reloj88.webp"],
+    description: "Reloj Curren minimalista ultra delgado, diseño elegante y discreto para uso profesional",
+    longDescription: "Reloj Curren de diseño minimalista ultra delgado perfecto para el profesional moderno. Caja de acero inoxidable de 38mm con grosor de solo 6mm. Movimiento de cuarzo japonés de alta precisión. Esfera minimalista con índices delgados. Correa de cuero genuino italiano ajustable. Cristal mineral resistente a rayones. Resistencia al agua 3ATM (30 metros). Perfecto para uso diario elegante y discreto. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 32,
+    sku: "CUR-MIN-006",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable 38mm",
+      "Grosor: Solo 6mm",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Mineral resistente",
+      "Correa: Cuero genuino italiano",
+      "Resistencia: 3ATM (30m)",
+      "Estilo: Minimalista",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Curren minimalista",
+      "Estuche de presentación",
+      "Manual de usuario",
+      "Garantía 3 meses",
+      "Paño de limpieza"
+    ],
+    benefits: [
+      "Diseño ultra delgado",
+      "Estilo minimalista elegante",
+      "Movimiento preciso japonés",
+      "Cómodo para uso diario",
+      "Marca Curren reconocida",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 59. Reloj Curren Deportivo con Pulsómetro
+  {
+    id: 59,
+    name: "Reloj Curren Deportivo con Pulsómetro",
+    price: 125000,
+    originalPrice: 185000,
+    category: "curren",
+    image: "/assets/images/reloj89.webp",
+    images: ["/assets/images/reloj89.webp", "/assets/images/reloj90.webp", "/assets/images/reloj91.webp"],
+    description: "Reloj Curren deportivo con pulsómetro integrado, funciones avanzadas de fitness",
+    longDescription: "Reloj Curren deportivo avanzado con tecnología de pulsómetro integrado. Pantalla LCD de 1.3 pulgadas con retroiluminación. Monitor de frecuencia cardíaca óptico continuo. Zonas de entrenamiento cardíaco programables. Contador de pasos, distancia y calorías. Modos deportivos específicos. GPS integrado para rutas precisas. Notificaciones inteligentes. Batería de hasta 7 días de duración. Correa de silicona ajustable. Resistencia al agua 5ATM. Perfecto para corredores y atletas que buscan optimizar su entrenamiento. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 32,
+    sku: "CUR-DEP-PUL-007",
+    stock: 100,
+    specifications: [
+      "Pantalla: LCD 1.3\" con luz",
+      "Pulsómetro: Óptico continuo",
+      "GPS: Integrado",
+      "Batería: 7 días de duración",
+      "Resistencia: 5ATM (50 metros)",
+      "Correa: Silicona ajustable",
+      "Modos: Entrenamiento cardíaco",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Curren pulsómetro",
+      "Cable de carga USB",
+      "Manual de usuario",
+      "App móvil gratuita",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "Pulsómetro continuo preciso",
+      "Zonas de entrenamiento",
+      "GPS integrado preciso",
+      "Múltiples modos deportivos",
+      "Batería de larga duración",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 60. Reloj Rolex GMT-Master II
+  {
+    id: 60,
+    name: "Reloj Rolex GMT-Master II Profesional",
+    price: 1100000,
+    originalPrice: 1650000,
+    category: "rolex",
+    image: "/assets/images/reloj103.webp",
+    images: ["/assets/images/reloj103.webp", "/assets/images/reloj104.webp"],
+    description: "Reloj Rolex GMT-Master II para viajeros, doble zona horaria, movimiento automático premium",
+    longDescription: "El legendario reloj Rolex GMT-Master II diseñado para pilotos y viajeros internacionales. Caja de acero inoxidable 904L de 40mm con acabado pulido. Movimiento automático calibre 3285 con reserva de marcha de 70 horas. Función GMT con aguja independiente para segundo huso horario. Bisel giratorio bidireccional con inserto de cerámica bicolor. Ventana de fecha con lente cyclops. Correa de acero inoxidable con cierre de seguridad. Cristal de zafiro resistente. Resistencia al agua 100 metros (10ATM). Perfecto para profesionales que viajan frecuentemente. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 33,
+    sku: "ROL-GMT-004",
+    stock: 100,
+    specifications: [
+      "Caja: Acero 904L 40mm",
+      "Movimiento: Automático calibre 3285",
+      "Cristal: Zafiro resistente",
+      "Función: GMT doble zona horaria",
+      "Reserva de marcha: 70 horas",
+      "Correa: Acero inoxidable",
+      "Bisel: Cerámica bicolor",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Rolex GMT-Master II",
+      "Estuche premium Rolex",
+      "Certificado de autenticidad",
+      "Manual técnico detallado",
+      "Garantía 3 meses",
+      "Herramientas especiales"
+    ],
+    benefits: [
+      "Doble zona horaria precisa",
+      "Movimiento automático avanzado",
+      "Bisel cerámica premium",
+      "Reserva de marcha 70 horas",
+      "Marca Rolex legendaria",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 61. Reloj Rolex Yacht-Master
+  {
+    id: 61,
+    name: "Reloj Rolex Yacht-Master de Lujo",
+    price: 1050000,
+    originalPrice: 1550000,
+    category: "rolex",
+    image: "/assets/images/reloj105.webp",
+    images: ["/assets/images/reloj105.webp", "/assets/images/reloj106.webp", "/assets/images/reloj107.webp"],
+    description: "Reloj Rolex Yacht-Master de lujo, diseño náutico elegante, movimiento automático premium",
+    longDescription: "Reloj Rolex Yacht-Master con diseño inspirado en el mundo náutico de lujo. Caja de acero inoxidable 904L y platino de 40mm con acabado pulido. Movimiento automático calibre 3135 con reserva de marcha de 48 horas. Bisel giratorio bidireccional con inserto de platino. Esfera con números luminosos de gran tamaño. Ventana de fecha con lente cyclops. Correa de acero inoxidable con cierre de seguridad. Cristal de zafiro resistente. Resistencia al agua 100 metros (10ATM). Perfecto para amantes de la navegación y el lujo. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 32,
+    sku: "ROL-YAC-005",
+    stock: 100,
+    specifications: [
+      "Caja: Acero 904L y platino 40mm",
+      "Movimiento: Automático calibre 3135",
+      "Cristal: Zafiro resistente",
+      "Bisel: Platino giratorio",
+      "Resistencia: 100m (10ATM)",
+      "Correa: Acero inoxidable",
+      "Esfera: Números luminosos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Rolex Yacht-Master",
+      "Estuche premium Rolex",
+      "Certificado de autenticidad",
+      "Manual de usuario detallado",
+      "Garantía 3 meses",
+      "Paño de limpieza"
+    ],
+    benefits: [
+      "Diseño náutico elegante",
+      "Materiales premium",
+      "Movimiento automático Rolex",
+      "Bisel de platino exclusivo",
+      "Marca de lujo reconocida",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 62. Reloj Samoa Ultra Resistente
+  {
+    id: 62,
+    name: "Reloj Samoa Ultra Resistente para Deportes Extremos",
+    price: 115000,
+    originalPrice: 170000,
+    category: "samoa",
+    image: "/assets/images/reloj123.webp",
+    images: ["/assets/images/reloj123.webp", "/assets/images/reloj124.webp"],
+    description: "Reloj Samoa ultra resistente para deportes extremos, sumergible 100m con protección reforzada",
+    longDescription: "Reloj Samoa diseñado para condiciones extremas y deportes de alto impacto. Caja de acero inoxidable reforzado de 46mm con tratamiento PVD negro. Cristal mineral resistente con tratamiento anti-golpes. Movimiento de cuarzo japonés de alta precisión. Correa de silicona reforzada con cierre de seguridad. Resistencia al agua 10ATM (100 metros). Protección contra golpes, vibraciones y temperaturas extremas. Perfecto para deportes extremos, militares y actividades outdoor intensas. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 32,
+    sku: "SAM-DEP-EXT-004",
+    stock: 100,
+    specifications: [
+      "Caja: Acero reforzado 46mm PVD",
+      "Movimiento: Cuarzo japonés",
+      "Cristal: Mineral anti-golpes",
+      "Resistencia: 10ATM (100 metros)",
+      "Correa: Silicona reforzada",
+      "Protección: Golpes y vibraciones",
+      "Peso: 65 gramos",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Samoa ultra resistente",
+      "Herramientas de ajuste",
+      "Manual técnico detallado",
+      "Estuche resistente al agua",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "Ultra resistente a golpes",
+      "Sumergible hasta 100 metros",
+      "Movimiento de alta precisión",
+      "Diseño robusto y duradero",
+      "Ideal para deportes extremos",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 63. Reloj Samoa Inteligente
+  {
+    id: 63,
+    name: "Reloj Samoa Inteligente con Funciones Avanzadas",
+    price: 135000,
+    originalPrice: 195000,
+    category: "samoa",
+    image: "/assets/images/reloj125.webp",
+    images: ["/assets/images/reloj125.webp", "/assets/images/reloj126.webp", "/assets/images/reloj127.webp"],
+    description: "Smartwatch Samoa con funciones inteligentes avanzadas, monitor de salud completo",
+    longDescription: "Smartwatch Samoa de última generación con funciones avanzadas de salud y fitness. Pantalla táctil LCD de 1.4 pulgadas con retroiluminación LED. Sensores avanzados: frecuencia cardíaca, oxígeno en sangre, presión arterial, calidad de sueño. Más de 25 modos deportivos profesionales. GPS integrado para rastreo preciso de rutas. Notificaciones inteligentes y control de música. Batería de hasta 12 días de duración. Correa de silicona médica hipoalergénica. Resistencia al agua 5ATM. Compatible con iOS y Android. Perfecto para quienes buscan monitoreo completo de salud. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 31,
+    sku: "SAM-SMART-005",
+    stock: 100,
+    specifications: [
+      "Pantalla: LCD 1.4\" táctil",
+      "Sensores: Cardíaco, SpO2, presión",
+      "GPS: Integrado de alta precisión",
+      "Batería: 12 días de duración",
+      "Resistencia: 5ATM (50 metros)",
+      "Correa: Silicona médica",
+      "Modos deportivos: 25+",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Smartwatch Samoa avanzado",
+      "Cable de carga USB",
+      "Manual médico detallado",
+      "App médica gratuita",
+      "Garantía 3 meses"
+    ],
+    benefits: [
+      "Sensores médicos avanzados",
+      "GPS integrado preciso",
+      "Múltiples modos deportivos",
+      "Batería de larga duración",
+      "Resistente al agua",
+      "Garantía de 3 meses"
+    ]
+  },
+
+  // 64. Reloj Samoa de Lujo Automático
+  {
+    id: 64,
+    name: "Reloj Samoa de Lujo Automático con Calendario",
+    price: 160000,
+    originalPrice: 240000,
+    category: "samoa",
+    image: "/assets/images/reloj128.webp",
+    images: ["/assets/images/reloj128.webp", "/assets/images/reloj129.webp"],
+    description: "Reloj Samoa de lujo automático con calendario completo, movimiento mecánico premium",
+    longDescription: "Reloj Samoa de lujo excepcional con calendario automático completo. Caja de acero inoxidable con tratamiento PVD oro de 42mm con acabado pulido. Movimiento mecánico japonés con calendario perpetuo: día, fecha, mes y año. Ventanas de calendario a las 12, 3 y 9 horas. Reserva de marcha de 50 horas. Correa de cuero genuino italiano con cierre desplegable. Cristal de zafiro abombado con tratamiento anti-reflejante. Fondo transparente grabado. Resistencia al agua 5ATM. Edición limitada con numeración individual. Perfecto para coleccionistas y amantes de las complicaciones relojeras. Garantía de 3 meses incluida.",
+    inStock: true,
+    discount: 33,
+    sku: "SAM-LUX-CAL-006",
+    stock: 100,
+    specifications: [
+      "Caja: Acero inoxidable PVD oro 42mm",
+      "Movimiento: Mecánico japonés",
+      "Cristal: Zafiro abombado",
+      "Calendario: Perpetuo automático",
+      "Reserva de marcha: 50 horas",
+      "Correa: Cuero genuino italiano",
+      "Edición: Limitada numerada",
+      "Garantía: 3 meses"
+    ],
+    includes: [
+      "1 Reloj Samoa de lujo calendario",
+      "Estuche premium de madera",
+      "Certificado de autenticidad",
+      "Manual de complicaciones",
+      "Herramientas de ajuste",
+      "Garantía 3 meses",
+      "Certificado de edición limitada"
+    ],
+    benefits: [
+      "Calendario perpetuo automático",
+      "Movimiento mecánico japonés",
+      "Acabado premium PVD",
+      "Edición limitada exclusiva",
+      "Reserva de marcha 50h",
+      "Garantía de 3 meses"
+    ]
   }
 ];
 
 export const categories = [
   { id: 'all', name: 'Todos los productos', icon: ShoppingBag },
   { id: 'relojes-hombre', name: 'Relojes Hombre', icon: Watch },
-  { id: 'relojes-deportivos', name: 'Relojes Deportivos', icon: Watch }
+  { id: 'relojes-deportivos', name: 'Relojes Deportivos', icon: Watch },
+  { id: 'curren', name: 'Relojes Curren', icon: Watch },
+  { id: 'rolex', name: 'Relojes Rolex', icon: Watch },
+  { id: 'samoa', name: 'Relojes Samoa', icon: Watch }
 ];
