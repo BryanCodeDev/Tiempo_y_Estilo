@@ -1,0 +1,22 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo con gradiente elegante -->
+  <defs>
+    <linearGradient id="placeholderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f9fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e9ecef;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Fondo del placeholder -->
+  <rect width="400" height="400" fill="url(#placeholderGradient)"/>
+
+  <!-- Icono de imagen -->
+  <path d="M120 120 L280 120 L280 280 L120 280 Z" stroke="#adb5bd" stroke-width="3" fill="none" stroke-dasharray="8,4"/>
+  <circle cx="200" cy="180" r="20" fill="#adb5bd"/>
+  <path d="M180 220 L200 200 L220 220" stroke="#adb5bd" stroke-width="3" fill="none"/>
+
+  <!-- Texto -->
+  <text x="200" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#6c757d">
+    Imagen no disponible
+  </text>
+</svg>

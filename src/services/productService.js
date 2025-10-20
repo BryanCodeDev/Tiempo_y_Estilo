@@ -281,15 +281,21 @@ export const productService = new ProductService();
 // Hook personalizado para usar en componentes React
 export const useProductService = () => {
   return {
-    loadProducts: (options) => productService.loadProducts(options),
-    getProductById: (id) => productService.getProductById(id),
-    searchProducts: (query, options) => productService.searchProducts(query, options),
-    getRelatedProducts: (id, limit) => productService.getRelatedProducts(id, limit),
-    getLoadingState: (key) => productService.getLoadingState(key),
-    clearCache: () => productService.clearCache(),
-    getPerformanceStats: () => productService.getPerformanceStats(),
-    preloadBasedOnUserBehavior: (currentProductId, userPreferences) =>
-      productService.preloadBasedOnUserBehavior(currentProductId, userPreferences)
+    loadProducts: productService.loadProducts.bind(productService),
+    getProductById: productService.getProductById.bind(productService),
+    searchProducts: productService.searchProducts.bind(productService),
+    getRelatedProducts: productService.getRelatedProducts.bind(productService),
+    getLoadingState: productService.getLoadingState.bind(productService),
+    clearCache: productService.clearCache.bind(productService),
+    getPerformanceStats: productService.getPerformanceStats.bind(productService),
+    preloadBasedOnUserBehavior: productService.preloadBasedOnUserBehavior.bind(productService),
+    preloadImages: (imageSources, priority = 'low') => {
+      const imageOptimizer = productService.imageOptimizer;
+      if (imageOptimizer && imageOptimizer.preloadImages) {
+        imageOptimizer.preloadImages(imageSources, priority);
+      }
+    },
+    preloadProductImages: productService.preloadProductImages.bind(productService)
   };
 };
 

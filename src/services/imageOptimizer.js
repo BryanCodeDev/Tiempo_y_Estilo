@@ -224,12 +224,10 @@ export const useImageOptimizer = () => {
     optimizeImage: (src, options = {}) => {
       return imageOptimizer.generateThumbnail(src, options.size);
     },
-    preloadImages: (sources, priority) => {
-      imageOptimizer.preloadImages(sources, priority);
-    },
-    observeImages: (images) => {
-      imageOptimizer.observeImages(images);
-    }
+    preloadImages: imageOptimizer.preloadImages.bind(imageOptimizer),
+    observeImages: imageOptimizer.observeImages.bind(imageOptimizer),
+    getPerformanceStats: imageOptimizer.getPerformanceStats.bind(imageOptimizer),
+    clearCache: imageOptimizer.clearCache.bind(imageOptimizer)
   };
 };
 

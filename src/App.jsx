@@ -169,7 +169,10 @@ function App() {
         typeof args[0] === 'string' &&
         (args[0].includes('No user after sign in') ||
          args[0].includes('inspector') ||
-         args[0].includes('user after sign'))
+         args[0].includes('user after sign') ||
+         args[0].includes('message channel closed') ||
+         args[0].includes('asynchronous response') ||
+         args[0].includes('listener indicated'))
       ) {
         return; // Silenciar estos errores específicos
       }
@@ -435,10 +438,11 @@ function App() {
     };
   }, []);
 
-  // Función adicional para manejar acceso directo a rutas SPA
+  // Función simplificada para manejar rutas SPA
   useEffect(() => {
-    const handleDirectRoute = () => {
+    const handleRouteChange = () => {
       const path = window.location.pathname;
+
       if (path.startsWith('/producto/')) {
         const productRoute = parseProductRoute(path);
         if (productRoute && productRoute.type === 'product') {
@@ -449,127 +453,17 @@ function App() {
             updateSEOTags(result.product, path);
           }
         }
+      } else if (path === '/') {
+        setSelectedProduct(null);
+        setCurrentRoute('/');
+        updateSEOTags(null, '/');
       }
     };
 
-    // Intentar manejar la ruta después de que el componente esté completamente cargado
-    const routeTimer = setTimeout(handleDirectRoute, 1000);
-    return () => clearTimeout(routeTimer);
-  }, []);
-
-  // Función de emergencia para rutas SPA (último recurso)
-  useEffect(() => {
-    const handleEmergencyRoute = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/') && !selectedProduct) {
-        console.log('Intentando manejar ruta de emergencia:', path);
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-          if (result && result.product) {
-            console.log('Producto encontrado en emergencia:', result.product.name);
-            setSelectedProduct(result.product);
-            setCurrentRoute(path);
-            updateSEOTags(result.product, path);
-          }
-        }
-      }
-    };
-
-    // Último recurso después de 2 segundos
-    const emergencyTimer = setTimeout(handleEmergencyRoute, 2000);
-    return () => clearTimeout(emergencyTimer);
-  }, [selectedProduct]);
-
-  // Función adicional para verificar rutas después de cambios de estado
-  useEffect(() => {
-    if (selectedProduct) {
-      const currentPath = window.location.pathname;
-      if (currentPath.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(currentPath);
-        if (productRoute && productRoute.type === 'product' && productRoute.id === selectedProduct.id) {
-          // La ruta y el producto coinciden, todo está bien
-          return;
-        }
-      }
-    }
-  }, [selectedProduct]);
-
-  // Función para manejar errores de navegación y redirigir correctamente
-  useEffect(() => {
-    const handleNavigationError = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/') && !selectedProduct) {
-        console.log('Detectada navegación directa sin producto cargado, intentando corregir...');
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-          if (result && result.product) {
-            setSelectedProduct(result.product);
-            setCurrentRoute(path);
-            updateSEOTags(result.product, path);
-          }
-        }
-      }
-    };
-
-    // Verificar después de cambios en la navegación
-    const checkTimer = setTimeout(handleNavigationError, 1500);
-    return () => clearTimeout(checkTimer);
-  }, [currentRoute]);
-
-  // Función final de respaldo para rutas SPA
-  useEffect(() => {
-    const handleFinalFallback = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/') && !selectedProduct) {
-        console.log('Ejecutando fallback final para ruta:', path);
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-          if (result && result.product) {
-            console.log('Producto cargado en fallback final:', result.product.name);
-            setSelectedProduct(result.product);
-            setCurrentRoute(path);
-            updateSEOTags(result.product, path);
-          } else {
-            console.error('Producto no encontrado en fallback final, redirigiendo a home');
-            navigateToHome();
-          }
-        } else {
-          console.error('Ruta de producto inválida en fallback final, redirigiendo a home');
-          navigateToHome();
-        }
-      }
-    };
-
-    // Último intento después de 3 segundos
-    const finalTimer = setTimeout(handleFinalFallback, 3000);
-    return () => clearTimeout(finalTimer);
+    // Manejar cambios de ruta cada 200ms (suficientemente frecuente pero no excesivo)
+    const routeTimer = setInterval(handleRouteChange, 200);
+    return () => clearInterval(routeTimer);
   }, [selectedProduct, currentRoute]);
-
-  // Función de monitoreo continuo para rutas SPA
-  useEffect(() => {
-    const monitorRoute = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/') && selectedProduct) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product' && productRoute.id !== selectedProduct.id) {
-          console.log('Detectado cambio de producto en URL, actualizando...');
-          const result = findProductById(productRoute.id);
-          if (result && result.product) {
-            setSelectedProduct(result.product);
-            setCurrentRoute(path);
-            updateSEOTags(result.product, path);
-          }
-        }
-      }
-    };
-
-    // Monitorear cambios en la ruta cada 500ms
-    const monitorTimer = setInterval(monitorRoute, 500);
-    return () => clearInterval(monitorTimer);
-  }, [selectedProduct]);
 
   // Función para manejar el evento beforeunload y asegurar estado correcto
   useEffect(() => {
@@ -618,157 +512,44 @@ function App() {
     }
   }, [selectedProduct]);
 
-  // Función para manejar cambios directos en la URL (como cuando el usuario escribe manualmente)
+  // Función simplificada para validar rutas iniciales
   useEffect(() => {
-    const handleURLChange = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          // Si no hay producto seleccionado o es diferente al de la URL
-          if (!selectedProduct || selectedProduct.id !== productRoute.id) {
-            console.log('Cambio directo de URL detectado, cargando producto...');
-            const result = findProductById(productRoute.id);
-            if (result && result.product) {
-              setSelectedProduct(result.product);
-              setCurrentRoute(path);
-              updateSEOTags(result.product, path);
-            }
-          }
-        }
-      }
-    };
-
-    // Detectar cambios en la URL cada 200ms
-    const urlChangeTimer = setInterval(handleURLChange, 200);
-    return () => clearInterval(urlChangeTimer);
-  }, [selectedProduct]);
-
-  // Función para manejar errores de carga de rutas
-  useEffect(() => {
-    const handleRouteError = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/') && !selectedProduct) {
-        console.error('Error crítico: ruta de producto sin producto cargado después de múltiples intentos');
-        // Forzar recarga de la página como último recurso
-        window.location.reload();
-      }
-    };
-
-    // Si después de 5 segundos no hay producto cargado para una ruta de producto, recargar
-    const errorTimer = setTimeout(handleRouteError, 5000);
-    return () => clearTimeout(errorTimer);
-  }, [selectedProduct]);
-
-  // Función para validar rutas de productos al cargar la aplicación
-  useEffect(() => {
-    const validateCurrentRoute = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          console.log('Validando ruta de producto al cargar:', path);
-          const result = findProductById(productRoute.id);
-          if (result && result.product) {
-            if (!selectedProduct || selectedProduct.id !== result.product.id) {
-              console.log('Aplicando validación de ruta, cargando producto:', result.product.name);
-              setSelectedProduct(result.product);
-              setCurrentRoute(path);
-              updateSEOTags(result.product, path);
-            }
-          }
-        }
-      }
-    };
-
-    // Validar inmediatamente después de que el componente se monte completamente
-    const validationTimer = setTimeout(validateCurrentRoute, 50);
-    return () => clearTimeout(validationTimer);
-  }, []);
-
-  // Función para asegurar que las rutas funcionen correctamente en producción
-  useEffect(() => {
-    // Función para corregir rutas problemáticas
-    const fixRouteIssues = () => {
+    const validateInitialRoute = () => {
       const path = window.location.pathname;
       if (path.startsWith('/producto/')) {
         const productRoute = parseProductRoute(path);
         if (productRoute && productRoute.type === 'product') {
           const result = findProductById(productRoute.id);
           if (result && result.product) {
-            // Asegurar que el estado esté sincronizado
-            if (selectedProduct && selectedProduct.id === result.product.id) {
-              // Todo está correcto, solo asegurar que la ruta esté establecida
-              if (currentRoute !== path) {
-                setCurrentRoute(path);
-              }
-            }
-          }
-        }
-      }
-    };
-
-    // Ejecutar corrección cada 100ms durante los primeros 3 segundos
-    const fixTimer = setInterval(fixRouteIssues, 100);
-    const stopTimer = setTimeout(() => clearInterval(fixTimer), 3000);
-
-    return () => {
-      clearInterval(fixTimer);
-      clearTimeout(stopTimer);
-    };
-  }, [selectedProduct, currentRoute]);
-
-  // Función final para garantizar que las rutas SPA funcionen en Netlify
-  useEffect(() => {
-    const ensureSPARouting = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/') && selectedProduct) {
-        // Verificar que la ruta actual coincida con el producto seleccionado
-        const expectedPath = generateProductURL(selectedProduct);
-        if (path !== expectedPath) {
-          console.log('Corrigiendo ruta SPA para producto:', selectedProduct.name);
-          // Actualizar la URL sin recargar la página
-          window.history.replaceState(null, '', expectedPath);
-        }
-      }
-    };
-
-    // Ejecutar después de que todo esté cargado
-    const finalCheckTimer = setTimeout(ensureSPARouting, 1500);
-    return () => clearTimeout(finalCheckTimer);
-  }, [selectedProduct]);
-
-  // Función de respaldo absoluta para rutas SPA críticas
-  useEffect(() => {
-    const absoluteFallback = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-          if (result && result.product && !selectedProduct) {
-            console.log('FALLBACK ABSOLUTO: Cargando producto crítico:', result.product.name);
             setSelectedProduct(result.product);
             setCurrentRoute(path);
             updateSEOTags(result.product, path);
-
-            // Forzar actualización del título y meta tags
-            document.title = `${result.product.name} - Tiempo y Estilo | Joyería y Relojería con Envío Gratis`;
           }
         }
       }
     };
 
-    // Ejecutar como respaldo absoluto después de 4 segundos
-    const absoluteTimer = setTimeout(absoluteFallback, 4000);
-    return () => clearTimeout(absoluteTimer);
+    // Validar después de 100ms para asegurar que todo esté listo
+    const timer = setTimeout(validateInitialRoute, 100);
+    return () => clearTimeout(timer);
   }, []);
 
-  // Función para manejar el evento popstate correctamente
+  // Función simplificada para corregir URLs cuando sea necesario
   useEffect(() => {
-    const handlePopStateCorrectly = (event) => {
+    if (selectedProduct) {
+      const currentPath = window.location.pathname;
+      const expectedPath = generateProductURL(selectedProduct);
+
+      if (currentPath !== expectedPath) {
+        window.history.replaceState(null, '', expectedPath);
+      }
+    }
+  }, [selectedProduct]);
+
+  // Función simplificada para manejar navegación del navegador
+  useEffect(() => {
+    const handlePopState = () => {
       const path = window.location.pathname;
-      console.log('PopState detectado, nueva ruta:', path);
 
       if (path.startsWith('/producto/')) {
         const productRoute = parseProductRoute(path);
@@ -787,188 +568,40 @@ function App() {
       }
     };
 
-    // Reemplazar el manejador existente con uno mejorado
-    window.removeEventListener('popstate', handlePopStateCorrectly);
-    window.addEventListener('popstate', handlePopStateCorrectly);
-
-    return () => window.removeEventListener('popstate', handlePopStateCorrectly);
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Función para asegurar que el estado inicial sea correcto
+  // Función simplificada para validar estado después de cambios
   useEffect(() => {
-    const ensureInitialState = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/') && !selectedProduct) {
-        console.log('Asegurando estado inicial para ruta:', path);
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-          if (result && result.product) {
-            setSelectedProduct(result.product);
-            setCurrentRoute(path);
-            updateSEOTags(result.product, path);
-          }
+    const path = window.location.pathname;
+    if (path.startsWith('/producto/') && selectedProduct) {
+      const productRoute = parseProductRoute(path);
+      if (productRoute && productRoute.type === 'product' && productRoute.id !== selectedProduct.id) {
+        const result = findProductById(productRoute.id);
+        if (result && result.product) {
+          setSelectedProduct(result.product);
+          updateSEOTags(result.product, path);
         }
       }
-    };
-
-    // Asegurar estado inicial después de 200ms
-    const initialTimer = setTimeout(ensureInitialState, 200);
-    return () => clearTimeout(initialTimer);
-  }, []);
-
-  // Función para manejar cambios de ruta por programación
-  useEffect(() => {
-    const handleProgrammaticNavigation = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/') && selectedProduct) {
-        // Verificar que la ruta coincida con el producto actual
-        const expectedPath = generateProductURL(selectedProduct);
-        if (path !== expectedPath) {
-          console.log('Ruta no coincide con producto, corrigiendo...');
-          // No cambiar automáticamente para evitar bucles
-        }
-      }
-    };
-
-    // Verificar cada segundo
-    const navTimer = setInterval(handleProgrammaticNavigation, 1000);
-    return () => clearInterval(navTimer);
+    }
   }, [selectedProduct]);
 
-  // Función para validar rutas después de que el componente se actualice
+  // Función simplificada para sincronizar meta tags
   useEffect(() => {
-    const validateAfterUpdate = () => {
-      const path = window.location.pathname;
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          if (selectedProduct && selectedProduct.id === productRoute.id) {
-            // Todo está correcto
-            return;
-          } else if (selectedProduct && selectedProduct.id !== productRoute.id) {
-            // Producto diferente, actualizar
-            const result = findProductById(productRoute.id);
-            if (result && result.product) {
-              setSelectedProduct(result.product);
-              updateSEOTags(result.product, path);
-            }
-          } else if (!selectedProduct) {
-            // No hay producto cargado, cargar el correcto
-            const result = findProductById(productRoute.id);
-            if (result && result.product) {
-              setSelectedProduct(result.product);
-              updateSEOTags(result.product, path);
-            }
-          }
-        }
+    if (selectedProduct) {
+      const expectedTitle = `${selectedProduct.name} - Tiempo y Estilo | Joyería y Relojería con Envío Gratis`;
+      if (document.title !== expectedTitle) {
+        document.title = expectedTitle;
       }
-    };
-
-    // Validar después de cambios en selectedProduct
-    const updateTimer = setTimeout(validateAfterUpdate, 100);
-    return () => clearTimeout(updateTimer);
+    }
   }, [selectedProduct]);
 
-  // Función maestra para controlar rutas SPA
-  useEffect(() => {
-    const masterRouteController = () => {
-      const path = window.location.pathname;
-
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-
-          if (result && result.product) {
-            // Verificar si necesitamos actualizar el estado
-            const needsUpdate = !selectedProduct ||
-                              selectedProduct.id !== result.product.id ||
-                              currentRoute !== path;
-
-            if (needsUpdate) {
-              console.log('MASTER CONTROLLER: Actualizando producto para ruta:', path);
-              setSelectedProduct(result.product);
-              setCurrentRoute(path);
-              updateSEOTags(result.product, path);
-            }
-          }
-        }
-      } else if (path === '/' && selectedProduct) {
-        // Si estamos en home pero hay un producto seleccionado, limpiar
-        setSelectedProduct(null);
-        setCurrentRoute('/');
-        updateSEOTags(null, '/');
-      }
-    };
-
-    // Ejecutar control maestro cada 300ms
-    const masterTimer = setInterval(masterRouteController, 300);
-    return () => clearInterval(masterTimer);
-  }, [selectedProduct, currentRoute]);
-
-  // Función de sincronización final para rutas SPA
-  useEffect(() => {
-    const finalSync = () => {
-      const path = window.location.pathname;
-
-      if (path.startsWith('/producto/') && selectedProduct) {
-        // Sincronización final: asegurar que todo esté correcto
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product' && productRoute.id === selectedProduct.id) {
-          // Verificar que la ruta esté correctamente establecida
-          if (currentRoute !== path) {
-            setCurrentRoute(path);
-          }
-
-          // Verificar que los meta tags estén correctos
-          const expectedTitle = `${selectedProduct.name} - Tiempo y Estilo | Joyería y Relojería con Envío Gratis`;
-          if (document.title !== expectedTitle) {
-            document.title = expectedTitle;
-          }
-        }
-      }
-    };
-
-    // Ejecutar sincronización final después de 800ms
-    const syncTimer = setTimeout(finalSync, 800);
-    return () => clearTimeout(syncTimer);
-  }, [selectedProduct]);
-
-  // Función de emergencia para rutas críticas
-  useEffect(() => {
-    const emergencyHandler = () => {
-      const path = window.location.pathname;
-
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-
-          if (result && result.product) {
-            // Verificación de emergencia: si no hay producto después de mucho tiempo, forzar carga
-            if (!selectedProduct) {
-              console.log('EMERGENCIA: Forzando carga de producto para ruta crítica');
-              setSelectedProduct(result.product);
-              setCurrentRoute(path);
-              updateSEOTags(result.product, path);
-            }
-          }
-        }
-      }
-    };
-
-    // Última verificación de emergencia después de 6 segundos
-    const emergencyTimer = setTimeout(emergencyHandler, 6000);
-    return () => clearTimeout(emergencyTimer);
-  }, []);
-
-  // Función para manejar el evento hashchange (por si acaso)
+  // Función simplificada para manejar cambios de hash
   useEffect(() => {
     const handleHashChange = () => {
       const path = window.location.pathname;
       if (path.startsWith('/producto/')) {
-        console.log('HashChange detectado, verificando ruta:', path);
         const productRoute = parseProductRoute(path);
         if (productRoute && productRoute.type === 'product') {
           const result = findProductById(productRoute.id);
@@ -985,229 +618,69 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  // Función para asegurar que las rutas funcionen correctamente en producción
+  // Función simplificada para monitorear rutas en producción
   useEffect(() => {
-    const ensureProductionRouting = () => {
+    if (selectedProduct) {
       const path = window.location.pathname;
-
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-
-          if (result && result.product) {
-            // Verificación final para producción
-            if (!selectedProduct || selectedProduct.id !== result.product.id) {
-              console.log('PRODUCCIÓN: Aplicando corrección final de ruta');
-              setSelectedProduct(result.product);
-              setCurrentRoute(path);
-              updateSEOTags(result.product, path);
-
-              // Actualizar URL si es necesario (sin recargar)
-              const expectedPath = generateProductURL(result.product);
-              if (path !== expectedPath) {
-                window.history.replaceState(null, '', expectedPath);
-              }
-            }
-          }
-        }
+      const expectedPath = generateProductURL(selectedProduct);
+      if (path !== expectedPath) {
+        window.history.replaceState(null, '', expectedPath);
       }
-    };
-
-    // Aplicar corrección de producción después de 1.2 segundos
-    const productionTimer = setTimeout(ensureProductionRouting, 1200);
-    return () => clearTimeout(productionTimer);
-  }, []);
-
-  // Función de monitoreo continuo para rutas SPA en producción
-  useEffect(() => {
-    const monitorProductionRoutes = () => {
-      const path = window.location.pathname;
-
-      if (path.startsWith('/producto/') && selectedProduct) {
-        // Verificar que la ruta actual sea consistente con el producto seleccionado
-        const expectedPath = generateProductURL(selectedProduct);
-        if (path !== expectedPath) {
-          console.log('PRODUCCIÓN: Ruta inconsistente detectada, corrigiendo...');
-          window.history.replaceState(null, '', expectedPath);
-        }
-      }
-    };
-
-    // Monitorear cada 2 segundos en producción
-    const monitorTimer = setInterval(monitorProductionRoutes, 2000);
-    return () => clearInterval(monitorTimer);
+    }
   }, [selectedProduct]);
 
-  // Función para manejar errores de redirección automática
+  // Función simplificada para validar rutas después de cambios de estado
   useEffect(() => {
-    const handleAutoRedirect = () => {
-      const path = window.location.pathname;
-
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
+    const path = window.location.pathname;
+    if (path.startsWith('/producto/') && selectedProduct) {
+      const productRoute = parseProductRoute(path);
+      if (productRoute && productRoute.type === 'product') {
+        if (productRoute.id !== selectedProduct.id) {
           const result = findProductById(productRoute.id);
-
           if (result && result.product) {
-            // Si el producto existe pero no está seleccionado, cargarlo automáticamente
-            if (!selectedProduct) {
-              console.log('AUTO-REDIRECT: Cargando producto automáticamente');
-              setSelectedProduct(result.product);
-              setCurrentRoute(path);
-              updateSEOTags(result.product, path);
-            }
+            setSelectedProduct(result.product);
+            updateSEOTags(result.product, path);
           }
+        } else if (currentRoute !== path) {
+          setCurrentRoute(path);
         }
       }
-    };
-
-    // Ejecutar auto-redirect después de 700ms
-    const redirectTimer = setTimeout(handleAutoRedirect, 700);
-    return () => clearTimeout(redirectTimer);
-  }, []);
-
-  // Función para validar rutas después de cambios de estado
-  useEffect(() => {
-    const validateRouteAfterStateChange = () => {
-      const path = window.location.pathname;
-
-      if (path.startsWith('/producto/') && selectedProduct) {
-        // Verificar que la ruta coincida con el producto seleccionado
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          if (productRoute.id === selectedProduct.id) {
-            // Todo está correcto, asegurar que la ruta esté establecida
-            if (currentRoute !== path) {
-              setCurrentRoute(path);
-            }
-          } else {
-            // Producto diferente al esperado, corregir
-            console.log('STATE CHANGE: Producto diferente al esperado, corrigiendo...');
-            const result = findProductById(productRoute.id);
-            if (result && result.product) {
-              setSelectedProduct(result.product);
-              updateSEOTags(result.product, path);
-            }
-          }
-        }
-      }
-    };
-
-    // Validar después de cambios en selectedProduct
-    const stateTimer = setTimeout(validateRouteAfterStateChange, 300);
-    return () => clearTimeout(stateTimer);
+    }
   }, [selectedProduct]);
 
-  // Función para asegurar la consistencia final de rutas SPA
+  // Función simplificada para asegurar consistencia de rutas SPA
   useEffect(() => {
-    const ensureFinalConsistency = () => {
-      const path = window.location.pathname;
+    const path = window.location.pathname;
 
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
+    if (path.startsWith('/producto/')) {
+      const productRoute = parseProductRoute(path);
+      if (productRoute && productRoute.type === 'product') {
+        const result = findProductById(productRoute.id);
 
-          if (result && result.product) {
-            // Verificación final de consistencia
-            const needsProductUpdate = !selectedProduct || selectedProduct.id !== result.product.id;
-            const needsRouteUpdate = currentRoute !== path;
+        if (result && result.product) {
+          const needsUpdate = !selectedProduct ||
+                            selectedProduct.id !== result.product.id ||
+                            currentRoute !== path;
 
-            if (needsProductUpdate || needsRouteUpdate) {
-              console.log('CONSISTENCIA FINAL: Aplicando correcciones finales');
-              setSelectedProduct(result.product);
-              setCurrentRoute(path);
-              updateSEOTags(result.product, path);
-            }
-          }
-        }
-      }
-    };
-
-    // Aplicar consistencia final después de 1.5 segundos
-    const consistencyTimer = setTimeout(ensureFinalConsistency, 1500);
-    return () => clearTimeout(consistencyTimer);
-  }, []);
-
-  // Función maestra de control de rutas SPA
-  useEffect(() => {
-    const masterSPAController = () => {
-      const path = window.location.pathname;
-
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-
-          if (result && result.product) {
-            // Control maestro: asegurar que todo esté perfectamente sincronizado
-            const currentStateCorrect = selectedProduct && selectedProduct.id === result.product.id;
-            const currentRouteCorrect = currentRoute === path;
-            const metaTagsCorrect = document.title.includes(result.product.name);
-
-            if (!currentStateCorrect || !currentRouteCorrect || !metaTagsCorrect) {
-              console.log('MASTER SPA CONTROLLER: Aplicando sincronización completa');
-              setSelectedProduct(result.product);
-              setCurrentRoute(path);
-              updateSEOTags(result.product, path);
-            }
-          }
-        }
-      }
-    };
-
-    // Ejecutar control maestro cada 400ms durante los primeros 5 segundos
-    const masterTimer = setInterval(masterSPAController, 400);
-    const stopMasterTimer = setTimeout(() => clearInterval(masterTimer), 5000);
-
-    return () => {
-      clearInterval(masterTimer);
-      clearTimeout(stopMasterTimer);
-    };
-  }, [selectedProduct, currentRoute]);
-
-  // Función de respaldo definitivo para rutas SPA críticas
-  useEffect(() => {
-    const ultimateFallback = () => {
-      const path = window.location.pathname;
-
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-
-          if (result && result.product) {
-            // Último respaldo: forzar estado correcto pase lo que pase
-            console.log('ULTIMATE FALLBACK: Aplicando corrección definitiva');
+          if (needsUpdate) {
             setSelectedProduct(result.product);
             setCurrentRoute(path);
             updateSEOTags(result.product, path);
-
-            // Forzar título correcto
-            document.title = `${result.product.name} - Tiempo y Estilo | Joyería y Relojería con Envío Gratis`;
-
-            // Forzar URL correcta si es necesario
-            const expectedPath = generateProductURL(result.product);
-            if (window.location.pathname !== expectedPath) {
-              window.history.replaceState(null, '', expectedPath);
-            }
           }
         }
       }
-    };
+    } else if (path === '/' && selectedProduct) {
+      setSelectedProduct(null);
+      setCurrentRoute('/');
+      updateSEOTags(null, '/');
+    }
+  }, [selectedProduct, currentRoute]);
 
-    // Ejecutar respaldo definitivo después de 3.5 segundos
-    const ultimateTimer = setTimeout(ultimateFallback, 3500);
-    return () => clearTimeout(ultimateTimer);
-  }, []);
-
-  // Función para manejar el evento pageshow (cuando se navega hacia atrás/adelante)
+  // Función simplificada para manejar eventos de navegación del navegador
   useEffect(() => {
-    const handlePageShow = (event) => {
+    const handlePageShow = () => {
       const path = window.location.pathname;
       if (path.startsWith('/producto/')) {
-        console.log('PAGESHOW detectado, verificando ruta:', path);
         const productRoute = parseProductRoute(path);
         if (productRoute && productRoute.type === 'product') {
           const result = findProductById(productRoute.id);
@@ -1224,50 +697,15 @@ function App() {
     return () => window.removeEventListener('pageshow', handlePageShow);
   }, []);
 
-  // Función para asegurar que las rutas funcionen correctamente después de la carga inicial
-  useEffect(() => {
-    const ensurePostLoadRouting = () => {
-      const path = window.location.pathname;
-
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-
-          if (result && result.product) {
-            // Verificación post-carga: asegurar que todo esté correcto después de que la página cargue completamente
-            console.log('POST-LOAD: Verificando estado final de rutas');
-            setSelectedProduct(result.product);
-            setCurrentRoute(path);
-            updateSEOTags(result.product, path);
-
-            // Verificar que la URL esté correcta
-            const expectedPath = generateProductURL(result.product);
-            if (window.location.pathname !== expectedPath) {
-              console.log('POST-LOAD: Corrigiendo URL final');
-              window.history.replaceState(null, '', expectedPath);
-            }
-          }
-        }
-      }
-    };
-
-    // Ejecutar después de que todo esté completamente cargado
-    const postLoadTimer = setTimeout(ensurePostLoadRouting, 2500);
-    return () => clearTimeout(postLoadTimer);
-  }, []);
-
-  // Función para manejar el evento focus (cuando el usuario regresa a la pestaña)
+  // Función simplificada para manejar eventos de focus
   useEffect(() => {
     const handleFocus = () => {
       const path = window.location.pathname;
       if (path.startsWith('/producto/')) {
-        console.log('FOCUS detectado, verificando ruta activa:', path);
         const productRoute = parseProductRoute(path);
         if (productRoute && productRoute.type === 'product') {
           const result = findProductById(productRoute.id);
           if (result && result.product) {
-            // Sincronizar estado cuando el usuario regresa a la pestaña
             setSelectedProduct(result.product);
             setCurrentRoute(path);
             updateSEOTags(result.product, path);
@@ -1280,11 +718,10 @@ function App() {
     return () => window.removeEventListener('focus', handleFocus);
   }, []);
 
-  // Función para validar rutas después de cambios en el historial
+  // Función simplificada para manejar cambios en el historial
   useEffect(() => {
     const handleHistoryChange = () => {
       const path = window.location.pathname;
-      console.log('Cambio en historial detectado:', path);
 
       if (path.startsWith('/producto/')) {
         const productRoute = parseProductRoute(path);
@@ -1303,72 +740,12 @@ function App() {
       }
     };
 
-    // Detectar cambios en el historial cada 100ms durante los primeros segundos
-    const historyTimer = setInterval(handleHistoryChange, 100);
-    const stopHistoryTimer = setTimeout(() => clearInterval(historyTimer), 3000);
-
-    return () => {
-      clearInterval(historyTimer);
-      clearTimeout(stopHistoryTimer);
-    };
-  }, []);
-
-  // Función para asegurar que las rutas funcionen correctamente en todos los escenarios
-  useEffect(() => {
-    const ensureUniversalRouting = () => {
-      const path = window.location.pathname;
-
-      if (path.startsWith('/producto/')) {
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product') {
-          const result = findProductById(productRoute.id);
-
-          if (result && result.product) {
-            // Verificación universal: asegurar que todo esté correcto en cualquier escenario
-            const needsStateUpdate = !selectedProduct || selectedProduct.id !== result.product.id;
-            const needsRouteUpdate = currentRoute !== path;
-
-            if (needsStateUpdate || needsRouteUpdate) {
-              console.log('UNIVERSAL ROUTING: Aplicando corrección universal');
-              setSelectedProduct(result.product);
-              setCurrentRoute(path);
-              updateSEOTags(result.product, path);
-            }
-          }
-        }
-      }
-    };
-
-    // Ejecutar verificación universal cada 600ms
-    const universalTimer = setInterval(ensureUniversalRouting, 600);
-    return () => clearInterval(universalTimer);
+    // Detectar cambios en el historial cada 200ms
+    const historyTimer = setInterval(handleHistoryChange, 200);
+    return () => clearInterval(historyTimer);
   }, [selectedProduct, currentRoute]);
 
-  // Función de monitoreo final para rutas SPA
-  useEffect(() => {
-    const finalRouteMonitor = () => {
-      const path = window.location.pathname;
-
-      if (path.startsWith('/producto/') && selectedProduct) {
-        // Monitoreo final: asegurar consistencia absoluta
-        const productRoute = parseProductRoute(path);
-        if (productRoute && productRoute.type === 'product' && productRoute.id === selectedProduct.id) {
-          // Verificar que todo esté perfectamente sincronizado
-          const expectedPath = generateProductURL(selectedProduct);
-          if (path !== expectedPath) {
-            console.log('FINAL MONITOR: Ruta inconsistente, aplicando corrección final');
-            window.history.replaceState(null, '', expectedPath);
-          }
-        }
-      }
-    };
-
-    // Monitoreo final cada 800ms
-    const finalTimer = setInterval(finalRouteMonitor, 800);
-    return () => clearInterval(finalTimer);
-  }, [selectedProduct]);
-
-  // Función de respaldo absoluto para rutas SPA críticas
+  // Función simplificada de respaldo absoluto para rutas SPA críticas
   useEffect(() => {
     const absoluteRouteFallback = () => {
       const path = window.location.pathname;
@@ -1379,8 +756,6 @@ function App() {
           const result = findProductById(productRoute.id);
 
           if (result && result.product) {
-            // Respaldo absoluto: forzar sincronización completa pase lo que pase
-            console.log('ABSOLUTE FALLBACK: Aplicando respaldo absoluto de rutas');
             setSelectedProduct(result.product);
             setCurrentRoute(path);
             updateSEOTags(result.product, path);
@@ -1398,8 +773,8 @@ function App() {
       }
     };
 
-    // Respaldo absoluto después de 4 segundos
-    const absoluteFallbackTimer = setTimeout(absoluteRouteFallback, 4000);
+    // Respaldo absoluto después de 2 segundos
+    const absoluteFallbackTimer = setTimeout(absoluteRouteFallback, 2000);
     return () => clearTimeout(absoluteFallbackTimer);
   }, []);
 

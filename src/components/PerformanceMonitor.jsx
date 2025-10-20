@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { BarChart3, Image, Database, Trash2, RefreshCw } from 'lucide-react';
 import { useProductService } from '../services/productService';
 import { useImageOptimizer } from '../services/imageOptimizer';
@@ -9,24 +9,25 @@ const PerformanceMonitor = ({ className = '' }) => {
   const { getPerformanceStats: getProductStats, clearCache: clearProductCache } = useProductService();
   const { getPerformanceStats: getImageStats, clearCache: clearImageCache } = useImageOptimizer();
 
+  // Función memoizada para actualizar estadísticas
+  const updateStats = useCallback(() => {
+    const productStats = getProductStats();
+    const imageStats = getImageStats();
+
+    setStats(prevStats => ({
+      ...productStats,
+      ...imageStats,
+      timestamp: new Date().toLocaleTimeString()
+    }));
+  }, []); // Removidas las dependencias que causan el bucle
+
   // Actualizar estadísticas cada 5 segundos
   useEffect(() => {
-    const updateStats = () => {
-      const productStats = getProductStats();
-      const imageStats = getImageStats();
-
-      setStats({
-        ...productStats,
-        ...imageStats,
-        timestamp: new Date().toLocaleTimeString()
-      });
-    };
-
     updateStats();
     const interval = setInterval(updateStats, 5000);
 
     return () => clearInterval(interval);
-  }, [getProductStats, getImageStats]);
+  }, []); // Removidas las dependencias que causan el bucle
 
   // Función para limpiar todos los cachés
   const handleClearAllCaches = () => {

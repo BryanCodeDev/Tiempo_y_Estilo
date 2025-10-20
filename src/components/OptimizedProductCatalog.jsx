@@ -22,7 +22,7 @@ const OptimizedProductCatalog = ({
   const [totalProducts, setTotalProducts] = useState(0);
 
   // Servicios
-  const { loadProducts, searchProducts, getLoadingState, getPerformanceStats } = useProductService();
+  const { loadProducts, searchProducts, getLoadingState } = useProductService();
   const { preloadImages } = useImageOptimizer();
 
   // Cargar productos iniciales
@@ -98,7 +98,39 @@ const OptimizedProductCatalog = ({
   // Buscar productos
   const handleSearch = useCallback(async (query) => {
     if (!query.trim()) {
-      loadInitialProducts();
+      // Si no hay consulta, cargar productos iniciales directamente
+      try {
+        setLoading(true);
+        setError(null);
+
+        const result = await loadProducts({
+          category,
+          limit: itemsPerPage,
+          offset: 0,
+          useCache: true
+        });
+
+        setProducts(result.products);
+        setTotalProducts(result.total);
+        setHasMore(result.hasMore);
+        setCurrentPage(1);
+
+        // Precargar imágenes de productos visibles
+        if (result.products.length > 0) {
+          const imageSources = [];
+          result.products.forEach(product => {
+            if (product.image) imageSources.push(product.image);
+            if (product.images) imageSources.push(...product.images);
+          });
+          preloadImages(imageSources, 'low');
+        }
+
+      } catch (err) {
+        console.error('Error loading products:', err);
+        setError('Error al cargar productos');
+      } finally {
+        setLoading(false);
+      }
       return;
     }
 
@@ -121,21 +153,25 @@ const OptimizedProductCatalog = ({
     } finally {
       setLoading(false);
     }
-  }, [category, itemsPerPage, searchProducts, loadInitialProducts]);
+  }, [category, itemsPerPage, searchProducts, loadProducts, preloadImages]);
 
   // Efecto para cargar productos cuando cambie la categoría
   useEffect(() => {
     loadInitialProducts();
-  }, [loadInitialProducts]);
+  }, [category, itemsPerPage]); // Removido loadInitialProducts de las dependencias
 
   // Efecto para manejar búsqueda con debounce
   useEffect(() => {
     const timer = setTimeout(() => {
-      handleSearch(searchQuery);
+      if (searchQuery.trim()) {
+        handleSearch(searchQuery);
+      } else {
+        loadInitialProducts();
+      }
     }, 500);
 
     return () => clearTimeout(timer);
-  }, [searchQuery, handleSearch]);
+  }, [searchQuery, category, itemsPerPage]); // Agregadas dependencias necesarias
 
   // Manejar cambio de página
   const handlePageChange = useCallback((newPage) => {
@@ -288,13 +324,7 @@ const OptimizedProductCatalog = ({
         </div>
       )}
 
-      {/* Información de rendimiento (solo en desarrollo) */}
-      {process.env.NODE_ENV === 'development' && (
-        <div className="fixed bottom-4 right-4 bg-black bg-opacity-75 text-white text-xs p-2 rounded-lg">
-          <div>Imágenes en caché: {getPerformanceStats()?.cachedImages || 0}</div>
-          <div>Productos en caché: {getPerformanceStats()?.cachedProducts || 0}</div>
-        </div>
-      )}
+      {/* Información de rendimiento removida para evitar problemas de actualización */}
     </div>
   );
 };
