@@ -104,6 +104,7 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
       <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary/10 to-primary/10 rounded-full blur-3xl opacity-30"></div>
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl opacity-20"></div>
 
+      {/* Contenedor con márgenes consistentes */}
       <div className="container-luxury relative z-10">
 
         {/* Header premium elegante */}
@@ -153,7 +154,6 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
               onChange={(e) => {
                 setSearchTerm(e.target.value);
 
-                // Facebook Pixel - Search Event
                 if (typeof fbq !== 'undefined' && e.target.value.trim() !== '') {
                   fbq('track', 'Search', {
                     search_string: e.target.value,
@@ -337,12 +337,12 @@ const ProductCatalog = ({ addToCart, navigateToProduct }) => {
           </div>
         </div>
 
-        {/* Grid premium elegante - reducido margen */}
+        {/* Grid premium elegante - SIN max-w adicional */}
         <div
           className={`transition-all duration-500 ${
             viewMode === 'grid'
-              ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8'
-              : 'space-y-8'
+              ? 'grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6'
+              : 'space-y-6'
           }`}
           role="main"
           aria-label={`Lista de ${filteredProducts.length} productos`}

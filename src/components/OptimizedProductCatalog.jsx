@@ -9,7 +9,9 @@ const OptimizedProductCatalog = ({
   itemsPerPage = 12,
   viewMode: initialViewMode = 'grid',
   showSearch = true,
-  showFilters = true
+  showFilters = true,
+  addToCart,
+  navigateToProduct
 }) => {
   // Estados principales
   const [products, setProducts] = useState([]);
@@ -227,7 +229,15 @@ const OptimizedProductCatalog = ({
   }
 
   return (
-    <div className="space-y-6">
+    <section id="productos" className="py-4 sm:py-6 lg:py-8 xl:py-10 bg-white min-h-screen relative overflow-hidden">
+      {/* Elementos decorativos de fondo */}
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary/3 via-transparent to-primary/3"></div>
+      <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary/10 to-primary/10 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl opacity-20"></div>
+
+      {/* Contenedor con márgenes consistentes */}
+      <div className="container-luxury relative z-10">
+        <div className="space-y-6">
       {/* Controles del catálogo */}
       <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
         {/* Modos de vista */}
@@ -269,22 +279,16 @@ const OptimizedProductCatalog = ({
        <>
          <div className={
            viewMode === 'grid'
-             ? 'grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-6'
-             : 'space-y-4 sm:space-y-6'
+             ? 'grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6'
+             : 'space-y-6'
          }>
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
                 product={product}
                 viewMode={viewMode}
-                addToCart={(product) => {
-                  // Aquí iría la lógica del carrito
-                  console.log('Agregar al carrito:', product);
-                }}
-                navigateToProduct={(product) => {
-                  // Aquí iría la navegación al detalle
-                  console.log('Ver producto:', product);
-                }}
+                addToCart={addToCart}
+                navigateToProduct={navigateToProduct}
               />
             ))}
           </div>
@@ -324,9 +328,11 @@ const OptimizedProductCatalog = ({
         </div>
       )}
 
-      {/* Información de rendimiento removida para evitar problemas de actualización */}
-    </div>
-  );
+       {/* Información de rendimiento removida para evitar problemas de actualización */}
+       </div>
+     </div>
+   </section>
+ );
 };
 
 export default OptimizedProductCatalog;

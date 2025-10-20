@@ -80,7 +80,15 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   }, [selectedVariant]);
 
   const handleAddToCart = (e) => {
-    e.stopPropagation();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
+    if (!product.inStock) {
+      return;
+    }
+    
     addToCart(currentProduct);
 
     if (typeof fbq !== 'undefined') {
@@ -101,12 +109,19 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   };
 
   const handleLike = (e) => {
-    e.stopPropagation();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
     setIsLiked(!isLiked);
   };
 
   const handleViewProduct = (e) => {
-    e.stopPropagation();
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
     if (navigateToProduct) {
       navigateToProduct(product);
     }
@@ -136,8 +151,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   if (viewMode === 'list') {
     return (
       <div
-        className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-secondary/40 cursor-pointer transform hover:-translate-y-1"
-        onClick={handleViewProduct}
+        className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-secondary/40 transform hover:-translate-y-1 w-full"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -341,16 +355,26 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
                 )}
               </div>
               
-              <div className="flex gap-3">
+              <div className="flex gap-2">
                 <button
-                  onClick={handleViewProduct}
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleViewProduct(e);
+                  }}
                   className="flex-1 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-xl text-sm flex items-center justify-center gap-2"
                 >
                   <Eye className="h-4 w-4" />
                   Ver detalles
                 </button>
                 <button
-                  onClick={handleAddToCart}
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleAddToCart(e);
+                  }}
                   disabled={!product.inStock}
                   className="bg-gradient-to-r from-secondary to-accent hover:from-secondary-600 hover:to-accent-600 disabled:from-gray-300 disabled:to-gray-400 text-white py-3 px-4 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-xl text-sm flex items-center justify-center gap-2 disabled:cursor-not-allowed"
                 >
@@ -368,8 +392,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   // Vista de tarjeta (grid) mejorada
   return (
     <div
-      className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-secondary/40 cursor-pointer w-full max-w-sm mx-auto h-full flex flex-col transform hover:-translate-y-2"
-      onClick={handleViewProduct}
+      className="group bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-secondary/40 w-full h-full flex flex-col transform hover:-translate-y-2"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -476,7 +499,12 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
         {/* Overlay con botón de acción */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center z-10">
           <button
-            onClick={handleViewProduct}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleViewProduct(e);
+            }}
             className="bg-white text-gray-900 px-6 py-3 rounded-xl font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500 shadow-2xl flex items-center gap-2 hover:scale-105"
           >
             <Eye className="w-5 h-5" />
@@ -589,14 +617,24 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
         {/* Botones de acción mejorados */}
         <div className="flex gap-2">
           <button
-            onClick={handleViewProduct}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleViewProduct(e);
+            }}
             className="flex-1 bg-gradient-to-r from-gray-700 to-gray-800 hover:from-gray-800 hover:to-gray-900 text-white py-3 px-3 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-xl text-sm flex items-center justify-center gap-2"
           >
             <Eye className="h-4 w-4" />
             <span className="hidden sm:inline">Ver</span>
           </button>
           <button
-            onClick={handleAddToCart}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleAddToCart(e);
+            }}
             disabled={!product.inStock}
             className="flex-1 bg-gradient-to-r from-secondary to-accent hover:from-secondary-600 hover:to-accent-600 disabled:from-gray-300 disabled:to-gray-400 text-white py-3 px-3 rounded-xl font-semibold transition-all duration-300 shadow-md hover:shadow-xl text-sm flex items-center justify-center gap-2 disabled:cursor-not-allowed"
           >
