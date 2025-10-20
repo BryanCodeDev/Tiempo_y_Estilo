@@ -6,14 +6,28 @@ export class ProductService {
     this.imageOptimizer = null;
     this.loadingStates = new Map();
     this.productCache = new Map();
+    this.productsPromise = null;
+    this.imageOptimizerPromise = null;
 
     this.init();
   }
 
   async init() {
-    // Importar optimizador de imágenes dinámicamente
-    const { imageOptimizer } = await import('./imageOptimizer.js');
+    // Crear promesas únicas para evitar múltiples imports
+    this.productsPromise = import('../data/products.js');
+    this.imageOptimizerPromise = import('./imageOptimizer.js');
+
+    // Importar optimizador de imágenes dinámicamente (solo una vez)
+    const { imageOptimizer } = await this.imageOptimizerPromise;
     this.imageOptimizer = imageOptimizer;
+  }
+
+  // Función única para importar productos
+  async getProductsData() {
+    if (!this.productsPromise) {
+      this.productsPromise = import('../data/products.js');
+    }
+    return await this.productsPromise;
   }
 
   // Cargar productos de manera eficiente
@@ -35,8 +49,8 @@ export class ProductService {
     try {
       this.setLoadingState(cacheKey, 'loading');
 
-      // Importar productos dinámicamente
-      const { products: allProducts, categories } = await import('../data/products.js');
+      // Importar productos dinámicamente (solo una vez)
+      const { products: allProducts, categories } = await this.getProductsData();
 
       this.products = allProducts;
       this.categories = categories;
@@ -112,7 +126,7 @@ export class ProductService {
     }
 
     try {
-      const { products } = await import('../data/products.js');
+      const { products } = await this.getProductsData();
       const product = products.find(p => p.id === parseInt(id));
 
       if (product) {
@@ -138,7 +152,7 @@ export class ProductService {
     return new Promise((resolve) => {
       setTimeout(async () => {
         try {
-          const { products } = await import('../data/products.js');
+          const { products } = await this.getProductsData();
 
           let filteredProducts = products;
 
@@ -177,7 +191,7 @@ export class ProductService {
   // Obtener productos relacionados
   async getRelatedProducts(productId, limit = 4) {
     try {
-      const { products } = await import('../data/products.js');
+      const { products } = await this.getProductsData();
       const currentProduct = products.find(p => p.id === parseInt(productId));
 
       if (!currentProduct) return [];
