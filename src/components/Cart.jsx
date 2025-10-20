@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 
 // Función helper para ejecutar evento Purchase cuando se concrete una venta
+// Sigue la documentación estándar de Facebook Pixel
 export const trackFacebookPurchase = (cartItems, total, itemCount) => {
   if (typeof window !== 'undefined' && window.fbq) {
     const contents = cartItems.map(item => ({
@@ -14,17 +15,46 @@ export const trackFacebookPurchase = (cartItems, total, itemCount) => {
     }));
 
     window.fbq('track', 'Purchase', {
-      content_ids: cartItems.map(item => item.sku),
-      content_name: cartItems.map(item => item.name).join(', '),
-      content_category: 'relojes',
-      content_type: 'product',
       value: total,
       currency: 'COP',
+      content_ids: cartItems.map(item => item.sku),
+      content_name: cartItems.map(item => item.name).join(', '),
+      content_type: 'product',
       contents: contents,
       num_items: itemCount
     });
 
-    console.log('✅ Evento Purchase ejecutado para venta concretada');
+    console.log('✅ Evento Purchase ejecutado para venta concretada:', {
+      value: total,
+      currency: 'COP',
+      num_items: itemCount,
+      contents_count: contents.length
+    });
+  }
+};
+
+// Función de debugging para verificar que el píxel esté funcionando
+export const testFacebookPixel = () => {
+  if (typeof window !== 'undefined') {
+    console.log('🔍 Test Facebook Pixel:');
+    console.log('- fbq disponible:', typeof window.fbq !== 'undefined');
+    console.log('- Pixel ID configurado:', '1712184296133959');
+
+    if (window.fbq) {
+      // Test PageView
+      window.fbq('track', 'PageView');
+      console.log('✅ Evento PageView de prueba ejecutado');
+
+      // Test ViewContent
+      window.fbq('track', 'ViewContent', {
+        content_ids: ['TEST-SKU'],
+        content_name: 'Producto de Prueba',
+        content_type: 'product',
+        value: 100000,
+        currency: 'COP'
+      });
+      console.log('✅ Evento ViewContent de prueba ejecutado');
+    }
   }
 };
 
@@ -59,14 +89,19 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
       }));
 
       fbq('track', 'InitiateCheckout', {
-        content_ids: cartItems.map(item => item.sku),
-        content_name: cartItems.map(item => item.name).join(', '),
-        content_category: 'relojes',
-        content_type: 'product',
         value: total,
         currency: 'COP',
+        content_ids: cartItems.map(item => item.sku),
+        content_name: cartItems.map(item => item.name).join(', '),
+        content_type: 'product',
         contents: contents,
         num_items: itemCount
+      });
+
+      console.log('🔄 Evento InitiateCheckout ejecutado:', {
+        total: total,
+        items: itemCount,
+        skus: cartItems.map(item => item.sku)
       });
     }
 

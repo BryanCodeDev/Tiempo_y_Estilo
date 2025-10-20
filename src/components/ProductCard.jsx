@@ -96,13 +96,17 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
     // Facebook Pixel - AddToCart Event
     if (typeof fbq !== 'undefined') {
       fbq('track', 'AddToCart', {
-        content_ids: [currentProduct.sku],
-        content_name: currentProduct.name,
-        content_category: currentProduct.category,
-        content_type: 'product',
         value: currentProduct.price,
         currency: 'COP',
-        quantity: 1
+        content_ids: [currentProduct.sku],
+        content_name: currentProduct.name,
+        content_type: 'product',
+        contents: [{
+          id: currentProduct.sku,
+          quantity: 1,
+          item_price: currentProduct.price
+        }],
+        num_items: 1
       });
     }
   };

@@ -52,12 +52,11 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
         value: product.price,
         currency: 'COP'
       });
-    }
-
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('config', 'GA_MEASUREMENT_ID', {
-        page_title: product.name,
-        page_location: window.location.href
+      console.log('👁️ Evento ViewContent ejecutado:', {
+        sku: product.sku,
+        name: product.name,
+        category: product.category,
+        price: product.price
       });
     }
   }, [product]);
@@ -70,13 +69,23 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
     // Facebook Pixel - AddToCart Event
     if (typeof fbq !== 'undefined') {
       fbq('track', 'AddToCart', {
-        content_ids: [currentProduct.sku],
-        content_name: currentProduct.name,
-        content_category: currentProduct.category,
-        content_type: 'product',
         value: currentProduct.price * quantity,
         currency: 'COP',
-        quantity: quantity
+        content_ids: [currentProduct.sku],
+        content_name: currentProduct.name,
+        content_type: 'product',
+        contents: [{
+          id: currentProduct.sku,
+          quantity: quantity,
+          item_price: currentProduct.price
+        }],
+        num_items: quantity
+      });
+      console.log('🛒 Evento AddToCart ejecutado:', {
+        sku: currentProduct.sku,
+        name: currentProduct.name,
+        quantity: quantity,
+        value: currentProduct.price * quantity
       });
     }
 
