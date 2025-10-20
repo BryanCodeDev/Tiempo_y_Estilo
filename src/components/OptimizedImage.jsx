@@ -1,5 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { useImageOptimizer } from '../services/imageOptimizer';
 
 const OptimizedImage = ({
   src,
@@ -17,7 +16,7 @@ const OptimizedImage = ({
   const [hasError, setHasError] = useState(false);
   const [isInView, setIsInView] = useState(false);
   const imgRef = useRef();
-  const { optimizeImage, observeImages } = useImageOptimizer();
+  // Removido el uso del servicio de optimización para simplificar
 
   useEffect(() => {
     const currentRef = imgRef.current;
@@ -57,29 +56,29 @@ const OptimizedImage = ({
 
   const loadOptimizedImage = async () => {
     try {
-      // Obtener imagen optimizada
-      const optimizedSrc = size ? optimizeImage(src, { size }) : src;
+      // Usar la ruta directamente sin optimización adicional
+      const imageUrl = src;
 
       // Precargar imagen
       const img = new Image();
 
       img.onload = () => {
-        setImageSrc(optimizedSrc);
+        setImageSrc(imageUrl);
         setIsLoaded(true);
         setHasError(false);
-        onLoad && onLoad(optimizedSrc);
+        onLoad && onLoad(imageUrl);
       };
 
       img.onerror = () => {
         setHasError(true);
         setImageSrc(fallbackSrc);
-        onError && onError(new Error(`Failed to load image: ${optimizedSrc}`));
+        onError && onError(new Error(`Failed to load image: ${imageUrl}`));
       };
 
-      img.src = optimizedSrc;
+      img.src = imageUrl;
 
     } catch (error) {
-      console.error('Error loading optimized image:', error);
+      console.error('Error loading image:', error);
       setHasError(true);
       setImageSrc(fallbackSrc);
     }

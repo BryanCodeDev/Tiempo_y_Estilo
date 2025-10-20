@@ -1,19 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Star, ShoppingCart, Heart, Palette, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
-import OptimizedImage, { OptimizedImageGallery } from './OptimizedImage';
-import { useProductService } from '../services/productService';
 
 const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct }) => {
   const [isLiked, setIsLiked] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(true);
+  const [imageError, setImageError] = useState(false);
   const [selectedVariant, setSelectedVariant] = useState(
     product.hasVariants ? product.variants[0] : null
   );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { preloadImages } = useProductService();
-
-  // Limpiar estados de carga que ahora maneja OptimizedImage
-  const [imageLoaded, setImageLoaded] = useState(true);
-  const [imageError, setImageError] = useState(false);
 
   // Determinar qué imágenes mostrar
   const productImages = selectedVariant && selectedVariant.images
@@ -24,19 +19,6 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
   const variantImage = selectedVariant && selectedVariant.image ? selectedVariant.image : product.image;
 
   const currentImage = productImages[currentImageIndex] || variantImage;
-
-  // Precargar imágenes cercanas cuando cambie el índice
-  useEffect(() => {
-    if (productImages.length > 1) {
-      const nearbyImages = [
-        ...productImages.slice(Math.max(0, currentImageIndex - 1), currentImageIndex),
-        productImages[currentImageIndex],
-        ...productImages.slice(currentImageIndex + 1, currentImageIndex + 2)
-      ].filter(Boolean);
-
-      preloadImages(nearbyImages, 'low');
-    }
-  }, [currentImageIndex, productImages, preloadImages]);
 
   const currentProduct = selectedVariant
     ? { ...product, ...selectedVariant, image: currentImage }
@@ -104,8 +86,6 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
       setCurrentImageIndex(0);
     }
   }, [selectedVariant]);
-
-
 
   const handleAddToCart = (e) => {
     e.stopPropagation();
@@ -394,17 +374,17 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
     );
   }
 
-  // Vista de tarjeta (grid) mejorada
+  // Vista de tarjeta (grid) mejorada con mejor responsive
   return (
     <div
       className="bg-white rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden group border border-primary/20 hover:border-primary/40 hover:-translate-y-1 w-full max-w-sm mx-auto cursor-pointer h-full flex flex-col"
       onClick={handleViewProduct}
     >
-      
+
       {/* Imagen */}
       <div className="relative overflow-hidden bg-gray-50 aspect-[4/3]">
         {!imageLoaded && !imageError && (
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 to-gray-100 animate-pulse" />
         )}
         {imageError ? (
           <div className="w-full h-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center border-2 border-dashed border-primary/20">
@@ -415,57 +395,68 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
             </div>
           </div>
         ) : (
-          <OptimizedImage
-            src={currentImage}
-            alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
-            title={product.name}
-            className="w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500"
-            priority="low"
-            size="400x300"
-          />
-        )}
-
-        {/* Controles de navegación para múltiples imágenes */}
-        {productImages.length > 1 && (
           <>
-            {/* Flecha izquierda */}
-            <button
-              onClick={prevImage}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
-            >
-              <ChevronLeft className="w-4 h-4" />
-            </button>
+            <img
+              src={currentImage}
+              alt={`${product.name} - ${product.category} - GoToBuy Colombia`}
+              title={product.name}
+              className={`w-full h-full object-cover object-center group-hover:scale-105 transition-all duration-500 ${
+                imageLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
+              onLoad={() => setImageLoaded(true)}
+              onError={() => {
+                setImageError(true);
+                setImageLoaded(true);
+              }}
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="300"
+            />
 
-            {/* Flecha derecha */}
-            <button
-              onClick={nextImage}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300"
-            >
-              <ChevronRight className="w-4 h-4" />
-            </button>
-
-            {/* Indicadores de imagen */}
-            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-              {productImages.map((_, index) => (
+            {/* Controles de navegación para múltiples imágenes */}
+            {productImages.length > 1 && (
+              <>
+                {/* Flecha izquierda */}
                 <button
-                  key={index}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setCurrentImageIndex(index);
-                  }}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentImageIndex
-                      ? 'bg-white'
-                      : 'bg-white/50 hover:bg-white/80'
-                  }`}
-                />
-              ))}
-            </div>
+                  onClick={prevImage}
+                  className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+                >
+                  <ChevronLeft className="w-4 h-4 sm:w-4 sm:h-4" />
+                </button>
+
+                {/* Flecha derecha */}
+                <button
+                  onClick={nextImage}
+                  className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-1.5 sm:p-1 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 z-10"
+                >
+                  <ChevronRight className="w-4 h-4 sm:w-4 sm:h-4" />
+                </button>
+
+                {/* Indicadores de imagen */}
+                <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10">
+                  {productImages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentImageIndex(index);
+                      }}
+                      className={`w-2 h-2 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
+                        index === currentImageIndex
+                          ? 'bg-white shadow-sm'
+                          : 'bg-white/50 hover:bg-white/80'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </>
         )}
-        
+
         {/* Badges en la esquina */}
-        <div className="absolute top-3 left-3 flex flex-col gap-1">
+        <div className="absolute top-2 sm:top-3 left-2 sm:left-3 flex flex-col gap-1 z-10">
           {product.discount && (
             <span className="bg-accent text-white px-2 py-1 rounded-md text-xs font-bold shadow-sm">
               -{product.discount}%
@@ -492,7 +483,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
         </div>
 
         {/* Overlay con botón de ver producto */}
-         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+         <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center z-10">
            <button
              onClick={handleViewProduct}
              className="bg-white text-primary border-2 border-primary/30 hover:border-primary px-4 py-2 sm:px-6 sm:py-3 rounded-xl font-semibold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl flex items-center gap-2 text-sm sm:text-base"
@@ -506,30 +497,30 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
         {/* Botón de favorito */}
          <button
            onClick={handleLike}
-           className={`absolute top-3 right-3 p-2 rounded-full backdrop-blur-sm transition-all duration-300 ${
+           className={`absolute top-2 sm:top-3 right-2 sm:right-3 p-2.5 sm:p-2 rounded-full backdrop-blur-sm transition-all duration-300 z-10 ${
              isLiked
                ? 'bg-accent text-white shadow-lg'
                : 'bg-white bg-opacity-90 text-primary/70 hover:bg-accent hover:text-white shadow-md'
            }`}
          >
-           <Heart className={`h-4 w-4 ${isLiked ? 'fill-current' : ''}`} />
+           <Heart className={`h-4 w-4 sm:h-4 sm:w-4 ${isLiked ? 'fill-current' : ''}`} />
          </button>
 
         {!product.inStock && (
-          <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center z-10">
             <span className="bg-gray-900 text-white px-4 py-2 rounded-lg font-medium">
               Agotado
             </span>
           </div>
         )}
       </div>
-      
+
       {/* Contenido de la tarjeta */}
-      <div className="p-4 sm:p-4 lg:p-5 flex-1 flex flex-col justify-between">
+      <div className="p-3 sm:p-4 lg:p-5 flex-1 flex flex-col justify-between">
 
         {/* Título y SKU */}
-        <div className="mb-3 sm:mb-3">
-          <h3 className="font-bold text-base sm:text-base lg:text-lg text-primary mb-1 group-hover:text-secondary transition-colors duration-300 line-clamp-2 leading-tight">
+        <div className="mb-2 sm:mb-3">
+          <h3 className="font-bold text-sm sm:text-base lg:text-lg text-primary mb-1 group-hover:text-secondary transition-colors duration-300 line-clamp-2 leading-tight">
             {product.name}
           </h3>
           <p className="text-secondary text-xs font-medium bg-secondary-50 px-2 py-0.5 rounded-md inline-block">
@@ -539,7 +530,7 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
 
         {/* Selector de variantes */}
         {product.hasVariants && (
-          <div className="mb-3">
+          <div className="mb-2 sm:mb-3">
             <div className="flex items-center gap-2">
               <span className="text-xs text-primary-700 font-medium">Opciones:</span>
               <div className="flex gap-1 flex-wrap">
@@ -569,24 +560,24 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
             </div>
           </div>
         )}
-        
+
         {/* Descripción */}
-        <p className="text-primary-700 text-sm sm:text-sm mb-3 sm:mb-3 line-clamp-2 leading-relaxed">
+        <p className="text-primary-700 text-xs sm:text-sm mb-2 sm:mb-3 line-clamp-2 leading-relaxed">
           {product.description}
         </p>
 
         {/* Rating */}
-        <div className="flex items-center justify-between mb-3 sm:mb-4">
+        <div className="flex items-center justify-between mb-2 sm:mb-3">
           <div className="flex items-center gap-1">
             <div className="flex text-secondary">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Star key={i} className="h-4 w-4 sm:h-4 sm:w-4 fill-current" />
+                <Star key={i} className="h-3 w-3 sm:h-4 sm:w-4 fill-current" />
               ))}
             </div>
-            <span className="text-primary-600 text-sm ml-1">(4.9)</span>
+            <span className="text-primary-600 text-xs sm:text-sm ml-1">(4.9)</span>
           </div>
           {product.discount && (
-            <span className="text-secondary text-sm font-medium bg-secondary-50 px-2 py-1 rounded-md hidden sm:block">
+            <span className="text-secondary text-xs sm:text-sm font-medium bg-secondary-50 px-2 py-1 rounded-md hidden sm:block">
               Ahorras {formatPrice((product.originalPrice || 0) - product.price)}
             </span>
           )}
@@ -594,11 +585,11 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
 
         {/* Precios */}
         <div className="flex items-center gap-2 mb-3 sm:mb-4">
-          <span className="text-xl sm:text-xl lg:text-2xl font-bold text-primary">
+          <span className="text-lg sm:text-xl lg:text-2xl font-bold text-primary">
             {formatPrice(product.price)}
           </span>
           {product.originalPrice && (
-            <span className="text-primary-600 line-through text-sm sm:text-sm">
+            <span className="text-primary-600 line-through text-xs sm:text-sm">
               {formatPrice(product.originalPrice)}
             </span>
           )}
@@ -608,18 +599,18 @@ const ProductCard = ({ product, addToCart, viewMode = 'grid', navigateToProduct 
         <div className="flex gap-2 sm:gap-3">
           <button
             onClick={handleViewProduct}
-            className="flex-1 bg-primary hover:bg-primary-800 text-white py-3 sm:py-3 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm sm:text-sm flex items-center justify-center gap-2 sm:gap-2"
+            className="flex-1 bg-primary hover:bg-primary-800 text-white py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-xs sm:text-sm flex items-center justify-center gap-1 sm:gap-2"
           >
-            <Eye className="h-4 w-4 sm:h-4 sm:w-4" />
+            <Eye className="h-3 w-3 sm:h-4 sm:w-4" />
             <span className="hidden sm:inline">Ver detalles</span>
             <span className="sm:hidden">Ver</span>
           </button>
           <button
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            className="bg-primary-gradient hover:opacity-90 disabled:bg-gray-400 text-white py-3 sm:py-3 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-sm sm:text-sm flex items-center justify-center gap-2 sm:gap-2 animate-gradient"
+            className="bg-primary-gradient hover:opacity-90 disabled:bg-gray-400 text-white py-2.5 sm:py-3 px-3 sm:px-4 rounded-lg font-medium transition-all duration-300 shadow-sm hover:shadow-md text-xs sm:text-sm flex items-center justify-center gap-1 sm:gap-2 animate-gradient"
           >
-            <ShoppingCart className="h-4 w-4 sm:h-4 sm:w-4" />
+            <ShoppingCart className="h-3 w-3 sm:h-4 sm:w-4" />
             <span className="hidden sm:inline">
               {product.inStock ? 'Agregar' : 'Agotado'}
             </span>
