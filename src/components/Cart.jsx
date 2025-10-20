@@ -4,6 +4,30 @@ import {
   Truck, Package, CreditCard, Shield, ArrowRight, CheckCircle, Crown
 } from 'lucide-react';
 
+// Función helper para ejecutar evento Purchase cuando se concrete una venta
+export const trackFacebookPurchase = (cartItems, total, itemCount) => {
+  if (typeof window !== 'undefined' && window.fbq) {
+    const contents = cartItems.map(item => ({
+      id: item.sku,
+      quantity: item.quantity,
+      item_price: item.price
+    }));
+
+    window.fbq('track', 'Purchase', {
+      content_ids: cartItems.map(item => item.sku),
+      content_name: cartItems.map(item => item.name).join(', '),
+      content_category: 'relojes',
+      content_type: 'product',
+      value: total,
+      currency: 'COP',
+      contents: contents,
+      num_items: itemCount
+    });
+
+    console.log('✅ Evento Purchase ejecutado para venta concretada');
+  }
+};
+
 const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) => {
   const [isAnimating, setIsAnimating] = useState(false);
   
@@ -65,25 +89,14 @@ const Cart = ({ isOpen, onClose, cartItems, updateQuantity, removeFromCart }) =>
     message += "¿Podrían confirmar disponibilidad y tiempo de entrega?%0A%0A";
     message += "*TIEMPO Y ESTILO - Joyería Premium*";
 
-    // Facebook Pixel - Purchase Event
-    if (typeof fbq !== 'undefined') {
-      const contents = cartItems.map(item => ({
-        id: item.sku,
-        quantity: item.quantity,
-        item_price: item.price
-      }));
-
-      fbq('track', 'Purchase', {
-        content_ids: cartItems.map(item => item.sku),
-        content_name: cartItems.map(item => item.name).join(', '),
-        content_category: 'relojes',
-        content_type: 'product',
-        value: total,
-        currency: 'COP',
-        contents: contents,
-        num_items: itemCount
-      });
-    }
+    // Facebook Pixel - InitiateCheckout Event (ya se ejecutó arriba)
+    // Nota: Para modelo de negocio con venta por WhatsApp:
+    // - AddToCart: cuando agregan productos al carrito
+    // - InitiateCheckout: cuando hacen clic en "Finalizar por WhatsApp"
+    // - Purchase: SOLO cuando se concrete la venta real
+    //
+    // Para rastrear ventas reales, usa la función trackFacebookPurchase()
+    // que se encuentra al inicio de este archivo cuando se confirme el pago
 
     window.open(`https://wa.me/573146081297?text=${message}`, '_blank');
   };

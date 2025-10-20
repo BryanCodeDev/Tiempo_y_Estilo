@@ -66,6 +66,20 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
     for (let i = 0; i < quantity; i++) {
       addToCart(currentProduct);
     }
+
+    // Facebook Pixel - AddToCart Event
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'AddToCart', {
+        content_ids: [currentProduct.sku],
+        content_name: currentProduct.name,
+        content_category: currentProduct.category,
+        content_type: 'product',
+        value: currentProduct.price * quantity,
+        currency: 'COP',
+        quantity: quantity
+      });
+    }
+
     const button = document.querySelector('.add-to-cart-btn');
     if (button) {
       button.style.transform = 'scale(0.95)';
@@ -393,7 +407,7 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
                 <button
                   onClick={handleAddToCart}
                   disabled={!product.inStock}
-                  className="add-to-cart-btn flex-1 bg-dark-red-gradient hover:opacity-90 disabled:opacity-50 text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 shadow-luxury hover:shadow-2xl flex items-center justify-center gap-3 animate-gradient"
+                  className="add-to-cart-btn flex-1 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 disabled:opacity-50 disabled:cursor-not-allowed text-white py-4 px-6 rounded-xl font-bold text-lg transition-all duration-300 shadow-red-500/50 hover:shadow-red-500/70 flex items-center justify-center gap-3 border-2 border-red-500/30"
                 >
                   <ShoppingCart className="h-6 w-6" />
                   {product.inStock ? 'Agregar al carrito' : 'Producto agotado'}
