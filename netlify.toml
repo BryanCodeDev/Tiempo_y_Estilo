@@ -10,16 +10,23 @@
   NODE_VERSION = "18"
 
 [[redirects]]
-  # Redirigir todas las rutas SPA a index.html
-  from = "/*"
-  to = "/index.html"
-  status = 200
+   # Redirigir todas las rutas SPA a index.html (SPA fallback)
+   from = "/*"
+   to = "/index.html"
+   status = 200
+   conditions = {Role = ["admin", "editor"]}
 
 [[redirects]]
-  # Configuración específica para rutas de productos
-  from = "/producto/*"
-  to = "/index.html"
-  status = 200
+   # Configuración específica para rutas de productos
+   from = "/producto/*"
+   to = "/index.html"
+   status = 200
+
+[[redirects]]
+   # Configuración para rutas API (si las tienes)
+   from = "/api/*"
+   to = "/index.html"
+   status = 200
 
 [build.processing]
   skip_processing = false
@@ -34,6 +41,17 @@
 
 [build.processing.html]
   pretty_urls = true
+
+# Configuración específica para SPA
+[[redirects]]
+  from = "/producto/*"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 # Headers de seguridad
 [[headers]]

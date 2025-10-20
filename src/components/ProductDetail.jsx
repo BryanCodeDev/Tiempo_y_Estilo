@@ -42,6 +42,18 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
   ];
 
   useEffect(() => {
+    // Facebook Pixel - ViewContent Event para página de producto
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'ViewContent', {
+        content_ids: [product.sku],
+        content_name: product.name,
+        content_category: product.category,
+        content_type: 'product',
+        value: product.price,
+        currency: 'COP'
+      });
+    }
+
     if (typeof window !== 'undefined' && window.gtag) {
       window.gtag('config', 'GA_MEASUREMENT_ID', {
         page_title: product.name,

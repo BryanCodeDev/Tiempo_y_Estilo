@@ -1,11 +1,21 @@
 # Netlify _redirects file para TIEMPO Y ESTILO
 # Coloca este archivo en la carpeta public/
 
-# Redirigir todas las rutas a index.html para SPA routing
+# Redirigir todas las rutas SPA a index.html (SPA fallback - debe estar PRIMERO)
 /*    /index.html   200
 
-# Configuración específica para productos (para SEO)
+# Configuración específica para rutas de productos
 /producto/*  /index.html  200
+
+# Configuración específica para otras rutas SPA
+/api/*  /index.html  200
+
+# Configuración específica para rutas de categorías
+/relojes-hombre  /index.html  200
+/relojes-deportivos  /index.html  200
+
+# Configuración específica para rutas de búsqueda
+/buscar/*  /index.html  200
 
 # Para Apache (.htaccess - coloca en public/)
 # <IfModule mod_rewrite.c>
