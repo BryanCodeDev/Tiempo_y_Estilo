@@ -14,7 +14,9 @@ import {
   ShoppingBag,
   Crown,
   CreditCard,
-  Star
+  Star,
+  Gem,
+  CheckCircle
 } from 'lucide-react';
 
 const Footer = () => {
@@ -25,7 +27,7 @@ const Footer = () => {
       href: "https://wa.me/573146081297",
       icon: Phone,
       label: "WhatsApp",
-      bgColor: "hover:bg-whatsapp-500"
+      bgColor: "hover:bg-whatsapp"
     },
     {
       href: "https://www.instagram.com/tiempo_estilo7?fbclid=IwY2xjawNc5R1leHRuA2FlbQIxMABicmlkETFUMUZQdFl2dXBCYjNRd01XAR5dNDohIkUJ16qF8YCL2bqchcwSkqQs1jWzZRooa3b5AdQ5yWRyQIK0CmpHnw_aem_pHTojgSNqvslrsYiScIJrw",
@@ -42,14 +44,14 @@ const Footer = () => {
         </svg>
       ),
       label: "Instagram",
-      bgColor: "hover:bg-secondary"
+      bgColor: "hover:bg-instagram"
     }
   ];
 
   const navigationLinks = [
     { name: 'Inicio', href: '#inicio', icon: Home },
-    { name: 'Productos', href: '#productos', icon: ShoppingBag },
-    { name: 'Contacto', href: '#contacto', icon: Phone }
+    { name: 'Catálogo Premium', href: '#productos', icon: ShoppingBag },
+    { name: 'Atención al Cliente', href: '#contacto', icon: Phone }
   ];
 
   const handleNavClick = (href) => {
@@ -63,68 +65,70 @@ const Footer = () => {
   };
 
   return (
-    <footer id="contacto" className="bg-white relative overflow-hidden">
-      {/* Elementos decorativos de fondo */}
-      <div className="absolute inset-0 bg-gradient-to-br from-secondary-50/20 via-transparent to-white/10"></div>
-      <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary-100/15 to-secondary/3 rounded-full blur-3xl opacity-20"></div>
-      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-white/5 to-secondary-50/15 rounded-full blur-3xl opacity-15"></div>
+    <footer id="contacto" className="bg-gradient-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Elementos decorativos sutiles */}
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-white/10"></div>
+      <div className="absolute top-20 right-10 w-72 h-72 bg-gradient-to-br from-secondary/10 to-secondary/5 rounded-full blur-3xl opacity-30"></div>
+      <div className="absolute bottom-20 left-10 w-96 h-96 bg-gradient-to-br from-white/5 to-secondary/10 rounded-full blur-3xl opacity-20"></div>
 
       {/* Sección de beneficios premium */}
-      <div className="relative z-10 py-4 sm:py-6 lg:py-8 xl:py-10">
+      <div className="relative z-10 py-12 sm:py-16 lg:py-20">
         <div className="container-luxury">
-          <div className="text-center mb-6">
-            <h2 className="text-3xl lg:text-4xl font-bold text-primary mb-4 font-display">
-              ¿Por qué elegir
-              <span className="block text-aqua">TIEMPO Y ESTILO?</span>
-            </h2>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center justify-center mb-4">
+              <Crown className="w-8 h-8 text-secondary mr-3" />
+              <h2 className="text-3xl lg:text-4xl font-bold text-black font-display">
+                Experiencia Premium
+              </h2>
+            </div>
             <p className="text-gray-600 max-w-2xl mx-auto text-lg">
-              Disfruta de una experiencia de compra excepcional con beneficios exclusivos
+              Descubre por qué somos la elección preferida en joyería y relojería de alta gama
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
             <div className="text-center group">
-              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-secondary/30 group-hover:border-secondary/50 h-full hover:-translate-y-2">
-                <div className="bg-aqua-gradient rounded-2xl p-4 w-fit mx-auto mb-6 shadow-aqua group-hover:scale-110 transition-transform duration-300 animate-gradient">
-                  <Truck className="h-10 w-10 text-primary" />
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-secondary/20 h-full hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-secondary to-accent rounded-xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <Truck className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="font-bold text-lg text-primary mb-3 font-display">Envío Premium</h3>
-                <p className="text-secondary text-sm font-semibold mb-2">Completamente Gratis</p>
-                <p className="text-gray-600 text-sm leading-relaxed">Entrega express a toda Colombia</p>
+                <h3 className="font-bold text-xl text-black mb-3 font-display">Envío sin Costo</h3>
+                <p className="text-secondary text-sm font-semibold mb-2">A nivel nacional</p>
+                <p className="text-gray-600 text-sm leading-relaxed">Entrega rápida y segura en toda Colombia</p>
               </div>
             </div>
 
             <div className="text-center group">
-              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-whatsapp-300/50 group-hover:border-whatsapp-400/50 h-full hover:-translate-y-2">
-                <div className="bg-whatsapp-gradient rounded-2xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-whatsapp/20 h-full hover:-translate-y-2">
+                <div className="bg-whatsapp rounded-xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <Shield className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="font-bold text-lg text-primary mb-3 font-display">Compra Segura</h3>
-                <p className="text-whatsapp-600 text-sm font-semibold mb-2">100% Protegida</p>
-                <p className="text-gray-600 text-sm leading-relaxed">Pago contra entrega</p>
+                <h3 className="font-bold text-xl text-black mb-3 font-display">Compra Protegida</h3>
+                <p className="text-whatsapp text-sm font-semibold mb-2">Garantía total</p>
+                <p className="text-gray-600 text-sm leading-relaxed">Pago seguro contra entrega</p>
               </div>
             </div>
 
             <div className="text-center group">
-              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-primary/30 group-hover:border-primary/50 h-full hover:-translate-y-2">
-                <div className="bg-primary-gradient rounded-2xl p-4 w-fit mx-auto mb-6 shadow-primary group-hover:scale-110 transition-transform duration-300 animate-gradient">
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-secondary/20 h-full hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-accent to-secondary rounded-xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <Award className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="font-bold text-lg text-primary mb-3 font-display">Calidad Excepcional</h3>
-                <p className="text-accent text-sm font-semibold mb-2">Premium Garantizada</p>
-                <p className="text-gray-600 text-sm leading-relaxed">Proveedores certificados</p>
+                <h3 className="font-bold text-xl text-black mb-3 font-display">Autenticidad</h3>
+                <p className="text-accent text-sm font-semibold mb-2">Certificada</p>
+                <p className="text-gray-600 text-sm leading-relaxed">Productos originales verificados</p>
               </div>
             </div>
 
             <div className="text-center group">
-              <div className="glass-luxury rounded-3xl p-8 shadow-lg group-hover:shadow-2xl transition-all duration-500 border border-accent/50 group-hover:border-accent/70 h-full hover:-translate-y-2">
-                <div className="bg-accent-gradient rounded-2xl p-4 w-fit mx-auto mb-6 shadow-accent group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-secondary/20 h-full hover:-translate-y-2">
+                <div className="bg-gradient-to-br from-secondary to-accent rounded-xl p-4 w-fit mx-auto mb-6 shadow-lg group-hover:scale-110 transition-transform duration-300">
                   <Users className="h-10 w-10 text-white" />
                 </div>
-                <h3 className="font-bold text-lg text-primary mb-3 font-display">Asesoría VIP</h3>
-                <p className="text-accent text-sm font-semibold mb-2">24/7 Disponible</p>
-                <p className="text-gray-600 text-sm leading-relaxed">Expertos en joyería</p>
+                <h3 className="font-bold text-xl text-black mb-3 font-display">Atención Personalizada</h3>
+                <p className="text-accent text-sm font-semibold mb-2">Servicio exclusivo</p>
+                <p className="text-gray-600 text-sm leading-relaxed">Asesoría especializada 24/7</p>
               </div>
             </div>
           </div>
@@ -132,51 +136,53 @@ const Footer = () => {
       </div>
 
       {/* Contenido principal del footer */}
-      <div className="relative z-10 py-8">
+      <div className="relative z-10 py-12 border-t border-secondary/10">
         <div className="container-luxury">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
             {/* Información de la empresa */}
             <div className="lg:col-span-2">
               <div className="flex items-center mb-6">
-                <div className="bg-aqua-gradient rounded-3xl p-4 mr-6 shadow-aqua animate-gradient">
+                <div className="bg-secondary rounded-2xl p-4 mr-4 shadow-lg">
                   <Crown className="h-10 w-10 text-white" />
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold mb-2 font-display">
-                    <span className="text-primary">TIEMPO Y </span>
-                    <span className="text-aqua">ESTILO</span>
+                  <h3 className="text-3xl font-bold mb-1 font-display text-black">
+                    TIEMPO Y ESTILO
                   </h3>
-                  <p className="text-secondary text-sm font-semibold bg-secondary/10 px-4 py-2 rounded-full border border-secondary/20 inline-block">
-                    Productos premium a tu alcance
+                  <p className="text-secondary text-sm font-semibold">
+                    Joyería & Relojería Premium
                   </p>
                 </div>
               </div>
 
-              <p className="text-gray-600 mb-4 max-w-lg leading-relaxed text-base">
-                Especialistas en joyería y relojería premium, ofreciendo piezas excepcionales que reflejan tu personalidad única.
+              <p className="text-gray-700 mb-6 max-w-lg leading-relaxed text-base">
+                Especialistas en joyería fina y relojería de lujo. Ofrecemos una selección exclusiva de piezas que combinan elegancia, sofisticación y calidad excepcional para complementar tu estilo único.
               </p>
 
               {/* Estadísticas */}
-              <div className="grid grid-cols-3 gap-3 mb-4">
-                <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-3xl font-bold text-aqua mb-1 font-display">50+</div>
-                  <div className="text-gray-600 text-xs font-semibold">Piezas Exclusivas</div>
+              <div className="grid grid-cols-3 gap-4 mb-6">
+                <div className="text-center p-4 bg-white rounded-xl border border-secondary/20 shadow-md hover:shadow-lg transition-all duration-300">
+                  <div className="text-3xl font-bold text-secondary mb-1 font-display">100+</div>
+                  <div className="text-gray-600 text-xs font-semibold">Diseños Exclusivos</div>
                 </div>
-                <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-3xl font-bold text-whatsapp-600 mb-1 font-display">100%</div>
-                  <div className="text-gray-600 text-xs font-semibold">Satisfacción</div>
+                <div className="text-center p-4 bg-white rounded-xl border border-secondary/20 shadow-md hover:shadow-lg transition-all duration-300">
+                  <div className="text-3xl font-bold text-whatsapp mb-1 font-display">5.0</div>
+                  <div className="text-gray-600 text-xs font-semibold flex items-center justify-center">
+                    <Star className="w-3 h-3 text-whatsapp fill-current mr-1" />
+                    Calificación
+                  </div>
                 </div>
-                <div className="text-center p-4 glass-luxury rounded-2xl border border-secondary/30 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="text-center p-4 bg-white rounded-xl border border-secondary/20 shadow-md hover:shadow-lg transition-all duration-300">
                   <div className="text-3xl font-bold text-accent mb-1 font-display">24/7</div>
-                  <div className="text-gray-600 text-xs font-semibold">Asesoría VIP</div>
+                  <div className="text-gray-600 text-xs font-semibold">Disponibilidad</div>
                 </div>
               </div>
 
               {/* Redes sociales */}
               <div>
-                <h4 className="font-bold text-primary mb-4 text-lg font-display">Conéctate con nosotros</h4>
-                <div className="flex flex-wrap gap-4">
+                <h4 className="font-bold text-black mb-4 text-lg font-display">Síguenos</h4>
+                <div className="flex flex-wrap gap-3">
                   {socialLinks.map((social, index) => {
                     const IconComponent = social.icon;
                     return (
@@ -185,10 +191,10 @@ const Footer = () => {
                         href={social.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className={`group glass-luxury hover:text-white p-4 rounded-2xl transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-xl border border-secondary/30 ${social.bgColor}`}
+                        className={`group bg-white hover:text-white p-4 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-xl border border-secondary/20 ${social.bgColor}`}
                         aria-label={social.label}
                       >
-                        <IconComponent className="h-6 w-6 text-primary group-hover:text-white" />
+                        <IconComponent className="h-6 w-6 text-black group-hover:text-white transition-colors" />
                       </a>
                     );
                   })}
@@ -198,58 +204,58 @@ const Footer = () => {
             
             {/* Información de contacto */}
             <div>
-              <h4 className="font-bold mb-6 text-xl text-primary font-display">Contacto VIP</h4>
+              <h4 className="font-bold mb-6 text-xl text-black font-display">Contacto</h4>
               <div className="space-y-4">
 
                 <a
                   href="https://wa.me/573146081297"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-start p-4 rounded-2xl glass-luxury hover:bg-whatsapp-50/50 transition-all duration-300 border border-secondary/30 hover:border-whatsapp-400/30 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                  className="group flex items-start p-4 rounded-xl bg-white hover:bg-whatsapp-50 transition-all duration-300 border border-secondary/20 hover:border-whatsapp/30 shadow-md hover:shadow-lg"
                 >
-                  <div className="bg-whatsapp-gradient group-hover:scale-110 p-3 rounded-2xl mr-4 transition-all duration-300 flex-shrink-0 shadow-lg">
+                  <div className="bg-whatsapp group-hover:scale-110 p-3 rounded-xl mr-3 transition-all duration-300 flex-shrink-0 shadow-md">
                     <Phone className="h-5 w-5 text-white" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block font-bold text-primary group-hover:text-whatsapp-700 text-base">
-                      +57 314 6081297
+                    <span className="block font-bold text-black group-hover:text-whatsapp text-base">
+                      +57 314 608 1297
                     </span>
-                    <span className="text-sm text-gray-600 block">WhatsApp VIP • 24/7</span>
+                    <span className="text-sm text-gray-600 block">WhatsApp • Disponible 24/7</span>
                   </div>
                 </a>
 
-                <div className="flex items-start p-4 rounded-2xl glass-luxury border border-secondary/30 shadow-lg">
-                  <div className="bg-primary-gradient p-3 rounded-2xl mr-4 flex-shrink-0 shadow-primary animate-gradient">
+                <div className="flex items-start p-4 rounded-xl bg-white border border-secondary/20 shadow-md">
+                  <div className="bg-secondary p-3 rounded-xl mr-3 flex-shrink-0 shadow-md">
                     <MapPin className="h-5 w-5 text-white" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block font-bold text-primary text-base">C.C. Puerto Príncipe</span>
-                    <span className="text-sm text-gray-600 block">Bogotá, Colombia</span>
+                    <span className="block font-bold text-black text-base">Centro Comercial Puerto Príncipe</span>
+                    <span className="text-sm text-gray-600 block">Bogotá D.C., Colombia</span>
                   </div>
                 </div>
 
                 <a
                   href="mailto:tiempoestilo7@gmail.com"
-                  className="group flex items-start p-4 rounded-2xl glass-luxury hover:bg-primary/5 transition-all duration-300 border border-secondary/30 hover:border-primary/30 shadow-lg hover:shadow-xl hover:-translate-y-1"
+                  className="group flex items-start p-4 rounded-xl bg-white hover:bg-secondary-50 transition-all duration-300 border border-secondary/20 hover:border-secondary/40 shadow-md hover:shadow-lg"
                 >
-                  <div className="bg-aqua-gradient group-hover:scale-110 p-3 rounded-2xl mr-4 transition-all duration-300 flex-shrink-0 shadow-aqua animate-gradient">
-                    <Mail className="h-5 w-5 text-primary" />
+                  <div className="bg-accent group-hover:scale-110 p-3 rounded-xl mr-3 transition-all duration-300 flex-shrink-0 shadow-md">
+                    <Mail className="h-5 w-5 text-white" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block font-bold text-primary group-hover:text-accent text-base">
+                    <span className="block font-bold text-black group-hover:text-accent text-base">
                       tiempoestilo7@gmail.com
                     </span>
-                    <span className="text-sm text-gray-600 block">Servicio premium</span>
+                    <span className="text-sm text-gray-600 block">Consultas y pedidos</span>
                   </div>
                 </a>
 
-                <div className="flex items-start p-4 rounded-2xl glass-luxury border border-secondary/30 shadow-lg">
-                  <div className="bg-accent-gradient p-3 rounded-2xl mr-4 flex-shrink-0 shadow-accent">
+                <div className="flex items-start p-4 rounded-xl bg-white border border-secondary/20 shadow-md">
+                  <div className="bg-gradient-to-br from-secondary to-accent p-3 rounded-xl mr-3 flex-shrink-0 shadow-md">
                     <Clock className="h-5 w-5 text-white" />
                   </div>
                   <div className="min-w-0">
-                    <span className="block font-bold text-primary text-base">Horarios VIP</span>
-                    <span className="text-sm text-gray-600 block">Siempre abierto • 24/7</span>
+                    <span className="block font-bold text-black text-base">Atención Continua</span>
+                    <span className="text-sm text-gray-600 block">Lunes a Domingo • 24 horas</span>
                   </div>
                 </div>
               </div>
@@ -257,7 +263,7 @@ const Footer = () => {
             
             {/* Enlaces útiles */}
             <div>
-              <h4 className="font-bold mb-6 text-xl text-primary font-display">Navegación</h4>
+              <h4 className="font-bold mb-6 text-xl text-black font-display">Navegación</h4>
               <ul className="space-y-3">
                 {navigationLinks.map((link, index) => {
                   const IconComponent = link.icon;
@@ -265,14 +271,14 @@ const Footer = () => {
                     <li key={index}>
                       <a
                         href={link.href}
-                        className="group flex items-center text-gray-600 hover:text-primary transition-all duration-300 py-3 px-4 rounded-2xl hover:bg-primary/5 border border-transparent hover:border-primary/30 text-base hover:shadow-lg hover:-translate-y-0.5"
+                        className="group flex items-center text-gray-700 hover:text-secondary transition-all duration-300 py-3 px-4 rounded-xl hover:bg-white border border-transparent hover:border-secondary/20 text-base hover:shadow-md"
                         onClick={link.href.startsWith('#') ? (e) => {
                           e.preventDefault();
                           handleNavClick(link.href);
                         } : undefined}
                       >
-                        <div className="bg-primary/10 group-hover:bg-primary-gradient p-2 rounded-xl mr-4 transition-all duration-300 group-hover:scale-110">
-                          <IconComponent className="w-5 h-5 text-primary group-hover:text-white" />
+                        <div className="bg-secondary-50 group-hover:bg-secondary p-2 rounded-lg mr-3 transition-all duration-300 group-hover:scale-110">
+                          <IconComponent className="w-5 h-5 text-secondary group-hover:text-white transition-colors" />
                         </div>
                         <span className="min-w-0 truncate font-semibold">{link.name}</span>
                         <ExternalLink className="w-4 h-4 ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex-shrink-0 text-secondary" />
@@ -281,56 +287,65 @@ const Footer = () => {
                   );
                 })}
               </ul>
+
+              {/* Certificaciones */}
+              <div className="mt-6 p-4 bg-white rounded-xl border border-secondary/20 shadow-md">
+                <h5 className="font-bold text-black text-sm mb-3 flex items-center">
+                  <CheckCircle className="w-4 h-4 text-secondary mr-2" />
+                  Garantías
+                </h5>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li className="flex items-center">
+                    <Gem className="w-3 h-3 text-secondary mr-2" />
+                    Productos originales
+                  </li>
+                  <li className="flex items-center">
+                    <Shield className="w-3 h-3 text-secondary mr-2" />
+                    Compra protegida
+                  </li>
+                  <li className="flex items-center">
+                    <Award className="w-3 h-3 text-secondary mr-2" />
+                    Garantía de calidad
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Sección inferior */}
-      <div className="bg-primary-gradient py-6 relative overflow-hidden">
-        {/* Elementos decorativos */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-secondary/15 to-white/5 rounded-full blur-3xl opacity-15"></div>
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-gradient-to-br from-white/15 to-secondary/5 rounded-full blur-2xl opacity-10"></div>
+      <div className="bg-gradient-to-r from-black via-secondary to-black py-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
 
         <div className="container-luxury relative z-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
 
             {/* Copyright */}
             <div className="text-center lg:text-left">
               <p className="text-white text-base font-semibold">
-                &copy; {currentYear} TIEMPO Y ESTILO. Todos los derechos reservados.
+                © {currentYear} TIEMPO Y ESTILO - Joyería & Relojería Premium
               </p>
               <p className="text-white/80 text-sm mt-2 flex items-center justify-center lg:justify-start">
-                Hecho con
+                Diseñado con
                 <Heart className="inline h-4 w-4 text-secondary mx-2 fill-current" />
-                en Colombia para el mundo
+                para ofrecer excelencia
               </p>
             </div>
 
             {/* Badges de confianza */}
             <div className="flex flex-wrap justify-center lg:justify-end gap-3 text-sm">
-              <div className="flex items-center bg-white text-primary px-6 py-4 rounded-2xl border-2 border-secondary shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                <CreditCard className="h-5 w-5 mr-3 text-secondary" />
-                <span className="font-black text-base">Pago 100% Seguro</span>
+              <div className="flex items-center bg-white text-black px-5 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white/20">
+                <CreditCard className="h-5 w-5 mr-2 text-secondary" />
+                <span className="font-bold text-sm">Pago Seguro</span>
               </div>
-              <div className="flex items-center bg-white text-primary px-6 py-4 rounded-2xl border-2 border-secondary shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                <Truck className="h-5 w-5 mr-3 text-secondary" />
-                <span className="font-black text-base">Envío Premium Gratis</span>
+              <div className="flex items-center bg-white text-black px-5 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white/20">
+                <Truck className="h-5 w-5 mr-2 text-secondary" />
+                <span className="font-bold text-sm">Envío Gratis</span>
               </div>
-              <div className="flex items-center bg-white text-primary px-6 py-4 rounded-2xl border-2 border-secondary shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                <Star className="h-5 w-5 mr-3 text-secondary fill-current" />
-                <span className="font-black text-base">Calificación 5.0</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Línea divisoria */}
-          <div className="mt-4 pt-4 border-t border-white/20">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-white/80">
-              <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
-                <span className="font-semibold">Desarrollado con React & Tailwind CSS</span>
-                <span className="hidden sm:inline text-white/60">•</span>
-                <span className="font-semibold">Optimizado para experiencia premium</span>
+              <div className="flex items-center bg-white text-black px-5 py-3 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white/20">
+                <Star className="h-5 w-5 mr-2 text-secondary fill-current" />
+                <span className="font-bold text-sm">5.0 Estrellas</span>
               </div>
             </div>
           </div>

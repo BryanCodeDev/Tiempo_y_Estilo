@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, ArrowRight, Shield, ChevronDown, Gem, Watch, Crown, Sparkles } from 'lucide-react';
+import { Phone, ArrowRight, Shield, ChevronDown, Gem, Watch, Crown, Sparkles, Star, Award } from 'lucide-react';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
-      title: "Joyas que cuentan historias",
-      description: "Cada pieza está diseñada para reflejar tu personalidad única y complementar tu estilo personal",
+      title: "Elegancia Atemporal",
+      description: "Descubre piezas de joyería fina que trascienden modas y permanecen como símbolos de distinción y buen gusto",
       cta: "Explorar Colección",
-      accent: "Piezas exclusivas • Diseño artesanal"
+      accent: "Diseño exclusivo • Materiales nobles"
     },
     {
-      title: "Relojes que marcan tendencia",
-      description: "Descubre nuestra colección de relojes premium que combinan precisión suiza con diseño contemporáneo",
+      title: "Relojería de Prestigio",
+      description: "Relojes de alta gama que combinan precisión técnica excepcional con diseño refinado y acabados impecables",
       cta: "Ver Relojes",
-      accent: "Movimientos automáticos • Acabados premium"
+      accent: "Mecanismos de precisión • Ediciones limitadas"
     },
     {
-      title: "Tu estilo, nuestra pasión",
-      description: "Cada joya y reloj es seleccionado personalmente para garantizar la máxima calidad y exclusividad",
-      cta: "Asesoría Personal",
-      accent: "Atención VIP • Garantía de autenticidad"
+      title: "Calidad sin Compromisos",
+      description: "Cada pieza es cuidadosamente seleccionada para garantizar autenticidad, exclusividad y la máxima satisfacción",
+      cta: "Asesoría Especializada",
+      accent: "Certificación de autenticidad • Garantía extendida"
     }
   ];
 
@@ -40,172 +40,194 @@ const Hero = () => {
   };
 
   return (
-    <section id="inicio" className="relative min-h-[80vh] flex items-center overflow-hidden bg-white py-2 sm:py-4">
-      {/* Background elegante */}
+    <section id="inicio" className="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-b from-white via-gray-50/30 to-white py-4 sm:py-6 pb-24 sm:pb-28 md:pb-32">
+      {/* Background sofisticado */}
       <div className="absolute inset-0">
-        {/* Patrón de diamantes sutil */}
-        <div className="absolute inset-0 opacity-[0.03]">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(139,0,0,0.4)_1px,_transparent_1px)] bg-[length:60px_60px]"></div>
+        {/* Patrón geométrico sutil */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(6,182,212,0.4)_1px,_transparent_1px)] bg-[length:60px_60px]"></div>
         </div>
 
-        {/* Elementos flotantes elegantes */}
-        <div className="absolute top-20 left-[10%] w-32 h-32 bg-gradient-to-br from-secondary/15 to-primary/5 rounded-full blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-[15%] w-48 h-48 bg-gradient-to-br from-primary/15 to-secondary/5 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 right-[5%] w-24 h-24 bg-gradient-to-br from-accent/20 to-secondary/15 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
+        {/* Elementos flotantes refinados */}
+        <div className="absolute top-20 left-[10%] w-40 h-40 bg-gradient-to-br from-secondary/10 to-accent/5 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-20 right-[15%] w-56 h-56 bg-gradient-to-br from-accent/10 to-secondary/5 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-1/2 right-[5%] w-32 h-32 bg-gradient-to-br from-secondary/15 to-accent/10 rounded-full blur-2xl animate-float" style={{animationDelay: '1s'}}></div>
 
-        {/* Líneas de luz elegantes */}
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/30 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+        {/* Líneas divisorias elegantes */}
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-secondary/20 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 container-luxury w-full py-1 sm:py-2 md:py-3 lg:py-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+      <div className="relative z-10 container-luxury w-full py-2 sm:py-4 md:py-6 lg:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
 
-          {/* Contenido principal elegante */}
-          <div className="text-center lg:text-left space-y-4 sm:space-y-6">
-            {/* Badge de lujo */}
-            <div className="inline-flex items-center px-6 py-3 glass-luxury rounded-full text-primary text-sm font-semibold shadow-primary animate-shimmer">
-              <Crown className="w-4 h-4 mr-3 text-secondary animate-pulse" />
-              <span className="tracking-wider">JOYERÍA DE LUJO</span>
-              <Sparkles className="w-4 h-4 ml-3 text-secondary animate-pulse" />
+          {/* Contenido principal */}
+          <div className="text-center lg:text-left space-y-6 sm:space-y-8">
+            {/* Badge premium */}
+            <div className="inline-flex items-center px-6 py-3 bg-white rounded-full text-black text-sm font-semibold shadow-lg border-2 border-secondary/20">
+              <Crown className="w-4 h-4 mr-3 text-secondary" />
+              <span className="tracking-widest">JOYERÍA & RELOJERÍA PREMIUM</span>
+              <Sparkles className="w-4 h-4 ml-3 text-secondary" />
             </div>
 
             {/* Logo */}
-            <div className="mb-4 sm:mb-6">
+            <div className="mb-6 sm:mb-8">
               <img
                 src="/assets/images/logo.webp"
-                alt="Tiempo y Estilo - Logo"
-                className="h-12 sm:h-16 md:h-20 lg:h-24 w-auto mx-auto lg:mx-0"
+                alt="Tiempo y Estilo - Joyería y Relojería de Lujo"
+                className="h-14 sm:h-18 md:h-22 lg:h-28 w-auto mx-auto lg:mx-0 drop-shadow-lg"
               />
             </div>
 
-            {/* Título principal sofisticado */}
+            {/* Título principal */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight font-display">
-              <span className="block mb-4 text-primary">Tu tiempo</span>
-              <span className="block text-aqua animate-shimmer">
-                define tu estilo
+              <span className="block mb-3 text-black">Tu Tiempo,</span>
+              <span className="block text-secondary">
+                Tu Estilo
               </span>
             </h1>
 
-            {/* Contenido dinámico elegante */}
-            <div className="min-h-[120px] sm:min-h-[140px] flex flex-col justify-center">
-              <div className="glass-luxury rounded-2xl p-4 sm:p-6 border border-secondary/30 shadow-primary backdrop-blur-xl">
-                <h2 className="text-2xl lg:text-3xl font-semibold text-primary mb-4 transition-all duration-700 font-display">
+            {/* Contenido dinámico con altura fija */}
+            <div className="h-[200px] sm:h-[220px] flex flex-col justify-center">
+              <div className="bg-white rounded-2xl p-5 sm:p-7 border-2 border-secondary/20 shadow-xl backdrop-blur-xl h-full flex flex-col justify-center">
+                <h2 className="text-2xl lg:text-3xl font-semibold text-black mb-3 transition-opacity duration-700 font-display min-h-[40px] flex items-center">
                   {slides[currentSlide].title}
                 </h2>
-                <p className="text-lg text-gray-700 leading-relaxed mb-4 transition-all duration-700">
+                <p className="text-base lg:text-lg text-gray-700 leading-relaxed mb-3 transition-opacity duration-700 min-h-[72px] flex items-center">
                   {slides[currentSlide].description}
                 </p>
-                <p className="text-sm text-secondary font-medium transition-all duration-700 flex items-center justify-center lg:justify-start">
-                  <Gem className="w-4 h-4 mr-2" />
-                  {slides[currentSlide].accent}
+                <p className="text-sm text-secondary font-semibold transition-opacity duration-700 flex items-center justify-center lg:justify-start min-h-[24px]">
+                  <Gem className="w-4 h-4 mr-2 flex-shrink-0" />
+                  <span>{slides[currentSlide].accent}</span>
                 </p>
               </div>
             </div>
 
-            {/* Botones de acción premium */}
+            {/* Botones de acción con tamaño fijo */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button
                 onClick={handleScrollToProducts}
-                className="group bg-primary-gradient hover:opacity-90 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 shadow-primary hover:shadow-2xl hover:scale-105 flex items-center justify-center animate-gradient"
+                className="group bg-gradient-to-r from-secondary to-accent hover:opacity-90 text-white px-8 py-4 rounded-xl text-base font-bold transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center min-w-[240px]"
               >
-                <Gem className="mr-3 w-5 h-5" />
-                {slides[currentSlide].cta}
-                <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Gem className="mr-2 w-5 h-5 flex-shrink-0" />
+                <span className="whitespace-nowrap">Explorar Colección</span>
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </button>
               <a
-                href="https://wa.me/573146081297?text=¡Hola!%20Me%20interesa%20la%20colección%20premium%20de%20TIEMPO%20Y%20ESTILO"
+                href="https://wa.me/573146081297?text=Hola,%20estoy%20interesado%20en%20conocer%20su%20colección%20de%20joyería%20y%20relojería%20premium"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group bg-aqua-gradient hover:opacity-90 text-primary px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 shadow-aqua hover:shadow-2xl hover:scale-105 flex items-center justify-center animate-gradient"
+                className="group bg-whatsapp hover:opacity-90 text-white px-8 py-4 rounded-xl text-base font-bold transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 flex items-center justify-center min-w-[240px]"
               >
-                <Phone className="mr-3 w-5 h-5" />
-                Asesoría VIP
+                <Phone className="mr-2 w-5 h-5 flex-shrink-0" />
+                <span className="whitespace-nowrap">Contactar Asesor</span>
               </a>
             </div>
 
-            {/* Indicadores elegantes del slider */}
-            <div className="flex justify-center lg:justify-start space-x-3">
+            {/* Indicadores del slider */}
+            <div className="flex justify-center lg:justify-start space-x-3 pt-4">
               {slides.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
                   className={`transition-all duration-500 rounded-full border-2 ${
                     index === currentSlide
-                      ? 'w-12 h-3 bg-aqua-gradient border-secondary shadow-aqua animate-gradient'
+                      ? 'w-12 h-3 bg-gradient-to-r from-secondary to-accent border-secondary shadow-lg'
                       : 'w-3 h-3 bg-gray-300 border-gray-400 hover:bg-secondary/50 hover:border-secondary'
                   }`}
+                  aria-label={`Ir a slide ${index + 1}`}
                 />
               ))}
             </div>
           </div>
 
-          {/* Panel lateral con características premium */}
+          {/* Panel lateral con características */}
           <div className="lg:col-span-1">
-            <div className="glass-luxury rounded-3xl p-4 sm:p-6 border border-secondary/30 shadow-primary backdrop-blur-xl">
-              <div className="text-center mb-4 sm:mb-6">
-                <div className="inline-flex items-center justify-center w-20 h-20 bg-primary-gradient rounded-full mb-4 shadow-primary animate-glow">
-                  <Crown className="w-10 h-10 text-primary" />
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-secondary/20 shadow-2xl backdrop-blur-xl">
+              <div className="text-center mb-6 sm:mb-8">
+                <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-secondary to-accent rounded-full mb-4 shadow-lg">
+                  <Crown className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-primary mb-2 font-display">¿Por qué elegirnos?</h3>
-                <p className="text-gray-600">Excelencia en cada detalle</p>
+                <h3 className="text-2xl font-bold text-black mb-2 font-display">Excelencia Garantizada</h3>
+                <p className="text-gray-600 font-medium">Compromiso con la calidad superior</p>
               </div>
 
-              <div className="space-y-3">
-                <div className="flex items-center p-4 bg-gradient-to-r from-primary/5 to-transparent rounded-xl hover:from-primary/10 transition-all duration-300 group border border-primary/10">
-                  <div className="bg-primary-gradient p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-primary">
+              <div className="space-y-4">
+                <div className="flex items-center p-4 bg-gradient-to-r from-secondary/5 to-transparent rounded-xl hover:from-secondary/10 transition-all duration-300 group border border-secondary/20">
+                  <div className="bg-gradient-to-br from-secondary to-accent p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-lg">
                     <Gem className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-primary font-bold text-lg font-display">Joyas Exclusivas</p>
-                    <p className="text-gray-600 text-sm">Diseños únicos y materiales premium</p>
+                    <p className="text-black font-bold text-lg font-display">Joyería Fina</p>
+                    <p className="text-gray-600 text-sm">Piezas únicas con materiales certificados</p>
                   </div>
                 </div>
 
-                <div className="flex items-center p-4 bg-gradient-to-r from-secondary/5 to-transparent rounded-xl hover:from-secondary/10 transition-all duration-300 group border border-secondary/10">
-                  <div className="bg-aqua-gradient p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-aqua">
-                    <Watch className="w-6 h-6 text-primary" />
+                <div className="flex items-center p-4 bg-gradient-to-r from-accent/5 to-transparent rounded-xl hover:from-accent/10 transition-all duration-300 group border border-accent/20">
+                  <div className="bg-gradient-to-br from-accent to-secondary p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-lg">
+                    <Watch className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-primary font-bold text-lg font-display">Relojes Premium</p>
-                    <p className="text-gray-600 text-sm">Precisión suiza y acabados artesanales</p>
+                    <p className="text-black font-bold text-lg font-display">Relojería de Lujo</p>
+                    <p className="text-gray-600 text-sm">Mecanismos de alta precisión garantizada</p>
                   </div>
                 </div>
 
-                <div className="flex items-center p-4 bg-gradient-to-r from-accent/5 to-transparent rounded-xl hover:from-accent/10 transition-all duration-300 group border border-accent/10">
-                  <div className="bg-accent-gradient p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-accent">
+                <div className="flex items-center p-4 bg-gradient-to-r from-secondary/5 to-transparent rounded-xl hover:from-secondary/10 transition-all duration-300 group border border-secondary/20">
+                  <div className="bg-gradient-to-br from-secondary to-accent p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-lg">
                     <Shield className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-primary font-bold text-lg font-display">Garantía Total</p>
-                    <p className="text-gray-600 text-sm">Autenticidad y calidad garantizadas</p>
+                    <p className="text-black font-bold text-lg font-display">Autenticidad Certificada</p>
+                    <p className="text-gray-600 text-sm">Productos originales con documentación</p>
                   </div>
                 </div>
 
-                <div className="flex items-center p-4 bg-gradient-to-r from-whatsapp-500/5 to-transparent rounded-xl hover:from-whatsapp-500/10 transition-all duration-300 group border border-whatsapp-500/10">
-                  <div className="bg-whatsapp-gradient p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-lg">
+                <div className="flex items-center p-4 bg-gradient-to-r from-whatsapp/5 to-transparent rounded-xl hover:from-whatsapp/10 transition-all duration-300 group border border-whatsapp/20">
+                  <div className="bg-whatsapp p-3 rounded-xl mr-4 group-hover:scale-110 transition-transform shadow-lg">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
-                    <p className="text-primary font-bold text-lg font-display">Asesoría VIP</p>
-                    <p className="text-gray-600 text-sm">Atención personalizada 24/7</p>
+                    <p className="text-black font-bold text-lg font-display">Atención Personalizada</p>
+                    <p className="text-gray-600 text-sm">Asesoría experta disponible 24/7</p>
                   </div>
                 </div>
               </div>
 
-              {/* Estadísticas de lujo */}
-              <div className="grid grid-cols-3 gap-3 mt-4 pt-4 border-t border-secondary/30">
+              {/* Estadísticas */}
+              <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t-2 border-secondary/20">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-aqua mb-1 font-display">500+</div>
-                  <div className="text-gray-600 text-xs">Piezas Exclusivas</div>
+                  <div className="text-3xl font-bold text-secondary mb-1 font-display">100+</div>
+                  <div className="text-gray-600 text-xs font-semibold">Diseños Exclusivos</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary mb-1 font-display">100%</div>
-                  <div className="text-gray-600 text-xs">Autenticidad</div>
+                  <div className="flex items-center justify-center mb-1">
+                    <span className="text-3xl font-bold text-secondary font-display">5.0</span>
+                    <Star className="w-5 h-5 text-secondary fill-current ml-1" />
+                  </div>
+                  <div className="text-gray-600 text-xs font-semibold">Calificación</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-accent mb-1 font-display">24/7</div>
-                  <div className="text-gray-600 text-xs">Soporte VIP</div>
+                  <div className="text-3xl font-bold text-secondary mb-1 font-display">24/7</div>
+                  <div className="text-gray-600 text-xs font-semibold">Disponibilidad</div>
+                </div>
+              </div>
+
+              {/* Sellos de confianza */}
+              <div className="mt-6 pt-6 border-t-2 border-secondary/20">
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <div className="flex items-center bg-gradient-to-r from-secondary/10 to-transparent px-4 py-2 rounded-lg border border-secondary/20">
+                    <Award className="w-4 h-4 text-secondary mr-2" />
+                    <span className="text-xs font-bold text-black">Envío Gratis</span>
+                  </div>
+                  <div className="flex items-center bg-gradient-to-r from-secondary/10 to-transparent px-4 py-2 rounded-lg border border-secondary/20">
+                    <Shield className="w-4 h-4 text-secondary mr-2" />
+                    <span className="text-xs font-bold text-black">Compra Segura</span>
+                  </div>
+                  <div className="flex items-center bg-gradient-to-r from-secondary/10 to-transparent px-4 py-2 rounded-lg border border-secondary/20">
+                    <Gem className="w-4 h-4 text-secondary mr-2" />
+                    <span className="text-xs font-bold text-black">100% Original</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -213,12 +235,15 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Indicador de scroll elegante */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="flex flex-col items-center text-primary/70">
-          <span className="text-sm mb-2 tracking-wider font-semibold">DESCUBRE MÁS</span>
+      {/* Indicador de scroll en posición balanceada */}
+      <div className="absolute bottom-2 sm:bottom-4 md:bottom-6 left-1/2 transform -translate-x-1/2 z-20">
+        <button 
+          onClick={handleScrollToProducts}
+          className="flex flex-col items-center text-white bg-gradient-to-r from-secondary to-accent px-6 py-3 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 animate-bounce border-2 border-white/30"
+        >
+          <span className="text-xs font-bold tracking-widest mb-1">EXPLORAR COLECCIÓN</span>
           <ChevronDown className="w-5 h-5" />
-        </div>
+        </button>
       </div>
     </section>
   );
