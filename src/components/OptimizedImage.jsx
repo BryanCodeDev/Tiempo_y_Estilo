@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const OptimizedImage = ({
   src,
@@ -11,89 +11,42 @@ const OptimizedImage = ({
   onError = null,
   ...props
 }) => {
-  const [imageSrc, setImageSrc] = useState(fallbackSrc);
+  const [imageSrc, setImageSrc] = useState(src || fallbackSrc);
   const [isLoaded, setIsLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-  const imgRef = useRef();
-  // Removido el uso del servicio de optimización para simplificar
+  const [key, setKey] = useState(Date.now());
 
+  // Actualizar la imagen cuando cambia el src
   useEffect(() => {
-    const currentRef = imgRef.current;
-
-    // Configurar Intersection Observer para esta imagen
-    if (currentRef && 'IntersectionObserver' in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              setIsInView(true);
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1, rootMargin: '50px' }
-      );
-
-      observer.observe(currentRef);
-
-      return () => {
-        if (currentRef) {
-          observer.unobserve(currentRef);
-        }
-      };
-    } else {
-      // Fallback para navegadores sin Intersection Observer
-      setIsInView(true);
+    if (src) {
+      setImageSrc(src);
+      setIsLoaded(false);
+      setHasError(false);
+      setKey(Date.now()); // Forzar re-render del componente img
     }
-  }, []);
+  }, [src]);
 
-  useEffect(() => {
-    if (isInView && src) {
-      loadOptimizedImage();
-    }
-  }, [isInView, src]);
-
-  const loadOptimizedImage = async () => {
-    try {
-      // Usar la ruta directamente sin optimización adicional
-      const imageUrl = src;
-
-      // Precargar imagen
-      const img = new Image();
-
-      img.onload = () => {
-        setImageSrc(imageUrl);
-        setIsLoaded(true);
-        setHasError(false);
-        onLoad && onLoad(imageUrl);
-      };
-
-      img.onerror = () => {
-        setHasError(true);
-        setImageSrc(fallbackSrc);
-        onError && onError(new Error(`Failed to load image: ${imageUrl}`));
-      };
-
-      img.src = imageUrl;
-
-    } catch (error) {
-      console.error('Error loading image:', error);
-      setHasError(true);
-      setImageSrc(fallbackSrc);
-    }
+  const handleLoad = () => {
+    setIsLoaded(true);
+    setHasError(false);
+    onLoad && onLoad(imageSrc);
   };
 
-  const handleRetry = () => {
-    setHasError(false);
+  const handleError = () => {
+    console.error('❌ Error cargando imagen:', imageSrc);
+    setHasError(true);
     setIsLoaded(false);
-    loadOptimizedImage();
+    if (src !== fallbackSrc) {
+      setImageSrc(fallbackSrc);
+      setKey(Date.now()); // Forzar re-render con imagen de fallback
+    }
+    onError && onError(new Error(`Failed to load image: ${imageSrc}`));
   };
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
       <img
-        ref={imgRef}
+        key={key}
         src={imageSrc}
         alt={alt}
         className={`transition-opacity duration-300 ${
@@ -101,6 +54,8 @@ const OptimizedImage = ({
         } ${hasError ? 'grayscale' : ''}`}
         loading={priority === 'high' ? 'eager' : 'lazy'}
         decoding="async"
+        onLoad={handleLoad}
+        onError={handleError}
         {...props}
       />
 
@@ -110,50 +65,17 @@ const OptimizedImage = ({
           <div className="text-gray-400 text-sm">Cargando...</div>
         </div>
       )}
-
-      {/* Error state */}
-      {hasError && (
-        <div className="absolute inset-0 bg-gray-100 flex flex-col items-center justify-center">
-          <div className="text-gray-400 text-xs mb-2">Error al cargar imagen</div>
-          <button
-            onClick={handleRetry}
-            className="text-xs bg-gray-200 hover:bg-gray-300 px-2 py-1 rounded transition-colors"
-          >
-            Reintentar
-          </button>
-        </div>
-      )}
-
-      {/* Overlay para imágenes de productos */}
-      {isLoaded && !hasError && (
-        <div className="absolute inset-0 bg-black bg-opacity-0 hover:bg-opacity-10 transition-all duration-300 pointer-events-none" />
-      )}
     </div>
   );
 };
 
-// Componente para galería de imágenes optimizada
+// Componente simplificado para galería de imágenes
 export const OptimizedImageGallery = ({
   images,
   currentIndex,
   onImageChange,
   className = ''
 }) => {
-  const { preloadImages } = useImageOptimizer();
-
-  useEffect(() => {
-    // Precargar imágenes cercanas al índice actual
-    if (images && images.length > 0) {
-      const nearbyImages = [
-        ...images.slice(Math.max(0, currentIndex - 1), currentIndex),
-        images[currentIndex],
-        ...images.slice(currentIndex + 1, currentIndex + 2)
-      ].filter(Boolean);
-
-      preloadImages(nearbyImages, 'high');
-    }
-  }, [currentIndex, images, preloadImages]);
-
   if (!images || images.length === 0) {
     return (
       <OptimizedImage
@@ -175,7 +97,7 @@ export const OptimizedImageGallery = ({
         size="800x600"
       />
 
-      {/* Indicadores */}
+      {/* Indicadores simples */}
       {images.length > 1 && (
         <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
           {images.map((_, index) => (

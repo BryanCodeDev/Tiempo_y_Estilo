@@ -38,15 +38,19 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
   const { getRelatedProducts, preloadBasedOnUserBehavior } = useProductService();
   const { preloadImages } = useImageOptimizer();
 
-  const currentProduct = selectedVariant 
+  const currentProduct = selectedVariant
     ? { ...product, ...selectedVariant, image: selectedVariant.image || product.image }
     : product;
 
+  // Construir array de imágenes disponibles
   const images = [
     currentProduct.image,
-    ...(product.secondaryImage ? [product.secondaryImage] : []),
-    ...(product.galleryImages || [])
-  ];
+    ...(selectedVariant && selectedVariant.images ? selectedVariant.images : product.images || [])
+  ].filter(Boolean);
+
+  // Asegurar que siempre tengamos al menos una imagen
+  const safeImages = images.length > 0 ? images : ['/assets/images/placeholder.webp'];
+  const currentImageIndexSafe = Math.min(currentImageIndex, safeImages.length - 1);
 
   useEffect(() => {
     // Facebook Pixel - ViewContent Event para página de producto
@@ -72,6 +76,8 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
       categories: [product.category]
     });
   }, [product, preloadBasedOnUserBehavior]);
+
+
 
   const handleAddToCart = () => {
     for (let i = 0; i < quantity; i++) {
@@ -140,12 +146,40 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
   };
 
   const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    if (safeImages.length > 1) {
+      setCurrentImageIndex((prev) => (prev + 1) % safeImages.length);
+    }
   };
 
   const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+    if (safeImages.length > 1) {
+      setCurrentImageIndex((prev) => (prev - 1 + safeImages.length) % safeImages.length);
+    }
   };
+
+  const goToImage = (index) => {
+    if (index >= 0 && index < safeImages.length && index !== currentImageIndex) {
+      setCurrentImageIndex(index);
+    }
+  };
+
+  // Navegación con teclado
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (safeImages.length > 1) {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          prevImage();
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          nextImage();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [safeImages.length]);
 
   const tabs = [
     { id: 'description', label: 'Descripción', icon: Info },
@@ -182,13 +216,19 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
           <div className="space-y-4">
             {/* Imagen principal */}
             <div className="relative glass-luxury rounded-3xl overflow-hidden shadow-2xl group border border-secondary/20">
-              <OptimizedImage
-                src={images[currentImageIndex]}
-                alt={`${product.name} - Vista ${currentImageIndex + 1}`}
-                className="w-full h-[500px] object-cover"
-                priority="high"
-                size="800x500"
-              />
+              <div className="relative w-full h-[500px]">
+                <OptimizedImage
+                  key={`main-${currentImageIndexSafe}`}
+                  src={safeImages[currentImageIndexSafe]}
+                  alt={`${product.name} - Vista ${currentImageIndexSafe + 1}`}
+                  className="w-full h-full object-cover transition-opacity duration-500"
+                  priority="high"
+                  size="800x500"
+                />
+
+                {/* Overlay de transición */}
+                <div className="absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300 pointer-events-none" />
+              </div>
               
               {/* Badges */}
               <div className="absolute top-6 left-6 flex flex-col gap-3">
@@ -216,20 +256,34 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
               </div>
 
               {/* Controles de imagen */}
-              {images.length > 1 && (
+              {safeImages.length > 1 && (
                 <>
                   <button
                     onClick={prevImage}
-                    className="absolute left-6 top-1/2 transform -translate-y-1/2 glass-luxury bg-white/90 hover:bg-white rounded-full p-3 shadow-xl transition-all opacity-0 group-hover:opacity-100 border border-secondary/20"
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 glass-luxury bg-white/90 hover:bg-white rounded-full p-4 shadow-xl transition-all border border-secondary/30 z-10 hover:scale-110"
                   >
-                    <ChevronLeft className="w-6 h-6 text-primary" />
+                    <ChevronLeft className="w-7 h-7 text-primary" />
                   </button>
                   <button
                     onClick={nextImage}
-                    className="absolute right-6 top-1/2 transform -translate-y-1/2 glass-luxury bg-white/90 hover:bg-white rounded-full p-3 shadow-xl transition-all opacity-0 group-hover:opacity-100 border border-secondary/20"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 glass-luxury bg-white/90 hover:bg-white rounded-full p-4 shadow-xl transition-all border border-secondary/30 z-10 hover:scale-110"
                   >
-                    <ChevronRight className="w-6 h-6 text-primary" />
+                    <ChevronRight className="w-7 h-7 text-primary" />
                   </button>
+
+                  {/* Indicador de posición */}
+                  {safeImages.length > 1 && (
+                    <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 glass-luxury bg-black/80 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg border border-white/20">
+                      {currentImageIndexSafe + 1} de {safeImages.length}
+                    </div>
+                  )}
+
+                  {/* Indicador cuando solo hay una imagen */}
+                  {safeImages.length === 1 && safeImages[0] !== '/assets/images/placeholder.webp' && (
+                    <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 glass-luxury bg-black/60 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                      1 de 1
+                    </div>
+                  )}
                 </>
               )}
 
@@ -269,21 +323,22 @@ const ProductDetail = ({ product, onBack, addToCart }) => {
             </div>
 
             {/* Miniaturas */}
-            {images.length > 1 && (
-              <div className="flex gap-4 justify-center">
-                {images.map((image, index) => (
+            {safeImages.length > 1 && (
+              <div className="flex gap-3 justify-center overflow-x-auto pb-2 px-4">
+                {safeImages.map((image, index) => (
                   <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`w-20 h-20 rounded-xl overflow-hidden border-2 transition-all shadow-lg ${
-                      currentImageIndex === index 
-                        ? 'border-secondary scale-110 shadow-gold' 
-                        : 'border-gray-300 hover:border-secondary'
+                    key={`thumb-${index}`}
+                    onClick={() => goToImage(index)}
+                    className={`flex-shrink-0 w-20 h-20 rounded-xl overflow-hidden border-2 transition-all duration-300 shadow-lg hover:shadow-xl ${
+                      currentImageIndexSafe === index
+                        ? 'border-secondary scale-110 shadow-gold ring-2 ring-secondary/50'
+                        : 'border-gray-300 hover:border-secondary hover:scale-105'
                     }`}
+                    title={`Ver imagen ${index + 1} de ${safeImages.length}`}
                   >
                     <OptimizedImage
                       src={image}
-                      alt={`${product.name} miniatura ${index + 1}`}
+                      alt={`${product.name} - Vista ${index + 1}`}
                       className="w-full h-full object-cover"
                       priority="low"
                       size="80x80"
